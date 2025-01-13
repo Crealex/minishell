@@ -1,1 +1,1 @@
-salut 
+NAME = minishell

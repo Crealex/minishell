@@ -1,7 +1,7 @@
 NAME	=	minishell
 LIBFT	=	libft/libft.a
 SRCS	=	$(addprefix srcs/, main.c parsing.c)
-BUILTINS	=	$(addprefix srcs/builtins/, ft_exit.c)
+BUILTINS	=	$(addprefix srcs/builtins/, ft_exit.c ft_env.c)
 #prevoir plusieurs dossier dans srcs
 OBJS	=	${SRCS:%.c=${OBJDIR}/%.o}
 OBJSB	=	${BUILTINS:%.c=${OBJDIR}/%.o}

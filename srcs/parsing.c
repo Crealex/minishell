@@ -6,13 +6,13 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/14 16:41:20 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/14 17:47:26 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-int parsing(char *str)
+int parsing(char *str, char **env)
 {
 	char **prompt;
 	(void)str;
@@ -27,10 +27,10 @@ int parsing(char *str)
 	else if (!ft_strncmp(prompt[0], "export", 6))
 		ft_export();
 	else if (!ft_strncmp(prompt[0], "unset", 5))
-		ft_unset();
-	else if (!ft_strncmp(prompt[0], "env", 3))
-		ft_env();*/
-	if (!ft_strncmp(prompt[0], "exit", 4))
+		ft_unset();*/
+	if (!ft_strncmp(prompt[0], "env", 3))
+		ft_env(env);
+	else if (!ft_strncmp(prompt[0], "exit", 4))
 		ft_exit(prompt[1]);
 	/*else if (!ft_strncmp(prompt[0], "<", 1)) // !!! Ne pas mettre dans builtins
 		ft_quote();

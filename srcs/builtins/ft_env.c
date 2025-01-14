@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_exit.c                                          :+:      :+:    :+:   */
+/*   ft_env.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 15:50:04 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/01/14 18:07:55 by dvauthey         ###   ########.fr       */
+/*   Created: 2025/01/14 16:45:59 by dvauthey          #+#    #+#             */
+/*   Updated: 2025/01/14 17:55:39 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-//ATTENTION : GESTION ERROR
-void	ft_exit(char *str)
+// ATTENTION : SI OPT OU ARG
+void	ft_env(char **env)
 {
-	int	i;
-	int	value;
+	int		i;
 
 	i = 0;
-	value = 0;
-	if (str)
+	while (env[i])
 	{
-		while (ft_isdigit(str[i]))
-			i++;
-		if (i == (int)ft_strlen(str))
-			value = ft_atoi(str);
+		printf("%s\n", env[i]);
+		i++;
 	}
-	exit(value);
 }

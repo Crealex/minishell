@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/14 16:40:41 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/14 17:42:36 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 # include <readline/readline.h>
 # include <readline/history.h>
 
-int 	parsing(char *str);
+int 	parsing(char *str, char **env);
 void	ft_exit(char *str);
-
+void	ft_env(char **env);
 
 #endif

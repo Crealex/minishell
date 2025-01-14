@@ -57,7 +57,7 @@ clean:
 fclean: clean
 	@echo "${BOLD}${YELLOW}🗑️  Deep cleaning...${END}"
 	@rm -f ${NAME}
-	@rm -f test
+	@${MAKE} -C ./libft/ fclean
 	@echo "${BOLD}${GREEN}✨ All clean ✨${END}"
 
 re: fclean all

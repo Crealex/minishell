@@ -1,9 +1,10 @@
 NAME	=	minishell
-SRCS	=	$(addprefix srcs/, experience.c)
+LIBFT	=	libft/libft.a
+SRCS	=	$(addprefix srcs/, main.c parsing.c)
 BUILTINS	=	$(addprefix srcs/builtins, )
 #prevoir plusieurs dossier dans srcs
 OBJS	=	${SRCS:%.c=${OBJDIR}/%.o}
-CC		=	gcc -lreadline
+CC		=	gcc
 CFLAGS	=	-Werror -Wextra -Wall
 OBJDIR	=	objets
 
@@ -24,9 +25,14 @@ CURRENT_FILE = 0
 
 all:	${NAME} display_ascii
 
-${NAME}:	${OBJS}
-	@${CC} ${CFLAGS} ${OBJS} -o ${NAME}
+${NAME}:	${OBJS} ${LIBFT}
+	@${CC} ${CFLAGS} ${OBJS} ${LIBFT} -lreadline -o ${NAME}
 	@echo "${BOLD}${GREEN}📦 Link complete: ${NAME}${END}"
+
+${LIBFT}:
+	@echo "${BOLD}${BLUE}🔨 Building LIBFT...${END}"
+	@${MAKE} -C ./libft/ bonus
+	@echo "${BOLD}${GREEN}✓ LIBFT ready${END}"
 
 ${OBJDIR}/%.o: %.c | ${OBJDIR}
 	@$(eval CURRENT_FILE=$(shell echo $$(($(CURRENT_FILE)+1))))

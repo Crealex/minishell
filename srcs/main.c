@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:37:37 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/14 11:15:23 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/14 14:41:01 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,12 @@
 
 int main()
 {
-	printf("hello world!");
+	char *str;
+
+	str = readline("Minishell$>");
+	while (1)
+	{
+		str = readline("Minishell$>");
+		parsing(str);
+	}
 }

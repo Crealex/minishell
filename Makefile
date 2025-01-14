@@ -1,7 +1,7 @@
 NAME	=	minishell
 LIBFT	=	libft/libft.a
 SRCS	=	$(addprefix srcs/, main.c parsing.c)
-BUILTINS	=	$(addprefix srcs/builtins, )
+BUILTINS	=	$(addprefix srcs/builtins/, ft_echo.c)
 #prevoir plusieurs dossier dans srcs
 OBJS	=	${SRCS:%.c=${OBJDIR}/%.o}
 OBJSB	=	${BUILTINS:%.c=${OBJDIR}/%.o}
@@ -44,6 +44,7 @@ ${OBJDIR}/%.o: %.c | ${OBJDIR}
 ${OBJDIR}:
 	@mkdir -p ${OBJDIR}
 	@mkdir -p ${OBJDIR}/srcs
+	@mkdir -p ${OBJDIR}/srcs/builtins
 	@echo "${BOLD}${BLUE}📁 Created objects directory${END}"
 
 test: ${TSRCS}

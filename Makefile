@@ -4,6 +4,7 @@ SRCS	=	$(addprefix srcs/, main.c parsing.c)
 BUILTINS	=	$(addprefix srcs/builtins, )
 #prevoir plusieurs dossier dans srcs
 OBJS	=	${SRCS:%.c=${OBJDIR}/%.o}
+OBJSB	=	${BUILTINS:%.c=${OBJDIR}/%.o}
 CC		=	gcc
 CFLAGS	=	-Werror -Wextra -Wall
 OBJDIR	=	objets
@@ -25,8 +26,8 @@ CURRENT_FILE = 0
 
 all:	${NAME} display_ascii
 
-${NAME}:	${OBJS} ${LIBFT}
-	@${CC} ${CFLAGS} ${OBJS} ${LIBFT} -lreadline -o ${NAME}
+${NAME}:	${OBJS} ${OBJSB} ${LIBFT}
+	@${CC} ${CFLAGS} ${OBJS} ${OBJSB} ${LIBFT} -lreadline -o ${NAME}
 	@echo "${BOLD}${GREEN}📦 Link complete: ${NAME}${END}"
 
 ${LIBFT}:

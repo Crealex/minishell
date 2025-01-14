@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/14 14:47:43 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/14 15:14:26 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 int parsing(char *str)
 {
 	char **prompt;
+	(void)str;
 
 	prompt = ft_split(str, ' ');
-	if (!ft_strncmp(prompt[0], "echo", 4))
+ 	if (!ft_strncmp(prompt[0], "echo", 4))
 		ft_echo();
 	else if (!ft_strncmp(prompt[0], "cd", 2))
 		ft_cd();
@@ -37,4 +38,5 @@ int parsing(char *str)
 		ft_unquote();
 	else
 		other_cmd();
+	return (1);
 }

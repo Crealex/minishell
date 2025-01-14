@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   experience.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/13 20:46:17 by alexandre        ###   ########.fr       */
+/*   Created: 2025/01/14 10:37:37 by atomasi           #+#    #+#             */
+/*   Updated: 2025/01/14 11:15:23 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+// UNIQUEMENT POUR FAIRE DES EXPERIENCES
 
-# include <stdio.h>
-# include <unistd.h>
-# include <sys/wait.h>
+#include "../includes/minishell.h"
 
-#endif
+int main()
+{
+	printf("hello world!");
+}

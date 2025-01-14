@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 10:37:37 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/14 16:41:26 by dvauthey         ###   ########.fr       */
+/*   Created: 2025/01/14 15:50:04 by dvauthey          #+#    #+#             */
+/*   Updated: 2025/01/14 16:40:51 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// UNIQUEMENT POUR FAIRE DES EXPERIENCES
+#include "../../includes/minishell.h"
 
-#include "../includes/minishell.h"
-
-int main()
+void	ft_exit(char *str)
 {
-	char *str;
+	int	value;
 
-	while (1)
-	{
-		str = readline("Minishell$>");
-		parsing(str);
-	}
+	value = 0;
+	if (str)
+		value = ft_atoi(str);
+	exit(value);
 }

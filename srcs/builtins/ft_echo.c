@@ -6,7 +6,7 @@
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:42:41 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/14 22:44:21 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/14 22:50:18 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,11 @@ void	ft_echo(char **prompt)
 	//3. gerer les $
 	//4. gerer l'option -n
 	//5. gerer les cas speciaux
+
+
+	//NOuvelle idee :
+	//Faire une seul string
+	//ensuite gerer caractere par caractere en fonction du dollar et des quote (un peu comme ft_printf)
 	if (!prompt[1])
 	{
 		ft_putstr_fd("\n", 1);

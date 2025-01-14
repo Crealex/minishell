@@ -51,6 +51,7 @@ test: ${TSRCS}
 clean:
 	@echo "${BOLD}${YELLOW}🧹 Cleaning objects...${END}"
 	@rm -rf ${OBJDIR}
+	@${MAKE} -C ./libft/ clean
 	@echo "${BOLD}${GREEN}✓ Clean complete${END}"
 
 fclean: clean

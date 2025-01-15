@@ -2,9 +2,11 @@ NAME	=	minishell
 LIBFT	=	libft/libft.a
 SRCS	=	$(addprefix srcs/, main.c parsing.c)
 BUILTINS	=	$(addprefix srcs/builtins/, ft_echo.c)
+PROMPT 	=	$(addprefix srcs/parse_prompt/, handle_dollars.c parse_prompt.c)
 #prevoir plusieurs dossier dans srcs
 OBJS	=	${SRCS:%.c=${OBJDIR}/%.o}
 OBJSB	=	${BUILTINS:%.c=${OBJDIR}/%.o}
+OBJSP	=	${PROMPT:%.c=${OBJDIR}/%.o}
 CC		=	gcc
 CFLAGS	=	-Werror -Wextra -Wall
 OBJDIR	=	objets
@@ -26,8 +28,8 @@ CURRENT_FILE = 0
 
 all:	${NAME} display_ascii
 
-${NAME}:	${OBJS} ${OBJSB} ${LIBFT}
-	@${CC} ${CFLAGS} ${OBJS} ${OBJSB} ${LIBFT} -lreadline -o ${NAME}
+${NAME}:	${OBJS} ${OBJSB} ${OBJSP} ${LIBFT}
+	@${CC} ${CFLAGS} ${OBJS} ${OBJSB} ${OBJSP} ${LIBFT} -lreadline -o ${NAME}
 	@echo "${BOLD}${GREEN}📦 Link complete: ${NAME}${END}"
 
 ${LIBFT}:
@@ -45,6 +47,7 @@ ${OBJDIR}:
 	@mkdir -p ${OBJDIR}
 	@mkdir -p ${OBJDIR}/srcs
 	@mkdir -p ${OBJDIR}/srcs/builtins
+	@mkdir -p ${OBJDIR}/srcs/parse_prompt
 	@echo "${BOLD}${BLUE}📁 Created objects directory${END}"
 
 test: ${TSRCS}

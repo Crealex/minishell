@@ -12,18 +12,9 @@
 
 #include "../includes/minishell.h"
 
-int parsing(char *str, char **env)
+static void	which_builtins(char **prompt, char *str, char **env)
 {
-	char **prompt;
-
-	if (!str || !ft_strncmp(str, "\0", 1))
-		return (0);
-	prompt = ft_split(str, ' ');
-	if (!prompt)
-		return (1);
-	if (!check_prompt(prompt))
-		return (freesplit(prompt), 1);
- 	/*if (!ft_strncmp(prompt[0], "echo", 4))
+	/*if (!ft_strncmp(prompt[0], "echo", 4))
 		ft_echo();
 	else if (!ft_strncmp(prompt[0], "cd", 2))
 		ft_cd();
@@ -43,5 +34,19 @@ int parsing(char *str, char **env)
 		ft_unquote();
 	else
 		other_cmd();*/
+}
+
+int parsing(char *str, char **env)
+{
+	char **prompt;
+
+	if (!str || !ft_strncmp(str, "\0", 1))
+		return (0);
+	prompt = ft_split(str, ' ');
+	if (!prompt)
+		return (1);
+	if (!check_prompt(prompt))
+		return (freesplit(prompt), 1);
+ 	which_builtins(prompt, str, env);
 	return (0);
 }

@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_echo.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:42:41 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/14 22:50:18 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/15 15:57:07 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
 // tout revoir et imprimer caractere par caractere plus que une string par string
-
-static char *join_prompt(char **prompt, int i)
+/*
+static char *reverse_split(char **prompt, int i)
 {
 	char *result;
 	char *temp;
@@ -40,71 +40,53 @@ static char *join_prompt(char **prompt, int i)
 	return (result);
 }
 
-static char *handle_dollar(char **prompt, int i) // a revoir pour opti, les free etc...
+static int	handle_dollar(char *prompt, int i)
 {
-	char *temp;
-	char **tab;
 	char *env;
-	char *result = "gestion du dollar";
-	int j;
+	int ienv;
 
-	j = 0;
-	while (prompt[i])
+	ienv = i;
+	while (prompt[ienv] && prompt[ienv] != ' ')
+		ienv++;
+	env = malloc(sizeof(char) * (ienv - i));
+	ienv = 0;
+	while (prompt[i] && prompt[i] != ' ')
 	{
-		if (prompt[i][j] == '$')
+		env[ienv] = prompt[i];
+		ienv++;
+		i++;
+	}
+	ft_putstr_fd(getenv(env), 1);
+	return (i - 1);
+}
+
+
+static void print_args(char **prompt, int s)
+{
+	char *prompt_str;
+	char *result;
+	int i;
+	char c;
+
+	i = 0;
+	prompt_str = reverse_split(prompt, s);
+	result = malloc(sizeof(char) * sft_strlen(prompt_str));
+	c = '\0';
+	while (prompt_str[i])
+	{
+		if (!c && (prompt_str[i] == '\'' || prompt_str[i] == '\"'))
 		{
-			tab = ft_split(prompt[i], '$');
-			temp = ft_strdup(tab[0]);
-			env = ft_strdup(tab[1]);
-			tab = ft_split(tab[1], ' ');
-			free(env);
-			free(temp);
-			env = ft_strdup(tab[0]);
-		}
-		if (!prompt[i][j])
+			c = prompt_str[i];
 			i++;
+		}
+		else if (c != '\'' && prompt_str[i] == '$')
+			i = handle_dollar(prompt_str, i);
+		else if (c && prompt_str[i] == c)
+			i++;
+		//printf("tetstetstets\n");
+		ft_putchar_fd(prompt_str[i], 1);
+		i++;
 	}
-	result = getenv(tab[0]);
-	return (result);
-}
-
-static char *handle_quote(char **prompt, int i, char c) // a tester partout enfate et pas uniquement avec une quote au debut
-{
-	char *result;
-	char *line;
-	int ires;
-	int quote;
-
-	ires = 0;
-	quote = 0;
-	line = join_prompt(prompt, i);
-	result = malloc(sizeof(char) * ft_strlen(line));
-	while (line[ires + quote])
-	{
-		if (line[ires + quote] == c)
-			quote++;
-		result[ires] = line[ires + quote];
-		ires++;
-	}
-	result[ires] = '\0';
-	if (quote % 2 != 0)
-		printf("nombre impaire de quote\n"); // trouver comment ouvrir l'ecoute
-	return (result);
-}
-
-static void	print_args(char **prompt, int s)
-{
-	char *result;
-
-	if (prompt[s][0] == '\'')
-		result = handle_quote(prompt, s, '\'');
-	else if (prompt[s][0] == '\"')
-		result = handle_quote(prompt, s, '\"');
-	//else if (prompt[s][0] == '$')
-		result = handle_dollar(prompt, s);
-	//else
-		//result = join_prompt(prompt, s);
-	ft_putstr_fd(result, 1);
 }
 
 void	ft_echo(char **prompt)
@@ -115,10 +97,6 @@ void	ft_echo(char **prompt)
 	//4. gerer l'option -n
 	//5. gerer les cas speciaux
 
-
-	//NOuvelle idee :
-	//Faire une seul string
-	//ensuite gerer caractere par caractere en fonction du dollar et des quote (un peu comme ft_printf)
 	if (!prompt[1])
 	{
 		ft_putstr_fd("\n", 1);
@@ -136,12 +114,5 @@ void	ft_echo(char **prompt)
 	ft_putstr_fd("\n", 1);
 }
 
-/* int main(int argc, char **argv)
-{
-	char *result;
 
-	(void)argc;
-	result = join_prompt(argv, 1);
-	printf("result : %s\n", result);
-	free(result);
-} */
+*/

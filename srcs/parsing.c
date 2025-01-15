@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/15 10:59:18 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/15 15:09:59y dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,14 @@
 int parsing(char *str, char **env)
 {
 	char **prompt;
-	(void)str;
 
+	if (!str || !ft_strncmp(str, "\0", 1))
+		return (0);
 	prompt = ft_split(str, ' ');
+	if (!prompt)
+		return (1);
+	if (!check_prompt(prompt))
+		return (freesplit(prompt), 1);
  	/*if (!ft_strncmp(prompt[0], "echo", 4))
 		ft_echo();
 	else if (!ft_strncmp(prompt[0], "cd", 2))
@@ -38,5 +43,5 @@ int parsing(char *str, char **env)
 		ft_unquote();
 	else
 		other_cmd();*/
-	return (1);
+	return (0);
 }

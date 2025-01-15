@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/15 11:04:41 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/15 14:50:32 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 //utils
 void	freesplit(char **str);
 
+//parsing
+int		check_prompt(char **prompt);
 int 	parsing(char *str, char **env);
 
 //builtins

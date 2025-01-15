@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/14 17:47:26 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/15 10:59:18 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int parsing(char *str, char **env)
 	if (!ft_strncmp(prompt[0], "env", 3))
 		ft_env(env);
 	else if (!ft_strncmp(prompt[0], "exit", 4))
-		ft_exit(prompt[1]);
+		ft_exit(prompt[1], str, prompt);
 	/*else if (!ft_strncmp(prompt[0], "<", 1)) // !!! Ne pas mettre dans builtins
 		ft_quote();
 	else if (!ft_strncmp(prompt[0], ">", 4)) // !!! Ne pas mettre dans builtins

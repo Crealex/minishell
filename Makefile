@@ -2,7 +2,7 @@ NAME	=	minishell
 LIBFT	=	libft/libft.a
 SRCS	=	$(addprefix srcs/, main.c parsing.c)
 BUILTINS	=	$(addprefix srcs/builtins/, ft_echo.c)
-PROMPT 	=	$(addprefix srcs/parse_prompt/, handle_dollars.c parse_prompt.c)
+PROMPT 	=	$(addprefix srcs/parse_prompt/, handle_dollars/replace_vars.c)
 #prevoir plusieurs dossier dans srcs
 OBJS	=	${SRCS:%.c=${OBJDIR}/%.o}
 OBJSB	=	${BUILTINS:%.c=${OBJDIR}/%.o}
@@ -48,6 +48,7 @@ ${OBJDIR}:
 	@mkdir -p ${OBJDIR}/srcs
 	@mkdir -p ${OBJDIR}/srcs/builtins
 	@mkdir -p ${OBJDIR}/srcs/parse_prompt
+	@mkdir -p ${OBJDIR}/srcs/parse_prompt/handle_dollars
 	@echo "${BOLD}${BLUE}📁 Created objects directory${END}"
 
 test: ${TSRCS}

@@ -6,12 +6,37 @@
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:42:41 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/15 21:30:05 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/17 22:01:36 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+void	provisory_start_echo(char *str)
+{
+	char *prompt;
+	char *res;
+
+	prompt = ft_substr(str, 5, ft_strlen(str));
+	if (prompt[0] == '-')
+	{
+		if (prompt[1] == 'n')
+		{
+			res = ft_substr(prompt, 2, ft_strlen(prompt));
+			prompt = check_dollars(res);
+			printf("%s", prompt);
+		}
+		else
+			printf("No valid arguments\n");
+		return ;
+	}
+	else
+	{
+		res = check_dollars(prompt);
+		printf("%s\n", res);
+	}
+}
+/*
 static void print_args(char **prompt, int s)
 {
 	char *to_print;
@@ -39,6 +64,6 @@ void	ft_echo(char **prompt)
 	//printf("test ft_echo\n");
 	print_args(prompt, 1);
 	ft_putchar_fd('\n', 0);
-}
+}*/
 
 

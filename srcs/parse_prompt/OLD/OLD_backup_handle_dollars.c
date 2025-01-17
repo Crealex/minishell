@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_dollars.c                                   :+:      :+:    :+:   */
+/*   OLD_backup_handle_dollars.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:30:31 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/17 16:42:40 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/17 22:02:00 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
+
+//!!!Backup d'ancienne fanction mais peut y avoir des fonctions utiles!!!
 
 int	count_occurence(char *str, char c)
 {
@@ -76,7 +78,7 @@ char	*insert_env(char *str, char *env_name)
 	return (res);
 }
 
-char *handle_dollar(char *str, char *c)
+char *OLD_handle_dollar(char *str, char *c)
 {
 	int i;
 	char *env;

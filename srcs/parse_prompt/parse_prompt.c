@@ -3,30 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parse_prompt.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 13:24:15 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/15 22:02:05 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/17 16:38:17 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
-
-int count_doll(char *str)
-{
-	int i;
-	int dollars;
-
-	dollars = 0;
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == '$')
-			dollars++;
-		i++;
-	}
-	return (dollars);
-}
 
 void	fill_in_result(char *str, char *res, int *ires, char *c)
 {
@@ -38,9 +22,10 @@ void	fill_in_result(char *str, char *res, int *ires, char *c)
 		if (!*c && (str[i] == '\'' || str[i] == '\"'))
 		{
 			*c = str[i];
-			i++;
+			if (count_occurence(str, *c) % 2 == 0)
+				i++;
 		}
-		if (*c && str[i] == *c)
+		if (*c && str[i] == *c && count_occurence(str, *c) % 2 == 0)
 		{
 			*c = 0;
 			i++;
@@ -79,6 +64,7 @@ char *better_join(char *s1, char *s2, char *c)
 	if (s2)
 		fill_in_result(s2, res, &ires, c);
 	//free(s2);
+	res[ires] = '\0';
 	return (res);
 }
 
@@ -92,11 +78,6 @@ char *parse_prompt(char **prompt, int s)
 	c = 0;
 	res = NULL;
 	temp = NULL;
-	/* if (prompt[s][0] != '$')
-	{
-		res = ft_strdup(prompt[s]);
-		s++;
-	} */
 	while (prompt[s])
 	{
 		if (res)
@@ -104,10 +85,14 @@ char *parse_prompt(char **prompt, int s)
 			temp = ft_strdup(res);
 			free(res);
 		}
-		if (count_doll(prompt[s]) > 0)
+		if (count_occurence(prompt[s], '$') > 0 && count_occurence(prompt[s], '\'') != 2)
 		{
 			env = handle_dollar(prompt[s], &c);
-			res = better_join(temp, env, &c);
+			//printf("temp in parse_prompt : %s\n", temp);
+			printf("env in parse_prompt : %s\n", env);
+			if (env)
+				res = better_join(temp, env, &c);
+			printf("res in parse ptompt : %s\n", res);
 		}
 		else
 			res = better_join(temp, prompt[s], &c);

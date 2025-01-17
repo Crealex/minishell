@@ -23,9 +23,9 @@ static void	which_builtins(char **prompt, char *str, char **env)
 	else if (!ft_strncmp(prompt[0], "export", 6))
 		ft_export();*/
 	if (!ft_strncmp(prompt[0], "unset", 5))
-		ft_unset(env);
+		ft_unset(env, prompt, 1);
 	else if (!ft_strncmp(prompt[0], "env", 3))
-		ft_env(env, prompt, 1);
+		ft_env(env);
 	else if (!ft_strncmp(prompt[0], "exit", 4))
 		ft_exit(prompt[1], str, prompt);
 	/*else if (!ft_strncmp(prompt[0], "<", 1)) // !!! Ne pas mettre dans builtins

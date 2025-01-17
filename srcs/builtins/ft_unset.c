@@ -6,26 +6,53 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:28:22 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/01/16 11:35:37 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/17 12:03:36 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-ft_unset(char **env, char **prompt, int n)
+static int	count_env(char **env, char **prompt, int n)
 {
 	int	i;
-	int	in_env;
+	int	temp;
+	int	count;
+	int	len_prompt;
 
-	i = 0;
-	in_env = 1;
-	while (prompt[n] && in_env)
+	temp = -1;
+	count = 0;
+	while (prompt[n] && temp != count)
 	{
+		i = 0;
+		temp = count;
+		len_prompt = ft_strlen(prompt[n]);
 		while (env[i])
 		{
-			if (!ft_strncmp(env[i], prompt[n], ft_strlen(prompt[n])))
+			if (!ft_strncmp(env[i], prompt[n], len_prompt))
 			{
-				
+				count++;
+				break;
 			}
+			i++;
 		}
+		n++;
+	}
+	return (count);
+}
+
+
+
+void	ft_unset(char **env, char **prompt, int n)
+{
+	int		i;
+	int		env_len;
+	char	**new_env;
+
+	i = 0;
+	while (env[env_len])
+		env_len++;
+	new_env = ft_calloc(env_len - count_env(env, prompt, n) + 1,
+		sizeof(char *));
+	
+
 }

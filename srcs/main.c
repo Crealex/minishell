@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:37:37 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/15 17:04:53 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/17 11:26:45 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int main(int argc, char **argv, char **env)
 	(void)argv;
 	env_cpy = NULL;
 	env_cpy = cpy_env(env_cpy, env);
+	if (!env_cpy)
+		return (1);
 	while (1)
 	{
 		str = readline("Minishell$>");

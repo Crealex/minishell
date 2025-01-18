@@ -6,7 +6,7 @@
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:16:15 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/17 22:48:07 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/18 15:52:08 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,7 @@ char *get_var_name(char *prompt, int *i)
 	while (prompt[*i] && ((prompt[*i] >= 'A' && prompt[*i] <= 'Z')
 		|| (prompt[*i] >= 'a' && prompt[*i] <= 'z') || (prompt[*i] >= '0'
 		&& prompt[*i] <= '9') || prompt[*i] == '_'))
-	{
 		(*i)++;
-	}
 	countc = *i - countc;
 	res = malloc(sizeof(char) * (countc + 2));
 	*i -= countc;
@@ -89,7 +87,7 @@ void	update_quote(int *in_single, int *in_double, int *i, char *prompt)
 {
 	int quote_status;
 
-	if (prompt[*i] == '\'')
+	if (prompt[*i] == '\'' && !*in_double)
 	{
 		quote_status = exist_closing(prompt, '\'', *i);
 		if (quote_status == 0)
@@ -100,7 +98,7 @@ void	update_quote(int *in_single, int *in_double, int *i, char *prompt)
 			*in_single = 0;
 		(*i)++;
 	}
-	else if (prompt[*i] == '\"')
+	else if (prompt[*i] == '\"' && !*in_single)
 	{
 		quote_status = exist_closing(prompt, '\"', *i);
 		if (quote_status == 0)

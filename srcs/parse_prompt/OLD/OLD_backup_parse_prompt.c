@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_prompt.c                                     :+:      :+:    :+:   */
+/*   OLD_backup_parse_prompt.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 13:24:15 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/17 20:40:09 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/20 19:10:48 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/minishell.h"
+//#include "/../includes/minishell.h"
 
 //!!!Pas utilisee mais peut-etre des fonctions utiles!!!
-
+/*
 void	fill_in_result(char *str, char *res, int *ires, char *c)
 {
 	int i;
@@ -68,7 +68,7 @@ char *better_join(char *s1, char *s2, char *c)
 	//free(s2);
 	res[ires] = '\0';
 	return (res);
-}
+}*/
 
 /* char *parse_prompt(char **prompt, int s)
 {

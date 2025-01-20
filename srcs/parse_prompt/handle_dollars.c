@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   replace_vars.c                                     :+:      :+:    :+:   */
+/*   handle_dollars.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:16:15 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/20 16:35:07 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/20 19:23:52 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/minishell.h"
+#include "../../includes/minishell.h"
 
-char *get_var_name(char *prompt, int *i)
+char	*get_var_name(char *prompt, int *i)
 {
-	int countc;
-	char *res;
-	int ires;
+	int		countc;
+	char	*res;
+	int		ires;
 
 	(*i)++;
 	countc = *i;
@@ -24,29 +24,27 @@ char *get_var_name(char *prompt, int *i)
 	if ((prompt[*i] >= '0' && prompt[*i] <= '9') && prompt[*i] != '_')
 		return (NULL);
 	while (prompt[*i] && ((prompt[*i] >= 'A' && prompt[*i] <= 'Z')
-		|| (prompt[*i] >= 'a' && prompt[*i] <= 'z') || (prompt[*i] >= '0'
-		&& prompt[*i] <= '9') || prompt[*i] == '_'))
+			|| (prompt[*i] >= 'a' && prompt[*i] <= 'z') || (prompt[*i] >= '0'
+				&& prompt[*i] <= '9') || prompt[*i] == '_'))
 		(*i)++;
 	countc = *i - countc;
-	res = malloc(sizeof(char) * (countc));
+	res = ft_calloc(countc + 1, sizeof(char));
+	if (!res)
+		return (NULL);
 	*i -= countc;
 	countc += *i;
 	while (*i < countc)
-	{
-		res[ires] = prompt[*i];
-		ires++;
-		(*i)++;
-	}
+		res[ires++] = prompt[(*i)++];
 	return (res[ires] = '\0', res);
 }
 
-char *add_env(char *prompt, int *i, int *ires, char *res)
+char	*add_env(char *prompt, int *i, int *ires, char *res)
 {
-	char *var_name;
-	char *env;
-	char *temp;
+	char	*var_name;
+	char	*env;
+	char	*temp;
 
-	temp = malloc(sizeof(char) * (*i + 1));
+	temp = ft_calloc(*i + 1, sizeof(char));
 	if (!temp)
 		return (NULL);
 	ft_strlcpy(temp, res, *ires + 1);
@@ -64,9 +62,9 @@ char *add_env(char *prompt, int *i, int *ires, char *res)
 	return (res);
 }
 
-int exist_closing(char *prompt, char c, int i)
+int	exist_closing(char *prompt, char c, int i)
 {
-	static int in_quote = 0;
+	static int	in_quote = 0;
 
 	if (in_quote == 1)
 	{
@@ -90,7 +88,7 @@ int exist_closing(char *prompt, char c, int i)
 
 void	update_quote(int *in_single, int *in_double, int *i, char *prompt)
 {
-	int quote_status;
+	int	quote_status;
 
 	if (prompt[*i] == '\'' && !*in_double)
 	{
@@ -116,26 +114,29 @@ void	update_quote(int *in_single, int *in_double, int *i, char *prompt)
 	}
 }
 
-char *check_dollars(char *prompt)
+char	*handle_dollars(char *prompt)
 {
-	int i;
-	int ires;
-	int in_single;
-	int in_double;
-	char *res;
+	int		i;
+	int		ires;
+	int		in_single;
+	int		in_double;
+	char	*res;
 
 	i = 0;
 	ires = 0;
 	in_single = 0;
 	in_double = 0;
-	res = malloc(sizeof(char) * (ft_strlen(prompt) + 1));
+	res = ft_calloc((ft_strlen(prompt) + 1), sizeof(char));
+	if (!res)
+		return (NULL);
 	while (prompt[i])
 	{
 		if ((prompt[i] == '\'' || prompt[i] == '\"'))
 			update_quote(&in_single, &in_double, &i, prompt);
 		if (prompt[i] == '$' && in_single == 0)
 			res = add_env(prompt, &i, &ires, res);
-		if (prompt[i] && (prompt[i] != '\"' || !in_double) && (prompt[i] != '$' || in_single))
+		if (prompt[i] && (prompt[i] != '\"' || !in_double)
+			&& (prompt[i] != '$' || in_single))
 			res[ires++] = prompt[i++];
 	}
 	res[ires] = '\0';

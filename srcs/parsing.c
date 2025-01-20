@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/20 16:09:22 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/20 19:35:48 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int parsing(char *str)
 
 	prompt = ft_split(str, ' ');
  	if (!ft_strncmp(prompt[0], "echo", 4))
-		provisory_start_echo(str); //ft_echo(prompt);
+		ft_echo(str); //ft_echo(prompt);
 	/* else if (!ft_strncmp(prompt[0], "cd", 2))
 		ft_cd();
 	else if (!ft_strncmp(prompt[0], "pwd", 3))

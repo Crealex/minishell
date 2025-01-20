@@ -6,7 +6,7 @@
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:30:31 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/17 22:02:00 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/20 19:09:05 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,4 +110,4 @@ char *OLD_handle_dollar(char *str, char *c)
 			i++;
 	}
 	return (res);
-}
+}*/

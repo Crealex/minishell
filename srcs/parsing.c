@@ -25,18 +25,9 @@ static void	which_builtins(char **prompt, char *str, char ***env)
 	if (!ft_strncmp(prompt[0], "unset", 5))
 		*env = ft_unset(env, prompt, 1);
 	else if (!ft_strncmp(prompt[0], "env", 3))
-	{
-		
 		ft_env(*env);
-	}
 	else if (!ft_strncmp(prompt[0], "exit", 4))
 		ft_exit(prompt[1], str, prompt);
-	int i = 0;
-	while ((*env)[i])
-	{
-		printf("%s\n", (*env)[i]);
-		i++;
-	}
 	/*else if (!ft_strncmp(prompt[0], "<", 1)) // !!! Ne pas mettre dans builtins
 		ft_quote();
 	else if (!ft_strncmp(prompt[0], ">", 4)) // !!! Ne pas mettre dans builtins
@@ -45,7 +36,7 @@ static void	which_builtins(char **prompt, char *str, char ***env)
 		other_cmd();*/
 }
 
-int parsing(char *str, char **env)
+int parsing(char *str, char ***env)
 {
 	char **prompt;
 
@@ -56,13 +47,6 @@ int parsing(char *str, char **env)
 		return (1);
 	if (!check_prompt(prompt))
 		return (freesplit(prompt), 1);
- 	which_builtins(prompt, str, &env);
-	printf("---------------------------------------------------------------\n");
-	int i = 0;
-		while (env[i])
-		{
-			printf("%s\n", env[i]);
-			i++;
-		}
+ 	which_builtins(prompt, str, env);
 	return (0);
 }

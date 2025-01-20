@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/20 11:47:03 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/20 13:19:12 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	freesplit(char **str);
 
 //parsing
 int		check_prompt(char **prompt);
-int 	parsing(char *str, char **env);
+int 	parsing(char *str, char ***env);
 
 //builtins
 char	**ft_unset(char ***env, char **prompt, int n);

@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:37:37 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/17 11:26:45 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/20 13:18:58 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int main(int argc, char **argv, char **env)
 	while (1)
 	{
 		str = readline("Minishell$>");
-		if (parsing(str, env_cpy))
+		if (parsing(str, &env_cpy))
 		{
 			write(2, "Error : parsing\n", 16);
 			return (free(str), -1);

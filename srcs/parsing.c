@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/17 22:11:15 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/20 16:09:22 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,16 @@ int parsing(char *str)
 	else if (!ft_strncmp(prompt[0], "env", 3))
 		ft_env();*/
 	else if (!ft_strncmp(prompt[0], "exit", 4))
-		exit(0);/*
+		ft_exit(prompt[1], str, prompt);
+
+		/*
 	else if (!ft_strncmp(prompt[0], "<", 1)) // !!! Ne pas mettre dans builtins
 		ft_quote();
 	else if (!ft_strncmp(prompt[0], ">", 4)) // !!! Ne pas mettre dans builtins
 		ft_unquote();
 	else
 		other_cmd(); */
+	free(str);
+	freesplit(prompt);
 	return (1);
 }

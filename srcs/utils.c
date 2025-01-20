@@ -3,16 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:55:00 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/15 19:55:38 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/20 16:05:00 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-static char *reverse_split(char **prompt, int i)
+void    freesplit(char **str)
+{
+    int    i;
+
+    i = 0;
+    // if (!str || !*str)
+    //     return ;
+    while (str[i])
+    {
+        free(str[i]);
+        i++;
+    }
+    free(str);
+}
+
+/* static char *reverse_split(char **prompt, int i)
 {
 	char *result;
 	char *temp;
@@ -36,4 +51,4 @@ static char *reverse_split(char **prompt, int i)
 		i++;
 	}
 	return (result);
-}
+} */

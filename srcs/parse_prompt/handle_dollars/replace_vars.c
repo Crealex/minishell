@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   replace_vars.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:16:15 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/18 15:52:08 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/20 16:35:07 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char *get_var_name(char *prompt, int *i)
 		&& prompt[*i] <= '9') || prompt[*i] == '_'))
 		(*i)++;
 	countc = *i - countc;
-	res = malloc(sizeof(char) * (countc + 2));
+	res = malloc(sizeof(char) * (countc));
 	*i -= countc;
 	countc += *i;
 	while (*i < countc)
@@ -47,15 +47,20 @@ char *add_env(char *prompt, int *i, int *ires, char *res)
 	char *temp;
 
 	temp = malloc(sizeof(char) * (*i + 1));
-	ft_strlcpy(temp, res, *i + 1);
+	if (!temp)
+		return (NULL);
+	ft_strlcpy(temp, res, *ires + 1);
 	var_name = get_var_name(prompt, i);
 	env = getenv(var_name);
+	free(var_name);
 	if (!env)
 		return (res);
-	free(res);
+	if (res)
+		free(res);
 	res = ft_strjoin(temp, env);
 	(*ires) += strlen(env);
-	free(temp);
+	if (temp)
+		free(temp);
 	return (res);
 }
 
@@ -130,12 +135,9 @@ char *check_dollars(char *prompt)
 			update_quote(&in_single, &in_double, &i, prompt);
 		if (prompt[i] == '$' && in_single == 0)
 			res = add_env(prompt, &i, &ires, res);
-		if (prompt[i] != '\"' || !in_double)
-		{
-			res[ires] = prompt[i];
-			ires++;
-			i++;
-		}
+		if (prompt[i] && (prompt[i] != '\"' || !in_double) && (prompt[i] != '$' || in_single))
+			res[ires++] = prompt[i++];
 	}
+	res[ires] = '\0';
 	return (res);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_echo.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:42:41 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/17 22:01:36 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/20 16:10:06 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@ void	provisory_start_echo(char *str)
 		if (prompt[1] == 'n')
 		{
 			res = ft_substr(prompt, 2, ft_strlen(prompt));
+			free(prompt);
 			prompt = check_dollars(res);
+			free(res);
 			printf("%s", prompt);
+			free(prompt);
 		}
 		else
 			printf("No valid arguments\n");
@@ -33,7 +36,9 @@ void	provisory_start_echo(char *str)
 	else
 	{
 		res = check_dollars(prompt);
+		free(prompt);
 		printf("%s\n", res);
+		free(res);
 	}
 }
 /*

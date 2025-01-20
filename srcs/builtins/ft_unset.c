@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:28:22 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/01/17 14:50:12 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/20 11:47:49 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ static int	count_env(char **env, char **prompt, int n)
 		len_prompt = ft_strlen(prompt[n]);
 		while (env[i])
 		{
-			if (!ft_strncmp(env[i], prompt[n], len_prompt))
+			if (!ft_strncmp(env[i], prompt[n], len_prompt)
+				&& env[i][len_prompt] == '=')
 			{
 				count++;
 				break;
@@ -40,48 +41,48 @@ static int	count_env(char **env, char **prompt, int n)
 	return (count);
 }
 
-static int	is_in_env(char **env, char *prompt)
+static int	is_in_env(char *env, char **prompt, int n, int prompt_env)
 {
 	int	i;
 	int	len_prompt;
 
 	i = 0;
-	len_prompt = ft_strlen(prompt);
-	while (env[i])
+	while (i < prompt_env)
 	{
-		if (!ft_strncmp(env[i], prompt, len_prompt))
+		len_prompt = ft_strlen(prompt[n + i]);
+		if (!ft_strncmp(env, prompt[n + i], len_prompt)
+			&& env[len_prompt] == '=')
 			return (0);
 		i++;
 	}
 	return (1);
 }
 
-void	ft_unset(char ***env, char **prompt, int n)
+char	**ft_unset(char ***env, char **prompt, int n)
 {
 	int		i;
 	int		j;
 	int		env_len;
 	char	**new_env;
+	int		prompt_env;
 
 	i = 0;
 	j = 0;
 	env_len = 0;
 	while ((*env)[env_len])
 		env_len++;
-	new_env = ft_calloc(env_len - count_env(*env, prompt, n) + 1,
-		sizeof(char *));
+	prompt_env = count_env(*env, prompt, n);
+	new_env = ft_calloc(env_len - prompt_env + 1, sizeof(char *));
 	while (i < env_len)
 	{
-		if (is_in_env(*env, prompt[n]))
+		if (is_in_env((*env)[i], prompt, n, prompt_env))
 		{
-			new_env[j] = *env[i];
-			printf("%s\n", new_env[j]);
+			new_env[j] = (*env)[i];
 			j++;
 		}
 		i++;
 	}
-	freesplit(*env);
-	printf("hi\n");
-	env = &new_env;
-	printf("bye\n");
+	new_env[j] = '\0';
+	free(*env);
+	return (new_env);
 }

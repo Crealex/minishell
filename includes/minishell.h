@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/17 14:40:32 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/20 11:47:03 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		check_prompt(char **prompt);
 int 	parsing(char *str, char **env);
 
 //builtins
-void	ft_unset(char ***env, char **prompt, int n);
+char	**ft_unset(char ***env, char **prompt, int n);
 void	ft_env(char **env);
 void	ft_exit(char *str_prompt, char *str, char **prompt);
 

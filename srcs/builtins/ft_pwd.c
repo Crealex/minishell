@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pwd.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:49:50 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/21 17:12:31 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/21 20:17:00 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_pwd(char **prompt)
 	char *res;
 	if (prompt[1])
 	{
-		perror("Too many arguments\n");
+		perror("pwd: too many arguments\n");
 		update_exit_code(1);
 		return ;
 	}

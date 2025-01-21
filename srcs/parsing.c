@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/21 17:13:07 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/21 20:01:23 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int parsing(char *str)
 	//(void)str;
 	char **prompt;
 
+	prompt = NULL;
 	prompt = ft_split(str, ' ');
  	if (!ft_strncmp(prompt[0], "echo", 4))
 		ft_echo(str); //ft_echo(prompt);

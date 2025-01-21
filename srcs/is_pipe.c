@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   is_pipe.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/15 11:02:04 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/01/21 17:07:25 by dvauthey         ###   ########.fr       */
+/*   Created: 2025/01/21 16:42:07 by dvauthey          #+#    #+#             */
+/*   Updated: 2025/01/21 17:25:39 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-void	freesplit(char **str)
+int is_pipe(char *str)
 {
-	int	i;
+    int i;
+    int inquote[2];
+	int	empty_pipe;
 
-	i = 0;
-	if (!str || !*str)
-		return ;
-	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
-}
+    i = 0;
+    inquote[0] = 0;
+    inquote[1] = 0;
+	empty_pipe = 0;
+    while (str[i])
+    {
+		update_quote(&inquote[0], &inquote[1], &i, str);
+		if (i == 0 && iswtspace(str[i]))
 
-int	iswtspace(char c)
-{
-	if (c >= 9 && c <= 13 || c == 32)
-		return (1);
-	return (0);
+			while (iswtspace(str[i]))
+				i++;
+		if (!inquote[0] && !inquote[1] && str[i] == '|' )
+		{
+			if ()
+		} 
+    }
+    return (0);
 }

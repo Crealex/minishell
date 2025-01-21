@@ -39,9 +39,16 @@ static void	which_builtins(char **prompt, char *str, char ***env)
 int parsing(char *str, char ***env)
 {
 	char	**prompt;
+	char	**pipe_prompt;
 
 	if (!str || !ft_strncmp(str, "\0", 1))
 		return (0);
+	if (is_pipe(str))
+	{
+		pipe_prompt = ft_splitpipe(str, '|');
+		if (!pipe_prompt)
+			return (1);
+	}
 	prompt = ft_split(str, ' ');
 	if (!prompt)
 		return (1);
@@ -49,6 +56,9 @@ int parsing(char *str, char ***env)
 		return (freesplit(prompt), 1);
  	which_builtins(prompt, str, env);
 	free(str);
+	printf("help ???\n");
 	freesplit(prompt);
+	if (pipe_prompt)
+		freesplit(pipe_prompt);
 	return (0);
 }

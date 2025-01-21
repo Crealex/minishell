@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/20 13:19:12 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/21 11:27:18 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,13 @@ void	freesplit(char **str);
 
 //parsing
 int		check_prompt(char **prompt);
+int		double_single_quote(const char *s, int i);
+int		ft_nb_row(char const *s, char c);
 int 	parsing(char *str, char ***env);
 
 //builtins
 char	**ft_unset(char ***env, char **prompt, int n);
 void	ft_env(char **env);
-void	ft_exit(char *str_prompt, char *str, char **prompt);
+void	ft_exit(char *str_prompt, char *str, char **prompt, char ***env);
 
 #endif

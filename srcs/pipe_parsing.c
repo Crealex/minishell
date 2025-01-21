@@ -6,105 +6,86 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 13:35:45 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/01/20 14:55:49 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/21 11:53:11 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-int exist_closing(char *prompt, char c, int i)
+static int	ft_nb(const char *s, char c, int i, int *start)
 {
-    static int in_quote = 0;
-
-    if (in_quote == 1)
+    while (s[i] && s[i] == c)
+        i++;
+    *start = i;
+    while (s[i] && s[i] != c && s[i] != '\'' && s[i] != '\"')
     {
-        in_quote = 0;
-        return (2);
+        i++;
     }
-    else if (in_quote == 0)
+	if (s[i] && s[i] != c)
+		i = double_single_quote(s, i);
+    while (s[i] && s[i] != c)
+        i++;
+    return (i);
+}	
+
+static char	*ft_strinrow(char const *s, int start, int end)
+{
+    char	*row;
+    int		i;
+
+    i = 0;
+    row = malloc((end - start + 1) * sizeof(char));
+    if (row == NULL)
+        return (NULL);
+    while (i < (end - start))
     {
-        while (prompt[i])
+        row[i] = s[start + i];
+        i++;
+    }
+    row[i] = '\0';
+    return (row);
+}
+
+static void	*ft_freesplit(char **res, int j)
+{
+    int	i;
+
+    i = 0;
+    while (i < j)
+    {
+        free(res[i]);
+        i++;
+    }
+    free(res);
+    return (NULL);
+}
+
+char	**ft_splitpipe(char const *s, char c)
+{
+    int		i;
+    int		j;
+    int		start;
+    char	**result;
+
+    i = 0;
+    j = 0;
+    start = 0;
+    result = malloc((ft_nb_row(s, c) + 1) * sizeof(char *));
+    if (result == NULL)
+        return (NULL);
+    while (s[i])
+    {
+        i = ft_nb(s, c, i, &start);
+        if (start != i)
         {
-            i++;
-            if (prompt[i] == c)
-            {
-                in_quote++;
-                return (1);
-            }
+            result[j] = ft_strinrow(s, start, i);
+            if (!result[j])
+                return (ft_freesplit(result, j));
+            j++;
         }
     }
-    return (0);
+    result[j] = NULL;
+    return (result);
 }
 
-void    update_quote(int *in_single, int *in_double, int *i, char *prompt)
-{
-    int quote_status;
-
-    if (prompt[*i] == '\'' && !*in_double)
-    {
-        quote_status = exist_closing(prompt, '\'', *i);
-        if (quote_status == 0)
-            return ;
-        else if (quote_status == 1)
-            *in_single = 1;
-        else if (quote_status == 2)
-            *in_single = 0;
-        (*i)++;
-    }
-    else if (prompt[*i] == '\"' && !*in_single)
-    {
-        quote_status = exist_closing(prompt, '\"', *i);
-        if (quote_status == 0)
-            return ;
-        else if (quote_status == 1)
-            *in_double = 1;
-        else if (quote_status == 2)
-            *in_double = 0;
-        (*i)++;
-    }
-}
-
-int     *init(int **quote, int *i, int *in_pipe)
-{
-    *quote[0] = 0;
-    *quote[1] = 0;
-    *i = 0;
-    *in_pipe = 0;
-}
-
- int	*pipe_parsing(char *prompt)
- {
-	int	quote[2];
-	int	i;
-	int	in_pipe;
-	int	pipe[2];
-	int	prpt;
-
-	quote[0] = 0;
-	quote[1] = 0;
-	i = 0;
-	in_pipe = 0;
-	prpt = 0;
-	while (prompt[i])
-	{
-		while (prompt[i] == ' ')
-			i++;
-		prpt++;
-		update_quote(&quote[0], &quote[1], &i, prompt);
-		if (!quote[0] && !quote[1])
-        {
-			if (prompt[i] == '|')
-            {
-				if (!in_pipe)
-				{
-					in_pipe = 1;
-					pipe[0] = prpt;
-				}
-                else
-                    pipe[1] = prpt;
-            }
-        }
-		i++;
-	}
-    return (pipe);
- }
+int is_pipe()

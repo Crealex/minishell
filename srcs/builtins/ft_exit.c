@@ -6,13 +6,13 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:50:04 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/01/20 10:40:47 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/21 10:10:57 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-void	ft_exit(char *str_prompt, char *str, char **prompt)
+void	ft_exit(char *str_prompt, char *str, char **prompt, char ***env)
 {
 	int	i;
 	int	value;
@@ -35,5 +35,6 @@ void	ft_exit(char *str_prompt, char *str, char **prompt)
 	}
 	free(str);
 	freesplit(prompt);
+	free(*env);
 	exit(value);
 }

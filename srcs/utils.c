@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:55:00 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/20 16:05:00 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/21 14:30:40 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,17 @@ void    freesplit(char **str)
         i++;
     }
     free(str);
+}
+// -1 = just get de last value
+// < -1 = update de exit value
+int update_exit_code(int param)
+{
+	static int code = 0;
+	if (param == -1)
+		return (code);
+	else
+		code = param;
+	return (code);
 }
 
 /* static char *reverse_split(char **prompt, int i)

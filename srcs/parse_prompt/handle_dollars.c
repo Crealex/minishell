@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_dollars.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:16:15 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/20 19:23:52 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/21 16:01:35 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,19 @@ char	*add_env(char *prompt, int *i, int *ires, char *res)
 		return (NULL);
 	ft_strlcpy(temp, res, *ires + 1);
 	var_name = get_var_name(prompt, i);
-	env = getenv(var_name);
+	if (ft_strncmp(var_name, "?", ft_strlen(var_name)) == 0)
+	{
+		(*i)++;
+		env = ft_itoa(update_exit_code(-1));
+	}
+	else
+		env = getenv(var_name);
 	free(var_name);
 	if (!env)
 		return (res);
 	if (res)
 		free(res);
-	res = ft_strjoin(temp, env);
+	res = better_strjoin(temp, env, prompt, *i);
 	(*ires) += strlen(env);
 	if (temp)
 		free(temp);

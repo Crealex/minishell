@@ -3,47 +3,59 @@
 /*                                                        :::      ::::::::   */
 /*   ft_echo.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:42:41 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/20 23:16:11 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/21 15:38:44 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-int	check_flags(char *prompt)
+int	handle_flags(char *prompt)
 {
-	//  a verif comment fonctionne bash avec les flags
 	int i;
-	char *res;
+	int countn;
 
-	i = 1;
-	while (prompt[i] && prompt[i] != ' ')
+	i = 0;
+	countn = 0;
+	while (prompt[i] && (prompt[i] == '-' || prompt[i] == ' ' || prompt[i] == 'n'))
 	{
-		if (prompt[i] != 'n')
-			return (0);
+		if (prompt[i] == '-')
+		{
+			if (i > 0 && prompt[i - 1] && prompt[i - 1] != ' ')
+				return (countn);
+			i++;
+			if (prompt[i] != 'n')
+				return (countn);
+		}
 		i++;
+		if (prompt[i] == ' ' || !prompt[i])
+			countn = i + 1;
 	}
-	res = ft_substr(prompt, i, ft_strlen(prompt));
-	free(prompt);
-	prompt = handle_dollars(res);
-	free(res);
-	printf("%s", prompt);
-	free(prompt);
-	return (i);
+	update_exit_code(18);
+	return (countn);
 }
 
 void	ft_echo(char *str)
 {
 	char *prompt;
 	char *res;
+	int n;
 
 	prompt = ft_substr(str, 5, ft_strlen(str));
+	n = 0;
 	if (prompt[0] == '-')
 	{
-		if (!check_flags(prompt))
-			printf("Invalid arguments\n");
+		n = handle_flags(prompt);
+		res = ft_substr(prompt, n, ft_strlen(prompt));
+		free(prompt);
+		prompt = handle_dollars(res);
+		free(res);
+		printf("%s", prompt);
+		free(prompt);
+		if (!n)
+			printf("\n");
 	}
 	else
 	{

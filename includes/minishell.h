@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/20 19:07:10 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/21 15:56:55 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,11 @@ void	freesplit(char **str);
 //fonction utils not use
 char	*better_join(char *s1, char *s2, char *c);
 int		count_occurence(char *str, char c);
+//utils
+int		update_exit_code(int param);
 //parsing
 char	*handle_dollars(char *prompt);
+char	*better_strjoin(char const *s1, char const *s2, char *prompt, int iprompt);
 
 
 #endif

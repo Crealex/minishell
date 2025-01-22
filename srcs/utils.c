@@ -3,14 +3,52 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:55:00 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/22 16:50:49 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/22 21:36:22 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
+
+int	is_quote(char *str)
+{
+	if (str[0] == '\'' && str[ft_strlen(str) - 1] == '\'')
+		return (1);
+	if (str[0] == '\"' && str[ft_strlen(str) - 1] == '\"')
+		return (1);
+	else
+		return (0);
+}
+
+ void	rm_quote(char **str)
+{
+	int i;
+	int ires;
+	char *res;
+	int quote;
+	int quote2;
+
+	i = 0;
+	ires = 0;
+	quote = 0;
+	quote2 = 0;
+	res = ft_calloc((ft_strlen(*str) + 1), sizeof(char));
+	if (!res)
+		return ;
+	while ((*str)[i])
+	{
+		if ((*str)[i] == '\'' || (*str)[i] == '\"')
+			update_quote(&quote, &quote2, &i, *str);
+		if (!(*str)[i])
+			break;
+		res[ires++] = (*str)[i++];
+	}
+	free(*str);
+	*str = ft_strdup(res);
+	free(res);
+}
 
 void    freesplit(char **str)
 {

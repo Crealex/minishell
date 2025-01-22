@@ -3,14 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   ft_export.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 11:35:36 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/22 17:57:26 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/22 21:42:50 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
+
+int	check_str(char *str)
+{
+	int i;
+	int is_egal;
+
+	i = 0;
+	is_egal = 0;
+	if (!str[i] && ((str[i] < 'A' || str[i] > 'Z')
+			&& (str[i] < 'a' || str[i] < 'z') && str[i] != '_'))
+			return (0);
+	while (str[i])
+	{
+		if (str[i] == '=')
+		{
+			if (i > 0)
+				is_egal++;
+			if (i > 0 && str[i - 1] == '+')
+				return (2);
+		}
+		if ((str[i] < '0' || str[i] > '9') && ((str[i] < 'A' || str[i] > 'Z')
+			&& (str[i] < 'a' || str[i] < 'z') && str[i] != '_') || str[i] != '=') // tester les caracteres interdit
+			return (0);
+		i++;
+	}
+	if (is_egal <= 0)
+		return (0);
+	return (1);
+}
 
 void	add_space_darray(char ***env, int *i)
 {
@@ -20,7 +49,7 @@ void	add_space_darray(char ***env, int *i)
 	len = 0;
 	while(*env[len])
 		len++;
-	temp = ft_malloc(sizeof(char *) * (len + 2));
+	temp = malloc(sizeof(char *) * (len + 2));
 	if (!temp)
 		return ;
 	while (*env[*i])
@@ -42,19 +71,21 @@ void	add_space_darray(char ***env, int *i)
 
 void	add_to_env(char *str, char ***env)
 {
-	char **temp;
 	int i;
 
 	i = 0;
-	if (check_str(str) == 1) //Gere le = |||| a faire
+	if (is_quote(str))
+		rm_quote(str);
+	if (check_str(str) == 1) //Gere le = |||| a tester
 	{
 		add_space_darray(env, &i);
 		i--;
-		env[i] = ft_strdup(str);
+		*env[i] = ft_strdup(str);
 	}
-	else if (check_str(str) == 2) // Gere le += |||| a faire
+	else if (check_str(str) == 2) // Gere le += |||| a tester
 	{
-		modify_env(str, env); // a faire
+		//modify_env(str, env); // a faire
+		printf("handle +=\n");
 	}
 	else
 		return ;
@@ -67,7 +98,7 @@ void	ft_export(char **prompt, char ***env)
 	i = 1;
 	if (!prompt[1])
 	{
-		special_display_env(env); // a faire
+		//special_display_env(env); // a faire
 		return ;
 	}
 	(void)env;

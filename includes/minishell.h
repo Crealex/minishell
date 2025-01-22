@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/22 17:14:48 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/22 21:26:05 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ char	*better_join(char *s1, char *s2, char *c);
 int		count_occurence(char *str, char c);
 //utils
 int		update_exit_code(int param);
-//parsing
+void	rm_quote(char **str);
+int	is_quote(char *str);
+//parsingvoid
 char	*handle_dollars(char *prompt);
 void	update_quote(int *in_single, int *in_double, int *i, char *prompt);
 char	*better_strjoin(char const *s1, char const *s2, char *prompt, int iprompt);

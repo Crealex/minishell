@@ -3,31 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/21 20:01:23 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/22 16:46:00 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-int parsing(char *str)
+int parsing(char *str, char ***env)
 {
 	//(void)str;
 	char **prompt;
 
 	prompt = NULL;
-	prompt = ft_split(str, ' ');
+	prompt = split_wquote(str, ' ');
  	if (!ft_strncmp(prompt[0], "echo", 4))
 		ft_echo(str); //ft_echo(prompt);
 	else if (!ft_strncmp(prompt[0], "cd", 2))
 		ft_cd(prompt);
 	else if (!ft_strncmp(prompt[0], "pwd", 3))
 		ft_pwd(prompt);
-	/*else if (!ft_strncmp(prompt[0], "export", 6))
-		ft_export();
-	else if (!ft_strncmp(prompt[0], "unset", 5))
+	else if (!ft_strncmp(prompt[0], "export", 6))
+		ft_export(prompt, env);
+	/*else if (!ft_strncmp(prompt[0], "unset", 5))
 		ft_unset();
 	else if (!ft_strncmp(prompt[0], "env", 3))
 		ft_env();*/

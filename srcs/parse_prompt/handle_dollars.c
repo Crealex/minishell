@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:16:15 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/21 16:01:35 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/22 13:27:18 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,57 +68,6 @@ char	*add_env(char *prompt, int *i, int *ires, char *res)
 	return (res);
 }
 
-int	exist_closing(char *prompt, char c, int i)
-{
-	static int	in_quote = 0;
-
-	if (in_quote == 1)
-	{
-		in_quote = 0;
-		return (2);
-	}
-	else if (in_quote == 0)
-	{
-		while (prompt[i])
-		{
-			i++;
-			if (prompt[i] == c)
-			{
-				in_quote++;
-				return (1);
-			}
-		}
-	}
-	return (0);
-}
-
-void	update_quote(int *in_single, int *in_double, int *i, char *prompt)
-{
-	int	quote_status;
-
-	if (prompt[*i] == '\'' && !*in_double)
-	{
-		quote_status = exist_closing(prompt, '\'', *i);
-		if (quote_status == 0)
-			return ;
-		else if (quote_status == 1)
-			*in_single = 1;
-		else if (quote_status == 2)
-			*in_single = 0;
-		(*i)++;
-	}
-	else if (prompt[*i] == '\"' && !*in_single)
-	{
-		quote_status = exist_closing(prompt, '\"', *i);
-		if (quote_status == 0)
-			return ;
-		else if (quote_status == 1)
-			*in_double = 1;
-		else if (quote_status == 2)
-			*in_double = 0;
-		(*i)++;
-	}
-}
 
 char	*handle_dollars(char *prompt)
 {

@@ -55,7 +55,7 @@ int parsing(char *str, char ***env)
 	prompt = ft_split(str, ' ');
 	if (!prompt)
 		return (1);
-	if (!check_prompt(prompt))
+	if (!check_builtins(prompt))
 		return (freesplit(prompt), 1);
  	which_builtins(prompt, str, env);
 	free(str);

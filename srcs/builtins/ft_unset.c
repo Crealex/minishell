@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:28:22 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/01/20 11:47:49 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/22 14:38:06 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,31 +58,36 @@ static int	is_in_env(char *env, char **prompt, int n, int prompt_env)
 	return (1);
 }
 
+static void	cpy_env(char **new_env, char *env, int *j)
+{
+	*new_env = env;
+	(*j)++;
+}
+
 char	**ft_unset(char ***env, char **prompt, int n)
 {
-	int		i;
-	int		j;
+	int		index[2];
 	int		env_len;
 	char	**new_env;
 	int		prompt_env;
 
-	i = 0;
-	j = 0;
+	index[0] = 0;
+	index[1] = 0;
 	env_len = 0;
+	if (!prompt[n])
+		return (update_exit_code(0), *env);
 	while ((*env)[env_len])
 		env_len++;
 	prompt_env = count_env(*env, prompt, n);
 	new_env = ft_calloc(env_len - prompt_env + 1, sizeof(char *));
-	while (i < env_len)
+	if (!new_env)
+		return (update_exit_code(1), NULL);
+	while (index[0] < env_len)
 	{
-		if (is_in_env((*env)[i], prompt, n, prompt_env))
-		{
-			new_env[j] = (*env)[i];
-			j++;
-		}
-		i++;
+		if (is_in_env((*env)[index[0]], prompt, n, prompt_env))
+			cpy_env(&new_env[index[1]], (*env)[index[0]], &index[1]);
+		index[0]++;
 	}
-	new_env[j] = '\0';
-	free(*env);
-	return (new_env);
+	new_env[index[1]] = '\0';
+	return (update_exit_code(0), free(*env), new_env);
 }

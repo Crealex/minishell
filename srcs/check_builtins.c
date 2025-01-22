@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 13:25:02 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/01/15 14:57:35 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/22 15:10:05 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	is_builtin(char *cmd)
 	return (0);
 }
 
-int	check_prompt(char **prompt)
+int	check_builtins(char **prompt)
 {
 	int	i;
 

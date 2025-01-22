@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/21 17:07:33 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/22 15:10:30 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,10 @@
 
 //utils
 void	freesplit(char **str);
-int		iswtspace(char c);
 void    update_quote(int *in_single, int *in_double, int *i, char *prompt);
 
 //parsing
-int		check_prompt(char **prompt);
+int		check_builtins(char **prompt);
 int		is_pipe(char *str);
 int		double_single_quote(const char *s, int i);
 int		ft_nb_row(char const *s, char c);

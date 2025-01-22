@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:45:59 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/01/20 11:51:45 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/22 14:17:01 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,14 @@ void	ft_env(char **env)
 
 	i = 0;
 	if (!env || !*env)
+	{
+		// update_exit_code(1);
 		return ;
+	}
 	while (env[i])
 	{
 		printf("%s\n", env[i]);
 		i++;
 	}
+	// update_exit_code(0);
 }

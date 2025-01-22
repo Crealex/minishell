@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:02:04 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/01/21 17:07:25 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/22 10:42:57 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,4 @@ void	freesplit(char **str)
 		i++;
 	}
 	free(str);
-}
-
-int	iswtspace(char c)
-{
-	if (c >= 9 && c <= 13 || c == 32)
-		return (1);
-	return (0);
 }

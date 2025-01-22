@@ -43,11 +43,14 @@ int parsing(char *str, char ***env)
 
 	if (!str || !ft_strncmp(str, "\0", 1))
 		return (0);
+	pipe_prompt = NULL;
 	if (is_pipe(str))
 	{
 		pipe_prompt = ft_splitpipe(str, '|');
 		if (!pipe_prompt)
 			return (1);
+		for (int i = 0; i < 2; i++)
+			printf("%s\n", pipe_prompt[i]);
 	}
 	prompt = ft_split(str, ' ');
 	if (!prompt)
@@ -56,7 +59,6 @@ int parsing(char *str, char ***env)
 		return (freesplit(prompt), 1);
  	which_builtins(prompt, str, env);
 	free(str);
-	printf("help ???\n");
 	freesplit(prompt);
 	if (pipe_prompt)
 		freesplit(pipe_prompt);

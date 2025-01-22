@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:02:04 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/01/22 14:00:47 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/22 15:30:46 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,14 @@ char	*ft_getenv(char *var, char **env)
 		i++;
 	}
 	return (NULL);
+}
+
+int update_exit_code(int param)
+{
+    static int code = 0;
+    if (param == -1)
+        return (code);
+    else
+        code = param;
+    return (code);
 }

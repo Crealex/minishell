@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:42:07 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/01/22 11:58:04 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/22 15:34:53 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,19 @@ static int	no_pipe(char *str)
 		i++;
 	}
 	return (1);
+}
+
+static int	begin_end_pipe(char *str)
+{
+	int	len_str;
+
+	len_str = ft_strlen(str);
+	if (str[0] == '|' || str[len_str - 1])
+	{
+		ft_putstr_fd("minishell: syntax error near unexpected token `|'\n", 2);
+		return (1);
+	}
+	return (0);
 }
 
 static int	first_pipe(char *str)
@@ -81,6 +94,8 @@ int is_pipe(char *str)
     inquote[0] = 0;
     inquote[1] = 0;
 	if (no_pipe(str))
+		return (0);
+	if (begin_end_pipe(str))
 		return (0);
 	if (!first_pipe(str))
 		return (0);

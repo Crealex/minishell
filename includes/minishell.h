@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/22 15:10:30 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/22 15:30:53 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 //utils
 void	freesplit(char **str);
 void    update_quote(int *in_single, int *in_double, int *i, char *prompt);
+int 	update_exit_code(int param);
 
 //parsing
 int		check_builtins(char **prompt);

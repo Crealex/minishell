@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_export.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 11:35:36 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/22 21:42:50 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/23 10:51:54 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	check_str(char *str)
 
 	i = 0;
 	is_egal = 0;
-	if (!str[i] && ((str[i] < 'A' || str[i] > 'Z')
-			&& (str[i] < 'a' || str[i] < 'z') && str[i] != '_'))
+	if (!str[i] || ((str[i] < 'A' || str[i] > 'Z')
+			&& (str[i] < 'a' || str[i] > 'z') && str[i] != '_'))
 			return (0);
 	while (str[i])
 	{
@@ -30,12 +30,14 @@ int	check_str(char *str)
 				is_egal++;
 			if (i > 0 && str[i - 1] == '+')
 				return (2);
+			break;
 		}
-		if ((str[i] < '0' || str[i] > '9') && ((str[i] < 'A' || str[i] > 'Z')
-			&& (str[i] < 'a' || str[i] < 'z') && str[i] != '_') || str[i] != '=') // tester les caracteres interdit
+		if (((str[i] < '0' || str[i] > '9') && ((str[i] < 'A' || str[i] > 'Z'))
+			&& (str[i] < 'a' || str[i] > 'z') && str[i] != '_') && str[i] != '=') // tester les caracteres interdit
 			return (0);
 		i++;
 	}
+	printf("in check str\n");
 	if (is_egal <= 0)
 		return (0);
 	return (1);
@@ -47,14 +49,15 @@ void	add_space_darray(char ***env, int *i)
 	int len;
 
 	len = 0;
-	while(*env[len])
+	while((*env)[len])
 		len++;
+	printf("test\n");
 	temp = malloc(sizeof(char *) * (len + 2));
 	if (!temp)
 		return ;
-	while (*env[*i])
+	while ((*env)[*i])
 	{
-		temp[*i] = ft_strdup(*env[*i]);
+		temp[*i] = ft_strdup((*env)[*i]);
 		(*i)++;
 	}
 	(*i)++;
@@ -63,7 +66,7 @@ void	add_space_darray(char ***env, int *i)
 	freesplit(*env);
 	while (temp[*i])
 	{
-		*env[*i] = ft_strdup(temp[*i]);
+		(*env)[*i] = ft_strdup(temp[*i]);
 		(*i)++;
 	}
 	freesplit(temp);
@@ -75,7 +78,8 @@ void	add_to_env(char *str, char ***env)
 
 	i = 0;
 	if (is_quote(str))
-		rm_quote(str);
+		rm_quote(&str);
+	printf("in add to env\n");
 	if (check_str(str) == 1) //Gere le = |||| a tester
 	{
 		add_space_darray(env, &i);
@@ -104,7 +108,6 @@ void	ft_export(char **prompt, char ***env)
 	(void)env;
 	while (prompt[i])
 	{
-		printf("%s\n", prompt[i]);
 		add_to_env(prompt[i], env);
 		i++;
 	}

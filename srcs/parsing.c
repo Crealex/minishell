@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/22 20:53:34 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/23 10:25:13 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int parsing(char *str, char ***env)
 	else if (!ft_strncmp(prompt[0], "export", 6))
 		ft_export(prompt, env);
 	/*else if (!ft_strncmp(prompt[0], "unset", 5))
-		ft_unset();
+		ft_unset();*/
 	else if (!ft_strncmp(prompt[0], "env", 3))
-		ft_env();*/
+		ft_env(*env);
 	else if (!ft_strncmp(prompt[0], "exit", 4))
 		ft_exit(prompt[1], str, prompt);
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/22 21:26:05 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/23 10:23:19 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,14 @@
 # include <readline/history.h>
 
 int		parsing(char *str, char ***env);
+// builtins
 void	ft_echo(char *str);
 void	ft_exit(char *str_prompt, char *str, char **prompt);
 void	freesplit(char **str);
 void	ft_cd(char **prompt);
 void	ft_pwd(char **prompt);
 void	ft_export(char **prompt, char ***env);
+void	ft_env(char **env);
 //fonction utils not use
 char	*better_join(char *s1, char *s2, char *c);
 int		count_occurence(char *str, char c);

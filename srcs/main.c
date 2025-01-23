@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:37:37 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/22 17:25:30 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/23 17:17:31 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static char	**cpy_env(char **env_cpy, char **env)
 		return (NULL);
 	while (env[i])
 	{
-		env_cpy[i] = env[i];
+		env_cpy[i] = ft_strdup(env[i]);
 		i++;
 	}
 	env_cpy[i] = '\0';

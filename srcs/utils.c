@@ -6,7 +6,7 @@
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:55:00 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/22 21:36:22 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/23 17:19:23 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ void    freesplit(char **str)
     int    i;
 
     i = 0;
-    // if (!str || !*str)
-    //     return ;
+     if (!str || !*str)
+         return ;
     while (str[i])
     {
         free(str[i]);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_export.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 11:35:36 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/23 10:51:54 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/23 21:02:55 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void	add_space_darray(char ***env, int *i)
 	len = 0;
 	while((*env)[len])
 		len++;
-	printf("test\n");
 	temp = malloc(sizeof(char *) * (len + 2));
 	if (!temp)
 		return ;
@@ -64,6 +63,7 @@ void	add_space_darray(char ***env, int *i)
 	temp[*i] = NULL;
 	*i = 0;
 	freesplit(*env);
+	//printf("test\n");
 	while (temp[*i])
 	{
 		(*env)[*i] = ft_strdup(temp[*i]);
@@ -79,12 +79,12 @@ void	add_to_env(char *str, char ***env)
 	i = 0;
 	if (is_quote(str))
 		rm_quote(&str);
-	printf("in add to env\n");
+	//printf("in add to env\n");
 	if (check_str(str) == 1) //Gere le = |||| a tester
 	{
 		add_space_darray(env, &i);
 		i--;
-		*env[i] = ft_strdup(str);
+		(*env)[i] = ft_strdup(str);
 	}
 	else if (check_str(str) == 2) // Gere le += |||| a tester
 	{

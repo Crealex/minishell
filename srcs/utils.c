@@ -3,14 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:55:00 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/23 17:19:23 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/24 13:35:15 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
+
+char	**cpy_double_array(char **cpy, char **src)
+{
+	int	i;
+	int	len;
+
+	i = 0;
+	len = 0;
+	while (src[len])
+		len++;
+	cpy = ft_calloc(len + 1, sizeof(char *));
+	if (!cpy)
+		return (NULL);
+	while (src[i])
+	{
+		cpy[i] = ft_strdup(src[i]);
+		i++;
+	}
+	cpy[i] = NULL;
+	return (cpy);
+}
 
 int	is_quote(char *str)
 {

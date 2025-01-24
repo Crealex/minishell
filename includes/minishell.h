@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/23 10:23:19 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/24 13:35:31 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ int		count_occurence(char *str, char c);
 //utils
 int		update_exit_code(int param);
 void	rm_quote(char **str);
-int	is_quote(char *str);
+int		is_quote(char *str);
+char	**cpy_double_array(char **cpy, char **src);
 //parsingvoid
 char	*handle_dollars(char *prompt);
 void	update_quote(int *in_single, int *in_double, int *i, char *prompt);

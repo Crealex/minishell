@@ -3,47 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   ft_export.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 11:35:36 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/23 21:02:55 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/24 13:52:34 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-int	check_str(char *str)
+char *format_content(char *str)
+{
+	int	i
+}
+
+int	check_name(char *str)
 {
 	int i;
-	int is_egal;
 
 	i = 0;
-	is_egal = 0;
-	if (!str[i] || ((str[i] < 'A' || str[i] > 'Z')
-			&& (str[i] < 'a' || str[i] > 'z') && str[i] != '_'))
+	if (str[0] && ft_isdigit(str[0]))
 			return (0);
 	while (str[i])
 	{
-		if (str[i] == '=')
+		if (str[i] == '=' && i > 0)
 		{
-			if (i > 0)
-				is_egal++;
 			if (i > 0 && str[i - 1] == '+')
 				return (2);
-			break;
+			return (1);
 		}
-		if (((str[i] < '0' || str[i] > '9') && ((str[i] < 'A' || str[i] > 'Z'))
-			&& (str[i] < 'a' || str[i] > 'z') && str[i] != '_') && str[i] != '=') // tester les caracteres interdit
+		if (!ft_isalnum(str[i]) && str[i] != '_' && str[i] != '+')
 			return (0);
 		i++;
 	}
-	printf("in check str\n");
-	if (is_egal <= 0)
 		return (0);
-	return (1);
+
 }
 
-void	add_space_darray(char ***env, int *i)
+void	add_var(char ***env, int *i, char *str)
 {
 	char **temp;
 	int len;
@@ -59,16 +56,12 @@ void	add_space_darray(char ***env, int *i)
 		temp[*i] = ft_strdup((*env)[*i]);
 		(*i)++;
 	}
+	temp[*i] = ft_strdup(str);
 	(*i)++;
 	temp[*i] = NULL;
 	*i = 0;
 	freesplit(*env);
-	//printf("test\n");
-	while (temp[*i])
-	{
-		(*env)[*i] = ft_strdup(temp[*i]);
-		(*i)++;
-	}
+	*env = cpy_double_array(*env, temp);
 	freesplit(temp);
 }
 
@@ -80,19 +73,25 @@ void	add_to_env(char *str, char ***env)
 	if (is_quote(str))
 		rm_quote(&str);
 	//printf("in add to env\n");
-	if (check_str(str) == 1) //Gere le = |||| a tester
+	if (check_name(str) == 1) //Gere le =
 	{
-		add_space_darray(env, &i);
-		i--;
-		(*env)[i] = ft_strdup(str);
+		//1.formater le contenu de la var
+		//2.Verifier si le nom de la var existe deja
+		add_var(env, &i, str);
+		printf("Juste avant des derniers dup\n");
 	}
-	else if (check_str(str) == 2) // Gere le += |||| a tester
+	else if (check_name(str) == 2) // Gere le +=
 	{
+		//1. formater le contenu de la var
+		//2. Verifier si la  var existe
 		//modify_env(str, env); // a faire
 		printf("handle +=\n");
 	}
 	else
+	{
+		printf("not valid name\n");
 		return ;
+	}
 }
 
 void	ft_export(char **prompt, char ***env)

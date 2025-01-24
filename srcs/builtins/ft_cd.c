@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_env.c                                           :+:      :+:    :+:   */
+/*   ft_cd.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/23 10:20:22 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/24 16:58:40 by dvauthey         ###   ########.fr       */
+/*   Created: 2025/01/21 16:11:07 by atomasi           #+#    #+#             */
+/*   Updated: 2025/01/21 20:11:21 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-void	ft_env(char **env)
+void	ft_cd(char **prompt)
 {
-	int		i;
+	char *res;
 
-	i = 0;
-	if (!env || !*env)
+	if (prompt[1] && prompt[2])
 	{
+		printf("cd: too many arguments\n");
 		update_exit_code(1);
 		return ;
 	}
-	while (env[i])
+	if (!prompt[1])
 	{
-		printf("%s\n", env[i]);
-		i++;
+		chdir("/home");
+		update_exit_code(0);
+		return ;
 	}
-	update_exit_code(0);
+	res = malloc(sizeof(char) * 1000);
+	if (chdir(prompt[1]) == -1)
+		printf("cd: no file or directory name: %s\n", prompt[1]);
+	free(res);
 }

@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_env.c                                           :+:      :+:    :+:   */
+/*   ft_pwd.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/23 10:20:22 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/24 16:58:40 by dvauthey         ###   ########.fr       */
+/*   Created: 2025/01/21 16:49:50 by atomasi           #+#    #+#             */
+/*   Updated: 2025/01/22 09:59:07 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-void	ft_env(char **env)
+void	ft_pwd(char **prompt)
 {
-	int		i;
-
-	i = 0;
-	if (!env || !*env)
+	char *res;
+	if (prompt[1])
 	{
+		ft_putstr_fd("pwd: too many arguments\n", 2);
 		update_exit_code(1);
 		return ;
 	}
-	while (env[i])
-	{
-		printf("%s\n", env[i]);
-		i++;
-	}
+	res = malloc(sizeof(char) * 1000);
+	if (!res)
+		return ;
+	getcwd(res, 1000);
+	printf("%s\n", res);
+	free(res);
 	update_exit_code(0);
 }

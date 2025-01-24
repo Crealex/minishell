@@ -1,12 +1,14 @@
 NAME	=	minishell
 LIBFT	=	libft/libft.a
-SRCS	=	$(addprefix srcs/, main.c parsing.c utils.c split_wquote.c split_wquote_utils.c)
-BUILTINS	=	$(addprefix srcs/builtins/, ft_echo.c ft_exit.c ft_cd.c ft_pwd.c ft_export.c ft_env.c)
-PROMPT 	=	$(addprefix srcs/parse_prompt/, handle_dollars.c handle_dollars_utils.c)
+SRCS	=	$(addprefix srcs/, main.c)
+BUILTINS	=	$(addprefix srcs/builtins/, ft_echo.c ft_exit.c ft_cd.c ft_pwd.c ft_export.c ft_env.c ft_unset.c)
+PROMPT 	=	$(addprefix srcs/parsing/, handle_dollars.c handle_dollars_utils.c is_pipe.c parsing.c check_builtins.c)
+UTILS	=	$(addprefix srcs/utils/, split_pipe.c split_pipe2.c split_wquote.c utils.c quote.c)
 #prevoir plusieurs dossier dans srcs
 OBJS	=	${SRCS:%.c=${OBJDIR}/%.o}
 OBJSB	=	${BUILTINS:%.c=${OBJDIR}/%.o}
 OBJSP	=	${PROMPT:%.c=${OBJDIR}/%.o}
+OBJSU	=	${UTILS:%.c=${OBJDIR}/%.o}
 CC		=	gcc
 CFLAGS	=	-Werror -Wextra -Wall
 OBJDIR	=	objets
@@ -28,8 +30,8 @@ CURRENT_FILE = 0
 
 all:	${NAME} display_ascii
 
-${NAME}:	${OBJS} ${OBJSB} ${OBJSP} ${LIBFT}
-	@${CC} ${CFLAGS} ${OBJS} ${OBJSB} ${OBJSP} ${LIBFT} -lreadline -o ${NAME}
+${NAME}:	${OBJS} ${OBJSB} ${OBJSP} ${OBJSU} ${LIBFT}
+	@${CC} ${CFLAGS} ${OBJS} ${OBJSB} ${OBJSP} ${OBJSU} ${LIBFT} -lreadline -o ${NAME}
 	@echo "${BOLD}${GREEN}📦 Link complete: ${NAME}${END}"
 
 ${LIBFT}:
@@ -47,7 +49,8 @@ ${OBJDIR}:
 	@mkdir -p ${OBJDIR}
 	@mkdir -p ${OBJDIR}/srcs
 	@mkdir -p ${OBJDIR}/srcs/builtins
-	@mkdir -p ${OBJDIR}/srcs/parse_prompt
+	@mkdir -p ${OBJDIR}/srcs/parsing
+	@mkdir -p ${OBJDIR}/srcs/utils
 	@echo "${BOLD}${BLUE}📁 Created objects directory${END}"
 
 test: ${TSRCS}

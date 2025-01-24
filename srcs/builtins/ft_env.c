@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_env.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 10:20:22 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/23 10:21:12 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/24 16:19:57 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-// ATTENTION : SI OPT OU ARG
 void	ft_env(char **env)
 {
 	int		i;

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   split_wquote.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:26:56 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/22 16:43:22 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/24 16:39:07 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include "../../includes/minishell.h"
 
 static int	ft_nb(const char *s, char c, int i, int *start)
 {

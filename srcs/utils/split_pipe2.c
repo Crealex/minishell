@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   split_wquote_utils.c                               :+:      :+:    :+:   */
+/*   split_pipe2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/22 16:28:01 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/22 16:43:41 by atomasi          ###   ########.fr       */
+/*   Created: 2025/01/24 15:58:23 by alexandre         #+#    #+#             */
+/*   Updated: 2025/01/24 16:19:43 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include "../../includes/minishell.h"
 
 static int	quote_exist(const char *s, int i, char c)
 {

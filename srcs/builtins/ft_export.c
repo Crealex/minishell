@@ -6,16 +6,36 @@
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 11:35:36 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/24 15:45:06 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/24 21:32:21 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-/* char *format_content(char *str)
+char *format_content(char *str)
 {
-	int	i;
-} */
+	int		i;
+	int		ires;
+	int		quote[2];
+	char	*res;
+
+	i = 0;
+	ires = 0;
+	quote[0] = 0;
+	quote[1] = 0;
+	res = malloc(sizeof(char) * ft_strlen(str));
+	while (str[i] != '=')
+		res[ires++] = str[i++];
+	while(str[i])
+	{
+		if (str[i] == '\'' || str[i] == '\"')
+			update_quote(&quote[0], &quote[1], &i, str);
+		res[ires++] = str[i++];
+	}
+	res[ires] = '\0';
+	free(str);
+	return (res);
+}
 
 int	check_name(char *str)
 {
@@ -72,19 +92,21 @@ void	add_to_env(char *str, char ***env)
 	i = 0;
 	if (is_quote(str))
 		rm_quote(&str);
-	//printf("in add to env\n");
 	if (check_name(str) == 1) //Gere le =
 	{
-		//1.formater le contenu de la var
-		//2.Verifier si le nom de la var existe deja
-		add_var(env, &i, str);
-		printf("Juste avant des derniers dup\n");
+		str = format_content(str);
+		if (var_exist(str, *env))
+			modifiy_var(str, env); // a coder
+		else
+			add_var(env, &i, str);
 	}
 	else if (check_name(str) == 2) // Gere le +=
 	{
-		//1. formater le contenu de la var
-		//2. Verifier si la  var existe
-		//modify_env(str, env); // a faire
+		str = format_content(str);
+		if (var_exist(str, *env))
+			cat_var(str, env); // a coder
+		else
+			add_var(env, &i, str);
 		printf("handle +=\n");
 	}
 	else

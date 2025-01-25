@@ -6,13 +6,13 @@
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:29:14 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/24 21:31:10 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/25 10:45:08 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-char	*get_name(char *str)
+static char	*get_name(char *str)
 {
 	int i;
 	char *res;
@@ -33,9 +33,9 @@ char	*get_name(char *str)
 
 int var_exist(char *str, char **env)
 {
-	int i;
-	int l_name;
-	char *name;
+	int		i;
+	int		l_name;
+	char	*name;
 
 	i = 0;
 	name = get_name(str);
@@ -43,10 +43,28 @@ int var_exist(char *str, char **env)
 	while (env[i])
 	{
 		if (ft_strncmp(name, env[i], l_name) == 0)
-			return (1);
+			return (i);
 		i++;
 	}
 	free(name);
 	return (0);
 }
 
+void	modify_var(char *str, char ***env)
+{
+	int		ienv;
+
+	ienv = var_exist(str, *env);
+	free((*env)[ienv]);
+	(*env)[ienv] = ft_strdup(str);
+}
+
+void	cat_var(char *str, char ***env)
+{
+	int i;
+
+	i = 0;
+	(void)str;
+	(void)env;
+	printf("cat_var %d\n", i);
+}

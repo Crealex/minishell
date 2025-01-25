@@ -6,7 +6,7 @@
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/24 16:18:35 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/25 11:15:37 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int parsing(char *str, char ***env)
 		for (int i = 0; i < 2; i++)
 			printf("%s\n", pipe_prompt[i]);
 	}
-	prompt = ft_split(str, ' ');
+	prompt = split_wquote(str, ' ');
 	if (!prompt)
 		return (0);
 	if (!check_builtins(prompt))

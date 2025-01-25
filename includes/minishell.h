@@ -6,7 +6,7 @@
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/24 16:08:50 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/25 10:43:54 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ void	freesplit(char **str);
 void	ft_cd(char **prompt);
 void	ft_pwd(char **prompt);
 void	ft_export(char **prompt, char ***env);
+int		var_exist(char *str, char **env);
+void	modify_var(char *str, char ***env);
+void	cat_var(char *str, char ***env);
 void	ft_env(char **env);
 char	**ft_unset(char ***env, char **prompt, int n);
 //fonction utils not use

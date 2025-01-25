@@ -6,7 +6,7 @@
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 11:35:36 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/24 21:32:21 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/25 11:19:03 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	add_var(char ***env, int *i, char *str)
 	*i = 0;
 	freesplit(*env);
 	*env = cpy_double_array(*env, temp);
-	freesplit(temp);
+	//freesplit(temp); double free quand actif, pourquoi?
 }
 
 void	add_to_env(char *str, char ***env)
@@ -96,7 +96,7 @@ void	add_to_env(char *str, char ***env)
 	{
 		str = format_content(str);
 		if (var_exist(str, *env))
-			modifiy_var(str, env); // a coder
+			modify_var(str, env);
 		else
 			add_var(env, &i, str);
 	}
@@ -107,7 +107,6 @@ void	add_to_env(char *str, char ***env)
 			cat_var(str, env); // a coder
 		else
 			add_var(env, &i, str);
-		printf("handle +=\n");
 	}
 	else
 	{
@@ -132,4 +131,5 @@ void	ft_export(char **prompt, char ***env)
 		add_to_env(prompt[i], env);
 		i++;
 	}
+	printf("test\n");
 }

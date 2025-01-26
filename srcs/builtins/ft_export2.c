@@ -6,7 +6,7 @@
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:29:14 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/25 10:45:08 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/26 21:07:07 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int var_exist(char *str, char **env)
 		i++;
 	}
 	free(name);
-	return (0);
+	return (0); // retourner -1 pluto que zero sinon risque de bug
 }
 
 void	modify_var(char *str, char ***env)
@@ -64,6 +64,9 @@ void	cat_var(char *str, char ***env)
 	int i;
 
 	i = 0;
+	//1, stocker la content a ajouter (str apres le =)
+	//2. Trouver la bonne variable d'env
+	//3. Join l'env avec le bout de str
 	(void)str;
 	(void)env;
 	printf("cat_var %d\n", i);

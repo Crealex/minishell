@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:50:04 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/01/27 11:09:14 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/27 14:35:56 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_exit(char *str_prompt, char *str, char **prompt, char ***env)
 	}
 	free(str);
 	freesplit(prompt);
-	free(*env);
+	freesplit(*env);
 	printf("exit\n");
 	exit(value);
 }

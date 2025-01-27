@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 15:55:48 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/27 11:19:47 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/27 13:10:17 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,13 @@ static int	first_pipe(char *str)
 
 static int	verif_empty_pipe(int i, char *str)
 {
+	int	temp;
+
+	temp = i;
 	i++;
 	while (str[i] && str[i] == ' ')
 		i++;
-	if (!str[i] || str[i] == '|')
+	if (temp < i && (!str[i] || str[i] == '|'))
 	{
 		ft_putstr_fd("minishell: syntax error near", 2);
 		ft_putstr_fd(" unexpected token `|'\n", 2);

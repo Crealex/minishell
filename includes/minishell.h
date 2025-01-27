@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/24 16:58:15 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/27 14:05:11 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 # include <readline/readline.h>
 # include <readline/history.h>
 
+void	get_history(int fd);
+void	manage_history(char *str, int fd);
 int		parsing(char *str, char ***env);
 // builtins
 void	ft_echo(char *str);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_export.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 11:35:36 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/25 11:19:03 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/27 09:56:43 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ char *format_content(char *str)
 	{
 		if (str[i] == '\'' || str[i] == '\"')
 			update_quote(&quote[0], &quote[1], &i, str);
-		res[ires++] = str[i++];
+		if (str[i])
+			res[ires++] = str[i++];
 	}
 	res[ires] = '\0';
 	free(str);

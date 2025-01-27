@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 11:35:36 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/27 09:56:43 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/27 16:21:39 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ char *format_content(char *str)
 	ires = 0;
 	quote[0] = 0;
 	quote[1] = 0;
-	res = malloc(sizeof(char) * ft_strlen(str));
-	while (str[i] != '=')
+	res = malloc(sizeof(char) * (ft_strlen(str) + 1));
+	while (str[i] && str[i] != '=')
 		res[ires++] = str[i++];
 	while(str[i])
 	{
@@ -83,7 +83,7 @@ void	add_var(char ***env, int *i, char *str)
 	*i = 0;
 	freesplit(*env);
 	*env = cpy_double_array(*env, temp);
-	//freesplit(temp); double free quand actif, pourquoi?
+	//freesplit(temp); //double free quand actif, pourquoi?
 }
 
 void	add_to_env(char *str, char ***env)
@@ -96,23 +96,19 @@ void	add_to_env(char *str, char ***env)
 	if (check_name(str) == 1) //Gere le =
 	{
 		str = format_content(str);
-		if (var_exist(str, *env))
+		if (var_exist(str, *env) != -1)
 			modify_var(str, env);
 		else
 			add_var(env, &i, str);
 	}
 	else if (check_name(str) == 2) // Gere le +=
 	{
+		printf("handle +=\n");
 		str = format_content(str);
-		if (var_exist(str, *env))
+		if (var_exist(str, *env) != -1)
 			cat_var(str, env); // a coder
 		else
 			add_var(env, &i, str);
-	}
-	else
-	{
-		printf("not valid name\n");
-		return ;
 	}
 }
 
@@ -132,5 +128,4 @@ void	ft_export(char **prompt, char ***env)
 		add_to_env(prompt[i], env);
 		i++;
 	}
-	printf("test\n");
 }

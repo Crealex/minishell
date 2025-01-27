@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:29:14 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/27 11:05:47 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/27 16:03:21 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ static char	*get_name(char *str)
 	char	*res;
 
 	i = 0;
-	while (str[i] && str[i] != '=')
+	while (str[i] && str[i] != '=' && str[i] != '+')
 		i++;
 	res = malloc(sizeof(char) * (i + 1));
 	i = 0;
-	while (str[i] && str[i] != '=')
+	while (str[i] && str[i] != '=' && str[i] != '+')
 	{
 		res[i] = str[i];
 		i++;
@@ -76,36 +76,33 @@ int var_exist(char *str, char **env)
 		i++;
 	}
 	free(name);
-	return (0); // retourner -1 pluto que zero sinon risque de bug
+	return (-1);
 }
 
 void	modify_var(char *str, char ***env)
 {
 	int		ienv;
-
 	ienv = var_exist(str, *env);
-	free((*env)[ienv]);
+	printf("env[ienv] before dup : %s\n", (*env)[ienv]);
+	if((*env)[ienv])
+		free((*env)[ienv]);
 	(*env)[ienv] = ft_strdup(str);
+	printf("env[ienv] after dup : %s\n", (*env)[ienv]);
 }
 
 void	cat_var(char *str, char ***env)
 {
-	int		i;
 	int		ienv;
 	char	*content;
 	char	*temp;
 
-	i = 0;
 	//1. stocker la content a ajouter (str apres le =)
 	content = get_content(str);
 	//2. Trouver la bonne variable d'env
 	ienv = var_exist(str, *env);
 	//3. Join l'env avec le bout de str
-	temp = ft_strdup(env[ienv]);
-	free(env[ienv]);
-	env[ienv] = ft_strjoin(temp, content);
+	temp = ft_strdup((*env)[ienv]);
+	free((*env)[ienv]);
+	(*env)[ienv] = ft_strjoin(temp, content);
 	free(temp);
-	(void)str;
-	(void)env;
-	printf("cat_var %d\n", i);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_pipe.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 15:55:48 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/24 16:19:27 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/27 11:19:47 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	begin_end_pipe(char *str)
 	int	len_str;
 
 	len_str = ft_strlen(str);
-	if (str[0] == '|' || str[len_str - 1])
+	if (str[0] == '|' || str[len_str - 1] == '|')
 	{
 		ft_putstr_fd("minishell: syntax error near unexpected token `|'\n", 2);
 		return (1);
@@ -70,13 +70,10 @@ static int	first_pipe(char *str)
 
 static int	verif_empty_pipe(int i, char *str)
 {
-	int	temp;
-
-	temp = i;
 	i++;
 	while (str[i] && str[i] == ' ')
 		i++;
-	if (temp < i && (!str[i] || str[i] == '|'))
+	if (!str[i] || str[i] == '|')
 	{
 		ft_putstr_fd("minishell: syntax error near", 2);
 		ft_putstr_fd(" unexpected token `|'\n", 2);

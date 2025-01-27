@@ -17,11 +17,12 @@ OBJDIR	=	objets
 END		:= \033[0m
 WHITE	:= \033[1;37m
 NC		:= \033[0m
+RED		:= \033[0;31m
 PINK	:= \033[1;35m
-GREEN	:= \033[32m
+GREEN	:= \033[0;32m
 BOLD	:= \033[1m
 L_PURPLE:= \033[38;5;55m
-YELLOW	:= \033[33m
+YELLOW	:= \033[0;33m
 BLUE	:= \033[34m
 
 # Counter for compiled files
@@ -69,6 +70,35 @@ fclean: clean
 	@echo "${BOLD}${GREEN}✨ All clean ✨${END}"
 
 re: fclean all
+
+party:
+	@echo "$(BOLD)Let's party!"
+	@echo "$(RED)  $(BOLD) (^-^) $(END) "
+	@sleep 0.5
+	@echo "$(L_PURPLE) $(BOLD) \(^-^\) $(END)"
+	@sleep 0.5
+	@echo "$(YELLOW) $(BOLD) (^-^) $(END)"
+	@sleep 0.5
+	@echo "$(BLUE) $(BOLD) (/^•^)/ $(END)"
+	@sleep 0.5
+	@echo "$(PINK) $(BOLD) (^-^) $(END)"
+	@sleep 0.5
+	@echo "$(GREEN) $(BOLD) \(^-^)/ $(END)"
+	@sleep 0.5
+	@echo "$(BOLD) Party time is over! Back to work! \n (^-^)7$(END)"	
+
+cat:
+	@echo "    ⢀⠠⠤⠀⢀⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+	@echo "⠀⠀⠐⠀⠐⠀⠀⢀⣾⣿⡇⠀⠀⠀⠀⠀⢀⣼⡇⠀⠀⠀⠀"
+	@echo "⠀⠀⠀⠀⠀⠀⠀⣸⣿⣿⣿⠀⠀⠀⠀⣴⣿⣿⠇⠀⠀⠀⠀"
+	@echo "⠀⠀⠀⠀⠀⠀⢠⣿⣿⣿⣇⠀⠀⢀⣾⣿⣿⣿⠀⠀⠀⠀⠀"
+	@echo "⠀⠀⠀⠀⠀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⠐⠀⡀"
+	@echo "⠀⠀⠀⠀⢰⡿⠉⠀⡜⣿⣿⣿⡿⠿⢿⣿⣿⡃⠀⠀⠂⠄⠀"
+	@echo "⠀⠀⠒⠒⠸⣿⣄⡘⣃⣿⣿⡟⢰⠃⠀⢹⣿⡇⠀⠀⠀⠀⠀"
+	@echo "⠀⠀⠚⠉⠀⠊⠻⣿⣿⣿⣿⣿⣮⣤⣤⣿⡟⠁⠘⠠⠁⠀⠀"
+	@echo "⠀⠀⠀⠀⠀⠠⠀⠀⠈⠙⠛⠛⠛⠛⠛⠁⠀⠒⠤⠀⠀⠀⠀"
+	@echo "⠨⠠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⠀⠀⠀⠀⠀⠀"
+	@echo "⠁⠃⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
 
 .PHONY: all clean fclean re display_ascii
 

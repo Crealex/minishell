@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_env.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 10:20:22 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/27 16:25:46 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/27 19:46:57 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,5 @@ void	ft_env(char **env)
 		printf("%s\n", env[i]);
 		i++;
 	}
-	int ienv = var_exist("TEST=vsd", env);
-	printf("env[ienv] after env :%s\n", env[ienv]);
 	update_exit_code(0);
 }

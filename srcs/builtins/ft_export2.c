@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_export2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:29:14 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/27 16:03:21 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/27 19:43:14 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,15 @@ int var_exist(char *str, char **env)
 void	modify_var(char *str, char ***env)
 {
 	int		ienv;
+	char	*new_str;
+
 	ienv = var_exist(str, *env);
-	printf("env[ienv] before dup : %s\n", (*env)[ienv]);
-	if((*env)[ienv])
+	new_str = ft_strdup(str);
+	if (new_str && (*env)[ienv])
+	{
 		free((*env)[ienv]);
-	(*env)[ienv] = ft_strdup(str);
-	printf("env[ienv] after dup : %s\n", (*env)[ienv]);
+		(*env)[ienv] = new_str;
+	}
 }
 
 void	cat_var(char *str, char ***env)

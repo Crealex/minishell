@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_export.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 11:35:36 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/27 16:21:39 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/27 21:32:00 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,10 @@ char *format_content(char *str)
 	{
 		if (str[i] == '\'' || str[i] == '\"')
 			update_quote(&quote[0], &quote[1], &i, str);
-		if (str[i])
+		else
 			res[ires++] = str[i++];
 	}
 	res[ires] = '\0';
-	free(str);
 	return (res);
 }
 
@@ -100,15 +99,16 @@ void	add_to_env(char *str, char ***env)
 			modify_var(str, env);
 		else
 			add_var(env, &i, str);
+		free(str);
 	}
-	else if (check_name(str) == 2) // Gere le +=
+	else if (check_name(str) == 2) // Gere le += // ATTENTION A ENLEVER LE PLUS +
 	{
-		printf("handle +=\n");
 		str = format_content(str);
 		if (var_exist(str, *env) != -1)
-			cat_var(str, env); // a coder
+			cat_var(str, env);
 		else
 			add_var(env, &i, str);
+		free(str);
 	}
 }
 

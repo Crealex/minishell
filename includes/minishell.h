@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/27 14:05:11 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/28 11:04:44 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ char	**cpy_double_array(char **cpy, char **src);
 char	*handle_dollars(char *prompt);
 void	update_quote(int *in_single, int *in_double, int *i, char *prompt);
 char	*better_strjoin(char const *s1, char const *s2, char *prompt, int iprompt);
+int		redirection(char *str);
 int		check_builtins(char **prompt);
 int		is_pipe(char *str);
 int		double_single_quote(const char *s, int i);

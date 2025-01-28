@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_export.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 11:35:36 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/27 21:32:00 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/28 09:54:09 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char *format_content(char *str)
 	{
 		if (str[i] == '\'' || str[i] == '\"')
 			update_quote(&quote[0], &quote[1], &i, str);
-		else
+		if (str[i])
 			res[ires++] = str[i++];
 	}
 	res[ires] = '\0';
@@ -82,7 +82,7 @@ void	add_var(char ***env, int *i, char *str)
 	*i = 0;
 	freesplit(*env);
 	*env = cpy_double_array(*env, temp);
-	//freesplit(temp); //double free quand actif, pourquoi?
+	freesplit(temp);
 }
 
 void	add_to_env(char *str, char ***env)

@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 11:35:36 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/28 09:54:09 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/28 18:09:29 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char *format_content(char *str)
 	ires = 0;
 	quote[0] = 0;
 	quote[1] = 0;
-	res = malloc(sizeof(char) * (ft_strlen(str) + 1));
+	res = malloc(sizeof(char) * (len_wquote(str) + 1));
 	while (str[i] && str[i] != '=')
 		res[ires++] = str[i++];
 	while(str[i])
@@ -46,13 +46,16 @@ int	check_name(char *str)
 			return (0);
 	while (str[i])
 	{
-		if (str[i] == '=' && i > 0)
-		{
-			if (i > 0 && str[i - 1] == '+')
-				return (2);
+		if (str[i] == '=')
 			return (1);
+		else if (str[i] == '+')
+		{
+			i++;
+			if (str[i] == '=')
+				return (2);
+			return (0);
 		}
-		if (!ft_isalnum(str[i]) && str[i] != '_' && str[i] != '+')
+		if (!ft_isalnum(str[i]) && str[i] != '_')
 			return (0);
 		i++;
 	}
@@ -119,7 +122,7 @@ void	ft_export(char **prompt, char ***env)
 	i = 1;
 	if (!prompt[1])
 	{
-		//special_display_env(env); // a faire
+		//display_sort(*env);
 		return ;
 	}
 	(void)env;

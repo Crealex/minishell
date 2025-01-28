@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quote.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:47:23 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/24 16:48:56 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/28 11:32:23 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,27 @@ int	is_quote(char *str)
 	free(*str);
 	*str = ft_strdup(res);
 	free(res);
+}
+
+int	len_wquote(char *str)
+{
+	int i;
+	int count;
+	int quote[2];
+
+	i = 0;
+	count = 0;
+	quote[0] = 0;
+	quote[1] = 0;
+	while (str[i])
+	{
+		if (str[i] == '\'' || str[i] == '\"')
+			update_quote(&quote[0], &quote[1], &i, str);
+		if (str[i])
+		{
+			i++;
+			count++;
+		}
+	}
+	return (count);
 }

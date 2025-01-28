@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_export2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:29:14 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/27 19:43:14 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/28 16:02:06 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*get_content(char *str)
 	i++;
 	while (str[i + count])
 		count++;
-	res = malloc(sizeof(char) * count);
+	res = malloc(sizeof(char) * count + 1);
 	while (str[i])
 	{
 		if (str[i] == '\'' || str[i] == '\"')
@@ -72,7 +72,10 @@ int var_exist(char *str, char **env)
 	while (env[i])
 	{
 		if (ft_strncmp(name, env[i], l_name) == 0)
+		{
+			free(name);
 			return (i);
+		}
 		i++;
 	}
 	free(name);
@@ -108,4 +111,5 @@ void	cat_var(char *str, char ***env)
 	free((*env)[ienv]);
 	(*env)[ienv] = ft_strjoin(temp, content);
 	free(temp);
+	free(content);
 }

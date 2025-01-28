@@ -33,3 +33,117 @@ pwd
 unset
 env
 exit
+exit
+exit
+exit
+exit
+exit
+exit
+env
+export
+env
+export bruh=bruh
+env
+export test1=test1 test2=test2
+env
+export test1+=bruh test2+=yooupi
+env
+export bruh=fjjxfjnbjkxfnbjxfnbkxnfbkjxfnbjkxnjkbnxjkbnjkxfnbjkxfnbjkxnfbkjxfnbkjxnbkjxfnbkjxfnbjkxnb
+env
+export bruh="dsjfn sudgniusbg uisgbs niuegsisn iusegns sgbseg"
+env
+export bruh='dsjfn sudgniusbg uisgbs niuegsisn iusegns sgbseg'
+env
+exit
+export TEST=test
+exit
+export TEST=test
+export TEST=test2
+exit
+export TEST=test
+export TEST=test2
+export TEST+=34
+exit
+export TEST=je" teste ma fonction"
+env
+exit
+export TEST=test
+export test+=sdknvlsd
+export test+=123
+exit
+export TEST=test
+export TEST+=123
+env
+exit
+export test=test
+export test+=vdsvs
+exit
+export test+=vdsvs
+export test=test
+exit
+export test=test
+exit
+export test=test
+exit
+export test=test
+export TEST=dscsdcs
+exit
+export TEST+=test
+export TEST+=123
+exit
+export test+=test
+export test+=123
+export test="je teste"
+export test="kdnns sdkh vsdhv  hidshv oisdhv o oijdsovhisdv"
+export test+="dsvsdvs dsv"
+exit
+export USER+=moi
+export USER+=moi
+export USER+=moi
+exit
+export TEST+=test
+exit
+export TEST+=test
+export TEST+=123
+exit
+export TEST=svdsvs
+export TEST=djsvbskjbvk;dsvs
+env
+exit
+export TEST??=dscdscs
+nev
+env
+export TEST++=test
+env
+exit
+export TEST=test
+env
+export TEST=testt
+env
+export +=123
+env
+export TEST+=123
+env
+export TEST++=123
+env
+export TEST++=123435453
+env
+export TEST+=caca
+env
+export TESST=pipi
+env
+unset TESST
+env
+export TEST2+=test
+env
+exit
+export TEST+=test
+env
+export test=rtest
+export test+=123
+env
+exit
+export TEST+=test
+exit
+export TEST+=test
+exit

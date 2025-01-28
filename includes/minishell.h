@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/27 11:39:24 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/28 10:04:26 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 # include <readline/readline.h>
 # include <readline/history.h>
 
+void	get_history(int fd);
+void	manage_history(char *str, int fd);
 int		parsing(char *str, char ***env);
 // builtins
 void	ft_echo(char *str);

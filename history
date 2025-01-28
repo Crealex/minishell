@@ -1,0 +1,35 @@
+cat | cat
+cat || cat
+ls
+ls -l
+cat | wc -l
+cat | wc -l
+exit
+cat || cat
+make
+exit
+cat | cat
+cat || cat
+ls
+ls -l
+cat | wc -l
+exit
+cat || cat
+exit
+ls -l
+exit
+cat | cat
+pipe
+ls
+cat || cat
+exit
+cat | cat
+cat || cat
+cat |
+ls
+cd ..
+cd minishell/
+pwd
+unset
+env
+exit

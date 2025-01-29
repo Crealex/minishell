@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 15:55:48 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/27 13:10:17 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/29 10:51:28 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,15 @@
 static int	no_pipe(char *str)
 {
 	int	i;
+	int	quote[2];
 
 	i = 0;
+	quote[0] = 0;
+	quote[1] = 0;
 	while (str[i])
 	{
-		if (str[i] == '|')
+		update_quote(&quote[0], &quote[1], &i, str);
+		if (!quote[0] && !quote[1] && str[i] == '|')
 			return (0);
 		i++;
 	}

@@ -6,47 +6,41 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:02:55 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/01/28 11:51:41 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/29 14:53:19 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../../includes/minishell.h"
 
 static int	no_redirect(char *str)
 {
 	int	i;
+	int	quote[2];
 
 	i = 0;
+	quote[0] = 0;
+	quote[1] = 0;
 	while (str[i])
 	{
-		if (str[i] == '<')
-			if (str[i + 1] && str[i + 1] != '<')
-				return (1);
-		if (str[i] == '>')
-			if (str[i + 1] && str[i + 1] != '>')
-				return (1);
+		update_quote(&quote[0], &quote[1], &i, str);
+		if (!quote[0] && !quote[1] && str[i] == '<')
+			if (str[i + 1] != '<')
+				return (0);
+		if (!quote[0] && !quote[1] && str[i] == '>')
+			if (str[i + 1] != '>')
+				return (0);
 		i++;
 	}
-	return (0);
-}
-
-static int	in_redirect(char *str)
-{
-	int	i;
-
-	i = 0;
-	if (str[i] == '<')
-		return (1);
-	while (str[i] == ' ')
-		i++;
-	if (i != 0 && str[i] == '<')
-		return (1);
+	return (1);
 }
 
 int	redirection(char *str)
 {
-	int	i;
-
-	i = 0;
-	if (!no_redirect(str))
+	if (no_redirect(str))
 		return (0);
-	in_redirect
+	if (!in_redirect(str))
+		return (0);
+	if (!out_redirect(str))
+		return (0);
+	return (1);
 }

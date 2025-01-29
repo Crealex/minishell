@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:02:55 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/01/29 14:53:19 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/29 15:53:23 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,9 @@ static int	no_redirect(char *str)
 	{
 		update_quote(&quote[0], &quote[1], &i, str);
 		if (!quote[0] && !quote[1] && str[i] == '<')
-			if (str[i + 1] != '<')
-				return (0);
+			return (0);
 		if (!quote[0] && !quote[1] && str[i] == '>')
-			if (str[i + 1] != '>')
-				return (0);
+			return (0);
 		i++;
 	}
 	return (1);

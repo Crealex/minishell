@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/28 10:04:41 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/29 16:04:24 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,11 @@ int parsing(char *str, char ***env)
 		pipe_prompt = ft_splitpipe(str, '|');
 		if (!pipe_prompt)
 			return (0);
+		for (int i = 0; i < 3; i++)
+			printf("%s\n", pipe_prompt[i]);
 	}
-	prompt = split_wquote(str, ' ');
+	printf("redirection : %i\n", redirection(str));
+	prompt = ft_split(str, ' ');
 	if (!prompt)
 		return (0);
 	if (!check_builtins(prompt))

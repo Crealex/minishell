@@ -1,6 +1,8 @@
 NAME	=	minishell
 LIBFT	=	libft/libft.a
 SRCS	=	$(addprefix srcs/, main.c history.c)
+BUILTINS	=	$(addprefix srcs/builtins/, ft_echo.c ft_exit.c ft_cd.c ft_pwd.c ft_export.c ft_env.c ft_unset.c)
+PROMPT 	=	$(addprefix srcs/parsing/, handle_dollars.c handle_dollars_utils.c is_pipe.c parsing.c check_builtins.c redirection.c in_out_redirect.c)
 BUILTINS	=	$(addprefix srcs/builtins/, ft_echo.c ft_exit.c ft_cd.c ft_pwd.c ft_export.c ft_export2.c ft_export_sort_display.c \
 							ft_env.c ft_unset.c ft_export3.c)
 PROMPT 	=	$(addprefix srcs/parsing/, handle_dollars.c handle_dollars_utils.c is_pipe.c parsing.c check_builtins.c)
@@ -55,6 +57,9 @@ ${OBJDIR}:
 	@mkdir -p ${OBJDIR}/srcs/utils
 	@echo "${BOLD}${BLUE}📁 Created objects directory${END}"
 
+leaks: ${NAME}
+	@echo "${GREEN}Valgrind launched, outfiles :${YELLOW} leakslogs.txt${END}"
+	@valgrind --leak-check=full --log-file=leakslogs.txt --show-leak-kinds=all --suppressions=ignore_readline_leaks.supp ./minishell
 leaks: ${NAME}
 	@echo "${GREEN}Valgrind launched, outfiles :${YELLOW} leakslogs.txt${END}"
 	@valgrind --leak-check=full --log-file=leakslogs.txt --show-leak-kinds=all --suppressions=ignore_readline_leaks.supp ./minishell

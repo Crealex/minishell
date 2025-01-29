@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/29 14:37:25 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/29 16:04:28 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,9 @@ void	update_quote(int *in_single, int *in_double, int *i, char *prompt);
 //parsing
 char	*handle_dollars(char *prompt);
 char	*better_strjoin(char const *s1, char const *s2, char *prompt, int iprompt);
+int		in_redirect(char *str);
+int		out_redirect(char *str);
+int		redirection(char *str);
 int		check_builtins(char **prompt);
 int		is_pipe(char *str);
 int		ft_nb_row(char const *s, char c);

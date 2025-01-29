@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_export.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 11:35:36 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/29 15:58:44 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/29 19:07:55 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,9 +130,9 @@ void	ft_export(char **prompt, char ***env)
 		display_sort(*env);
 		return ;
 	}
-	(void)env;
 	while (prompt[i])
 	{
+		printf("prompt %d : %s\n", i, prompt[i]);
 		add_to_env(prompt[i], env);
 		i++;
 	}

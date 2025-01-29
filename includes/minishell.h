@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/29 16:04:28 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/29 18:47:59 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		parsing(char *str, char ***env);
 void	ft_echo(char *str);
 void	ft_exit(char *str_prompt, char *str, char **prompt, char ***env);
 void	freesplit(char **str);
-void	ft_cd(char **prompt);
+void	ft_cd(char **prompt, char ***env);
 void	ft_pwd(char **prompt);
 void	ft_export(char **prompt, char ***env);
 int		var_exist(char *str, char **env);
@@ -48,6 +48,7 @@ int		count_occurence(char *str, char c);
 //utils
 int		update_exit_code(int param);
 char	**cpy_double_array(char **cpy, char **src);
+char	*ft_getenv(char *var, char **env);
 //quote
 int		len_wquote(char *str);
 void	rm_quote(char **str);

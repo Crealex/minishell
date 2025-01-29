@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/29 16:11:45 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/29 18:40:45 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	which_builtins(char **prompt, char *str, char ***env)
 	if (!ft_strncmp(prompt[0], "echo", 4))
 		ft_echo(str);
 	else if (!ft_strncmp(prompt[0], "cd", 2))
-		ft_cd(prompt);
+		ft_cd(prompt, env);
 	else if (!ft_strncmp(prompt[0], "pwd", 3))
 		ft_pwd(prompt);
 	else if (!ft_strncmp(prompt[0], "export", 6))

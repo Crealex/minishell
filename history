@@ -127,3 +127,72 @@ export 1231321
 >>>
 <<<<
 <>>>>
+export
+exit
+export
+cd
+cd alexandre/
+cd
+cd
+cd
+cd
+echo $PWD
+exit
+cd
+xd
+cd
+cd
+cd
+cd
+cd ..
+cd
+cd
+env
+echo $PWD
+export TEST=test
+echo $TEST
+echo $LESS
+unset LESS
+echo $LESS
+echo $LESS
+echo $LESS
+echo $LESS
+unset $LESS
+echo $LESS
+echo $LESS
+echo $LESS
+env
+cd
+cd
+cd
+cd
+cd ..
+cd
+cd ..
+cd home
+env
+exit
+export
+export TEST=test
+env
+echo $TEST
+exit
+cd
+exit
+cd
+echo $PWD
+env
+cd
+env
+cd alexandre/
+exit
+cd
+cd
+cd
+cd
+cd
+exit
+cd
+exit
+cd
+exit

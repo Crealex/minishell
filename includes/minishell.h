@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/28 16:27:08 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/29 14:37:25 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ void	ft_export(char **prompt, char ***env);
 int		var_exist(char *str, char **env);
 void	modify_var(char *str, char ***env);
 void	cat_var(char *str, char ***env);
+char	*get_name(char *str);
+char	*get_content(char *str);
+char	*remove_plus(char *str);
 void	display_sort(char **env);
 void	ft_env(char **env);
 char	**ft_unset(char ***env, char **prompt, int n);

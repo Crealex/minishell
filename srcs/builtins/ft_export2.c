@@ -6,13 +6,13 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:29:14 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/28 16:02:06 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/29 09:56:18 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-static char	*get_name(char *str)
+char	*get_name(char *str)
 {
 	int		i;
 	char	*res;
@@ -102,11 +102,8 @@ void	cat_var(char *str, char ***env)
 	char	*content;
 	char	*temp;
 
-	//1. stocker la content a ajouter (str apres le =)
 	content = get_content(str);
-	//2. Trouver la bonne variable d'env
 	ienv = var_exist(str, *env);
-	//3. Join l'env avec le bout de str
 	temp = ft_strdup((*env)[ienv]);
 	free((*env)[ienv]);
 	(*env)[ienv] = ft_strjoin(temp, content);

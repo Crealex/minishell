@@ -147,3 +147,88 @@ export TEST+=test
 exit
 export TEST+=test
 exit
+export TEST+=test
+env
+export TEST2=etest
+env
+export TEST+=123
+env
+export TEST2+="caca boudin"
+env
+exit
+export TEST+=123
+env
+export +=" 45 6"
+env
+export TEST+=" 45 6"
+env
+export  TEST=test
+env
+exit
+echo $USER $USER
+echo "$USER $USER"
+export
+exit
+export
+exit
+export
+export
+export
+export
+export
+echo 
+export
+echo 
+echo 
+echo 
+echo 
+echo 
+echo 
+echo 
+echo 
+echo 
+echo 
+echo 
+echo 
+echo 
+echo 
+echo 
+echo 
+echo 
+exit
+export
+exit
+export
+exit
+export TEST+=test
+env
+export TEST+=123
+env
+export TEST=123
+env
+export TEST="je suis un chat"
+env
+export TEST+=" tigree et poilue"
+env
+export
+export 32iuewf+dss
+export 32iuewf=dss
+env
+export
+exit
+export 123
+export TEST$cacbs=saccsa
+export TEST#cacbs=saccsa
+export TEST#cacbs
+export TESTcacbs
+exit
+export TESTcacbs
+exit
+export fdlknbfb
+export bsdkjbv^dakjbvda
+export jhsdhfkjds*=svdsdvs
+exit
+export
+export hfsduhfs**hsdlf
+export 123=123
+exit

@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 11:35:36 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/28 18:09:29 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/29 15:58:44 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,11 @@ int	check_name(char *str)
 			return (0);
 		i++;
 	}
-		return (0);
+		return (-1);
 
 }
 
-void	add_var(char ***env, int *i, char *str)
+void	add_var(char ***env, int *i, char *str, int plus)
 {
 	char **temp;
 	int len;
@@ -79,7 +79,10 @@ void	add_var(char ***env, int *i, char *str)
 		temp[*i] = ft_strdup((*env)[*i]);
 		(*i)++;
 	}
-	temp[*i] = ft_strdup(str);
+	if (plus == 0)
+		temp[*i] = ft_strdup(str);
+	else
+		temp[*i] = remove_plus(str);
 	(*i)++;
 	temp[*i] = NULL;
 	*i = 0;
@@ -101,7 +104,7 @@ void	add_to_env(char *str, char ***env)
 		if (var_exist(str, *env) != -1)
 			modify_var(str, env);
 		else
-			add_var(env, &i, str);
+			add_var(env, &i, str, 0);
 		free(str);
 	}
 	else if (check_name(str) == 2) // Gere le += // ATTENTION A ENLEVER LE PLUS +
@@ -110,9 +113,11 @@ void	add_to_env(char *str, char ***env)
 		if (var_exist(str, *env) != -1)
 			cat_var(str, env);
 		else
-			add_var(env, &i, str);
+			add_var(env, &i, str, 1);
 		free(str);
 	}
+	else if (check_name(str) == 0)
+		printf("minishell: export: `%s': not a valid identifier\n", str);
 }
 
 void	ft_export(char **prompt, char ***env)
@@ -122,7 +127,7 @@ void	ft_export(char **prompt, char ***env)
 	i = 1;
 	if (!prompt[1])
 	{
-		//display_sort(*env);
+		display_sort(*env);
 		return ;
 	}
 	(void)env;

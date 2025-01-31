@@ -127,3 +127,21 @@ export 1231321
 >>>
 <<<<
 <>>>>
+cat | cat
+exit
+cat | cat
+exit
+cat | cat
+cat | $USER
+exit
+cat | cat
+cat | $USER
+exit
+cat | $USER
+cat | $USER | $TERM
+exit
+cat | $USER
+cat $USER
+exit
+cat $USER
+exit

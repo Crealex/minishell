@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/29 16:04:28 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/31 15:49:39 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int		count_occurence(char *str, char c);
 //utils
 int		update_exit_code(int param);
 char	**cpy_double_array(char **cpy, char **src);
+void	*ft_freesplit(char **res, int j);
 //quote
 int		len_wquote(char *str);
 void	rm_quote(char **str);

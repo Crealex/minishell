@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split_wquote.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:26:56 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/24 16:39:07 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/31 15:50:55 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,20 +44,6 @@ static char	*ft_strinrow(char const *s, int start, int end)
 	}
 	row[i] = '\0';
 	return (row);
-}
-
-static void	*ft_freesplit(char **res, int j)
-{
-	int	i;
-
-	i = 0;
-	while (i < j)
-	{
-		free(res[i]);
-		i++;
-	}
-	free(res);
-	return (NULL);
 }
 
 char	**split_wquote(char const *s, char c)

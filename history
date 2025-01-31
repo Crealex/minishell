@@ -109,7 +109,7 @@ doiashdiash >      > usidhuiasidgh
 jdhasuihdas <
 jdhasuihdas <      < uiasdgiuasduias
 exit
-export 
+export
 export 123 jsdf
 >
 <
@@ -127,95 +127,21 @@ export 1231321
 >>>
 <<<<
 <>>>>
-export
+cat | cat
 exit
-export
-cd
-cd alexandre/
-cd
-cd
-cd
-cd
-echo $PWD
+cat | cat
 exit
-cd
-xd
-cd
-cd
-cd
-cd
-cd ..
-cd
-cd
-env
-echo $PWD
-export TEST=test
-echo $TEST
-echo $LESS
-unset LESS
-echo $LESS
-echo $LESS
-echo $LESS
-echo $LESS
-unset $LESS
-echo $LESS
-echo $LESS
-echo $LESS
-env
-cd
-cd
-cd
-cd
-cd ..
-cd
-cd ..
-cd home
-env
+cat | cat
+cat | $USER
 exit
-export
-export TEST=test
-env
-echo $TEST
+cat | cat
+cat | $USER
 exit
-cd
+cat | $USER
+cat | $USER | $TERM
 exit
-cd
-echo $PWD
-env
-cd
-env
-cd alexandre/
+cat | $USER
+cat $USER
 exit
-cd
-cd
-cd
-cd
-cd
-exit
-cd
-exit
-cd
-exit
-export
-exit
-echo $USER
-echo salut ma c'est $USER caca
-echo $USER $USER
-exit
-echo $USER
-echo $?
-echo $cascas
-export TEST=test
-echo $TEST
-echo TEST=$USER
-echo $TEST
-export TEST=$USER
-echo TEST
-echo $TEST
-exit
-export TEST=test
-echo $TEST
-export GOGOGOGOG
-env
-export
+cat $USER
 exit

@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 11:11:51 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/01/29 14:56:50 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:24:54 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int	in_redirect(char *str)
 		update_quote(&quote[0], &quote[1], &i, str);
 		if (!quote[0] && !quote[1] && str[i] == '<')
 		{
+			if (str[i + 1] && str[i + 1] == '<')
+				i++;
 			if (error(str, &i, "<"))
 				return (0);
 		}
@@ -68,6 +70,8 @@ int	out_redirect(char *str)
 		update_quote(&quote[0], &quote[1], &i, str);
 		if (!quote[0] && !quote[1] && str[i] == '>')
 		{
+			if (str[i + 1] && str[i + 1] == '>')
+				i++;
 			if (str[i + 1] && str[i + 1] == '<')
 			{
 				ft_putstr_fd("minishell: syntax error", 2);

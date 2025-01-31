@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split_pipe.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 15:57:09 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/24 16:19:40 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/31 15:49:23 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static char	*ft_strinrow(char const *s, int start, int end)
     return (row);
 }
 
-static void	*ft_freesplit(char **res, int j)
+ void	*ft_freesplit(char **res, int j)
 {
     int	i;
 

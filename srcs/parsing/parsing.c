@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/31 14:12:11 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/31 16:07:14 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,30 @@ static void	which_builtins(char **prompt, char *str, char ***env)
 		other_cmd();*/
 }
 
+static char	**dollar_pipe(char **pipe_prompt)
+{
+	int	i;
+	char **res;
+
+	i = 0;
+	while (pipe_prompt[i])
+		i++;
+	res = ft_calloc(i + 1, sizeof(char *));
+	if (!res)
+		return (NULL);
+	i = 0;
+	while (pipe_prompt[i])
+	{
+		res[i] = handle_dollars(pipe_prompt[i]);
+		if (!res[i])
+			return (ft_freesplit(res, i), NULL);
+		i++;
+	}
+	free(pipe_prompt);
+	res[i] = '\0';
+	return (res);
+}
+
 int parsing(char *str, char ***env)
 {
 	char	**prompt;
@@ -47,11 +71,14 @@ int parsing(char *str, char ***env)
 		pipe_prompt = ft_splitpipe(str, '|');
 		if (!pipe_prompt)
 			return (0);
-		for (int i = 0; i < 3; i++)
-			printf("%s\n", pipe_prompt[i]);
+		pipe_prompt = dollar_pipe(pipe_prompt);
+		if (!pipe_prompt)
+			return (0);
 	}
-	//printf("redirection : %i\n", redirection(str));
-	prompt = split_wquote(str, ' ');
+	else
+		str = handle_dollars(str);
+	// printf("redirection : %i\n", redirection(str));
+	prompt = ft_split(str, ' ');
 	if (!prompt)
 		return (0);
 	if (!check_builtins(prompt))

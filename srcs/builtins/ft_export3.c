@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_env.c                                           :+:      :+:    :+:   */
+/*   ft_export3.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/23 10:20:22 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/27 19:46:57 by alexandre        ###   ########.fr       */
+/*   Created: 2025/01/29 09:52:45 by atomasi           #+#    #+#             */
+/*   Updated: 2025/01/29 10:40:24 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-void	ft_env(char **env)
+char	*remove_plus(char *str)
 {
-	int		i;
+	char *res;
+	char *name;
+	char *content;
+	char *temp;
 
-	i = 0;
-	if (!env || !*env)
-	{
-		update_exit_code(1);
-		return ;
-	}
-	while (env[i])
-	{
-		printf("%s\n", env[i]);
-		i++;
-	}
-	update_exit_code(0);
+	name = get_name(str);
+	content = get_content(str);
+	temp = ft_strjoin(name, "=");
+	free(name);
+	res = ft_strjoin(temp, content);
+	free(temp);
+	free(content);
+	return (res);
 }

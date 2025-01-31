@@ -51,16 +51,16 @@ cat | cat
 cat < test
 cat "< test"
 cat "< test" < tt
-cat "< test" < 
+cat "< test" <
 cat "< test" <     < t
 cat > test
 cat "> test"
 cat "> test" >
 cat "> test" >
-cat "> test" >   
+cat "> test" >
 exit
-< text.txt 
-<   
+< text.txt
+<
 <
 duihads <
 exit
@@ -104,42 +104,26 @@ jdhasuihdas <
 udahduha < iudhaiudhasiu
 doiashdiash >
 doiashdiash > iahdiuahsd
-doiashdiash >      
+doiashdiash >
 doiashdiash >      > usidhuiasidgh
-jdhasuihdas <      
+jdhasuihdas <
 jdhasuihdas <      < uiasdgiuasduias
 exit
-cat <
-cat <<
-cat <
-cat <<
-cat <<    
-cat <<    djashda
-cat <<<    djashda
-cat <<<<    djashda
-cat >    djashda
+export 
+export 123 jsdf
 >
->>
-> sadyuasghd
->> sadyuasghd
->>> sadyuasghd
-make fclean
-exit
 <
-< aisdiusduias
-<         
-<        < 
-<<
-<< iudhfiudfiudsgf
-<<           
-<<           <
-<<           <<
->
-> uasdgyuasgd
->            
->>
->>              
->>              hahsdgaus
->            > adhiuas
->>            > adhiuas
->>            >> adhiuas
+exit
+export
+export TEST=test
+export TEST+=123
+export TST2=dcs
+export TST2=1231231231231231231
+exit
+export e325dfs
+export 1231321
+<
+< nev
+>>>
+<<<<
+<>>>>

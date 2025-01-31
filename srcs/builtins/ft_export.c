@@ -3,19 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_export.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 11:35:36 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/24 15:45:06 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/29 15:58:44 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-/* char *format_content(char *str)
+char *format_content(char *str)
 {
-	int	i;
-} */
+	int		i;
+	int		ires;
+	int		quote[2];
+	char	*res;
+
+	i = 0;
+	ires = 0;
+	quote[0] = 0;
+	quote[1] = 0;
+	res = malloc(sizeof(char) * (len_wquote(str) + 1));
+	while (str[i] && str[i] != '=')
+		res[ires++] = str[i++];
+	while(str[i])
+	{
+		if (str[i] == '\'' || str[i] == '\"')
+			update_quote(&quote[0], &quote[1], &i, str);
+		if (str[i])
+			res[ires++] = str[i++];
+	}
+	res[ires] = '\0';
+	return (res);
+}
 
 int	check_name(char *str)
 {
@@ -26,21 +46,24 @@ int	check_name(char *str)
 			return (0);
 	while (str[i])
 	{
-		if (str[i] == '=' && i > 0)
-		{
-			if (i > 0 && str[i - 1] == '+')
-				return (2);
+		if (str[i] == '=')
 			return (1);
+		else if (str[i] == '+')
+		{
+			i++;
+			if (str[i] == '=')
+				return (2);
+			return (0);
 		}
-		if (!ft_isalnum(str[i]) && str[i] != '_' && str[i] != '+')
+		if (!ft_isalnum(str[i]) && str[i] != '_')
 			return (0);
 		i++;
 	}
-		return (0);
+		return (-1);
 
 }
 
-void	add_var(char ***env, int *i, char *str)
+void	add_var(char ***env, int *i, char *str, int plus)
 {
 	char **temp;
 	int len;
@@ -56,7 +79,10 @@ void	add_var(char ***env, int *i, char *str)
 		temp[*i] = ft_strdup((*env)[*i]);
 		(*i)++;
 	}
-	temp[*i] = ft_strdup(str);
+	if (plus == 0)
+		temp[*i] = ft_strdup(str);
+	else
+		temp[*i] = remove_plus(str);
 	(*i)++;
 	temp[*i] = NULL;
 	*i = 0;
@@ -72,26 +98,26 @@ void	add_to_env(char *str, char ***env)
 	i = 0;
 	if (is_quote(str))
 		rm_quote(&str);
-	//printf("in add to env\n");
 	if (check_name(str) == 1) //Gere le =
 	{
-		//1.formater le contenu de la var
-		//2.Verifier si le nom de la var existe deja
-		add_var(env, &i, str);
-		printf("Juste avant des derniers dup\n");
+		str = format_content(str);
+		if (var_exist(str, *env) != -1)
+			modify_var(str, env);
+		else
+			add_var(env, &i, str, 0);
+		free(str);
 	}
-	else if (check_name(str) == 2) // Gere le +=
+	else if (check_name(str) == 2) // Gere le += // ATTENTION A ENLEVER LE PLUS +
 	{
-		//1. formater le contenu de la var
-		//2. Verifier si la  var existe
-		//modify_env(str, env); // a faire
-		printf("handle +=\n");
+		str = format_content(str);
+		if (var_exist(str, *env) != -1)
+			cat_var(str, env);
+		else
+			add_var(env, &i, str, 1);
+		free(str);
 	}
-	else
-	{
-		printf("not valid name\n");
-		return ;
-	}
+	else if (check_name(str) == 0)
+		printf("minishell: export: `%s': not a valid identifier\n", str);
 }
 
 void	ft_export(char **prompt, char ***env)
@@ -101,7 +127,7 @@ void	ft_export(char **prompt, char ***env)
 	i = 1;
 	if (!prompt[1])
 	{
-		//special_display_env(env); // a faire
+		display_sort(*env);
 		return ;
 	}
 	(void)env;

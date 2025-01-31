@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:16:15 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/22 13:27:18 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/31 16:02:56 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*get_var_name(char *prompt, int *i)
 	return (res[ires] = '\0', res);
 }
 
-char	*add_env(char *prompt, int *i, int *ires, char *res)
+static char	*add_env(char *prompt, int *i, t_str *res, char **all_env)
 {
 	char	*var_name;
 	char	*env;
@@ -47,7 +47,7 @@ char	*add_env(char *prompt, int *i, int *ires, char *res)
 	temp = ft_calloc(*i + 1, sizeof(char));
 	if (!temp)
 		return (NULL);
-	ft_strlcpy(temp, res, *ires + 1);
+	ft_strlcpy(temp, res->str, res->i + 1);
 	var_name = get_var_name(prompt, i);
 	if (ft_strncmp(var_name, "?", ft_strlen(var_name)) == 0)
 	{
@@ -55,45 +55,44 @@ char	*add_env(char *prompt, int *i, int *ires, char *res)
 		env = ft_itoa(update_exit_code(-1));
 	}
 	else
-		env = getenv(var_name);
+		env = ft_getenv(var_name, all_env);
 	free(var_name);
 	if (!env)
-		return (res);
-	if (res)
-		free(res);
-	res = better_strjoin(temp, env, prompt, *i);
-	(*ires) += strlen(env);
+		return (res->str);
+	if (res->str)
+		free(res->str);
+	res->str = better_strjoin(temp, env, prompt, *i);
+	(res->i) += strlen(env);
 	if (temp)
 		free(temp);
-	return (res);
+	return (res->str);
 }
 
 
-char	*handle_dollars(char *prompt)
+char	*handle_dollars(char *prompt, char **env)
 {
 	int		i;
-	int		ires;
 	int		in_single;
 	int		in_double;
-	char	*res;
+	t_str	res;
 
 	i = 0;
-	ires = 0;
+	res.i = 0;
 	in_single = 0;
 	in_double = 0;
-	res = ft_calloc((ft_strlen(prompt) + 1), sizeof(char));
-	if (!res)
+	res.str = ft_calloc((ft_strlen(prompt) + 1), sizeof(char));
+	if (!res.str)
 		return (NULL);
 	while (prompt[i])
 	{
 		if ((prompt[i] == '\'' || prompt[i] == '\"'))
 			update_quote(&in_single, &in_double, &i, prompt);
 		if (prompt[i] == '$' && in_single == 0)
-			res = add_env(prompt, &i, &ires, res);
+			res.str = add_env(prompt, &i, &res, env);
 		if (prompt[i] && (prompt[i] != '\"' || !in_double)
 			&& (prompt[i] != '$' || in_single))
-			res[ires++] = prompt[i++];
+			res.str[res.i++] = prompt[i++];
 	}
-	res[ires] = '\0';
-	return (res);
+	res.str[res.i] = '\0';
+	return (res.str);
 }

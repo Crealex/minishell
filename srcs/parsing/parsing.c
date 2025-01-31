@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/29 18:40:45 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/31 14:12:11 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	which_builtins(char **prompt, char *str, char ***env)
 {
 	if (!ft_strncmp(prompt[0], "echo", 4))
-		ft_echo(str);
+		ft_echo(str, *env);
 	else if (!ft_strncmp(prompt[0], "cd", 2))
 		ft_cd(prompt, env);
 	else if (!ft_strncmp(prompt[0], "pwd", 3))
@@ -51,7 +51,7 @@ int parsing(char *str, char ***env)
 			printf("%s\n", pipe_prompt[i]);
 	}
 	//printf("redirection : %i\n", redirection(str));
-	prompt = ft_split(str, ' ');
+	prompt = split_wquote(str, ' ');
 	if (!prompt)
 		return (0);
 	if (!check_builtins(prompt))

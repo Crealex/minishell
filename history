@@ -196,3 +196,26 @@ cd
 exit
 cd
 exit
+export
+exit
+echo $USER
+echo salut ma c'est $USER caca
+echo $USER $USER
+exit
+echo $USER
+echo $?
+echo $cascas
+export TEST=test
+echo $TEST
+echo TEST=$USER
+echo $TEST
+export TEST=$USER
+echo TEST
+echo $TEST
+exit
+export TEST=test
+echo $TEST
+export GOGOGOGOG
+env
+export
+exit

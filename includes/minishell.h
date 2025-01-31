@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/29 18:47:59 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/01/31 10:31:09 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,19 @@
 # include <readline/readline.h>
 # include <readline/history.h>
 
+
+typedef struct s_str
+{
+	char	*str;
+	int		i;
+}		t_str;
+
+
 void	get_history(int fd);
 void	manage_history(char *str, int fd);
 int		parsing(char *str, char ***env);
 // builtins
-void	ft_echo(char *str);
+void	ft_echo(char *str, char **env);
 void	ft_exit(char *str_prompt, char *str, char **prompt, char ***env);
 void	freesplit(char **str);
 void	ft_cd(char **prompt, char ***env);
@@ -55,7 +63,7 @@ void	rm_quote(char **str);
 int		is_quote(char *str);
 void	update_quote(int *in_single, int *in_double, int *i, char *prompt);
 //parsing
-char	*handle_dollars(char *prompt);
+char	*handle_dollars(char *prompt, char **env);
 char	*better_strjoin(char const *s1, char const *s2, char *prompt, int iprompt);
 int		in_redirect(char *str);
 int		out_redirect(char *str);

@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/31 16:08:21 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/31 16:33:54 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int parsing(char *str, char ***env)
 		return (0);
 	if (!check_builtins(prompt))
 		return (freesplit(prompt), 1);
- 	which_builtins(prompt, str, env);
+ 	which_builtins(prompt, str, env); // remplacer par une fonction input_valid? et appeler which builtins depuis celle-ci
 	free(str);
 	freesplit(prompt);
 	if (pipe_prompt)

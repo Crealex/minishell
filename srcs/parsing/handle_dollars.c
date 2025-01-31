@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:16:15 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/31 16:05:08 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/31 16:06:04 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,6 @@ char	*handle_dollars(char *prompt, char **env)
 			&& (prompt[i] != '$' || in_single))
 			res.str[res.i++] = prompt[i++];
 	}
-	res[ires] = '\0';
-	return (free(prompt), res);
+	res.str[res.i] = '\0';
+	return (free(prompt), res.str);
 }

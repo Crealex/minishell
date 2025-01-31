@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/31 16:09:23 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/01/31 16:09:39 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int		count_occurence(char *str, char c);
 int		update_exit_code(int param);
 char	**cpy_double_array(char **cpy, char **src);
 void	*ft_freesplit(char **res, int j);
+char	*ft_getenv(char *var, char **env);
 //quote
 int		len_wquote(char *str);
 void	rm_quote(char **str);

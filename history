@@ -147,3 +147,64 @@ cat $USER
 exit
 export TEST=test
 echo $TEST
+echo "'$USER$USER'
+echo $USER
+echo "$USER"'
+echo '"$USER"
+echo "$USER"'
+echo '$USER'"
+exit
+echo $UST
+echo $USER
+echo '$USER$USER'"
+make
+exit
+echo $USER$USER
+echo $
+echo $?
+exit
+echo $
+echo $?
+echo $?dsvdsv
+echo $scacas
+exit
+echo $
+echo $caca
+exit
+echo $
+exit
+echo $
+echo $?
+exit
+echo $?
+echo $USER
+exit
+echo $
+echo $?
+exit
+echo $?
+exit
+echo $?
+exit
+echo $
+echo $
+echo $?
+echo $USER
+echo $?$?
+echo $?$
+exit
+echo $
+echo $?
+echo $USER
+echo 
+echo
+exit
+echo $
+echo $$$$$
+echo $?
+echo $?$?$?
+echo $USER
+echo $USERUSER
+echo $USER$USER
+echo $USER $USER
+exit

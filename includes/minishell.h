@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/31 16:09:39 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/03 11:24:40 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	get_history(int fd);
 void	manage_history(char *str, int fd);
 int		parsing(char *str, char ***env);
 // builtins
-void	ft_echo(char *str, char **env);
+void	ft_echo(char *str);
 void	ft_exit(char *str_prompt, char *str, char **prompt, char ***env);
 void	freesplit(char **str);
 void	ft_cd(char **prompt, char ***env);
@@ -73,6 +73,7 @@ int		check_builtins(char **prompt);
 int		is_pipe(char *str);
 int		ft_nb_row(char const *s, char c);
 char	**ft_splitpipe(char const *s, char c);
+int		is_valid_cmd(char **prompt);
 //split wquote
 char	**split_wquote(char const *s, char c);
 int		ft_nb_row(char const *s, char c);

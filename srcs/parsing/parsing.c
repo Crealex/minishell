@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/31 16:33:54 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/03 11:24:16 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	which_builtins(char **prompt, char *str, char ***env)
 {
 	if (!ft_strncmp(prompt[0], "echo", 4))
-		ft_echo(str, *env);
+		ft_echo(str);
 	else if (!ft_strncmp(prompt[0], "cd", 2))
 		ft_cd(prompt, env);
 	else if (!ft_strncmp(prompt[0], "pwd", 3))
@@ -78,8 +78,10 @@ int parsing(char *str, char ***env)
 	else
 		str = handle_dollars(str, *env);
 	// printf("redirection : %i\n", redirection(str));
-	prompt = ft_split(str, ' ');
+	prompt = split_wquote(str, ' ');
 	if (!prompt)
+		return (0);
+	if (is_valid_cmd(prompt))
 		return (0);
 	if (!check_builtins(prompt))
 		return (freesplit(prompt), 1);

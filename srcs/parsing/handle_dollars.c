@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:16:15 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/31 16:06:04 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/03 10:46:45 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ char	*get_var_name(char *prompt, int *i)
 	(*i)++;
 	countc = *i;
 	ires = 0;
-	if ((prompt[*i] >= '0' && prompt[*i] <= '9') && prompt[*i] != '_')
+	if ((prompt[*i] >= '0' && prompt[*i] <= '9') && prompt[*i] != '_' && prompt[*i] != '?')
 		return (NULL);
 	while (prompt[*i] && ((prompt[*i] >= 'A' && prompt[*i] <= 'Z')
 			|| (prompt[*i] >= 'a' && prompt[*i] <= 'z') || (prompt[*i] >= '0'
-				&& prompt[*i] <= '9') || prompt[*i] == '_'))
+				&& prompt[*i] <= '9') || prompt[*i] == '_' || prompt[*i] == '?'))
 		(*i)++;
 	countc = *i - countc;
 	res = ft_calloc(countc + 1, sizeof(char));
@@ -49,23 +49,22 @@ static char	*add_env(char *prompt, int *i, t_str *res, char **all_env)
 		return (NULL);
 	ft_strlcpy(temp, res->str, res->i + 1);
 	var_name = get_var_name(prompt, i);
-	if (ft_strncmp(var_name, "?", ft_strlen(var_name)) == 0)
+	if (ft_strncmp(var_name, "?", 1) == 0)
 	{
 		(*i)++;
 		env = ft_itoa(update_exit_code(-1));
 	}
+	else if (var_name[0] == '\0')
+		env = ft_strdup("$");
 	else
 		env = ft_getenv(var_name, all_env);
 	free(var_name);
 	if (!env)
 		return (res->str);
-	if (res->str)
-		free(res->str);
+	free(res->str);
 	res->str = better_strjoin(temp, env, prompt, *i);
 	(res->i) += strlen(env);
-	if (temp)
-		free(temp);
-	return (res->str);
+	return (free(temp), res->str);
 }
 
 

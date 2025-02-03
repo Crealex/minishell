@@ -196,7 +196,7 @@ exit
 echo $
 echo $?
 echo $USER
-echo 
+echo
 echo
 exit
 echo $

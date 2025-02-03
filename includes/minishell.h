@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/31 15:49:39 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/03 14:07:58 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,17 @@
 # include <fcntl.h>
 # include <readline/readline.h>
 # include <readline/history.h>
+
+typedef struct	s_prompt_info
+{
+	int		is_pipe;
+	int		fd_in;
+	int		fd_out;
+	char	*str_prt;
+	char	**prompt;
+	char	**env;
+}			t_prompt_info;
+
 
 void	get_history(int fd);
 void	manage_history(char *str, int fd);
@@ -57,11 +68,12 @@ void	update_quote(int *in_single, int *in_double, int *i, char *prompt);
 //parsing
 char	*handle_dollars(char *prompt);
 char	*better_strjoin(char const *s1, char const *s2, char *prompt, int iprompt);
-int		in_redirect(char *str);
-int		out_redirect(char *str);
-int		redirection(char *str);
+int		in_redirect(char **str);
+int		out_redirect(char **str);
+int		redirection(char **str, t_prompt_info *data);
 int		check_builtins(char **prompt);
-int		is_pipe(char *str);
+int		is_pipe(char **str);
+char	*add_space(char *str, int i, int is_double);
 int		ft_nb_row(char const *s, char c);
 char	**ft_splitpipe(char const *s, char c);
 //split wquote

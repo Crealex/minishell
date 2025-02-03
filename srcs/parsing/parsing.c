@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/31 16:02:29 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/03 14:59:42 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,13 @@ static char	**dollar_pipe(char **pipe_prompt)
 
 int parsing(char *str, char ***env)
 {
-	char	**prompt;
-	char	**pipe_prompt;
+	char			**prompt;
+	char			**pipe_prompt;
+	t_prompt_info	data;
 
 	pipe_prompt = NULL;
-	if (is_pipe(str))
+	data.is_pipe = is_pipe(&str);
+	if (data.is_pipe == 1)
 	{
 		pipe_prompt = ft_splitpipe(str, '|');
 		if (!pipe_prompt)
@@ -75,10 +77,12 @@ int parsing(char *str, char ***env)
 		if (!pipe_prompt)
 			return (0);
 	}
-	else
+	else if (data.is_pipe == 0)
 		str = handle_dollars(str);
-	// printf("redirection : %i\n", redirection(str));
-	prompt = ft_split(str, ' ');
+	else
+		return (0);
+	printf("redirection : %i\n", redirection(&str, &data));
+	prompt = split_wquote(str, ' ');
 	if (!prompt)
 		return (0);
 	if (!check_builtins(prompt))

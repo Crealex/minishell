@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/03 15:21:53 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/03 16:31:33 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ typedef struct	s_prompt_info
 	char	**prompt;
 	char	**env;
 }			t_prompt_info;
-
-
 
 typedef struct s_str
 {
@@ -86,7 +84,7 @@ int		is_pipe(char **str);
 char	*add_space(char *str, int i, int is_double);
 int		ft_nb_row(char const *s, char c);
 char	**ft_splitpipe(char const *s, char c);
-int		is_valid_cmd(char **prompt);
+int		is_valid_cmd(char **prompt, char *prompt_str);
 //split wquote
 char	**split_wquote(char const *s, char c);
 int		ft_nb_row(char const *s, char c);

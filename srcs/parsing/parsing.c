@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/03 15:23:57 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/03 16:34:55 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,12 @@ int parsing(char *str, char ***env)
 		str = handle_dollars(str, *env);
 	else
 		return (0);
-	printf("redirection : %i\n", redirection(&str, &data));
+	//printf("redirection : %i\n", redirection(&str, &data));
+	if (!is_valid_cmd(pipe_prompt, str))
+		return (0);
+	// tout ce qu'il y a ci-dessous sera dans une autre fonction
 	prompt = split_wquote(str, ' ');
 	if (!prompt)
-		return (0);
-	if (is_valid_cmd(prompt))
 		return (0);
 	if (!check_builtins(prompt))
 		return (freesplit(prompt), 1);

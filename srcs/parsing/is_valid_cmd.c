@@ -6,16 +6,16 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:21:45 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/03 16:40:41 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/04 11:01:31 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-char **get_all_path() // segfault dans cette fonction
+static char	**get_all_path()
 {
-	char *path_str;
-	char **res;
+	char	*path_str;
+	char	**res;
 
 	path_str = getenv("PATH");
 	if (!path_str)
@@ -23,15 +23,14 @@ char **get_all_path() // segfault dans cette fonction
 	res = ft_split(path_str, ':');
 	if (!res)
 		return (NULL);
-	free(path_str);
 	return (res);
 }
 
-char	*extract_name(char *prompt)
+char	*extract_name_cmd(char *prompt)
 {
-	int i;
-	int ires;
-	char *res;
+	int		i;
+	int		ires;
+	char	*res;
 
 	i = 0;
 	ires = 0;
@@ -47,25 +46,41 @@ char	*extract_name(char *prompt)
 		ires++;
 		i++;
 	}
+	res[ires] = '\0';
 	return (res);
 }
 
-int check_validity(char *cmd)
+int	check_valid_builtins(char *cmd)
 {
-	char **path;
-	char *abs_path;
-	char *cmd_path;
-	int i;
+	if (!ft_strncmp("echo", cmd, 5) || !ft_strncmp("echo ", cmd, 5))
+		return (1);
+	else if (!ft_strncmp("cd", cmd, 3) || !ft_strncmp("cd ", cmd, 3))
+		return (1);
+	else if (!ft_strncmp("pwd", cmd, 4) || !ft_strncmp("pwd ", cmd, 4))
+		return (1);
+	else if (!ft_strncmp("export", cmd, 7) || !ft_strncmp("export ", cmd, 7))
+		return (1);
+	else if (!ft_strncmp("unset", cmd, 6) || !ft_strncmp("unset ", cmd, 6))
+		return (1);
+	else if (!ft_strncmp("env", cmd, 4) || !ft_strncmp("env ", cmd, 4))
+		return (1);
+	else if (!ft_strncmp("exit", cmd, 5) || !ft_strncmp("exit ", cmd, 5))
+		return (1);
+	return (0);
+}
 
-	if (ft_strncmp("echo", cmd, 4) == 0 || ft_strncmp("cd", cmd, 2) == 0
-		|| ft_strncmp("pwd", cmd, 3) == 0 || ft_strncmp("export", cmd, 6) == 0
-		|| ft_strncmp("unset", cmd, 5) == 0 || ft_strncmp("env", cmd, 3) == 0
-		|| ft_strncmp("exit", cmd, 4) == 0)
+static int	check_validity(char *cmd)
+{
+	char	**path;
+	char	*abs_path;
+	char	*cmd_path;
+	int		i;
+
+	if (check_valid_builtins(cmd) == 1)
 		return (1);
 	path = get_all_path();
 	i = 0;
-	printf("all path : %s\n", path[i]);
-	cmd_path = ft_strjoin(cmd, "/");
+	cmd_path = ft_strjoin("/", cmd);
 	while (path[i])
 	{
 		abs_path = ft_strjoin(path[i], cmd_path);
@@ -81,13 +96,13 @@ int check_validity(char *cmd)
 
 int	is_valid_cmd(char **prompt, char *prompt_str)
 {
-	char *cmd_name;
-	int res;
-	int i;
+	char	*cmd_name;
+	int		res;
+	int		i;
 
 	if (!prompt && prompt_str)
 	{
-		cmd_name = extract_name(prompt_str);
+		cmd_name = extract_name_cmd(prompt_str);
 		res = check_validity(cmd_name);
 		if (res == 0)
 			printf("%s: command not found\n", cmd_name);
@@ -97,7 +112,7 @@ int	is_valid_cmd(char **prompt, char *prompt_str)
 	i = 0;
 	while (prompt && prompt[i])
 	{
-		cmd_name = extract_name(prompt[i]);
+		cmd_name = extract_name_cmd(prompt[i]);
 		res = check_validity(cmd_name);
 		free(cmd_name);
 		if (res == 0)

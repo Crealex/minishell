@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cd.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:11:07 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/29 19:15:32 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/02/04 11:17:02 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	ft_cd(char **prompt, char ***env)
 	}
 	res = malloc(sizeof(char) * 1000);
 	if (chdir(prompt[1]) == -1)
-		printf("cd: no file or directory name: %s\n", prompt[1]);
+		printf("minishell: cd: %s: No such file or directory\n", prompt[1]);
 	else
 		update_env(env);
 	free(res);

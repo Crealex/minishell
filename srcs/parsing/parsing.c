@@ -6,28 +6,28 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/03 16:34:55 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/04 14:13:02 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-static void	which_builtins(char **prompt, char *str, char ***env)
+static void	which_builtins(t_prompt_info *data)
 {
-	if (!ft_strncmp(prompt[0], "echo", 4))
-		ft_echo(str);
-	else if (!ft_strncmp(prompt[0], "cd", 2))
-		ft_cd(prompt, env);
-	else if (!ft_strncmp(prompt[0], "pwd", 3))
-		ft_pwd(prompt);
-	else if (!ft_strncmp(prompt[0], "export", 6))
-		ft_export(prompt, env);
-	if (!ft_strncmp(prompt[0], "unset", 5))
-		*env = ft_unset(env, prompt, 1);
-	else if (!ft_strncmp(prompt[0], "env", 3))
-		ft_env(*env);
-	else if (!ft_strncmp(prompt[0], "exit", 4))
-		ft_exit(prompt[1], str, prompt, env);
+	if (!ft_strncmp(data->prompt[0], "echo", 4))
+		ft_echo(data->str_prt);
+	else if (!ft_strncmp(data->prompt[0], "cd", 2))
+		ft_cd(data->prompt, &data->env);
+	else if (!ft_strncmp(data->prompt[0], "pwd", 3))
+		ft_pwd(data->prompt);
+	else if (!ft_strncmp(data->prompt[0], "export", 6))
+		ft_export(data->prompt, &data->env);
+	if (!ft_strncmp(data->prompt[0], "unset", 5))
+		data->env = ft_unset(&data->env, data->prompt, 1);
+	else if (!ft_strncmp(data->prompt[0], "env", 3))
+		ft_env(data->env);
+	else if (!ft_strncmp(data->prompt[0], "exit", 4))
+		ft_exit(data->prompt[1], data->str_prt, data->prompt, &data->env);
 	/*else if (!ft_strncmp(prompt[0], "<", 1)) // !!! Ne pas mettre dans builtins
 		ft_quote();
 	else if (!ft_strncmp(prompt[0], ">", 4)) // !!! Ne pas mettre dans builtins
@@ -60,21 +60,39 @@ static char	**dollar_pipe(char **pipe_prompt, char **env)
 	return (res);
 }
 
+static int	last_step(char *str, char ***env, t_prompt_info *data)
+{
+	data->str_prt = ft_strdup(str);
+	data->prompt = split_wquote(str, ' ');
+	data->env = cpy_double_array(data->env, *env);
+	if (!data->prompt)
+		return (0);
+	if (!check_builtins(data->prompt))
+		return (freesplit(data->prompt), 1);
+ 	which_builtins(data);
+	free(str);
+	free(data->str_prt);
+	freesplit(data->prompt);
+	if (data->is_pipe == 1)
+		freesplit(data->pipe);
+	return (1);
+}
+
 int parsing(char *str, char ***env)
 {
-	char			**prompt;
-	char			**pipe_prompt;
 	t_prompt_info	data;
+	int ip;
 
-	pipe_prompt = NULL;
+	data.pipe = NULL;
 	data.is_pipe = is_pipe(&str);
+	ip = 0;
 	if (data.is_pipe == 1)
 	{
-		pipe_prompt = ft_splitpipe(str, '|');
-		if (!pipe_prompt)
+		data.pipe = ft_splitpipe(str, '|');
+		if (!data.pipe)
 			return (0);
-		pipe_prompt = dollar_pipe(pipe_prompt, *env);
-		if (!pipe_prompt)
+		data.pipe = dollar_pipe(data.pipe, *env);
+		if (!data.pipe)
 			return (0);
 	}
 	else if (data.is_pipe == 0)
@@ -82,18 +100,20 @@ int parsing(char *str, char ***env)
 	else
 		return (0);
 	//printf("redirection : %i\n", redirection(&str, &data));
-	if (!is_valid_cmd(pipe_prompt, str))
-		return (0);
-	// tout ce qu'il y a ci-dessous sera dans une autre fonction
-	prompt = split_wquote(str, ' ');
-	if (!prompt)
-		return (0);
-	if (!check_builtins(prompt))
-		return (freesplit(prompt), 1);
- 	which_builtins(prompt, str, env); // remplacer par une fonction input_valid? et appeler which builtins depuis celle-ci
-	free(str);
-	freesplit(prompt);
-	if (pipe_prompt)
-		freesplit(pipe_prompt);
+	if (!is_valid_cmd(data.pipe, str))
+		return (1);
+	if (data.is_pipe == 1)
+	{
+		while (data.pipe[ip])
+		{
+			if (!last_step(data.pipe[ip++], env, &data))
+				return (0);
+		}
+	}
+	else
+	{
+		if (!last_step(str, env, &data))
+			return (0);
+	}
 	return (1);
 }

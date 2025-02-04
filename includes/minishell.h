@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/03 16:31:33 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/04 13:55:08 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct	s_prompt_info
 	int		fd_in;
 	int		fd_out;
 	char	*str_prt;
+	char 	**pipe;
 	char	**prompt;
 	char	**env;
 }			t_prompt_info;

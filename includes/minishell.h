@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/04 15:36:34 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/02/04 16:54:46 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ int		is_valid_cmd(char **prompt, char *prompt_str);
 char	**split_wquote(char const *s, char c);
 int		ft_nb_row(char const *s, char c);
 int		double_single_quote(const char *s, int i);
+//signal
+void	signal_handler(void);
 
 
 #endif

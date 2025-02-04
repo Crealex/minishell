@@ -1,6 +1,6 @@
 NAME	=	minishell
 LIBFT	=	libft/libft.a
-SRCS	=	$(addprefix srcs/, main.c history.c)
+SRCS	=	$(addprefix srcs/, main.c history.c signal_handler.c)
 PROMPT 	=	$(addprefix srcs/parsing/, handle_dollars.c handle_dollars_utils.c is_pipe.c parsing.c check_builtins.c redirection.c\
 							in_out_redirect.c add_space.c is_valid_cmd.c)
 BUILTINS	=	$(addprefix srcs/builtins/, ft_echo.c ft_exit.c ft_cd.c ft_pwd.c ft_export.c ft_export2.c ft_export_sort_display.c \

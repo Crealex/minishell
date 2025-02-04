@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_valid_cmd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:21:45 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/04 11:01:31 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/04 16:10:19 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,9 +114,9 @@ int	is_valid_cmd(char **prompt, char *prompt_str)
 	{
 		cmd_name = extract_name_cmd(prompt[i]);
 		res = check_validity(cmd_name);
-		free(cmd_name);
 		if (res == 0)
 			return (printf("%s: command not found\n", cmd_name), 0);
+		free(cmd_name);
 		i++;
 	}
 	return (res);

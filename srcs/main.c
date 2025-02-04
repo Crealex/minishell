@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:37:37 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/04 10:06:09 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/04 16:27:32 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int main(int argc, char **argv, char **env)
 		return (1);
 	fd = open("history", O_CREAT | O_APPEND | O_RDWR,  0744);
 	get_history(fd);
+	signal_handler();
 	while (1)
 	{
 		str = readline("minishell $ > ");

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   is_valid_cmd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:21:45 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/04 16:10:19 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/02/06 13:44:50 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-static char	**get_all_path()
+char	**get_all_path()
 {
 	char	*path_str;
 	char	**res;
@@ -91,6 +91,7 @@ static int	check_validity(char *cmd)
 	}
 	freesplit(path);
 	free(cmd_path);
+	update_exit_code(127);
 	return (0);
 }
 

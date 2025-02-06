@@ -6,11 +6,13 @@ PROMPT 	=	$(addprefix srcs/parsing/, handle_dollars.c handle_dollars_utils.c is_
 BUILTINS	=	$(addprefix srcs/builtins/, ft_echo.c ft_exit.c ft_cd.c ft_pwd.c ft_export.c ft_export2.c ft_export_sort_display.c \
 							ft_env.c ft_unset.c ft_export3.c)
 UTILS	=	$(addprefix srcs/utils/, split_pipe.c split_pipe2.c split_wquote.c utils.c quote.c)
+EXEC	=	$(addprefix srcs/execution/, extern.c)
 #prevoir plusieurs dossier dans srcs
 OBJS	=	${SRCS:%.c=${OBJDIR}/%.o}
 OBJSB	=	${BUILTINS:%.c=${OBJDIR}/%.o}
 OBJSP	=	${PROMPT:%.c=${OBJDIR}/%.o}
 OBJSU	=	${UTILS:%.c=${OBJDIR}/%.o}
+OBJSEX	=	${EXEC:%.c=${OBJDIR}/%.o}
 CC		=	gcc
 CFLAGS	=	-Werror -Wextra -Wall
 OBJDIR	=	objets
@@ -33,8 +35,8 @@ CURRENT_FILE = 0
 
 all:	${NAME} display_ascii
 
-${NAME}:	${OBJS} ${OBJSB} ${OBJSP} ${OBJSU} ${LIBFT}
-	@${CC} ${CFLAGS} ${OBJS} ${OBJSB} ${OBJSP} ${OBJSU} ${LIBFT} -lreadline -o ${NAME}
+${NAME}:	${OBJS} ${OBJSB} ${OBJSP} ${OBJSU} ${OBJSEX} ${LIBFT}
+	@${CC} ${CFLAGS} ${OBJS} ${OBJSB} ${OBJSP} ${OBJSU} ${OBJSEX} ${LIBFT} -lreadline -o ${NAME}
 	@echo "${BOLD}${GREEN}📦 Link complete: ${NAME}${END}"
 
 ${LIBFT}:
@@ -54,6 +56,7 @@ ${OBJDIR}:
 	@mkdir -p ${OBJDIR}/srcs/builtins
 	@mkdir -p ${OBJDIR}/srcs/parsing
 	@mkdir -p ${OBJDIR}/srcs/utils
+	@mkdir -p ${OBJDIR}/srcs/execution
 	@echo "${BOLD}${BLUE}📁 Created objects directory${END}"
 
 leaks: ${NAME}

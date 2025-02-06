@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:37:37 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/05 13:36:00 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/02/06 11:55:48 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int main(int argc, char **argv, char **env)
 	while (1)
 	{
 		data.str_prt = readline("minishell $ > ");
+		if (!data.str_prt)
+			return (printf("exit\n"), 0);
 		if (ft_strlen(data.str_prt) > 0)
 		{
 			manage_history(data.str_prt, fd);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/05 13:42:22 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/02/06 14:13:04 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,14 @@ static void	which_builtins(t_prompt_info *data)
 		ft_pwd(data->prompt);
 	else if (!ft_strncmp(data->prompt[0], "export", 6))
 		ft_export(data->prompt, &data->env);
-	if (!ft_strncmp(data->prompt[0], "unset", 5))
+	else if (!ft_strncmp(data->prompt[0], "unset", 5))
 		data->env = ft_unset(&data->env, data->prompt, 1);
 	else if (!ft_strncmp(data->prompt[0], "env", 3))
 		ft_env(data->env);
 	else if (!ft_strncmp(data->prompt[0], "exit", 4))
 		ft_exit(data->prompt[1], data->str_prt, data->prompt, &data->env);
-	/*else if (!ft_strncmp(prompt[0], "<", 1)) // !!! Ne pas mettre dans builtins
-		ft_quote();
-	else if (!ft_strncmp(prompt[0], ">", 4)) // !!! Ne pas mettre dans builtins
-		ft_unquote();
 	else
-		other_cmd();*/
+		extern_exec(data);
 }
 
 static char	**dollar_pipe(char **pipe_prompt, char **env)

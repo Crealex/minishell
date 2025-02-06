@@ -3,14 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:37:37 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/06 11:55:48 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/06 14:41:06 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
+
+static int	prompt_handler(t_prompt_info *data, int fd)
+{
+	manage_history(data->str_prt, fd);
+	if (!parsing(data))
+	{
+		ft_putstr_fd("Error : Parsing\n", 2);
+		if (data->str_prt)
+			free(data->str_prt);
+		return (0);
+	}
+	return (1);
+}
 
 int main(int argc, char **argv, char **env)
 {
@@ -34,14 +47,9 @@ int main(int argc, char **argv, char **env)
 			return (printf("exit\n"), 0);
 		if (ft_strlen(data.str_prt) > 0)
 		{
-			manage_history(data.str_prt, fd);
-			if (!parsing(&data))
-			{
-				ft_putstr_fd("Error : Parsing\n", 2);
-				if (data.str_prt)
-					free(data.str_prt);
-				return (-1);
-			}
+			if (!prompt_handler(&data, fd))
+				return (1);
 		}
 	}
+	return (0);
 }

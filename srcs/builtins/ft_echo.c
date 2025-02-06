@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_echo.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:42:41 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/03 10:20:25 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/06 15:58:30 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	ft_echo(char *str)
 		printf("%s\n", prompt);
 		free(prompt);
 	}
+	update_exit_code(0);
 }
 
 

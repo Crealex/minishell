@@ -6,7 +6,7 @@
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 13:25:02 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/01/24 16:06:04 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/02/06 16:00:52 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ int	check_builtins(char **prompt)
 				&& (prompt[i + 1][0] == '-' || prompt[i + 1][0] == '$'))
 				return (0);
 		}
-		if (!ft_strncmp(prompt[i], "echo", 4))
+		if (!ft_strncmp(prompt[i], "echo", 4)) // a corriger car fait buguer echo
 			if (is_echo_not_valid(prompt[i + 1]))
-				return (0);
+				return (1); // j'ai mis un provisoirement pour avoir le foncitonnement normal de echo
 		i++;
 	}
 	return (1);

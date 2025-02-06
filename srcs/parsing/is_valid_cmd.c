@@ -3,27 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   is_valid_cmd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:21:45 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/06 13:44:50 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/06 16:09:31 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-char	**get_all_path()
+int	is_file(char *cmd)
 {
-	char	*path_str;
-	char	**res;
-
-	path_str = getenv("PATH");
-	if (!path_str)
-		return (NULL);
-	res = ft_split(path_str, ':');
-	if (!res)
-		return (NULL);
-	return (res);
+	if (ft_strlen(cmd) > 2)
+	{
+		if (cmd[0] == '.' && cmd[1] == '/')
+			return (1);
+	}
+	return (0);
 }
 
 char	*extract_name_cmd(char *prompt)
@@ -77,6 +73,8 @@ static int	check_validity(char *cmd)
 	int		i;
 
 	if (check_valid_builtins(cmd) == 1)
+		return (1);
+	if (is_file(cmd) == 1)
 		return (1);
 	path = get_all_path();
 	i = 0;

@@ -391,3 +391,14 @@ exit
 sdsffsd
 exiy
 exit
+echo salut
+exit
+echo salu
+export
+env
+export TEST=test
+env
+unset TEST
+env
+exit
+exit

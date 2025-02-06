@@ -28,7 +28,7 @@ YELLOW	:= \033[0;33m
 BLUE	:= \033[34m
 
 # Counter for compiled files
-TOTAL_FILES := $(words $(SRCS))
+TOTAL_FILES := 27
 CURRENT_FILE = 0
 
 all:	${NAME} display_ascii

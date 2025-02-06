@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/04 14:13:02 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/05 13:42:22 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,21 +56,19 @@ static char	**dollar_pipe(char **pipe_prompt, char **env)
 		i++;
 	}
 	free(pipe_prompt);
-	res[i] = '\0';
+	res[i] = NULL;
 	return (res);
 }
 
-static int	last_step(char *str, char ***env, t_prompt_info *data)
+static int	last_step(char *str, t_prompt_info *data)
 {
-	data->str_prt = ft_strdup(str);
 	data->prompt = split_wquote(str, ' ');
-	data->env = cpy_double_array(data->env, *env);
 	if (!data->prompt)
 		return (0);
 	if (!check_builtins(data->prompt))
 		return (freesplit(data->prompt), 1);
- 	which_builtins(data);
-	free(str);
+	else
+ 		which_builtins(data);
 	free(data->str_prt);
 	freesplit(data->prompt);
 	if (data->is_pipe == 1)
@@ -78,41 +76,40 @@ static int	last_step(char *str, char ***env, t_prompt_info *data)
 	return (1);
 }
 
-int parsing(char *str, char ***env)
+int parsing(t_prompt_info *data)
 {
-	t_prompt_info	data;
 	int ip;
 
-	data.pipe = NULL;
-	data.is_pipe = is_pipe(&str);
+	data->pipe = NULL;
+	data->is_pipe = is_pipe(&data->str_prt);
 	ip = 0;
-	if (data.is_pipe == 1)
+	if (data->is_pipe == 1)
 	{
-		data.pipe = ft_splitpipe(str, '|');
-		if (!data.pipe)
+		data->pipe = ft_splitpipe(data->str_prt, '|');
+		if (!data->pipe)
 			return (0);
-		data.pipe = dollar_pipe(data.pipe, *env);
-		if (!data.pipe)
+		data->pipe = dollar_pipe(data->pipe, data->env);
+		if (!data->pipe)
 			return (0);
 	}
-	else if (data.is_pipe == 0)
-		str = handle_dollars(str, *env);
+	else if (data->is_pipe == 0)
+		data->str_prt = handle_dollars(data->str_prt, data->env);
 	else
 		return (0);
 	//printf("redirection : %i\n", redirection(&str, &data));
-	if (!is_valid_cmd(data.pipe, str))
+	if (!is_valid_cmd(data->pipe, data->str_prt))
 		return (1);
-	if (data.is_pipe == 1)
+	if (data->is_pipe == 1)
 	{
-		while (data.pipe[ip])
+		while (data->pipe[ip])
 		{
-			if (!last_step(data.pipe[ip++], env, &data))
+			if (!last_step(data->pipe[ip++], data))
 				return (0);
 		}
 	}
 	else
 	{
-		if (!last_step(str, env, &data))
+		if (!last_step(data->str_prt , data))
 			return (0);
 	}
 	return (1);

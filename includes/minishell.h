@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/04 16:54:46 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/05 13:30:21 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct s_str
 
 void	get_history(int fd);
 void	manage_history(char *str, int fd);
-int		parsing(char *str, char ***env);
+int		parsing(t_prompt_info *data);
 // builtins
 void	ft_echo(char *str);
 void	ft_exit(char *str_prompt, char *str, char **prompt, char ***env);

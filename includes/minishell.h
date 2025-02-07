@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/06 17:04:08 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/02/07 11:32:16 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int		update_exit_code(int param);
 char	**cpy_double_array(char **cpy, char **src);
 void	*ft_freesplit(char **res, int j);
 char	*ft_getenv(char *var, char **env);
+void	cleanup(t_prompt_info *data);
 //quote
 int		len_wquote(char *str);
 void	rm_quote(char **str);

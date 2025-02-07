@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/06 14:13:04 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/07 15:02:11 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,24 @@ static char	**dollar_pipe(char **pipe_prompt, char **env)
 	return (res);
 }
 
+int	only_space(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] != ' ')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 static int	last_step(char *str, t_prompt_info *data)
 {
+	if (only_space(str))
+		return (1);
 	data->prompt = split_wquote(str, ' ');
 	if (!data->prompt)
 		return (0);
@@ -94,7 +110,7 @@ int parsing(t_prompt_info *data)
 		return (0);
 	//printf("redirection : %i\n", redirection(&str, &data));
 	if (!is_valid_cmd(data->pipe, data->str_prt))
-		return (1);
+		return (free(data->str_prt), 1);
 	if (data->is_pipe == 1)
 	{
 		while (data->pipe[ip])

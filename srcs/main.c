@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:37:37 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/07 10:24:13 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/07 11:34:32 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	update_shell_level(t_prompt_info *data)
 
 int main(int argc, char **argv, char **env)
 {
-	printf("lancement de minishell\n");
 	int		fd;
 	t_prompt_info data;
 

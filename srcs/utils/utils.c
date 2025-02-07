@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:55:00 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/24 16:48:00 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/02/07 14:29:52 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ void    freesplit(char **str)
          return ;
     while (str[i])
     {
-        free(str[i]);
-        i++;
-    }
-    free(str);
+		free(str[i]);
+		i++;
+	}
+	free(str);
 }
 // -1 = just get de last value
 // < -1 = update de exit value
@@ -74,6 +74,20 @@ char	*ft_getenv(char *var, char **env)
 		i++;
 	}
 	return (NULL);
+}
+
+void	cleanup(t_prompt_info *data)
+{
+	if (data->prompt)
+		freesplit(data->prompt);
+	if (data->env)
+		freesplit(data->env);
+	if (data->pipe)
+		freesplit(data->pipe);
+	if (data->str_prt)
+		free(data->str_prt);
+	if (data)
+		free(data);
 }
 /* static char *reverse_split(char **prompt, int i)
 {

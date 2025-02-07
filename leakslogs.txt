@@ -1,32 +1,38 @@
-==8451== Memcheck, a memory error detector
-==8451== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==8451== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
-==8451== Command: ./minishell
-==8451== Parent PID: 8449
-==8451== 
-==8451== 
-==8451== HEAP SUMMARY:
-==8451==     in use at exit: 266,852 bytes in 2,226 blocks
-==8451==   total heap usage: 6,387 allocs, 4,161 frees, 642,325 bytes allocated
-==8451== 
-==8451== 3,918 bytes in 62 blocks are indirectly lost in loss record 50 of 85
-==8451==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==8451==    by 0x10ED5A: ft_strdup (in /home/alexandre/Documents/42school/minishell/minishell)
-==8451==    by 0x10DE17: cpy_double_array (in /home/alexandre/Documents/42school/minishell/minishell)
-==8451==    by 0x109510: main (in /home/alexandre/Documents/42school/minishell/minishell)
-==8451== 
-==8451== 4,422 (504 direct, 3,918 indirect) bytes in 1 blocks are definitely lost in loss record 67 of 85
-==8451==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==8451==    by 0x10E6D2: ft_calloc (in /home/alexandre/Documents/42school/minishell/minishell)
-==8451==    by 0x10DDD0: cpy_double_array (in /home/alexandre/Documents/42school/minishell/minishell)
-==8451==    by 0x109510: main (in /home/alexandre/Documents/42school/minishell/minishell)
-==8451== 
-==8451== LEAK SUMMARY:
-==8451==    definitely lost: 504 bytes in 1 blocks
-==8451==    indirectly lost: 3,918 bytes in 62 blocks
-==8451==      possibly lost: 0 bytes in 0 blocks
-==8451==    still reachable: 0 bytes in 0 blocks
-==8451==         suppressed: 262,430 bytes in 2,163 blocks
-==8451== 
-==8451== For lists of detected and suppressed errors, rerun with: -s
-==8451== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==285182== Memcheck, a memory error detector
+==285182== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==285182== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==285182== Command: ./minishell
+==285182== Parent PID: 285170
+==285182== 
+==285182== 
+==285182== FILE DESCRIPTORS: 8 open (3 std) at exit.
+==285182== Open file descriptor 4: history
+==285182==    at 0x49DA53B: open (open64.c:41)
+==285182==    by 0x109636: main (in /home/atomasi/Documents/minishell/minishell)
+==285182== 
+==285182== Open file descriptor 103: /usr/share/code/v8_context_snapshot.bin
+==285182==    <inherited from parent>
+==285182== 
+==285182== Open AF_UNIX socket 43: <unknown>
+==285182==    <inherited from parent>
+==285182== 
+==285182== Open file descriptor 42: /home/atomasi/.config/Code/logs/20250207T132754/ptyhost.log
+==285182==    <inherited from parent>
+==285182== 
+==285182== Open file descriptor 3: /home/atomasi/Documents/minishell/leakslogs.txt
+==285182==    <inherited from parent>
+==285182== 
+==285182== 
+==285182== HEAP SUMMARY:
+==285182==     in use at exit: 257,132 bytes in 3,288 blocks
+==285182==   total heap usage: 9,704 allocs, 6,416 frees, 1,032,417 bytes allocated
+==285182== 
+==285182== LEAK SUMMARY:
+==285182==    definitely lost: 0 bytes in 0 blocks
+==285182==    indirectly lost: 0 bytes in 0 blocks
+==285182==      possibly lost: 0 bytes in 0 blocks
+==285182==    still reachable: 0 bytes in 0 blocks
+==285182==         suppressed: 257,132 bytes in 3,288 blocks
+==285182== 
+==285182== For lists of detected and suppressed errors, rerun with: -s
+==285182== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

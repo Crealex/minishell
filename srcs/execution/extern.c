@@ -3,17 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   extern.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/07 10:59:20 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/02/07 14:50:02 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
-#include <fcntl.h>
-#include <sys/stat.h>
-#include <unistd.h>
+#include <strings.h>
 
 char *get_path(char *cmd)
 {
@@ -22,8 +20,8 @@ char *get_path(char *cmd)
 	char	*cmd_path;
 	char	**path;
 
-	if (access(cmd, X_OK) != -1)
-		return ( cmd);
+	if (access(cmd, X_OK) != -1 && cmd[0] == '/')
+		return (ft_strdup(cmd));
 	path = get_all_path();
 	i = 0;
 	cmd_path = ft_strjoin("/", cmd);
@@ -46,6 +44,7 @@ int	check_acces_file(char *cmd)
 	struct stat statt;
 
 	file = ft_substr(cmd, 2, ft_strlen(cmd));
+	ft_bzero(&statt, sizeof(statt));
 	stat(file, &statt);
 	if (S_ISDIR(statt.st_mode))
 	{
@@ -84,5 +83,6 @@ void	extern_exec(t_prompt_info *data)
 	if (pid == 0)
 		execve(path, data->prompt, data->env);
 	waitpid(pid, &exit_status, 0);
+	free(path);
 	update_exit_code(WEXITSTATUS(exit_status));
 }

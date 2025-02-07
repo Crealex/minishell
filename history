@@ -750,3 +750,95 @@ ls
 rm text.txt 
 rm test.sh 
 exit
+./caca
+./srcs
+./minishell 
+exit
+pwd
+exit
+./minishell 
+exit
+exit
+./minishell
+./minishell 
+exit
+exit
+exit
+echo $?SHLVL
+echo $SHLVL
+./minishell 
+echo $SHLVL
+env
+export
+exit
+exit
+echo $SHLVL
+./minishell 
+echo $SHLVL
+exit
+exit
+./minishell 
+export
+exit
+./minishell 
+exit
+exit
+./minishell 
+./minishell 
+exit
+exit
+exit
+echo $SHLVL
+./minishell 
+$SHLVL
+echo $SHLVL
+exit
+exit
+make
+./minishell 
+exit
+exit
+./minishell 
+cat srcs/main.c 
+make
+./minishell 
+exit
+exit
+exit
+/bin/ls
+exit
+/bin/ls
+exit
+/bin/ls
+ls
+ls
+ls
+sls
+sls
+ls
+ls
+ls
+ls
+ls
+ls
+lsl
+sll
+ls
+exit
+exit
+eit
+exit
+exit
+exit
+exit
+exit
+exit
+exit
+exit
+exut
+exit
+ls
+/bin/ls
+exit
+ext
+exit

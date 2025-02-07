@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   extern.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/07 10:35:26 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/07 10:59:20 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ char *get_path(char *cmd)
 	char	*cmd_path;
 	char	**path;
 
-	printf("cmd : %s\n", cmd);
-	if (access(cmd, X_OK))
-		return (cmd);
+	if (access(cmd, X_OK) != -1)
+		return ( cmd);
 	path = get_all_path();
 	i = 0;
 	cmd_path = ft_strjoin("/", cmd);

@@ -842,3 +842,34 @@ ls
 exit
 ext
 exit
+ls
+exit
+make
+exi
+exit
+exit
+ls
+/bin/ls
+exit
+lss
+ls
+ls
+exit
+exit
+exit
+ls
+/bin/ls
+exit
+/bin/ls
+exit
+./minishell 
+./minishell 
+echo $SHLVL
+./minishell 
+echo $SHLVL
+exit
+echo $SHLVL
+exit
+echo $SHLVL
+exit
+exit

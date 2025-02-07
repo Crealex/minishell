@@ -6,7 +6,7 @@
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:21:45 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/06 16:09:31 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/02/07 10:58:13 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	is_file(char *cmd)
 	if (ft_strlen(cmd) > 2)
 	{
 		if (cmd[0] == '.' && cmd[1] == '/')
+			return (1);
+		else if (cmd[0] == '/')
 			return (1);
 	}
 	return (0);

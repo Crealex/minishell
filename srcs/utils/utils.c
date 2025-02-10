@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:55:00 by alexandre         #+#    #+#             */
-/*   Updated: 2025/02/07 14:29:52 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/10 15:34:29 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void    freesplit(char **str)
 int update_exit_code(int param)
 {
 	static int code = 0;
+
 	if (param == -1)
 		return (code);
 	else

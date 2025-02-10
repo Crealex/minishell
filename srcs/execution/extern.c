@@ -6,12 +6,23 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/07 14:50:02 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/10 16:10:53 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 #include <strings.h>
+
+int	is_child(int status)
+{
+	static int bool = 0;
+
+	if (status == -1)
+		return (bool);
+	else
+		bool = status;
+	return (bool);
+}
 
 char *get_path(char *cmd)
 {
@@ -82,7 +93,9 @@ void	extern_exec(t_prompt_info *data)
 	pid = fork();
 	if (pid == 0)
 		execve(path, data->prompt, data->env);
+	is_child(1);
 	waitpid(pid, &exit_status, 0);
+	is_child(0);
 	free(path);
 	update_exit_code(WEXITSTATUS(exit_status));
 }

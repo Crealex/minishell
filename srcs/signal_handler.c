@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:28:28 by alexandre         #+#    #+#             */
-/*   Updated: 2025/02/06 12:02:15 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/10 16:14:43 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,20 @@
 
 static void	which_sig(int signal)
 {
-	//on est censee kill le process en cours avec :
 	if (signal == SIGINT)
 	{
-		//printf("ctrl c intercepted!\n");
 		printf("\n");
-		rl_replace_line("", 0);
-		rl_on_new_line();
-		rl_redisplay();
+		if (is_child(-1) == 0)
+		{
+			rl_replace_line("", 0);
+			rl_on_new_line();
+			rl_redisplay();
+		}
 	}
 	//utiliser les fonctions readline pour revenir au prompt
 }
 
-void	signal_handler(void)
+void	signal_handler()
 {
 	struct sigaction act;
 	struct sigaction ign;

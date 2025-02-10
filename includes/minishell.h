@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/07 11:32:16 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/10 15:55:13 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ typedef struct s_str
 	char	*str;
 	int		i;
 }		t_str;
-
-
 
 void	get_history(int fd);
 void	manage_history(char *str, int fd);
@@ -94,6 +92,7 @@ int		is_valid_cmd(char **prompt, char *prompt_str);
 char	**get_all_path();
 // execution
 void	extern_exec(t_prompt_info *data);
+int	is_child(int status);
 //split wquote
 char	**split_wquote(char const *s, char c);
 int		ft_nb_row(char const *s, char c);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/10 15:55:13 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/12 17:06:04 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ char	**cpy_double_array(char **cpy, char **src);
 void	*ft_freesplit(char **res, int j);
 char	*ft_getenv(char *var, char **env);
 void	cleanup(t_prompt_info *data);
+int		ft_isspace(int c);
 //quote
 int		len_wquote(char *str);
 void	rm_quote(char **str);
@@ -81,8 +82,12 @@ void	update_quote(int *in_single, int *in_double, int *i, char *prompt);
 char	*handle_dollars(char *prompt, char **env);
 char	*better_strjoin(char const *s1, char const *s2, char *prompt, int iprompt);
 int		in_redirect(char **str);
+void	init_fd(int *i, int *start, int *end);
+void	init_two(int *i, int *j);
+int		get_in_fd(char **str, int fd);
 int		out_redirect(char **str);
-int		redirection(char **str, t_prompt_info *data);
+int		get_out_fd(char **str, int fd);
+int		redirection(t_prompt_info *data);
 int		check_builtins(char **prompt);
 int		is_pipe(char **str);
 char	*add_space(char *str, int i, int is_double);

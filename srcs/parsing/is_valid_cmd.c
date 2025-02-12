@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_valid_cmd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:21:45 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/07 10:58:13 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/02/12 15:53:45 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,21 @@ int	is_file(char *cmd)
 char	*extract_name_cmd(char *prompt)
 {
 	int		i;
+	int		space;
 	int		ires;
 	char	*res;
 
 	i = 0;
+	space = 0;
 	ires = 0;
-	while (prompt[i] && prompt[i] != ' ')
+	while (prompt[space] && prompt[space] == ' ')
+		space++;
+	while (prompt[i + space] && prompt[i + space] != ' ')
 		i++;
 	res = malloc(sizeof(char) * (i + 1));
 	if (!res)
 		return (NULL);
-	i = 0;
+	i = space;
 	while (prompt[i] && prompt[i] != ' ')
 	{
 		res[ires] = prompt[i];

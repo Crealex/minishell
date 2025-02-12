@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:55:00 by alexandre         #+#    #+#             */
-/*   Updated: 2025/02/10 15:34:29 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/12 16:01:33 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,3 +115,8 @@ void	cleanup(t_prompt_info *data)
 	}
 	return (result);
 } */
+
+int	ft_isspace(int c)
+{
+	return (c == ' ' || (9 <= c && c <= 13));
+}

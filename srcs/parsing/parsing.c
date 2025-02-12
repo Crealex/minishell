@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/07 15:02:11 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/12 16:53:28 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,11 @@ int parsing(t_prompt_info *data)
 		data->str_prt = handle_dollars(data->str_prt, data->env);
 	else
 		return (0);
-	//printf("redirection : %i\n", redirection(&str, &data));
+	printf("str : %s\n", data->str_prt);
+	if (!redirection(data))
+		return (0);	
+	printf("%i\n", data->fd_in);
+	printf("str : %s\n", data->str_prt);
 	if (!is_valid_cmd(data->pipe, data->str_prt))
 		return (free(data->str_prt), 1);
 	if (data->is_pipe == 1)
@@ -123,6 +127,9 @@ int parsing(t_prompt_info *data)
 	{
 		if (!last_step(data->str_prt , data))
 			return (0);
+		printf("hiiiiiiiiiiiii\n");
 	}
+	if (data->fd_in > 2)
+		close(data->fd_in);
 	return (1);
 }

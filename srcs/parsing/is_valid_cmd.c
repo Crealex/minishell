@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_valid_cmd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:21:45 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/07 10:58:13 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/02/12 13:39:02 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ static int	check_validity(char *cmd)
 		return (1);
 	if (is_file(cmd) == 1)
 		return (1);
+	else
+		return (0);
 	path = get_all_path();
 	i = 0;
 	cmd_path = ft_strjoin("/", cmd);

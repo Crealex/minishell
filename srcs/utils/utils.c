@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:55:00 by alexandre         #+#    #+#             */
-/*   Updated: 2025/02/10 15:34:29 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/12 14:08:56 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,30 @@ void	cleanup(t_prompt_info *data)
 	if (data)
 		free(data);
 }
+
+void	print_error(char *s1, char *s2, char *s3)
+{
+	char *res;
+	char *temp;
+
+	if (!s2)
+	{
+		ft_putstr_fd(s1, 2);
+		return ;
+	}
+	temp = ft_strjoin(s1, s2);
+	if (!s3)
+	{
+		ft_putstr_fd(temp, 2);
+		free(temp);
+		return ;
+	}
+	res = ft_strjoin(temp, s3);
+	ft_putstr_fd(res, 2);
+	free(temp);
+	free(res);
+}
+
 /* static char *reverse_split(char **prompt, int i)
 {
 	char *result;

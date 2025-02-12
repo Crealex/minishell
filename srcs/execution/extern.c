@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   extern.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/10 16:10:53 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/12 14:13:20 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	check_acces_file(char *cmd)
 	stat(file, &statt);
 	if (S_ISDIR(statt.st_mode))
 	{
-		printf("minishell: %s: Is a directory\n", cmd);
+		print_error("minishell: ", cmd, ": Is a directory\n");
 		update_exit_code(126);
 		return (0);
 	}
@@ -67,12 +67,12 @@ int	check_acces_file(char *cmd)
 		return (free(file), 1);
 	if (access(file, F_OK) == -1)
 	{
-		printf("minishell: %s: No such file or diretory\n", cmd);
+		print_error("minishell: ", cmd, ": No such file or directory\n");
 		update_exit_code(127);
 		free(file);
 		return (0);
 	}
-	printf("minishell: %s: Permission denied\n", cmd);
+	print_error("minishell: ", cmd, ": Permission denied\n");
 	update_exit_code(126);
 	return (0);
 }

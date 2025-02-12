@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   extern.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/12 14:55:18 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/02/12 16:20:47 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,6 @@ void	extern_exec(t_prompt_info *data)
 				return ;
 		}
 	path = get_path(data->prompt[0]);
-	if (!path)
-		printf("not goog path\n");
 	pid = fork();
 	if (pid == 0)
 		execve(path, data->prompt, data->env);

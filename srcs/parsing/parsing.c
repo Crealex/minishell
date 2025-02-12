@@ -6,14 +6,17 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/07 15:02:11 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/12 16:26:13 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
+#include <unistd.h>
 
 static void	which_builtins(t_prompt_info *data)
 {
+	dup2(data->fd_in, STDIN_FILENO);
+	dup2(data->fd_out, STDOUT_FILENO);
 	if (!ft_strncmp(data->prompt[0], "echo", 4))
 		ft_echo(data->str_prt);
 	else if (!ft_strncmp(data->prompt[0], "cd", 2))

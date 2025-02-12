@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:37:37 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/12 11:15:49 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/12 14:57:53 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int main(int argc, char **argv, char **env)
 
 	if (argc != 1)
 		return (1);
-	printf("starting minishell\n");
 	(void)argv;
 	data.env = NULL;
 	data.env = cpy_double_array(data.env, env);

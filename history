@@ -273,31 +273,31 @@ exit
 ecjo
 cd
 cd
-cd 
+cd
 cd cdaca
 cdscdscds
 echo salut
 cdadaca
 cda
-cd 
 cd
-cd   
+cd
+cd
 export
 exit
 exit
-exit 
-cd
-exit
 exit
 cd
 exit
+exit
 cd
-cd 
+exit
+cd
+cd
 cddacacac
 exit
 cd
 cddcdc
-cd 
+cd
 pwd
 ls
 exit
@@ -415,17 +415,17 @@ csacacac
 
 exit
 sa
-minishell $ > 
+minishell $ >
 exit
-minishell $ > 
-minishell $ > 
+minishell $ >
+minishell $ >
 exit
-minishell $ > 
-minishell $ > 
-minishell $ > 
-minishell $ > 
+minishell $ >
+minishell $ >
+minishell $ >
+minishell $ >
 exit
-saminishell $ > 
+saminishell $ >
 echo  $
 echo salut $USER
 exit
@@ -435,8 +435,8 @@ exit
 
 echo test
 
-        
-                    
+
+
 \n
 
 
@@ -454,9 +454,9 @@ exit
 exit
 echo -n \n
 echo -nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn salut
-                                                
+
 exit
-       
+
 test
 dsbvjsd
 test
@@ -579,8 +579,8 @@ cat
 lds
 man valgrind
 touch test.sh
-./test.sh 
-./minishell 
+./test.sh
+./minishell
 ./minishell.sh
 minshel
 minshell
@@ -632,7 +632,7 @@ cd ..
 cat leakslogs.txt
 ls
 pwd
-cd 
+cd
 ls
 cd alexandre/
 cd Documents/
@@ -670,16 +670,16 @@ cat ascsac
 echo $?
 cat sclkanclksanclksacnsalkcnalkcn
 echo $?
-echo cat Makefile 
-cat Makefile 
+echo cat Makefile
+cat Makefile
 echo $?
 cat
 test
 echo $?
 cat
 echo $?
-vim Makefile 
-./minishell 
+vim Makefile
+./minishell
 cat
 salut
 clear
@@ -702,16 +702,16 @@ make
 exit
 exit
 ./caca
-./minishell 
+./minishell
 ls
 ls
 exit
 exit
 exit
 ./ascsacsa
-./test.sh 
+./test.sh
 ./cdsisdyvosvd
-./test.sh 
+./test.sh
 ls
 ./srcs/
 ./srcs
@@ -733,7 +733,7 @@ exit
 exit
 exit
 ./dvsvsdv
-./test.sh 
+./test.sh
 ./srcs/
 ./srcs
 exit
@@ -747,61 +747,61 @@ ls
 ls
 rm ls
 ls
-rm text.txt 
-rm test.sh 
+rm text.txt
+rm test.sh
 exit
 ./caca
 ./srcs
-./minishell 
+./minishell
 exit
 pwd
 exit
-./minishell 
+./minishell
 exit
 exit
 ./minishell
-./minishell 
+./minishell
 exit
 exit
 exit
 echo $?SHLVL
 echo $SHLVL
-./minishell 
+./minishell
 echo $SHLVL
 env
 export
 exit
 exit
 echo $SHLVL
-./minishell 
+./minishell
 echo $SHLVL
 exit
 exit
-./minishell 
+./minishell
 export
 exit
-./minishell 
+./minishell
 exit
 exit
-./minishell 
-./minishell 
+./minishell
+./minishell
 exit
 exit
 exit
 echo $SHLVL
-./minishell 
+./minishell
 $SHLVL
 echo $SHLVL
 exit
 exit
 make
-./minishell 
+./minishell
 exit
 exit
-./minishell 
-cat srcs/main.c 
+./minishell
+cat srcs/main.c
 make
-./minishell 
+./minishell
 exit
 exit
 exit
@@ -862,10 +862,10 @@ ls
 exit
 /bin/ls
 exit
-./minishell 
-./minishell 
+./minishell
+./minishell
 echo $SHLVL
-./minishell 
+./minishell
 echo $SHLVL
 exit
 echo $SHLVL
@@ -876,7 +876,7 @@ exit
 ls
 bin/ls
 /bin/ls
-./minishell 
+./minishell
 exit
 exit
 ls
@@ -988,7 +988,7 @@ cd ..
 exit
 cd ..
 exit
-./minishell 
+./minishell
 exit
 exit
 ls
@@ -1020,12 +1020,12 @@ caca
 exit
 caca
 exit
-     
-        
-          
-           
-            
-		
+
+
+
+
+
+
 exit
 exit
 cat
@@ -1039,7 +1039,7 @@ cat
 cat
 exit
 ls
-cat history > out | cat ignore_readline_leaks.supp 
+cat history > out | cat ignore_readline_leaks.supp
 cat
 exit
 cat
@@ -1100,14 +1100,182 @@ cat
 echo salut
 exit
 cat
-top
-cat
-cat
-cat
+cat Makefile | ls
+exit
 cat
 exit
-ls
+tata | grep
+ls | tata
+/bin/ls
+./minishell
+./minishell
+touch test.sh
+chmod +x test.sh
+./test.sh
+./caca
+./Makefile
 ./srcs
+cat
+
+
+rm test.sh
+cat
+cat
+./minishell
+ls | grep e
+./minishell
+echo $SHLVL
+./minishell
+echo $SHLVL
 exit
-./cC
+exit
+exit
+exit
+./minishell
+./minishell
+./minishell
+./minishell
+echo $SHLVL
+echo $SHLVL
+echo $SHLVL
+echo $SHLVL
+./minishell
+./minishell
+./minishell
+echo $SHLVL
+exit
+exit
+exit
+exit
+exit
+exit
+exit
+exit
+./
+exit
+./minishell
+ls
+exit
+/bin/ls
+exit
+exit
+LS
+./
+./caca
+./minishell
+exit
+./
+exit
+make
+./
+exit
+exit
+./
+./b
+exit
+exit
+./
+./ls
+exit
+exit
+./minishell
+./minishell
+./minishell
+./minishell
+exi
+exit
+exit
+./minishell
+exit
+exit
+./minishell
+exit
+exit
+./minishell
+exit
+exit
+./minishell
+exit
+exit
+./minishell
+exit
+exit
+./minishell
+exit
+exit
+echo $SHLVL
+./minishell
+echo $SHLVL
+./minishell
+echo $SHLVL
+exit
+./mini
+./
+exit
+exit
+exit
+./minishell
+exit
+exit
+./minishell
+exit
+exit
+./minishell
+x
+ei
+exit
+iiexit
+exit
+./
+exit
+./minishell
+xehexeurdnossxi
+oionibobibet
+./minishell
+./
+t
+exixi
+eteit
+xt
+xeie
+xitei
+u
+r
+e
+r
+e
+r
+eg
+e
+xtextggegrgegrrg
+g
+er
+r
+ergeg
+ergre
+gr
+g
+grr
+./
+exit
+make
+./
+exit
+exiy
+exit
+./
+exit
+exit
+./
+./
+exit
+exit
+./
+exiy
+./
+./
+./
+./
+./
+exit
 exit

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:55:00 by alexandre         #+#    #+#             */
-/*   Updated: 2025/02/12 14:08:56 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/02/13 14:42:23 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,3 +139,8 @@ void	print_error(char *s1, char *s2, char *s3)
 	}
 	return (result);
 } */
+
+int	ft_isspace(int c)
+{
+	return (c == ' ' || (9 <= c && c <= 13));
+}

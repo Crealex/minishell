@@ -1099,204 +1099,177 @@ echo saljut
 cat
 echo salut
 exit
-cat
-cat Makefile | ls
+< Makefile
+< Makefile
+< Makefile
+< Makefile
+< Makefile
+< Makefile
+< Makefile
+< Makefile
+< Makefile
+< Makefile
+< Makefile cat
+< Makefile cat
+< Makefile cat
+< Makefile cat
+< Makefile cat
+< Makefile cat
+< Makefile cat
+< Makefile cat
+< Makefile cat
+< Makefile cat
+< Makefile cat
+< Makefile cat
+< Makefile cat
+< Makefile cat
+< Makefile cat
+< Makefile cat
+< Makefile cat
+< Makefile cat
+< Makefile cat
+< Makefile cat
+< Makefile cat
+< Makefile cat
+< Makefile cat
+< Makefile cat
 exit
-cat
+< Makefile cat
+< Makefile cat
 exit
-tata | grep
-ls | tata
-/bin/ls
-./minishell
-./minishell
-touch test.sh
-chmod +x test.sh
-./test.sh
-./caca
-./Makefile
-./srcs
-cat
-
-
-rm test.sh
-cat
-cat
-./minishell
-ls | grep e
-./minishell
-echo $SHLVL
-./minishell
-echo $SHLVL
+< Makefile cat
 exit
+< Makefile cat
 exit
+< Makefile cat
 exit
+< Makefile cat
+< srcs/main.c < Makefile
+< srcs/main.c < Makefile
+< uaysduyasgd
 exit
-./minishell
-./minishell
-./minishell
-./minishell
-echo $SHLVL
-echo $SHLVL
-echo $SHLVL
-echo $SHLVL
-./minishell
-./minishell
-./minishell
-echo $SHLVL
+> text
 exit
+> text
 exit
 exit
+> text
 exit
+> text
 exit
+> text
 exit
+> text
 exit
+> text
 exit
-./
+> text
 exit
-./minishell
-ls
+> text
+<
 exit
-/bin/ls
+<
 exit
+<
 exit
-LS
-./
-./caca
-./minishell
+<
 exit
-./
+<
 exit
-make
-./
+<
+> text
+<
+> text
 exit
+> text
 exit
-./
-./b
+> text
 exit
+> text
 exit
-./
-./ls
+> text
 exit
+> text
 exit
-./minishell
-./minishell
-./minishell
-./minishell
-exi
+> text
+> text
+skjdhciusdahciusdhcliusdhciusdcliuwscbsdkjbncsdncsdviusgexit
+> text
+> text
 exit
+> text
+uashdiuashduhsa
 exit
-./minishell
+uashdiuashduhsa
+> text
 exit
+> text
 exit
-./minishell
+> text
 exit
+> text
 exit
-./minishell
+> text
+echo salut
 exit
+> text
+> ttext
+> ttext > text.out
+>> texttt
 exit
-./minishell
+>> texttt
 exit
+>> texttt
 exit
-./minishell
+>> texttt
+>> textttttttt
 exit
+>> bruh
 exit
-./minishell
+>> bruh
 exit
+> bruh'
+> bruh"
+"> bruh"
+"> bruhhhh"
 exit
-echo $SHLVL
-./minishell
-echo $SHLVL
-./minishell
-echo $SHLVL
+"> bruhhhhhgasdgasygdasd"
 exit
-./mini
-./
+"> bijour"
 exit
+"> beulah"
 exit
+"> beulahhhh"
 exit
-./minishell
+"> beulahhhh"
 exit
+"> j'men veeee"
 exit
-./minishell
+"> bruh"
 exit
+"> bruh"
+cqcq
+"scwscx"
 exit
-./minishell
-x
-ei
+< hi
+< hi
+| hdusah
 exit
-iiexit
+| iudasiuhdiuahs
+< hi
+make fclean
 exit
-./
+<< bruh
 exit
-./minishell
-xehexeurdnossxi
-oionibobibet
-./minishell
-./
-t
-exixi
-eteit
-xt
-xeie
-xitei
-u
-r
-e
-r
-e
-r
-eg
-e
-xtextggegrgegrrg
-g
-er
-r
-ergeg
-ergre
-gr
-g
-grr
-./
+<< bruh
 exit
-make
-./
+<< bruh
 exit
-exiy
+<< bruh
 exit
-./
+<< bruh
 exit
-exit
-./
-./
-exit
-exit
-./
-exiy
-./
-./
-./
-./
-./
-exit
-exit
-./minishell 
-./
-exit
-exit
-     ls
-     ls
-     ls
-     ls
-exit
-echo "salut"
-echo "$SALUT"
-echo "$USER"
-echo '$USER'
-echo 'salut'
-"caca"
-'caca'
-exit
-"caca"
-exit
-"caca"
+<< bruh
+<< yagsd
+>> dga
 exit

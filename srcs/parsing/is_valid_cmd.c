@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:21:45 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/13 11:39:47 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/13 14:41:48 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,21 @@ int	is_file(char *cmd)
 char	*extract_name_cmd(char *prompt)
 {
 	int		i;
+	int		space;
 	int		ires;
 	char	*res;
 
 	i = 0;
+	space = 0;
 	ires = 0;
-	while (prompt[i] && prompt[i] != ' ')
+	while (prompt[space] && prompt[space] == ' ')
+		space++;
+	while (prompt[i + space] && prompt[i + space] != ' ')
 		i++;
 	res = malloc(sizeof(char) * (i + 1));
 	if (!res)
 		return (NULL);
-	i = 0;
+	i = space;
 	while (prompt[i] && prompt[i] != ' ')
 	{
 		res[ires] = prompt[i];

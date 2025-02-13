@@ -1,0 +1,7 @@
+$UAWE
+$USER
+"salut"
+'$USER'
+"$USER"
+'salut'
+bruh

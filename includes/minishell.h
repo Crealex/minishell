@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/12 14:09:16 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/02/13 14:15:17 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ int		is_quote(char *str);
 void	update_quote(int *in_single, int *in_double, int *i, char *prompt);
 //parsing
 char	*handle_dollars(char *prompt, char **env);
+char	*add_env(char *prompt, int *i, t_str *res, char **all_env);
 char	*better_strjoin(char const *s1, char const *s2, char *prompt, int iprompt);
 int		in_redirect(char **str);
 int		out_redirect(char **str);

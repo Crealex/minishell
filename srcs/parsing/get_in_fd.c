@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 11:15:33 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/02/12 17:05:40 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/13 10:39:15 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	open_fd(char *str, int fd_arg, int start, int end)
 	char	*str_cut;
 	int		s;
 
-	if (fd_arg > -1)
+	if (fd_arg > 2)
 		close(fd_arg);
 	s = start;
 	s++;

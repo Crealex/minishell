@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/12 16:53:28 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/13 11:01:25 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,11 @@ int parsing(t_prompt_info *data)
 			return (0);
 	}
 	else if (data->is_pipe == 0)
+	{
+		printf("data str : %s\n", data->str_prt);
 		data->str_prt = handle_dollars(data->str_prt, data->env);
+		printf("data str : %s\n", data->str_prt);
+	}
 	else
 		return (0);
 	printf("str : %s\n", data->str_prt);
@@ -127,7 +131,6 @@ int parsing(t_prompt_info *data)
 	{
 		if (!last_step(data->str_prt , data))
 			return (0);
-		printf("hiiiiiiiiiiiii\n");
 	}
 	if (data->fd_in > 2)
 		close(data->fd_in);

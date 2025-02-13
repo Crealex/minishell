@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:16:15 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/03 10:46:45 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/13 11:31:09 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ char	*handle_dollars(char *prompt, char **env)
 		return (NULL);
 	while (prompt[i])
 	{
-		if ((prompt[i] == '\'' || prompt[i] == '\"'))
+		if ((prompt[i] == '\'' || prompt[i] == '\"') && ft_strchr(prompt, '$'))
 			update_quote(&in_single, &in_double, &i, prompt);
 		if (prompt[i] == '$' && in_single == 0)
 			res.str = add_env(prompt, &i, &res, env);

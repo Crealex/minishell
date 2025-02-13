@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:21:45 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/12 13:39:02 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/13 11:39:47 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,7 @@ static int	check_validity(char *cmd)
 	}
 	freesplit(path);
 	free(cmd_path);
-	update_exit_code(127);
-	return (0);
+	return (update_exit_code(127), 0);
 }
 
 int	is_valid_cmd(char **prompt, char *prompt_str)

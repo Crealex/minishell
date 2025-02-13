@@ -1288,3 +1288,15 @@ exit
      ls
      ls
 exit
+echo "salut"
+echo "$SALUT"
+echo "$USER"
+echo '$USER'
+echo 'salut'
+"caca"
+'caca'
+exit
+"caca"
+exit
+"caca"
+exit

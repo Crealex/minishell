@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/12 16:26:13 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/13 11:37:02 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,9 @@ static int	last_step(char *str, t_prompt_info *data)
 	data->prompt = split_wquote(str, ' ');
 	if (!data->prompt)
 		return (0);
+	rm_quote(&str);
+	if (!is_valid_cmd(data->pipe, data->str_prt))
+		return (free(data->str_prt), 1);
 	if (!check_builtins(data->prompt))
 		return (freesplit(data->prompt), 1);
 	else
@@ -112,8 +115,6 @@ int parsing(t_prompt_info *data)
 	else
 		return (0);
 	//printf("redirection : %i\n", redirection(&str, &data));
-	if (!is_valid_cmd(data->pipe, data->str_prt))
-		return (free(data->str_prt), 1);
 	if (data->is_pipe == 1)
 	{
 		while (data->pipe[ip])

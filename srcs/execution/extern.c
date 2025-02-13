@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/12 16:20:47 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/13 16:16:01 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ int	check_acces_file(char *cmd)
 	struct stat statt;
 
 	file = ft_substr(cmd, 2, ft_strlen(cmd));
-	printf("lenght file : %d\n", (int)ft_strlen(file));
 	ft_bzero(&statt, sizeof(statt));
 	stat(file, &statt);
 	if (S_ISDIR(statt.st_mode) || ft_strlen(file) == 0)

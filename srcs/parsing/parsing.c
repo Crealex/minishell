@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/13 14:40:30 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/13 16:58:55 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,14 @@
 
 static void	which_builtins(t_prompt_info *data)
 {
-	dup2(data->fd_in, STDIN_FILENO);
+	int fd1;
+	int fd2;
+
+	fd1 = dup(STDIN_FILENO);
+	fd2 = dup(STDOUT_FILENO);
 	dup2(data->fd_out, STDOUT_FILENO);
+	dup2(data->fd_in, STDIN_FILENO);
+
 	if (!ft_strncmp(data->prompt[0], "echo", 4))
 		ft_echo(data->str_prt);
 	else if (!ft_strncmp(data->prompt[0], "cd", 2))
@@ -33,6 +39,8 @@ static void	which_builtins(t_prompt_info *data)
 		ft_exit(data->prompt[1], data->str_prt, data->prompt, &data->env);
 	else
 		extern_exec(data);
+	dup2(fd1, STDIN_FILENO);
+	dup2(fd2, STDOUT_FILENO);
 }
 
 static char	**dollar_pipe(char **pipe_prompt, char **env)
@@ -81,7 +89,7 @@ static int	last_step(char *str, t_prompt_info *data)
 	if (!data->prompt)
 		return (0);
 	rm_quote(&str);
-	if (!is_valid_cmd(data->pipe, data->str_prt))
+	if (!is_valid_cmd(str))
 		return (free(data->str_prt), 1);
 	if (!check_builtins(data->prompt))
 		return (freesplit(data->prompt), 1);
@@ -114,13 +122,9 @@ int parsing(t_prompt_info *data)
 		data->str_prt = handle_dollars(data->str_prt, data->env);
 	else
 		return (1);
-	printf("str : %s\n", data->str_prt);
 	if (!redirection(data))
 		return (1);
-	printf("%i\n", data->fd_in);
 	printf("str : %s\n", data->str_prt);
-	if (!is_valid_cmd(data->pipe, data->str_prt))
-		return (free(data->str_prt), 1);
 	if (data->is_pipe == 1)
 	{
 		while (data->pipe[ip])

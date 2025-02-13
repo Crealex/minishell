@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 11:06:39 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/02/13 14:33:05 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/13 15:35:32 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	read_write(int fd, char *end_word, t_prompt_info *data)
 		return (-1);
 	while (ft_strncmp(line, end_word, len_word) != 0)
 	{
-		// line = parse_heredoc(line, data);
+		line = parse_heredoc(line, data);
 		write(fd, line, ft_strlen(line));
 		free(line);
 		line = get_next_line(1);

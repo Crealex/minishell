@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:50:04 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/01/27 14:35:56 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/13 15:40:22 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_exit(char *str_prompt, char *str, char **prompt, char ***env)
 			value = ft_atoi(str_prompt);
 		else
 		{
-			write(2, "Minishell: exit: ", 17);
+			write(2, "minishell: exit: ", 17);
 			write(2, str_prompt, ft_strlen(str_prompt));
 			write(2, ": numeric argument required\n", 28);
 			value = 2;

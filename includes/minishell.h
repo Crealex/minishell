@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/13 14:41:32 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/13 14:55:00 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void	init_two(int *i, int *j);
 void	len_file(char *str, int i, int *start, int *end);
 char	*del_rd(char *str, int *len);
 int		heredoc(char **str, int i, int *fd, t_prompt_info *data);
+char	*parse_heredoc(char *line, t_prompt_info *data);
 int		get_in_fd(char **str, int fd, t_prompt_info *data);
 int		out_redirect(char **str);
 int		get_out_fd(char **str, int fd);
@@ -99,7 +100,7 @@ int		is_pipe(char **str);
 char	*add_space(char *str, int i, int is_double);
 int		ft_nb_row(char const *s, char c);
 char	**ft_splitpipe(char const *s, char c);
-int		is_valid_cmd(char **prompt, char *prompt_str);
+int		is_valid_cmd(char *str);
 char	**get_all_path();
 // execution
 void	extern_exec(t_prompt_info *data);

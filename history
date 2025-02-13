@@ -1273,3 +1273,154 @@ exit
 << yagsd
 >> dga
 exit
+>> test.txt cat
+<< test.txt cat
+<< test.txt end cat
+<<  end cat
+<<  end cat
+exit
+<< end cat
+exit
+<< end cat
+<< end cat
+<< end cat
+cat
+exit
+<< end cat
+exit
+cat
+ls
+/bin/ls
+ls
+exit
+<< end cat
+cat
+ls
+exit
+ls
+exit
+<< end cat
+echo slaut
+exit
+echo salut
+ls
+<< end cat
+<< end cat
+<< end cat
+./minishell 
+exit
+exit
+./minishell 
+echo $SHLVL
+exit
+exit
+echo $SHLVL
+./caca
+./
+./
+echo $SHLVL
+ld
+ls
+./
+./
+./
+./
+./
+exit
+./
+./
+./minishell 
+echo $SHLVL
+ls
+exit
+exit
+./
+ls
+<< end cat
+cat
+<< bruh cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+cat
+cat Makefile 
+exit
+cat Makefile 
+exit
+cat Makefile 
+exit
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+exit
+<< end cat
+exit
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+cat
+cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end wc-l
+<< end wc -l
+<< end wc -l
+exit
+<< end wc -l
+exit
+exit
+<< end wc -l
+<< end echo
+<< end echo
+<< end cat
+exit
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+echo a > out
+clear
+exit]
+exit

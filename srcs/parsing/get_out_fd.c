@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 16:08:33 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/02/13 11:39:10 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/13 14:32:42 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	len_file_out(char *str, int i, int *start, int *end)
 	i++;
 	if (str[i] == '>')
 		i++;
-	while (str[i] && str[i] == ' ')
+	while (str[i] && ft_isspace(str[i]))
 		i++;
 	while (str[i] && !ft_isspace(str[i]))
 		i++;
@@ -41,8 +41,7 @@ static int	open_fd(char *str, int fd_arg, int *len, int is_double)
 
 	if (fd_arg > 2)
 		close(fd_arg);
-	s = len[0];
-	s++;
+	s = len[0] + 1;
 	if (str[s] == '>')
 		s++;
 	while (str[s] && ft_isspace(str[s]))

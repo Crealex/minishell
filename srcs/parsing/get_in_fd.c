@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 11:15:33 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/02/13 11:43:36 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/13 14:34:08 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	len_file(char *str, int i, int *start, int *end)
 	i++;
 	if (str[i] == '<')
 		i++;
-	while (str[i] && str[i] == ' ')
+	while (str[i] && ft_isspace(str[i]))
 		i++;
 	while (str[i] && !ft_isspace(str[i]))
 		i++;
@@ -33,8 +33,7 @@ static int	open_fd(char *str, int fd_arg, int *len)
 
 	if (fd_arg > 2)
 		close(fd_arg);
-	s = len[0];
-	s++;
+	s = len[0] + 1;
 	while (str[s] && ft_isspace(str[s]))
 		s++;
 	str_cut = ft_substr(str, s, len[1] - s);
@@ -72,7 +71,7 @@ char	*del_rd(char *str, int *len)
 	return (new);
 }
 
-int	get_in_fd(char **str, int fd)
+int	get_in_fd(char **str, int fd, t_prompt_info *data)
 {
 	int		i;
 	int		quote[2];
@@ -94,7 +93,8 @@ int	get_in_fd(char **str, int fd)
 				return (-1);
 		}
 		if (!quote[0] && !quote[1] && (*str)[i] == '<' && (*str)[i + 1] == '<')
-			heredoc(str, i);
+			if (heredoc(str, i, &fd, data) == -1)
+				return (-1);
 		i++;
 	}
 	return (fd);

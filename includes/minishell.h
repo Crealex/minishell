@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/13 11:44:20 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/13 14:21:16 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,8 @@ void	init_fd(int *i, int *start, int *end);
 void	init_two(int *i, int *j);
 void	len_file(char *str, int i, int *start, int *end);
 char	*del_rd(char *str, int *len);
-void	heredoc(char **str, int i);
-int		get_in_fd(char **str, int fd);
+int		heredoc(char **str, int i, int *fd, t_prompt_info *data);
+int		get_in_fd(char **str, int fd, t_prompt_info *data);
 int		out_redirect(char **str);
 int		get_out_fd(char **str, int fd);
 int		redirection(t_prompt_info *data);

@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/12 17:06:04 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/13 11:44:20 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,9 @@ char	*better_strjoin(char const *s1, char const *s2, char *prompt, int iprompt);
 int		in_redirect(char **str);
 void	init_fd(int *i, int *start, int *end);
 void	init_two(int *i, int *j);
+void	len_file(char *str, int i, int *start, int *end);
+char	*del_rd(char *str, int *len);
+void	heredoc(char **str, int i);
 int		get_in_fd(char **str, int fd);
 int		out_redirect(char **str);
 int		get_out_fd(char **str, int fd);

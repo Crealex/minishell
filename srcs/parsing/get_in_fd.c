@@ -6,16 +6,18 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 11:15:33 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/02/13 10:39:15 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/13 11:43:36 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-static void	len_file(char *str, int i, int *start, int *end)
+void	len_file(char *str, int i, int *start, int *end)
 {
 	*start = i;
 	i++;
+	if (str[i] == '<')
+		i++;
 	while (str[i] && str[i] == ' ')
 		i++;
 	while (str[i] && !ft_isspace(str[i]))
@@ -23,7 +25,7 @@ static void	len_file(char *str, int i, int *start, int *end)
 	*end = i;
 }
 
-static int	open_fd(char *str, int fd_arg, int start, int end)
+static int	open_fd(char *str, int fd_arg, int *len)
 {
 	int		fd;
 	char	*str_cut;
@@ -31,35 +33,35 @@ static int	open_fd(char *str, int fd_arg, int start, int end)
 
 	if (fd_arg > 2)
 		close(fd_arg);
-	s = start;
+	s = len[0];
 	s++;
 	while (str[s] && ft_isspace(str[s]))
 		s++;
-	str_cut = ft_substr(str, s, end - s);
+	str_cut = ft_substr(str, s, len[1] - s);
 	fd = open(str_cut, O_RDONLY);
 	if (fd == -1)
-		printf("minishell: %s: No such file or directory\n", str);
+		printf("minishell: %s: No such file or directory\n", str_cut);
 	free(str_cut);
 	return (fd);
 }
 
-static char	*del_rd(char *str, int start, int end)
+char	*del_rd(char *str, int *len)
 {
 	int		i;
 	int		j;
 	char	*new;
-	int		len;
+	int		len_str;
 
 	i = 0;
 	j = 0;
-	len = ft_strlen(str);
-	new = ft_calloc(len - (end - start) + 1, sizeof(char));
+	len_str = ft_strlen(str);
+	new = ft_calloc(len_str - (len[1] - len[0]) + 1, sizeof(char));
 	if (!new)
 		return (NULL);
 	while (str[i])
 	{
-		if (i == start)
-			while (i < end)
+		if (i == len[0])
+			while (i < len[1])
 				i++;
 		new[j] = str[i];
 		i++;
@@ -73,25 +75,26 @@ static char	*del_rd(char *str, int start, int end)
 int	get_in_fd(char **str, int fd)
 {
 	int		i;
-	int		inquote[2];
+	int		quote[2];
 	int		len[2];
 
 	init_fd(&i, &len[0], &len[1]);
-	init_two(&inquote[0], &inquote[1]);
+	init_two(&quote[0], &quote[1]);
 	while ((*str)[i])
 	{
-		update_quote(&inquote[0], &inquote[1], &i, *str);
-		if (!inquote[0] && !inquote[1] && (*str)[i] == '<' && (*str)[i + 1]
-			&& (*str)[i + 1] != '<')
+		update_quote(&quote[0], &quote[1], &i, *str);
+		if (!quote[0] && !quote[1] && (*str)[i] == '<' && (*str)[i + 1] != '<')
 		{
 			len_file(*str, i, &len[0], &len[1]);
-			fd = open_fd(*str, fd, len[0], len[1]);
+			fd = open_fd(*str, fd, len);
 			if (fd == -1)
 				return (-1);
-			*str = del_rd(*str, len[0], len[1]);
+			*str = del_rd(*str, len);
 			if (!(*str))
 				return (-1);
 		}
+		if (!quote[0] && !quote[1] && (*str)[i] == '<' && (*str)[i + 1] == '<')
+			heredoc(str, i);
 		i++;
 	}
 	return (fd);

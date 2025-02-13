@@ -6,7 +6,18 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 11:06:39 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/02/13 11:06:43 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/13 11:43:33 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../includes/minishell.h"
+
+void	heredoc(char **str, int i)
+{
+	int	len[2];
+
+	len[0] = i;
+	len[1] = 0;
+	len_file(*str, &len[0], &len[1]);
+	
+}

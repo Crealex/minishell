@@ -6,13 +6,13 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 16:08:33 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/02/13 10:49:24 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/13 11:39:10 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-static void	len_file(char *str, int i, int *start, int *end)
+static void	len_file_out(char *str, int i, int *start, int *end)
 {
 	*start = i;
 	i++;
@@ -60,33 +60,6 @@ static int	open_fd(char *str, int fd_arg, int *len, int is_double)
 	return (fd);
 }
 
-static char	*del_rd(char *str, int start, int end)
-{
-	int		i;
-	int		j;
-	char	*new;
-	int		len;
-
-	i = 0;
-	j = 0;
-	len = ft_strlen(str);
-	new = ft_calloc(len - (end - start) + 1, sizeof(char));
-	if (!new)
-		return (NULL);
-	while (str[i])
-	{
-		if (i == start)
-			while (i < end)
-				i++;
-		new[j] = str[i];
-		i++;
-		j++;
-	}
-	new[j] = '\0';
-	free(str);
-	return (new);
-}
-
 int	get_out_fd(char **str, int fd)
 {
 	int		i;
@@ -102,13 +75,13 @@ int	get_out_fd(char **str, int fd)
 		update_quote(&inquote[0], &inquote[1], &i, *str);
 		if (!inquote[0] && !inquote[1] && (*str)[i] == '>')
 		{
-			len_file(*str, i, &len[0], &len[1]);
+			len_file_out(*str, i, &len[0], &len[1]);
 			printf("len : %i, %i\n", len[0], len[1]);
 			is_double((*str)[i + 1], &isdouble);
 			fd = open_fd(*str, fd, len, isdouble);
 			if (fd == -1)
 				return (-1);
-			*str = del_rd(*str, len[0], len[1]);
+			*str = del_rd(*str, len);
 			if (!(*str))
 				return (-1);
 		}

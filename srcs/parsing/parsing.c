@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/13 11:01:25 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/13 11:42:14 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,16 +105,12 @@ int parsing(t_prompt_info *data)
 			return (0);
 	}
 	else if (data->is_pipe == 0)
-	{
-		printf("data str : %s\n", data->str_prt);
 		data->str_prt = handle_dollars(data->str_prt, data->env);
-		printf("data str : %s\n", data->str_prt);
-	}
 	else
-		return (0);
+		return (1);
 	printf("str : %s\n", data->str_prt);
 	if (!redirection(data))
-		return (0);	
+		return (1);	
 	printf("%i\n", data->fd_in);
 	printf("str : %s\n", data->str_prt);
 	if (!is_valid_cmd(data->pipe, data->str_prt))

@@ -1509,3 +1509,7 @@ exit
 exit
 << end cat
 exit
+<< end cat
+exit
+ls
+exit

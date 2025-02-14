@@ -6,22 +6,35 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/14 12:03:54 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/14 14:22:53 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 #include <unistd.h>
 
-static void	which_builtins(t_prompt_info *data)
+static void	dup_fd(t_prompt_info *data, int *fd_in, int *fd_out, int where)
+{
+	if (where == 0)
+	{
+		*fd_in= dup(STDIN_FILENO);
+		*fd_out= dup(STDOUT_FILENO);
+		dup2(data->fd_out, STDOUT_FILENO);
+		dup2(data->fd_in, STDIN_FILENO);
+	}
+	else
+	{
+		dup2(*fd_in, STDIN_FILENO);
+		dup2(*fd_out, STDOUT_FILENO);
+	}
+}
+
+static int	which_builtins(t_prompt_info *data)
 {
 	int fd_in_temp;
 	int fd_out_temp;
 
-	fd_in_temp = dup(STDIN_FILENO);
-	fd_out_temp = dup(STDOUT_FILENO);
-	dup2(data->fd_out, STDOUT_FILENO);
-	dup2(data->fd_in, STDIN_FILENO);
+	dup_fd(data, &fd_in_temp, &fd_out_temp, 0);
 	if (!ft_strncmp(data->prompt[0], "echo", 4))
 		ft_echo(data->str_prt);
 	else if (!ft_strncmp(data->prompt[0], "cd", 2))
@@ -37,33 +50,10 @@ static void	which_builtins(t_prompt_info *data)
 	else if (!ft_strncmp(data->prompt[0], "exit", 4))
 		ft_exit(data);
 	else
-		extern_exec(data);
-	dup2(fd_in_temp, STDIN_FILENO);
-	dup2(fd_out_temp, STDOUT_FILENO);
-}
-
-static char	**dollar_pipe(char **pipe_prompt, char **env)
-{
-	int	i;
-	char **res;
-
-	i = 0;
-	while (pipe_prompt[i])
-		i++;
-	res = ft_calloc(i + 1, sizeof(char *));
-	if (!res)
-		return (NULL);
-	i = 0;
-	while (pipe_prompt[i])
-	{
-		res[i] = handle_dollars(pipe_prompt[i], env);
-		if (!res[i])
-			return (ft_freesplit(res, i), NULL);
-		i++;
-	}
-	free(pipe_prompt);
-	res[i] = NULL;
-	return (res);
+		if (extern_exec(data) == 0)
+			return (0);
+	dup_fd(data, &fd_in_temp, &fd_out_temp, 1);
+	return (1);
 }
 
 int	only_space(char *str)
@@ -95,7 +85,8 @@ static int	last_step(char **str, t_prompt_info *data)
 	if (!check_builtins(data->prompt))
 		return (1);
 	else
- 		which_builtins(data);
+ 		if (which_builtins(data) == 0)
+			return (0);
 	return (1);
 }
 
@@ -110,10 +101,10 @@ int parsing(t_prompt_info *data)
 	{
 		data->pipe = ft_splitpipe(data->str_prt, '|');
 		if (!data->pipe)
-			return (cleanup(data), 0);
+			return (cleanup(data), 1);
 		data->pipe = dollar_pipe(data->pipe, data->env);
 		if (!data->pipe)
-			return (cleanup(data), 0);
+			return (cleanup(data), 1);
 	}
 	else if (data->is_pipe == 0)
 		data->str_prt = handle_dollars(data->str_prt, data->env);
@@ -126,13 +117,13 @@ int parsing(t_prompt_info *data)
 		while (data->pipe[ip])
 		{
 			if (!last_step(&data->pipe[ip++], data))
-				return (cleanup(data), 0);
+				return (cleanup(data), 1);
 		}
 	}
 	else
 	{
 		if (!last_step(&data->str_prt , data))
-			return (cleanup(data), 0);
+			return (cleanup(data), 1);
 	}
 	return (cleanup(data), 1);
 }

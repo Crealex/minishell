@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:50:04 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/02/14 11:59:01 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/14 14:02:35 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	ft_exit(t_prompt_info *data)
 		}
 	}
 	cleanup(data);
+	if (data->env)
+		freesplit(data->env);
 	printf("exit\n");
 	exit(value);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/14 11:30:16 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/14 14:12:30 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,14 +97,15 @@ int		get_out_fd(char **str, int fd);
 int		redirection(t_prompt_info *data);
 int		check_builtins(char **prompt);
 int		is_pipe(char **str);
+char	**dollar_pipe(char **pipe_prompt, char **env);
 char	*add_space(char *str, int i, int is_double);
 int		ft_nb_row(char const *s, char c);
 char	**ft_splitpipe(char const *s, char c);
 int		is_valid_cmd(char *str);
 char	**get_all_path();
 // execution
-void	extern_exec(t_prompt_info *data);
-int	is_child(int status);
+int		extern_exec(t_prompt_info *data);
+int		is_child(int status);
 //split wquote
 char	**split_wquote(char const *s, char c);
 int		ft_nb_row(char const *s, char c);

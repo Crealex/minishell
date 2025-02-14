@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:37:37 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/14 14:29:01 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/14 16:41:56 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int main(int argc, char **argv, char **env)
 	data.env = cpy_double_array(data.env, env);
 	if (!data.env)
 		return (1);
-	data.fd_history = open("history", O_CREAT | O_APPEND | O_RDWR,  0744);
+	data.fd_history = open(".history", O_CREAT | O_APPEND | O_RDWR,  0744);
 	get_history(data.fd_history);
 	signal_handler();
 	update_shell_level(&data);

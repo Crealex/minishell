@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redirection.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:02:55 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/02/13 16:17:35 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/14 16:41:41 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	redirection(t_prompt_info *data)
 	else
 	{
 		data->fd_in = get_in_fd(&(data->str_prt), data->fd_in, data);
+		is_child(0);
 		if (data->fd_in == -1)
 			return (0);
 	}

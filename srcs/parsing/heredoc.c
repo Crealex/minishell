@@ -3,38 +3,70 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 11:06:39 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/02/14 15:00:35 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/14 16:40:40 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+static char	*which_heredoc(int *fd, t_prompt_info *data)
+{
+	static int	old = 2;
+	int			current;
+	char		*name;
+
+	current = ft_atoi(ft_getenv("SHLVL", data->env));
+	name = ft_calloc(3, sizeof(char));
+	if (!name)
+		return (NULL);
+	name[0] = '.';
+	name[1] = 'a';
+	name[2] = '\0';
+	if (current > old)
+	{
+		*fd = open(name, O_WRONLY);
+		while (*fd != -1)
+		{
+			close(*fd);
+			name[1] += 1;
+			*fd = open(name, O_WRONLY);
+		}
+		old = current;
+	}
+	*fd = open(name, O_WRONLY | O_CREAT | O_TRUNC, 0744);
+	return (name);
+}
+
 static int	read_write(int fd, char *end_word, t_prompt_info *data)
 {
 	char	*line;
 	int		len_word;
-	(void)data;
+	char	*name;
 
 	line = get_next_line(1);
 	len_word = ft_strlen(end_word);
 	if (fd > 2)
 		close (fd);
-	fd = open("heredoc", O_RDWR | O_CREAT | O_TRUNC, 0744);
+	name = which_heredoc(&fd, data);
 	if (fd == -1)
-		return (-1);
-	while (ft_strncmp(line, end_word, len_word) != 0)
+		return (free(name), -1);
+	while (line && ft_strncmp(line, end_word, len_word) != 0)
 	{
 		line = parse_heredoc(line, data);
 		write(fd, line, ft_strlen(line));
 		free(line);
 		line = get_next_line(1);
 	}
+	close(fd);
+	fd = open(name, O_RDONLY);
+	if (fd == -1)
+		return (free(name), -1);
 	if (line)
 		free(line);
-	return (fd);
+	return (free(name), fd);
 }
 
 int	heredoc(char **str, int i, int *fd, t_prompt_info *data)
@@ -45,6 +77,7 @@ int	heredoc(char **str, int i, int *fd, t_prompt_info *data)
 
 	len[0] = i;
 	len[1] = 0;
+	is_child(1);
 	len_file(*str, i, &len[0], &len[1]);
 	index = i + 2;
 	while (ft_isspace((*str)[index]))

@@ -3,18 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/14 15:04:12 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/14 15:20:44 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
+#include <fcntl.h>
 #include <unistd.h>
 
 static void	dup_fd(t_prompt_info *data, int *fd_in, int *fd_out, int where)
 {
+	data->fd_in = open("dga", O_RDONLY);
 	if (where == 0)
 	{
 		if (data->fd_in > 2)

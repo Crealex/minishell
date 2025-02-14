@@ -1716,3 +1716,22 @@ exit
 << end cat
 << end cat
 exit
+cat
+je teste les fd
+f
+ls
+je teste les fd
+<< end cat
+je teste les fd
+<< end cat
+je teste les fd
+<< end cat
+<< end cat
+je teste les fd
+<< end cat
+exit
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+exit

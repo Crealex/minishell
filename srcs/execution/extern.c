@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   extern.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/14 14:45:01 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/14 15:22:15 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int	extern_exec(t_prompt_info *data)
 	pid = fork();
 	if (pid == 0)
 	{
-		printf("gnl : %s\n", get_next_line(STDIN_FILENO));
+		//printf("gnl : %s\n", get_next_line(STDIN_FILENO));
 		//printf("path %s, %s, %s\n", path, data->prompt[0], data->env[0]);
 		if (execve(path, data->prompt, data->env) == -1)
 			return (printf("pas exec\n"), 0);

@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/13 11:42:14 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/13 16:26:38 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static void	which_builtins(t_prompt_info *data)
 {
+	printf("cmd : %s\n", data->prompt[0]);
 	if (!ft_strncmp(data->prompt[0], "echo", 4))
 		ft_echo(data->str_prt);
 	else if (!ft_strncmp(data->prompt[0], "cd", 2))
@@ -30,6 +31,7 @@ static void	which_builtins(t_prompt_info *data)
 		ft_exit(data->prompt[1], data->str_prt, data->prompt, &data->env);
 	else
 		extern_exec(data);
+	printf("cmd : %s\n", data->str_prt);
 }
 
 static char	**dollar_pipe(char **pipe_prompt, char **env)
@@ -108,11 +110,9 @@ int parsing(t_prompt_info *data)
 		data->str_prt = handle_dollars(data->str_prt, data->env);
 	else
 		return (1);
-	printf("str : %s\n", data->str_prt);
 	if (!redirection(data))
 		return (1);	
-	printf("%i\n", data->fd_in);
-	printf("str : %s\n", data->str_prt);
+	printf("fd : %i, %i\n", data->fd_in, data->fd_out);
 	if (!is_valid_cmd(data->pipe, data->str_prt))
 		return (free(data->str_prt), 1);
 	if (data->is_pipe == 1)

@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:21:45 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/12 15:53:45 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/13 16:24:07 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ static int	check_validity(char *cmd)
 		return (1);
 	if (is_file(cmd) == 1)
 		return (1);
+	if (ft_strlen(cmd) == 2 && cmd[0] == '.' && cmd[1] == '/')
+		return (0);
 	path = get_all_path();
 	i = 0;
 	cmd_path = ft_strjoin("/", cmd);

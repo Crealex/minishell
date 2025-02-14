@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   extern.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/14 14:18:08 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/14 14:45:01 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "../../includes/minishell.h"
 #include <strings.h>
+#include <unistd.h>
 
 int	is_child(int status)
 {
@@ -94,8 +95,12 @@ int	extern_exec(t_prompt_info *data)
 	path = get_path(data->prompt[0]);
 	pid = fork();
 	if (pid == 0)
+	{
+		printf("gnl : %s\n", get_next_line(STDIN_FILENO));
+		//printf("path %s, %s, %s\n", path, data->prompt[0], data->env[0]);
 		if (execve(path, data->prompt, data->env) == -1)
-			return (0);
+			return (printf("pas exec\n"), 0);
+	}
 	is_child(1);
 	waitpid(pid, &exit_status, 0);
 	is_child(0);

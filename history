@@ -1637,3 +1637,15 @@ echo -n bruh
 echo -p
 export -k
 exit
+ls
+hi
+exit
+ls
+hi
+exit
+ls
+hi
+exit
+ls
+hi
+exit

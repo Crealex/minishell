@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/14 10:55:41 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/14 10:59:07 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	which_builtins(t_prompt_info *data)
 	else if (!ft_strncmp(data->prompt[0], "env", 3))
 		ft_env(data->env);
 	else if (!ft_strncmp(data->prompt[0], "exit", 4))
-		ft_exit(data->prompt[1], data->str_prt, data->prompt, &data->env);
+		ft_exit(data);
 	else
 		extern_exec(data);
 	dup2(fd_in_temp, STDIN_FILENO);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:37:37 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/14 10:38:53 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/14 11:27:11 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ static int	prompt_handler(t_prompt_info *data, int fd)
 	if (!parsing(data))
 	{
 		ft_putstr_fd("Error : Parsing\n", 2);
-		if (data->str_prt)
-			free(data->str_prt);
 		return (0);
 	}
 	return (1);

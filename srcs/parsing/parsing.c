@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/14 10:59:07 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/14 11:28:05 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,15 +89,11 @@ static int	last_step(char *str, t_prompt_info *data)
 		return (0);
 	rm_quote(&str);
 	if (!is_valid_cmd(str))
-		return (free(data->str_prt), 1);
+		return (1);
 	if (!check_builtins(data->prompt))
-		return (freesplit(data->prompt), 1);
+		return (1);
 	else
  		which_builtins(data);
-	free(data->str_prt); // a revoir
-	freesplit(data->prompt); // a revoir
-	if (data->is_pipe == 1)
-		freesplit(data->pipe);
 	return (1);
 }
 
@@ -112,31 +108,29 @@ int parsing(t_prompt_info *data)
 	{
 		data->pipe = ft_splitpipe(data->str_prt, '|');
 		if (!data->pipe)
-			return (0);
+			return (cleanup(data), 0);
 		data->pipe = dollar_pipe(data->pipe, data->env);
 		if (!data->pipe)
-			return (0);
+			return (cleanup(data), 0);
 	}
 	else if (data->is_pipe == 0)
 		data->str_prt = handle_dollars(data->str_prt, data->env);
 	else
-		return (1);
+		return (cleanup(data), 1);
 	if (!redirection(data))
-		return (1);
+		return (cleanup(data), 1);
 	if (data->is_pipe == 1)
 	{
 		while (data->pipe[ip])
 		{
 			if (!last_step(data->pipe[ip++], data))
-				return (0);
+				return (cleanup(data), 0);
 		}
 	}
 	else
 	{
 		if (!last_step(data->str_prt , data))
-			return (0);
+			return (cleanup(data), 0);
 	}
-	if (data->fd_in > 2)
-		close(data->fd_in);
-	return (1);
+	return (cleanup(data), 1);
 }

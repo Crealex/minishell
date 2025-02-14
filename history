@@ -1319,10 +1319,10 @@ ls
 << end cat
 << end cat
 << end cat
-./minishell 
+./minishell
 exit
 exit
-./minishell 
+./minishell
 echo $SHLVL
 exit
 exit
@@ -1341,7 +1341,7 @@ ls
 exit
 ./
 ./
-./minishell 
+./minishell
 echo $SHLVL
 ls
 exit
@@ -1372,11 +1372,11 @@ cat
 << end cat
 << end cat
 cat
-cat Makefile 
+cat Makefile
 exit
-cat Makefile 
+cat Makefile
 exit
-cat Makefile 
+cat Makefile
 exit
 << end cat
 << end cat
@@ -1509,11 +1509,6 @@ exit
 exit
 << end cat
 exit
-ls
-exit
-ls
-exity
-exit
 << end cat
 exit
 ls
@@ -1521,25 +1516,18 @@ exit
 ls
 exit
 ls
+exit
 ls
-l
-sdls
-lvsdlbs
+exit
+ls
+exit
+ls
 exit
 ls
 ls
-ls
-l
-ls
-eixt
-ls
-ls
-ls 
 exit
 ls
-casc
+exit
 ls
-ls
-ls
-ls
+<< end cat
 exit

@@ -1,186 +1,410 @@
-==77861== Memcheck, a memory error detector
-==77861== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==77861== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==77861== Command: ./minishell
-==77861== Parent PID: 77859
-==77861== 
-==77890== Syscall param execve(filename) points to unaddressable byte(s)
-==77890==    at 0x49B108B: execve (syscall-template.S:120)
-==77890==    by 0x10EA5A: extern_exec (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10C077: which_builtins (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10C294: last_step (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10C473: parsing (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10949C: prompt_handler (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x1096A8: main (in /home/atomasi/Documents/minishell/minishell)
-==77890==  Address 0x4d02ad0 is 0 bytes inside a block of size 22 free'd
-==77890==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==77890==    by 0x10E7BA: get_path (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10EA29: extern_exec (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10C077: which_builtins (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10C294: last_step (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10C473: parsing (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10949C: prompt_handler (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x1096A8: main (in /home/atomasi/Documents/minishell/minishell)
-==77890==  Block was alloc'd at
-==77890==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==77890==    by 0x10F394: ft_strjoin (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10E776: get_path (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10EA29: extern_exec (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10C077: which_builtins (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10C294: last_step (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10C473: parsing (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10949C: prompt_handler (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x1096A8: main (in /home/atomasi/Documents/minishell/minishell)
-==77890== 
-==77890== Invalid free() / delete / delete[] / realloc()
-==77890==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==77890==    by 0x10EA90: extern_exec (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10C077: which_builtins (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10C294: last_step (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10C473: parsing (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10949C: prompt_handler (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x1096A8: main (in /home/atomasi/Documents/minishell/minishell)
-==77890==  Address 0x4d02ad0 is 0 bytes inside a block of size 22 free'd
-==77890==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==77890==    by 0x10E7BA: get_path (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10EA29: extern_exec (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10C077: which_builtins (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10C294: last_step (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10C473: parsing (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10949C: prompt_handler (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x1096A8: main (in /home/atomasi/Documents/minishell/minishell)
-==77890==  Block was alloc'd at
-==77890==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==77890==    by 0x10F394: ft_strjoin (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10E776: get_path (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10EA29: extern_exec (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10C077: which_builtins (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10C294: last_step (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10C473: parsing (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x10949C: prompt_handler (in /home/atomasi/Documents/minishell/minishell)
-==77890==    by 0x1096A8: main (in /home/atomasi/Documents/minishell/minishell)
-==77890== 
-==78027== 
-==78027== FILE DESCRIPTORS: 8 open (3 std) at exit.
-==78027== Open file descriptor 4: history
-==78027==    at 0x49DA53B: open (open64.c:41)
-==78027==    by 0x109636: main (in /home/atomasi/Documents/minishell/minishell)
-==78027== 
-==78027== Open file descriptor 103: /usr/share/code/v8_context_snapshot.bin
-==78027==    <inherited from parent>
-==78027== 
-==78027== Open AF_UNIX socket 43: <unknown>
-==78027==    <inherited from parent>
-==78027== 
-==78027== Open file descriptor 42: /home/atomasi/.config/Code/logs/20250212T094720/ptyhost.log
-==78027==    <inherited from parent>
-==78027== 
-==78027== Open file descriptor 3: /home/atomasi/Documents/minishell/leakslogs.txt
-==78027==    <inherited from parent>
-==78027== 
-==78027== 
-==78027== HEAP SUMMARY:
-==78027==     in use at exit: 262,840 bytes in 3,615 blocks
-==78027==   total heap usage: 10,727 allocs, 7,114 frees, 1,200,645 bytes allocated
-==78027== 
-==78027== LEAK SUMMARY:
-==78027==    definitely lost: 0 bytes in 0 blocks
-==78027==    indirectly lost: 0 bytes in 0 blocks
-==78027==      possibly lost: 0 bytes in 0 blocks
-==78027==    still reachable: 0 bytes in 0 blocks
-==78027==         suppressed: 262,840 bytes in 3,615 blocks
-==78027== 
-==78027== For lists of detected and suppressed errors, rerun with: -s
-==78027== ERROR SUMMARY: 4 errors from 2 contexts (suppressed: 0 from 0)
-==77890== 
-==77890== FILE DESCRIPTORS: 8 open (3 std) at exit.
-==77890== Open file descriptor 4: history
-==77890==    at 0x49DA53B: open (open64.c:41)
-==77890==    by 0x109636: main (in /home/atomasi/Documents/minishell/minishell)
-==77890== 
-==77890== Open file descriptor 103: /usr/share/code/v8_context_snapshot.bin
-==77890==    <inherited from parent>
-==77890== 
-==77890== Open AF_UNIX socket 43: <unknown>
-==77890==    <inherited from parent>
-==77890== 
-==77890== Open file descriptor 42: /home/atomasi/.config/Code/logs/20250212T094720/ptyhost.log
-==77890==    <inherited from parent>
-==77890== 
-==77890== Open file descriptor 3: /home/atomasi/Documents/minishell/leakslogs.txt
-==77890==    <inherited from parent>
-==77890== 
-==77890== 
-==77890== HEAP SUMMARY:
-==77890==     in use at exit: 262,535 bytes in 3,609 blocks
-==77890==   total heap usage: 10,705 allocs, 7,098 frees, 1,200,182 bytes allocated
-==77890== 
-==77890== LEAK SUMMARY:
-==77890==    definitely lost: 0 bytes in 0 blocks
-==77890==    indirectly lost: 0 bytes in 0 blocks
-==77890==      possibly lost: 0 bytes in 0 blocks
-==77890==    still reachable: 0 bytes in 0 blocks
-==77890==         suppressed: 262,535 bytes in 3,609 blocks
-==77890== 
-==77890== For lists of detected and suppressed errors, rerun with: -s
-==77890== ERROR SUMMARY: 3 errors from 2 contexts (suppressed: 0 from 0)
-==77861== Invalid free() / delete / delete[] / realloc()
-==77861==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==77861==    by 0x10EA90: extern_exec (in /home/atomasi/Documents/minishell/minishell)
-==77861==    by 0x10C077: which_builtins (in /home/atomasi/Documents/minishell/minishell)
-==77861==    by 0x10C294: last_step (in /home/atomasi/Documents/minishell/minishell)
-==77861==    by 0x10C473: parsing (in /home/atomasi/Documents/minishell/minishell)
-==77861==    by 0x10949C: prompt_handler (in /home/atomasi/Documents/minishell/minishell)
-==77861==    by 0x1096A8: main (in /home/atomasi/Documents/minishell/minishell)
-==77861==  Address 0x4d02ad0 is 0 bytes inside a block of size 22 free'd
-==77861==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==77861==    by 0x10E7BA: get_path (in /home/atomasi/Documents/minishell/minishell)
-==77861==    by 0x10EA29: extern_exec (in /home/atomasi/Documents/minishell/minishell)
-==77861==    by 0x10C077: which_builtins (in /home/atomasi/Documents/minishell/minishell)
-==77861==    by 0x10C294: last_step (in /home/atomasi/Documents/minishell/minishell)
-==77861==    by 0x10C473: parsing (in /home/atomasi/Documents/minishell/minishell)
-==77861==    by 0x10949C: prompt_handler (in /home/atomasi/Documents/minishell/minishell)
-==77861==    by 0x1096A8: main (in /home/atomasi/Documents/minishell/minishell)
-==77861==  Block was alloc'd at
-==77861==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==77861==    by 0x10F394: ft_strjoin (in /home/atomasi/Documents/minishell/minishell)
-==77861==    by 0x10E776: get_path (in /home/atomasi/Documents/minishell/minishell)
-==77861==    by 0x10EA29: extern_exec (in /home/atomasi/Documents/minishell/minishell)
-==77861==    by 0x10C077: which_builtins (in /home/atomasi/Documents/minishell/minishell)
-==77861==    by 0x10C294: last_step (in /home/atomasi/Documents/minishell/minishell)
-==77861==    by 0x10C473: parsing (in /home/atomasi/Documents/minishell/minishell)
-==77861==    by 0x10949C: prompt_handler (in /home/atomasi/Documents/minishell/minishell)
-==77861==    by 0x1096A8: main (in /home/atomasi/Documents/minishell/minishell)
-==77861== 
-==77861== 
-==77861== FILE DESCRIPTORS: 8 open (3 std) at exit.
-==77861== Open file descriptor 4: history
-==77861==    at 0x49DA53B: open (open64.c:41)
-==77861==    by 0x109636: main (in /home/atomasi/Documents/minishell/minishell)
-==77861== 
-==77861== Open file descriptor 103: /usr/share/code/v8_context_snapshot.bin
-==77861==    <inherited from parent>
-==77861== 
-==77861== Open AF_UNIX socket 43: <unknown>
-==77861==    <inherited from parent>
-==77861== 
-==77861== Open file descriptor 42: /home/atomasi/.config/Code/logs/20250212T094720/ptyhost.log
-==77861==    <inherited from parent>
-==77861== 
-==77861== Open file descriptor 3: /home/atomasi/Documents/minishell/leakslogs.txt
-==77861==    <inherited from parent>
-==77861== 
-==77861== 
-==77861== HEAP SUMMARY:
-==77861==     in use at exit: 262,438 bytes in 3,603 blocks
-==77861==   total heap usage: 10,648 allocs, 7,046 frees, 1,199,250 bytes allocated
-==77861== 
-==77861== LEAK SUMMARY:
-==77861==    definitely lost: 0 bytes in 0 blocks
-==77861==    indirectly lost: 0 bytes in 0 blocks
-==77861==      possibly lost: 0 bytes in 0 blocks
-==77861==    still reachable: 0 bytes in 0 blocks
-==77861==         suppressed: 262,438 bytes in 3,603 blocks
-==77861== 
-==77861== For lists of detected and suppressed errors, rerun with: -s
-==77861== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==417529== Memcheck, a memory error detector
+==417529== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==417529== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==417529== Command: ./minishell
+==417529== Parent PID: 417499
+==417529== 
+==417529== Invalid free() / delete / delete[] / realloc()
+==417529==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x10EE9E: cleanup (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C539: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==  Address 0x4e210c0 is 0 bytes inside a block of size 3 free'd
+==417529==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x10F2E1: rm_quote (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C313: last_step (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C516: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==  Block was alloc'd at
+==417529==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x10F9F6: ft_calloc (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10B7C9: handle_dollars (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C44B: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529== 
+==417582== Syscall param execve(envp) points to unaddressable byte(s)
+==417582==    at 0x49B108B: execve (syscall-template.S:120)
+==417582==    by 0x10F825: extern_exec (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417582==    by 0x10C106: which_builtins (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417582==    by 0x10C351: last_step (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417582==    by 0x10C516: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417582==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417582==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417582==  Address 0x4b23040 is 0 bytes inside a block of size 616 free'd
+==417582==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417582==    by 0x10ED19: freesplit (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417582==    by 0x10EE64: cleanup (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417582==    by 0x10C539: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417582==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417582==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417582==  Block was alloc'd at
+==417582==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417582==    by 0x10F9F6: ft_calloc (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417582==    by 0x10EC13: cpy_double_array (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417582==    by 0x109644: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417582== 
+==417582== Syscall param execve(envp[i]) points to unaddressable byte(s)
+==417582==    at 0x49B108B: execve (syscall-template.S:120)
+==417582==    by 0x10F825: extern_exec (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417582==    by 0x10C106: which_builtins (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417582==    by 0x10C351: last_step (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417582==    by 0x10C516: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417582==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417582==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417582==  Address 0x4b232f0 is 0 bytes inside a block of size 33 free'd
+==417582==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417582==    by 0x10ECED: freesplit (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417582==    by 0x10EE64: cleanup (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417582==    by 0x10C539: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417582==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417582==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417582==  Block was alloc'd at
+==417582==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417582==    by 0x1100FE: ft_strdup (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417582==    by 0x10EC5A: cpy_double_array (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417582==    by 0x109644: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417582== 
+==417529== Invalid read of size 8
+==417529==    at 0x10ECC5: freesplit (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EE64: cleanup (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C539: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==  Address 0x4b23040 is 0 bytes inside a block of size 616 free'd
+==417529==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x10ED19: freesplit (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EE64: cleanup (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C539: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==  Block was alloc'd at
+==417529==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x10F9F6: ft_calloc (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EC13: cpy_double_array (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x109644: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529== 
+==417529== Invalid read of size 8
+==417529==    at 0x10ED06: freesplit (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EE64: cleanup (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C539: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==  Address 0x4b23040 is 0 bytes inside a block of size 616 free'd
+==417529==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x10ED19: freesplit (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EE64: cleanup (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C539: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==  Block was alloc'd at
+==417529==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x10F9F6: ft_calloc (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EC13: cpy_double_array (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x109644: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529== 
+==417529== Invalid read of size 8
+==417529==    at 0x10ECE3: freesplit (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EE64: cleanup (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C539: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==  Address 0x4b23040 is 0 bytes inside a block of size 616 free'd
+==417529==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x10ED19: freesplit (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EE64: cleanup (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C539: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==  Block was alloc'd at
+==417529==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x10F9F6: ft_calloc (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EC13: cpy_double_array (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x109644: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529== 
+==417529== Invalid free() / delete / delete[] / realloc()
+==417529==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x10ECED: freesplit (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EE64: cleanup (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C539: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==  Address 0x4b232f0 is 0 bytes inside a block of size 33 free'd
+==417529==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x10ECED: freesplit (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EE64: cleanup (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C539: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==  Block was alloc'd at
+==417529==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x1100FE: ft_strdup (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EC5A: cpy_double_array (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x109644: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529== 
+==417529== Invalid free() / delete / delete[] / realloc()
+==417529==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x10ED19: freesplit (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EE64: cleanup (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C539: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==  Address 0x4b23040 is 0 bytes inside a block of size 616 free'd
+==417529==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x10ED19: freesplit (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EE64: cleanup (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C539: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==  Block was alloc'd at
+==417529==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x10F9F6: ft_calloc (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EC13: cpy_double_array (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x109644: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529== 
+==417529== Invalid read of size 8
+==417529==    at 0x10ECC5: freesplit (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EE64: cleanup (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x109CD7: ft_exit (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C0F8: which_builtins (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C351: last_step (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C516: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==  Address 0x4b23040 is 0 bytes inside a block of size 616 free'd
+==417529==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x10ED19: freesplit (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EE64: cleanup (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C539: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==  Block was alloc'd at
+==417529==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x10F9F6: ft_calloc (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EC13: cpy_double_array (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x109644: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529== 
+==417529== Invalid read of size 8
+==417529==    at 0x10ED06: freesplit (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EE64: cleanup (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x109CD7: ft_exit (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C0F8: which_builtins (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C351: last_step (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C516: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==  Address 0x4b23040 is 0 bytes inside a block of size 616 free'd
+==417529==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x10ED19: freesplit (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EE64: cleanup (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C539: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==  Block was alloc'd at
+==417529==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x10F9F6: ft_calloc (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EC13: cpy_double_array (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x109644: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529== 
+==417529== Invalid read of size 8
+==417529==    at 0x10ECE3: freesplit (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EE64: cleanup (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x109CD7: ft_exit (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C0F8: which_builtins (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C351: last_step (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C516: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==  Address 0x4b23040 is 0 bytes inside a block of size 616 free'd
+==417529==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x10ED19: freesplit (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EE64: cleanup (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C539: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==  Block was alloc'd at
+==417529==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x10F9F6: ft_calloc (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EC13: cpy_double_array (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x109644: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529== 
+==417529== Invalid free() / delete / delete[] / realloc()
+==417529==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x10ECED: freesplit (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EE64: cleanup (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x109CD7: ft_exit (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C0F8: which_builtins (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C351: last_step (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C516: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==  Address 0x4b232f0 is 0 bytes inside a block of size 33 free'd
+==417529==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x10ECED: freesplit (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EE64: cleanup (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C539: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==  Block was alloc'd at
+==417529==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x1100FE: ft_strdup (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EC5A: cpy_double_array (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x109644: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529== 
+==417529== Invalid free() / delete / delete[] / realloc()
+==417529==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x10ED19: freesplit (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EE64: cleanup (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x109CD7: ft_exit (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C0F8: which_builtins (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C351: last_step (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C516: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==  Address 0x4b23040 is 0 bytes inside a block of size 616 free'd
+==417529==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x10ED19: freesplit (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EE64: cleanup (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C539: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==  Block was alloc'd at
+==417529==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x10F9F6: ft_calloc (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10EC13: cpy_double_array (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x109644: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529== 
+==417529== Invalid free() / delete / delete[] / realloc()
+==417529==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x10EE9E: cleanup (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x109CD7: ft_exit (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C0F8: which_builtins (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C351: last_step (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C516: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==  Address 0x4e23eb0 is 0 bytes inside a block of size 5 free'd
+==417529==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x10F2E1: rm_quote (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C313: last_step (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C516: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==  Block was alloc'd at
+==417529==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x10F9F6: ft_calloc (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10B7C9: handle_dollars (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C44B: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529== 
+==417529== 
+==417529== FILE DESCRIPTORS: 14 open (3 std) at exit.
+==417529== Open file descriptor 10: /dev/pts/0
+==417529==    at 0x49DAFEB: dup (syscall-template.S:120)
+==417529==    by 0x10BF13: which_builtins (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C351: last_step (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C516: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529== 
+==417529== Open file descriptor 7: /dev/pts/0
+==417529==    at 0x49DAFEB: dup (syscall-template.S:120)
+==417529==    by 0x10BF06: which_builtins (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C351: last_step (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C516: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529== 
+==417529== Open file descriptor 9: /dev/pts/0
+==417529==    at 0x49DAFEB: dup (syscall-template.S:120)
+==417529==    by 0x10BF13: which_builtins (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C351: last_step (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C516: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529== 
+==417529== Open file descriptor 8: /dev/pts/0
+==417529==    at 0x49DAFEB: dup (syscall-template.S:120)
+==417529==    by 0x10BF06: which_builtins (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C351: last_step (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C516: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529== 
+==417529== Open file descriptor 6: /dev/pts/0
+==417529==    at 0x49DAFEB: dup (syscall-template.S:120)
+==417529==    by 0x10BF13: which_builtins (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C351: last_step (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C516: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529== 
+==417529== Open file descriptor 5: /dev/pts/0
+==417529==    at 0x49DAFEB: dup (syscall-template.S:120)
+==417529==    by 0x10BF06: which_builtins (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C351: last_step (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C516: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529== 
+==417529== Open file descriptor 4: history
+==417529==    at 0x49DA53B: open (open64.c:41)
+==417529==    by 0x109679: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529== 
+==417529== Open file descriptor 103: /usr/share/code/v8_context_snapshot.bin
+==417529==    <inherited from parent>
+==417529== 
+==417529== Open AF_UNIX socket 43: <unknown>
+==417529==    <inherited from parent>
+==417529== 
+==417529== Open file descriptor 42: /home/dvauthey/.config/Code/logs/20250214T104552/ptyhost.log
+==417529==    <inherited from parent>
+==417529== 
+==417529== Open file descriptor 3: /home/dvauthey/Documents/rk03/minishell/minishell/leakslogs.txt
+==417529==    <inherited from parent>
+==417529== 
+==417529== 
+==417529== HEAP SUMMARY:
+==417529==     in use at exit: 283,377 bytes in 4,825 blocks
+==417529==   total heap usage: 14,373 allocs, 9,705 frees, 2,116,176 bytes allocated
+==417529== 
+==417529== 4 bytes in 1 blocks are definitely lost in loss record 1 of 75
+==417529==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x110496: ft_substr (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10D55E: heredoc (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10D37A: get_in_fd (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10CA08: redirection (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C477: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529== 
+==417529== 5 bytes in 1 blocks are still reachable in loss record 2 of 75
+==417529==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x1100FE: ft_strdup (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10F2ED: rm_quote (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C313: last_step (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C516: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529== 
+==417529== 9 bytes in 2 blocks are definitely lost in loss record 5 of 75
+==417529==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==417529==    by 0x1100FE: ft_strdup (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10F2ED: rm_quote (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C313: last_step (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x10C516: parsing (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1094FC: prompt_handler (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529==    by 0x1096EB: main (in /home/dvauthey/Documents/rk03/minishell/minishell/minishell)
+==417529== 
+==417529== LEAK SUMMARY:
+==417529==    definitely lost: 13 bytes in 3 blocks
+==417529==    indirectly lost: 0 bytes in 0 blocks
+==417529==      possibly lost: 0 bytes in 0 blocks
+==417529==    still reachable: 5 bytes in 1 blocks
+==417529==         suppressed: 283,359 bytes in 4,821 blocks
+==417529== 
+==417529== For lists of detected and suppressed errors, rerun with: -s
+==417529== ERROR SUMMARY: 467 errors from 14 contexts (suppressed: 0 from 0)

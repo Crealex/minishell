@@ -1424,3 +1424,66 @@ echo a > out
 clear
 exit]
 exit
+<< end cat
+cat heredoc
+cat
+cat
+cat
+cat
+<< end cat
+exit
+exit
+<< end cat
+exit
+<< end cat
+exit
+<< end cat
+echo $?
+exit
+ls
+exit
+ls
+exit
+ls
+exit
+ls
+eit
+exit
+ls
+exit
+ls
+exit
+ls
+exit
+ls
+exit
+ls
+exit
+ls
+exit
+ls
+exit
+make
+exit
+ls
+exit
+ls
+exit
+ls
+exit
+ls
+exit
+exit
+ls
+exit
+ls
+exit
+ls
+exit
+ls
+exit
+exit
+ls
+exit
+<< end cat
+exit

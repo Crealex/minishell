@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/13 16:58:55 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/14 10:44:14 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,13 @@
 
 static void	which_builtins(t_prompt_info *data)
 {
-	int fd1;
-	int fd2;
+	int fd_in_temp;
+	int fd_out_temp;
 
-	fd1 = dup(STDIN_FILENO);
-	fd2 = dup(STDOUT_FILENO);
+	fd_in_temp = dup(STDIN_FILENO);
+	fd_out_temp = dup(STDOUT_FILENO);
 	dup2(data->fd_out, STDOUT_FILENO);
 	dup2(data->fd_in, STDIN_FILENO);
-
 	if (!ft_strncmp(data->prompt[0], "echo", 4))
 		ft_echo(data->str_prt);
 	else if (!ft_strncmp(data->prompt[0], "cd", 2))
@@ -39,8 +38,8 @@ static void	which_builtins(t_prompt_info *data)
 		ft_exit(data->prompt[1], data->str_prt, data->prompt, &data->env);
 	else
 		extern_exec(data);
-	dup2(fd1, STDIN_FILENO);
-	dup2(fd2, STDOUT_FILENO);
+	dup2(fd_in_temp, STDIN_FILENO);
+	dup2(fd_out_temp, STDOUT_FILENO);
 }
 
 static char	**dollar_pipe(char **pipe_prompt, char **env)
@@ -95,8 +94,8 @@ static int	last_step(char *str, t_prompt_info *data)
 		return (freesplit(data->prompt), 1);
 	else
  		which_builtins(data);
-	free(data->str_prt);
-	freesplit(data->prompt);
+	free(data->str_prt); // a revoir
+	freesplit(data->prompt); // a revoir
 	if (data->is_pipe == 1)
 		freesplit(data->pipe);
 	return (1);
@@ -124,7 +123,6 @@ int parsing(t_prompt_info *data)
 		return (1);
 	if (!redirection(data))
 		return (1);
-	printf("str : %s\n", data->str_prt);
 	if (data->is_pipe == 1)
 	{
 		while (data->pipe[ip])

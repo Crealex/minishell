@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:37:37 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/14 14:02:44 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/14 14:29:01 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	update_shell_level(t_prompt_info *data)
 
 int main(int argc, char **argv, char **env)
 {
-	int		fd;
 	t_prompt_info data;
 
 	if (argc != 1)
@@ -52,8 +51,8 @@ int main(int argc, char **argv, char **env)
 	data.env = cpy_double_array(data.env, env);
 	if (!data.env)
 		return (1);
-	fd = open("history", O_CREAT | O_APPEND | O_RDWR,  0744);
-	get_history(fd);
+	data.fd_history = open("history", O_CREAT | O_APPEND | O_RDWR,  0744);
+	get_history(data.fd_history);
 	signal_handler();
 	update_shell_level(&data);
 	while (1)
@@ -63,7 +62,7 @@ int main(int argc, char **argv, char **env)
 			return (printf("exit\n"), 0);
 		if (ft_strlen(data.str_prt) > 0)
 		{
-			if (!prompt_handler(&data, fd))
+			if (!prompt_handler(&data, data.fd_history))
 				return (1);
 		}
 	}

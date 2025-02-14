@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/14 14:18:45 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/14 14:26:27 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,23 @@ static void	dup_fd(t_prompt_info *data, int *fd_in, int *fd_out, int where)
 {
 	if (where == 0)
 	{
-		*fd_in= dup(STDIN_FILENO);
-		*fd_out= dup(STDOUT_FILENO);
-		dup2(data->fd_out, STDOUT_FILENO);
-		dup2(data->fd_in, STDIN_FILENO);
+		if (data->fd_in > 2)
+		{
+			*fd_in= dup(STDIN_FILENO);
+			dup2(data->fd_in, STDIN_FILENO);
+		}
+		if (data->fd_out > 2)
+		{
+			*fd_out= dup(STDOUT_FILENO);
+			dup2(data->fd_out, STDOUT_FILENO);
+		}
 	}
 	else
 	{
-		dup2(*fd_in, STDIN_FILENO);
-		dup2(*fd_out, STDOUT_FILENO);
+		if (data->fd_in > 2)
+			dup2(*fd_in, STDIN_FILENO);
+		if (data->fd_out > 2)
+			dup2(*fd_out, STDOUT_FILENO);
 	}
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/14 11:37:33 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/14 12:00:49 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,15 +80,17 @@ int	only_space(char *str)
 	return (1);
 }
 
-static int	last_step(char *str, t_prompt_info *data)
+static int	last_step(char **str, t_prompt_info *data)
 {
-	if (only_space(str))
+	if (only_space(*str))
 		return (1);
-	data->prompt = split_wquote(str, ' ');
+	data->prompt = split_wquote(*str, ' ');
 	if (!data->prompt)
 		return (0);
-	str = rm_quote(str);
-	if (!is_valid_cmd(str))
+	*str = rm_quote(*str);
+	if (!(*str))
+		return (0);
+	if (!is_valid_cmd(*str))
 		return (1);
 	if (!check_builtins(data->prompt))
 		return (1);
@@ -123,13 +125,13 @@ int parsing(t_prompt_info *data)
 	{
 		while (data->pipe[ip])
 		{
-			if (!last_step(data->pipe[ip++], data))
+			if (!last_step(&data->pipe[ip++], data))
 				return (cleanup(data), 0);
 		}
 	}
 	else
 	{
-		if (!last_step(data->str_prt , data))
+		if (!last_step(&data->str_prt , data))
 			return (cleanup(data), 0);
 	}
 	return (cleanup(data), 1);

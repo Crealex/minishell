@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/14 10:59:26 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/14 11:30:16 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int		ft_isspace(int c);
 void	print_error(char *s1, char *s2, char *s3);
 //quote
 int		len_wquote(char *str);
-void	rm_quote(char **str);
+char	*rm_quote(char *str);
 int		is_quote(char *str);
 void	update_quote(int *in_single, int *in_double, int *i, char *prompt);
 //parsing

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/14 10:59:07 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/14 11:35:57 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ static int	last_step(char *str, t_prompt_info *data)
 	data->prompt = split_wquote(str, ' ');
 	if (!data->prompt)
 		return (0);
-	rm_quote(&str);
+	str = rm_quote(str);
 	if (!is_valid_cmd(str))
 		return (free(data->str_prt), 1);
 	if (!check_builtins(data->prompt))

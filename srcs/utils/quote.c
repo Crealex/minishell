@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:47:23 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/28 11:32:23 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/14 11:32:57 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	is_quote(char *str)
 		return (0);
 }
 
- void	rm_quote(char **str)
+ char	*rm_quote(char *str)
 {
 	int i;
 	int ires;
@@ -86,20 +86,19 @@ int	is_quote(char *str)
 	ires = 0;
 	quote = 0;
 	quote2 = 0;
-	res = ft_calloc((ft_strlen(*str) + 1), sizeof(char));
+	res = ft_calloc((ft_strlen(str) + 1), sizeof(char));
 	if (!res)
-		return ;
-	while ((*str)[i])
+		return (NULL);
+	while ((str)[i])
 	{
-		if ((*str)[i] == '\'' || (*str)[i] == '\"')
-			update_quote(&quote, &quote2, &i, *str);
-		if (!(*str)[i])
+		if ((str)[i] == '\'' || (str)[i] == '\"')
+			update_quote(&quote, &quote2, &i, str);
+		if (!(str)[i])
 			break;
-		res[ires++] = (*str)[i++];
+		res[ires++] = (str)[i++];
 	}
-	free(*str);
-	*str = ft_strdup(res);
-	free(res);
+	free(str);
+	return (res);
 }
 
 int	len_wquote(char *str)

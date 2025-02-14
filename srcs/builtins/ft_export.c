@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 11:35:36 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/07 14:30:26 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/14 11:43:38 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	add_to_env(char *str, char ***env)
 
 	i = 0;
 	if (is_quote(str))
-		rm_quote(&str);
+		str = rm_quote(str);
 	if (check_name(str) == 1) //Gere le =
 	{
 		str = format_content(str);

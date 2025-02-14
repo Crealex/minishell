@@ -273,31 +273,31 @@ exit
 ecjo
 cd
 cd
-cd 
+cd
 cd cdaca
 cdscdscds
 echo salut
 cdadaca
 cda
-cd 
 cd
-cd   
+cd
+cd
 export
 exit
 exit
-exit 
-cd
-exit
 exit
 cd
 exit
+exit
 cd
-cd 
+exit
+cd
+cd
 cddacacac
 exit
 cd
 cddcdc
-cd 
+cd
 pwd
 ls
 exit
@@ -415,17 +415,17 @@ csacacac
 
 exit
 sa
-minishell $ > 
+minishell $ >
 exit
-minishell $ > 
-minishell $ > 
+minishell $ >
+minishell $ >
 exit
-minishell $ > 
-minishell $ > 
-minishell $ > 
-minishell $ > 
+minishell $ >
+minishell $ >
+minishell $ >
+minishell $ >
 exit
-saminishell $ > 
+saminishell $ >
 echo  $
 echo salut $USER
 exit
@@ -435,8 +435,8 @@ exit
 
 echo test
 
-        
-                    
+
+
 \n
 
 
@@ -454,9 +454,9 @@ exit
 exit
 echo -n \n
 echo -nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn salut
-                                                
+
 exit
-       
+
 test
 dsbvjsd
 test
@@ -579,8 +579,8 @@ cat
 lds
 man valgrind
 touch test.sh
-./test.sh 
-./minishell 
+./test.sh
+./minishell
 ./minishell.sh
 minshel
 minshell
@@ -632,7 +632,7 @@ cd ..
 cat leakslogs.txt
 ls
 pwd
-cd 
+cd
 ls
 cd alexandre/
 cd Documents/
@@ -670,16 +670,16 @@ cat ascsac
 echo $?
 cat sclkanclksanclksacnsalkcnalkcn
 echo $?
-echo cat Makefile 
-cat Makefile 
+echo cat Makefile
+cat Makefile
 echo $?
 cat
 test
 echo $?
 cat
 echo $?
-vim Makefile 
-./minishell 
+vim Makefile
+./minishell
 cat
 salut
 clear
@@ -702,16 +702,16 @@ make
 exit
 exit
 ./caca
-./minishell 
+./minishell
 ls
 ls
 exit
 exit
 exit
 ./ascsacsa
-./test.sh 
+./test.sh
 ./cdsisdyvosvd
-./test.sh 
+./test.sh
 ls
 ./srcs/
 ./srcs
@@ -733,7 +733,7 @@ exit
 exit
 exit
 ./dvsvsdv
-./test.sh 
+./test.sh
 ./srcs/
 ./srcs
 exit
@@ -747,61 +747,61 @@ ls
 ls
 rm ls
 ls
-rm text.txt 
-rm test.sh 
+rm text.txt
+rm test.sh
 exit
 ./caca
 ./srcs
-./minishell 
+./minishell
 exit
 pwd
 exit
-./minishell 
+./minishell
 exit
 exit
 ./minishell
-./minishell 
+./minishell
 exit
 exit
 exit
 echo $?SHLVL
 echo $SHLVL
-./minishell 
+./minishell
 echo $SHLVL
 env
 export
 exit
 exit
 echo $SHLVL
-./minishell 
+./minishell
 echo $SHLVL
 exit
 exit
-./minishell 
+./minishell
 export
 exit
-./minishell 
+./minishell
 exit
 exit
-./minishell 
-./minishell 
+./minishell
+./minishell
 exit
 exit
 exit
 echo $SHLVL
-./minishell 
+./minishell
 $SHLVL
 echo $SHLVL
 exit
 exit
 make
-./minishell 
+./minishell
 exit
 exit
-./minishell 
-cat srcs/main.c 
+./minishell
+cat srcs/main.c
 make
-./minishell 
+./minishell
 exit
 exit
 exit
@@ -862,10 +862,10 @@ ls
 exit
 /bin/ls
 exit
-./minishell 
-./minishell 
+./minishell
+./minishell
 echo $SHLVL
-./minishell 
+./minishell
 echo $SHLVL
 exit
 echo $SHLVL
@@ -876,7 +876,7 @@ exit
 ls
 bin/ls
 /bin/ls
-./minishell 
+./minishell
 exit
 exit
 ls
@@ -988,7 +988,7 @@ cd ..
 exit
 cd ..
 exit
-./minishell 
+./minishell
 exit
 exit
 ls
@@ -1020,12 +1020,12 @@ caca
 exit
 caca
 exit
-     
-        
-          
-           
-            
-		
+
+
+
+
+
+
 exit
 exit
 cat
@@ -1039,7 +1039,7 @@ cat
 cat
 exit
 ls
-cat history > out | cat ignore_readline_leaks.supp 
+cat history > out | cat ignore_readline_leaks.supp
 cat
 exit
 cat
@@ -1099,16 +1099,16 @@ echo saljut
 cat
 echo salut
 exit
-< Makefile 
-< Makefile 
-< Makefile 
-< Makefile 
-< Makefile 
-< Makefile 
-< Makefile 
-< Makefile 
-< Makefile 
-< Makefile 
+< Makefile
+< Makefile
+< Makefile
+< Makefile
+< Makefile
+< Makefile
+< Makefile
+< Makefile
+< Makefile
+< Makefile
 < Makefile cat
 < Makefile cat
 < Makefile cat
@@ -1144,8 +1144,8 @@ exit
 < Makefile cat
 exit
 < Makefile cat
-< srcs/main.c < Makefile 
-< srcs/main.c < Makefile 
+< srcs/main.c < Makefile
+< srcs/main.c < Makefile
 < uaysduyasgd
 exit
 > text
@@ -1166,19 +1166,19 @@ exit
 > text
 exit
 > text
-< 
+<
 exit
-< 
+<
 exit
-< 
+<
 exit
-< 
+<
 exit
-< 
+<
 exit
-< 
+<
 > text
-< 
+<
 > text
 exit
 > text
@@ -1273,22 +1273,235 @@ exit
 << yagsd
 >> dga
 exit
+<<<<<<< HEAD
 << end cat
+=======
+>> test.txt cat
+<< test.txt cat
+<< test.txt end cat
+<<  end cat
+<<  end cat
+>>>>>>> main
+exit
+<< end cat
+exit
+<< end cat
+<<<<<<< HEAD
 exit
 << end cat
 exit
 << end cat
 exit
 << end cat
+=======
+<< end cat
+<< end cat
+cat
+exit
+<< end cat
+exit
+cat
+ls
+/bin/ls
+ls
+exit
+<< end cat
+cat
+ls
+exit
+ls
+exit
+<< end cat
+echo slaut
+exit
+echo salut
+ls
+<< end cat
+<< end cat
+<< end cat
+./minishell 
+exit
+exit
+./minishell 
+echo $SHLVL
+exit
+exit
+echo $SHLVL
+./caca
+./
+./
+echo $SHLVL
+ld
+ls
+./
+./
+./
+./
+./
+exit
+./
+./
+./minishell 
+echo $SHLVL
+ls
+exit
+exit
+./
+ls
+<< end cat
+cat
+<< bruh cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+cat
+cat Makefile 
+exit
+cat Makefile 
+exit
+cat Makefile 
+exit
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+>>>>>>> main
+<< end cat
+<< end cat
 exit
 << end cat
 exit
 << end cat
+<<<<<<< HEAD
+exit
+<< end cat
+=======
 << end cat
 << end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+cat
+cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+<< end wc-l
+<< end wc -l
+<< end wc -l
+exit
+<< end wc -l
+exit
+exit
+<< end wc -l
+<< end echo
+<< end echo
+<< end cat
+exit
+<< end cat
+<< end cat
+<< end cat
+<< end cat
+echo a > out
+clear
+exit]
+exit
+<< end cat
+cat heredoc
+cat
+cat
+cat
+cat
+<< end cat
+exit
 exit
 << end cat
 exit
 << end cat
 exit
 << end cat
+echo $?
+exit
+ls
+exit
+ls
+exit
+ls
+exit
+ls
+eit
+exit
+ls
+exit
+ls
+exit
+ls
+exit
+ls
+exit
+ls
+exit
+ls
+exit
+ls
+exit
+make
+exit
+ls
+exit
+ls
+exit
+ls
+exit
+ls
+exit
+exit
+ls
+exit
+ls
+exit
+ls
+exit
+ls
+exit
+exit
+ls
+exit
+<< end cat
+exit
+>>>>>>> main

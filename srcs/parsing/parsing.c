@@ -6,15 +6,22 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/13 16:26:38 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/14 10:55:41 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
+#include <unistd.h>
 
 static void	which_builtins(t_prompt_info *data)
 {
-	printf("cmd : %s\n", data->prompt[0]);
+	int fd_in_temp;
+	int fd_out_temp;
+
+	fd_in_temp = dup(STDIN_FILENO);
+	fd_out_temp = dup(STDOUT_FILENO);
+	dup2(data->fd_out, STDOUT_FILENO);
+	dup2(data->fd_in, STDIN_FILENO);
 	if (!ft_strncmp(data->prompt[0], "echo", 4))
 		ft_echo(data->str_prt);
 	else if (!ft_strncmp(data->prompt[0], "cd", 2))
@@ -31,7 +38,8 @@ static void	which_builtins(t_prompt_info *data)
 		ft_exit(data->prompt[1], data->str_prt, data->prompt, &data->env);
 	else
 		extern_exec(data);
-	printf("cmd : %s\n", data->str_prt);
+	dup2(fd_in_temp, STDIN_FILENO);
+	dup2(fd_out_temp, STDOUT_FILENO);
 }
 
 static char	**dollar_pipe(char **pipe_prompt, char **env)
@@ -79,12 +87,15 @@ static int	last_step(char *str, t_prompt_info *data)
 	data->prompt = split_wquote(str, ' ');
 	if (!data->prompt)
 		return (0);
+	rm_quote(&str);
+	if (!is_valid_cmd(str))
+		return (free(data->str_prt), 1);
 	if (!check_builtins(data->prompt))
 		return (freesplit(data->prompt), 1);
 	else
  		which_builtins(data);
-	free(data->str_prt);
-	freesplit(data->prompt);
+	free(data->str_prt); // a revoir
+	freesplit(data->prompt); // a revoir
 	if (data->is_pipe == 1)
 		freesplit(data->pipe);
 	return (1);
@@ -111,10 +122,7 @@ int parsing(t_prompt_info *data)
 	else
 		return (1);
 	if (!redirection(data))
-		return (1);	
-	printf("fd : %i, %i\n", data->fd_in, data->fd_out);
-	if (!is_valid_cmd(data->pipe, data->str_prt))
-		return (free(data->str_prt), 1);
+		return (1);
 	if (data->is_pipe == 1)
 	{
 		while (data->pipe[ip])

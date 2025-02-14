@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:21:45 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/13 16:24:07 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/14 10:56:34 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,8 @@ static int	check_validity(char *cmd)
 		return (1);
 	if (is_file(cmd) == 1)
 		return (1);
-	if (ft_strlen(cmd) == 2 && cmd[0] == '.' && cmd[1] == '/')
-		return (0);
+	else if (ft_strlen(cmd) <= 2 && cmd[0] == '.' && cmd[1] == '/')
+	 	return(0);
 	path = get_all_path();
 	i = 0;
 	cmd_path = ft_strjoin("/", cmd);
@@ -97,34 +97,23 @@ static int	check_validity(char *cmd)
 	}
 	freesplit(path);
 	free(cmd_path);
-	update_exit_code(127);
-	return (0);
+	return (update_exit_code(127), 0);
 }
 
-int	is_valid_cmd(char **prompt, char *prompt_str)
+int	is_valid_cmd(char *str)
 {
 	char	*cmd_name;
 	int		res;
-	int		i;
 
-	if (!prompt && prompt_str)
+	res = 0;
+	if (str)
 	{
-		cmd_name = extract_name_cmd(prompt_str);
+		cmd_name = extract_name_cmd(str);
 		res = check_validity(cmd_name);
 		if (res == 0)
 			printf("%s: command not found\n", cmd_name);
 		free(cmd_name);
 		return (res);
-	}
-	i = 0;
-	while (prompt && prompt[i])
-	{
-		cmd_name = extract_name_cmd(prompt[i]);
-		res = check_validity(cmd_name);
-		if (res == 0)
-			return (printf("%s: command not found\n", cmd_name), 0);
-		free(cmd_name);
-		i++;
 	}
 	return (res);
 }

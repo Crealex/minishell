@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_dollars.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:16:15 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/13 11:31:57 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/13 14:41:07 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*get_var_name(char *prompt, int *i)
 	return (res[ires] = '\0', res);
 }
 
-static char	*add_env(char *prompt, int *i, t_str *res, char **all_env)
+char	*add_env(char *prompt, int *i, t_str *res, char **all_env)
 {
 	char	*var_name;
 	char	*env;

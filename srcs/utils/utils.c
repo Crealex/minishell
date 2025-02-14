@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:55:00 by alexandre         #+#    #+#             */
-/*   Updated: 2025/02/14 12:00:57 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/14 14:07:08 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,6 @@ void	cleanup(t_prompt_info *data)
 {
 	if (data->prompt)
 		freesplit(data->prompt);
-	if (data->env)
-		freesplit(data->env);
 	if (data->pipe)
 		freesplit(data->pipe);
 	if (data->str_prt)

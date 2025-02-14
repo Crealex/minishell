@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_dollars.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:16:15 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/13 14:41:07 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/14 14:12:08 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,28 @@ char	*handle_dollars(char *prompt, char **env)
 	}
 	res.str[res.i] = '\0';
 	return (free(prompt), res.str);
+}
+
+char	**dollar_pipe(char **pipe_prompt, char **env)
+{
+	int	i;
+	char **res;
+
+	i = 0;
+	while (pipe_prompt[i])
+		i++;
+	res = ft_calloc(i + 1, sizeof(char *));
+	if (!res)
+		return (NULL);
+	i = 0;
+	while (pipe_prompt[i])
+	{
+		res[i] = handle_dollars(pipe_prompt[i], env);
+		if (!res[i])
+			return (ft_freesplit(res, i), NULL);
+		i++;
+	}
+	free(pipe_prompt);
+	res[i] = NULL;
+	return (res);
 }

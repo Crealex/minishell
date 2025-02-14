@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   extern.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/14 10:47:15 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/14 14:18:08 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	check_acces_file(char *cmd)
 	return (0);
 }
 
-void	extern_exec(t_prompt_info *data)
+int	extern_exec(t_prompt_info *data)
 {
 	char	*path;
 	int		exit_status;
@@ -89,15 +89,17 @@ void	extern_exec(t_prompt_info *data)
 		&& data->prompt[0][0] == '.' && data->prompt[0][1] == '/')
 		{
 			if (!check_acces_file(data->prompt[0]))
-				return ;
+				return (0);
 		}
 	path = get_path(data->prompt[0]);
 	pid = fork();
 	if (pid == 0)
-		execve(path, data->prompt, data->env);
+		if (execve(path, data->prompt, data->env) == -1)
+			return (0);
 	is_child(1);
 	waitpid(pid, &exit_status, 0);
 	is_child(0);
 	free(path);
 	update_exit_code(WEXITSTATUS(exit_status));
+	return (1);
 }

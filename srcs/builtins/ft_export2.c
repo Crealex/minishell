@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:29:14 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/29 09:56:18 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/17 10:16:26 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ char	*get_content(char *str)
 	return (res[ires] = '\0', res);
 }
 
-int var_exist(char *str, char **env)
+int	var_exist(char *str, char **env)
 {
 	int		i;
 	int		l_name;

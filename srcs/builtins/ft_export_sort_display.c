@@ -6,15 +6,15 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 16:24:42 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/29 15:49:40 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/17 10:20:52 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-int	len_double_tab(char **tab)
+static int	len_double_tab(char **tab)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (tab[i])
@@ -24,9 +24,9 @@ int	len_double_tab(char **tab)
 
 int	longer_str(char **tab)
 {
-	int longer;
-	int i;
-	int actual_len;
+	int	longer;
+	int	i;
+	int	actual_len;
 
 	i = 0;
 	longer = 0;
@@ -41,9 +41,9 @@ int	longer_str(char **tab)
 	return (longer);
 }
 
-int	in_array(int num, int *incr)
+static int	in_array(int num, int *incr)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (incr[i] != -1)
@@ -55,17 +55,17 @@ int	in_array(int num, int *incr)
 	return (0);
 }
 
-int	next_smallest(int *index, char **env)
+static int	next_smallest(int *index, char **env)
 {
-	int i;
-	int smallest;
+	int	i;
+	int	smallest;
 
 	i = 0;
 	smallest = -1;
 	while (env[i])
 	{
 		if (!in_array(i, index) && (smallest == -1
-			|| ft_strncmp(env[i], env[smallest], ft_strlen(env[i])) < 0))
+				|| ft_strncmp(env[i], env[smallest], ft_strlen(env[i])) < 0))
 		{
 			smallest = i;
 		}
@@ -74,13 +74,13 @@ int	next_smallest(int *index, char **env)
 	return (smallest);
 }
 
-char **put_in_res(int *index, char **env)
+static char	**put_in_res(int *index, char **env)
 {
-	int i;
-	char **res;
-	char *content;
-	char *temp;
-	char *name;
+	int		i;
+	char	**res;
+	char	*content;
+	char	*temp;
+	char	*name;
 
 	i = 0;
 	res = malloc(sizeof(char *) * (len_double_tab(env) + 1));
@@ -94,7 +94,7 @@ char **put_in_res(int *index, char **env)
 		free(temp);
 		temp = ft_strjoin(name, "=");
 		free(name);
-		res[i]= ft_strjoin(temp, content);
+		res[i] = ft_strjoin(temp, content);
 		free(temp);
 		free(content);
 		i++;
@@ -103,13 +103,12 @@ char **put_in_res(int *index, char **env)
 	return (res);
 }
 
-char	**sort_env(char **env)
+static char	**sort_env(char **env)
 {
-	int i;
-	int ii;
-	int *index;
-	char **res;
-
+	int		i;
+	int		ii;
+	int		*index;
+	char	**res;
 
 	index = malloc(sizeof(int) * (len_double_tab(env) + 1));
 	ii = 0;
@@ -130,8 +129,8 @@ char	**sort_env(char **env)
 
 void	display_sort(char **env)
 {
-	char **res;
-	int i;
+	char	**res;
+	int		i;
 
 	res = sort_env(env);
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 15:52:53 by atomasi           #+#    #+#             */
-/*   Updated: 2025/01/21 16:01:19 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/17 10:06:33 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	len(const char *s)
 
 static int	lenp(char *prompt, int i)
 {
-	int countp;
+	int	countp;
 
 	countp = 0;
 	while (prompt[i])

@@ -6,13 +6,13 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 11:35:36 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/14 11:43:38 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/17 10:15:45 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-char *format_content(char *str)
+static char	*format_content(char *str)
 {
 	int		i;
 	int		ires;
@@ -26,7 +26,7 @@ char *format_content(char *str)
 	res = malloc(sizeof(char) * (len_wquote(str) + 1));
 	while (str[i] && str[i] != '=')
 		res[ires++] = str[i++];
-	while(str[i])
+	while (str[i])
 	{
 		if (str[i] == '\'' || str[i] == '\"')
 			update_quote(&quote[0], &quote[1], &i, str);
@@ -37,13 +37,13 @@ char *format_content(char *str)
 	return (res);
 }
 
-int	check_name(char *str)
+static int	check_name(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (str[0] && ft_isdigit(str[0]))
-			return (0);
+		return (0);
 	while (str[i])
 	{
 		if (str[i] == '=')
@@ -59,17 +59,16 @@ int	check_name(char *str)
 			return (0);
 		i++;
 	}
-		return (-1);
-
+	return (-1);
 }
 
 void	add_var(char ***env, int *i, char *str, int plus)
 {
-	char **temp;
-	int len;
+	char	**temp;
+	int		len;
 
 	len = 0;
-	while((*env)[len])
+	while ((*env)[len])
 		len++;
 	temp = malloc(sizeof(char *) * (len + 2));
 	if (!temp)
@@ -93,12 +92,12 @@ void	add_var(char ***env, int *i, char *str, int plus)
 
 void	add_to_env(char *str, char ***env)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (is_quote(str))
 		str = rm_quote(str);
-	if (check_name(str) == 1) //Gere le =
+	if (check_name(str) == 1)
 	{
 		str = format_content(str);
 		if (var_exist(str, *env) != -1)
@@ -107,7 +106,7 @@ void	add_to_env(char *str, char ***env)
 			add_var(env, &i, str, 0);
 		free(str);
 	}
-	else if (check_name(str) == 2) // Gere le += // ATTENTION A ENLEVER LE PLUS +
+	else if (check_name(str) == 2)
 	{
 		str = format_content(str);
 		if (var_exist(str, *env) != -1)
@@ -122,7 +121,7 @@ void	add_to_env(char *str, char ***env)
 
 void	ft_export(char **prompt, char ***env)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	if (!prompt[1])

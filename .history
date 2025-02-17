@@ -1,0 +1,47 @@
+LS
+LS
+ls
+ls
+l
+s
+<< end cat
+exit
+top
+ls
+cat
+exit
+<< end cat
+<< end cat
+<< end cat
+exit
+echo $
+echo '$'
+echo "$"
+./includes/
+echo $?
+exit
+exit 1a
+exit
+exit 190
+exit 012
+exit
+<< end cat
+<< end cat
+cat
+cat
+clear
+exit
+echo salut ma couille
+echo -n -n -n teste
+echo -nnnnnnnnnnnnnnnnnnnnnnnnnnnnnn-n teste
+echo -nnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -n teste
+exit
+ls | grep a
+./minishell 
+ls
+ls
+./minishell 
+[ei
+[[xtx
+exit
+eitexit

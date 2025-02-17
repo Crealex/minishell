@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_dollars.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:16:15 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/14 14:12:08 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/17 10:06:01 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,13 @@ char	*get_var_name(char *prompt, int *i)
 	(*i)++;
 	countc = *i;
 	ires = 0;
-	if ((prompt[*i] >= '0' && prompt[*i] <= '9') && prompt[*i] != '_' && prompt[*i] != '?')
+	if ((prompt[*i] >= '0' && prompt[*i] <= '9') && prompt[*i] != '_'
+		&& prompt[*i] != '?')
 		return (NULL);
 	while (prompt[*i] && ((prompt[*i] >= 'A' && prompt[*i] <= 'Z')
 			|| (prompt[*i] >= 'a' && prompt[*i] <= 'z') || (prompt[*i] >= '0'
-				&& prompt[*i] <= '9') || prompt[*i] == '_' || prompt[*i] == '?'))
+				&& prompt[*i] <= '9') || prompt[*i] == '_'
+			|| prompt[*i] == '?'))
 		(*i)++;
 	countc = *i - countc;
 	res = ft_calloc(countc + 1, sizeof(char));
@@ -67,7 +69,6 @@ char	*add_env(char *prompt, int *i, t_str *res, char **all_env)
 	return (free(temp), res->str);
 }
 
-
 char	*handle_dollars(char *prompt, char **env)
 {
 	int		i;
@@ -98,8 +99,8 @@ char	*handle_dollars(char *prompt, char **env)
 
 char	**dollar_pipe(char **pipe_prompt, char **env)
 {
-	int	i;
-	char **res;
+	int		i;
+	char	**res;
 
 	i = 0;
 	while (pipe_prompt[i])

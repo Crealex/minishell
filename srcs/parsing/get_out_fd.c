@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 16:08:33 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/02/13 14:32:42 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/17 16:33:22 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ int	get_out_fd(char **str, int fd)
 		if (!inquote[0] && !inquote[1] && (*str)[i] == '>')
 		{
 			len_file_out(*str, i, &len[0], &len[1]);
-			printf("len : %i, %i\n", len[0], len[1]);
 			is_double((*str)[i + 1], &isdouble);
 			fd = open_fd(*str, fd, len, isdouble);
 			if (fd == -1)

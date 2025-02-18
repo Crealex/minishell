@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/17 10:27:43 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/18 17:03:37 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,10 @@ typedef struct	s_prompt_info
 	int		fd_in;
 	int		fd_out;
 	int		fd_history;
+	int		pos_pipe;
+	int		pipe_len;
 	char	*str_prt;
+	pid_t	*pid;
 	char 	**pipe;
 	char	**prompt;
 	char	**env;
@@ -55,6 +58,7 @@ void	ft_exit(t_prompt_info *data);
 void	freesplit(char **str);
 void	ft_cd(char **prompt, char ***env);
 void	ft_pwd(char **prompt);
+int		len_double_tab(char **tab);
 void	ft_export(char **prompt, char ***env);
 int		var_exist(char *str, char **env);
 void	modify_var(char *str, char ***env);
@@ -76,6 +80,7 @@ char	*ft_getenv(char *var, char **env);
 void	cleanup(t_prompt_info *data);
 int		ft_isspace(int c);
 void	print_error(char *s1, char *s2, char *s3);
+int		only_space(char *str);
 //quote
 int		len_wquote(char *str);
 char	*rm_quote(char *str);
@@ -96,6 +101,8 @@ int		get_in_fd(char **str, int fd, t_prompt_info *data);
 int		out_redirect(char **str);
 int		get_out_fd(char **str, int fd);
 int		redirection(t_prompt_info *data);
+void	dup_fd_start(t_prompt_info *data, int *fd_in, int *fd_out, int pipefd[2]);
+void	dup_fd_end(t_prompt_info *data, int *fd_in, int *fd_out);
 int		check_builtins(char **prompt);
 int		is_pipe(char **str);
 char	**dollar_pipe(char **pipe_prompt, char **env);
@@ -103,6 +110,7 @@ char	*add_space(char *str, int i, int is_double);
 int		ft_nb_row(char const *s, char c);
 char	**ft_splitpipe(char const *s, char c);
 int		is_valid_cmd(char *str);
+int		check_valid_builtins(char *cmd);
 char	**get_all_path();
 // execution
 int		extern_exec(t_prompt_info *data);

@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/14 15:42:56 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/18 17:25:40 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,12 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-static void	dup_fd(t_prompt_info *data, int *fd_in, int *fd_out, int where)
-{
-	if (where == 0)
-	{
-		if (data->fd_in > 2)
-		{
-			*fd_in= dup(STDIN_FILENO);
-			dup2(data->fd_in, STDIN_FILENO);
-		}
-		if (data->fd_out > 2)
-		{
-			*fd_out= dup(STDOUT_FILENO);
-			dup2(data->fd_out, STDOUT_FILENO);
-		}
-	}
-	else
-	{
-		if (data->fd_in > 2)
-			dup2(*fd_in, STDIN_FILENO);
-		if (data->fd_out > 2)
-			dup2(*fd_out, STDOUT_FILENO);
-	}
-}
-
-static int	which_builtins(t_prompt_info *data)
+static int	which_builtins(t_prompt_info *data, int pipefd[2])
 {
 	int fd_in_temp;
 	int fd_out_temp;
 
-	dup_fd(data, &fd_in_temp, &fd_out_temp, 0);
+	dup_fd_start(data, &fd_in_temp, &fd_out_temp, pipefd);
 	if (!ft_strncmp(data->prompt[0], "echo", 4))
 		ft_echo(data->str_prt);
 	else if (!ft_strncmp(data->prompt[0], "cd", 2))
@@ -61,26 +37,13 @@ static int	which_builtins(t_prompt_info *data)
 	else
 		if (extern_exec(data) == 0)
 			return (0);
-	dup_fd(data, &fd_in_temp, &fd_out_temp, 1);
+	dup_fd_end(data, &fd_in_temp, &fd_out_temp);
 	return (1);
 }
 
-int	only_space(char *str)
+static int	last_step(char **str, t_prompt_info *data, int pipefd[2])
 {
-	int i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] != ' ')
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-static int	last_step(char **str, t_prompt_info *data)
-{
+	printf("dans le fork\n");
 	if (only_space(*str))
 		return (1);
 	data->prompt = split_wquote(*str, ' ');
@@ -94,18 +57,39 @@ static int	last_step(char **str, t_prompt_info *data)
 	if (!check_builtins(data->prompt))
 		return (1);
 	else
- 		if (which_builtins(data) == 0)
+ 		if (which_builtins(data, pipefd) == 0)
 			return (0);
+	return (1);
+}
+
+static int fork_pipe(char **str, t_prompt_info *data)
+{
+	int		pipefd[2];
+	pid_t	pid;
+
+	pipe(pipefd);
+	pid = fork();
+	if (pid == 0)
+	{
+		if (!last_step(str, data, pipefd))
+			return (cleanup(data), 1);
+	}
 	return (1);
 }
 
 int parsing(t_prompt_info *data)
 {
-	int ip;
+	// int		ip;
+	int		len;
 
+	// ip = 0; 
 	data->pipe = NULL;
+	// data->pipefd = NULL;
 	data->is_pipe = is_pipe(&data->str_prt);
-	ip = 0;
+	if (data->is_pipe == -1)
+		return (cleanup(data), 1);
+	if (!redirection(data))
+		return (cleanup(data), 1);
 	if (data->is_pipe == 1)
 	{
 		data->pipe = ft_splitpipe(data->str_prt, '|');
@@ -114,24 +98,31 @@ int parsing(t_prompt_info *data)
 		data->pipe = dollar_pipe(data->pipe, data->env);
 		if (!data->pipe)
 			return (cleanup(data), 1);
-	}
-	else if (data->is_pipe == 0)
-		data->str_prt = handle_dollars(data->str_prt, data->env);
-	else
-		return (cleanup(data), 1);
-	if (!redirection(data))
-		return (cleanup(data), 1);
-	if (data->is_pipe == 1)
-	{
-		while (data->pipe[ip])
+		data->pipe_len = len_double_tab(data->pipe);
+		// data->pipefd = ft_calloc(data->pipe_len - 1, sizeof(int *));
+		// if (!data->pipefd)
+		// 	return (cleanup(data), 1);
+		// while (ip < data->pipe_len - 1)
+		// {
+		// 	if (ip != data->pipe_len && pipe(data->pipefd[ip]) == -1)
+		// 		return (cleanup(data), 1);
+		// 	printf("pipe : %i, %i\n", data->pipefd[ip][0], data->pipefd[ip][1]);
+		// 	ip++;
+		// }
+		len = data->pipe_len - 1;
+		while (len >= 0)
 		{
-			if (!last_step(&data->pipe[ip++], data))
+			data->pos_pipe = len;
+			printf("hiiiiii\n");
+			if (fork_pipe(&data->pipe[len], data))
 				return (cleanup(data), 1);
+			len--;
 		}
 	}
-	else
+	else if (data->is_pipe == 0)
 	{
-		if (!last_step(&data->str_prt , data))
+		data->str_prt = handle_dollars(data->str_prt, data->env);
+		if (!last_step(&data->str_prt , data, NULL))
 			return (cleanup(data), 1);
 	}
 	return (cleanup(data), 1);

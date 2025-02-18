@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_heredoc.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:46:25 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/13 14:38:21 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/17 14:23:19 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,4 @@ char	*parse_heredoc(char *line, t_prompt_info *data)
 	}
 	free(line);
 	return (new_line.str);
-	//add_env(data->prompt, int *i, t_str *res, char **all_env)
 }

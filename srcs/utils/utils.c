@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:55:00 by alexandre         #+#    #+#             */
-/*   Updated: 2025/02/14 14:07:08 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/18 17:03:05 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void    freesplit(char **str)
 	}
 	free(str);
 }
+
 // -1 = just get de last value
 // < -1 = update de exit value
 int update_exit_code(int param)
@@ -85,6 +86,8 @@ void	cleanup(t_prompt_info *data)
 		freesplit(data->pipe);
 	if (data->str_prt)
 		free(data->str_prt);
+	// if (data->pipefd)
+		// free(data->pipefd);
 	if (data->fd_in > 2)
 		close(data->fd_in);
 	if (data->fd_out > 2)
@@ -143,4 +146,18 @@ void	print_error(char *s1, char *s2, char *s3)
 int	ft_isspace(int c)
 {
 	return (c == ' ' || (9 <= c && c <= 13));
+}
+
+int	only_space(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] != ' ')
+			return (0);
+		i++;
+	}
+	return (1);
 }

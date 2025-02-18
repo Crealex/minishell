@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_export_sort_display.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 16:24:42 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/17 10:20:52 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/17 15:12:24 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-static int	len_double_tab(char **tab)
+int	len_double_tab(char **tab)
 {
 	int	i;
 

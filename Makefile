@@ -15,7 +15,7 @@ OBJSP	=	${PROMPT:%.c=${OBJDIR}/%.o}
 OBJSU	=	${UTILS:%.c=${OBJDIR}/%.o}
 OBJSEX	=	${EXEC:%.c=${OBJDIR}/%.o}
 CC		=	gcc
-CFLAGS	=	-Werror -Wextra -Wall
+CFLAGS	=	-Werror -Wextra -Wall -g
 OBJDIR	=	objets
 
 # Colors and style

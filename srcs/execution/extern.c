@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   extern.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/18 17:23:35 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/19 15:55:02 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "../../includes/minishell.h"
+#include <stdio.h>
 #include <strings.h>
 #include <unistd.h>
 
@@ -80,15 +81,15 @@ int	check_acces_file(char *cmd)
 	return (0);
 }
 
-int	extern_exec(t_prompt_info *data)
+int	extern_exec(t_prompt_info *data, int (*pipefd)[2])
 {
 	char	*path;
-	int		exit_status;
-	pid_t	pid;
-	// int i;
+	int		i;
+	// int		exit_status;
+	// pid_t	pid;
 
-	// i = data->pos_pipe;
-	exit_status = 0;
+	// exit_status = 0;
+	i = data->pos_pipe;
 	if (data->prompt[0] && ft_strlen(data->prompt[0]) > 2
 		&& data->prompt[0][0] == '.' && data->prompt[0][1] == '/')
 	{
@@ -96,30 +97,25 @@ int	extern_exec(t_prompt_info *data)
 			return (0);
 	}
 	path = get_path(data->prompt[0]);
-	// data->pid = ft_calloc(data->pipe_len, sizeof(pid_t));
-	pid = fork();
-	if (pid == 0)
+	// pid = fork();
+	// if (pid == 0)
+	// {
+	if (data->pos_pipe == 0)
+		close(pipefd[i][1]);
+	else if (data->pos_pipe == data->pipe_len - 1)
+		close(pipefd[i - 1][0]);
+	else
 	{
-		// if (data->pos_pipe == 0)
-		// 	close(data->pipefd[0][0]);
-		// else if (data->pos_pipe == data->pipe_len - 1)
-		// 	close(data->pipefd[i - 1][1]);
-		// else
-		// {
-		// 	close(data->pipefd[i - 1][1]);
-		// 	close(data->pipefd[i][0]);
-		// }
-		// printf("file descripotr : %d\n", data->pipefd[0][0]);
-		// printf("file descripotr : %d\n", data->pipefd[0][1]);
-		printf("exec : %s, %s, %s\n", path, data->prompt[0], data->env[0]);
-		if (execve(path, data->prompt, data->env) == -1)
-			return (printf("pas exec\n"), 0);
+		close(pipefd[i][1]);
+		close(pipefd[i - 1][0]);
 	}
-	is_child(1);
-	printf("pid : %i, %i\n", pid, exit_status);
-	printf("bruh : %i\n", waitpid(pid, &exit_status, 0));
-	is_child(0);
-	free(path);
-	update_exit_code(WEXITSTATUS(exit_status));
+	if (execve(path, data->prompt, data->env) == -1)
+		return (free(path), printf("pas exec\n"), 0);
+	// is_child(1);
+	// printf("pid of %s : %i, %i\n", data->prompt[0], pid, exit_status);
+	// printf("ret waitpid in extern of %s : %i\n", data->prompt[0], waitpid(pid, &exit_status, 0));
+	// printf("after waitpid of : %s, pid : %d\n", data->prompt[0], pid);
+	// is_child(0);
+	// update_exit_code(WEXITSTATUS(exit_status));
 	return (1);
 }

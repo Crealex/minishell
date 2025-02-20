@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/18 17:03:37 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/19 15:54:47 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ int		get_in_fd(char **str, int fd, t_prompt_info *data);
 int		out_redirect(char **str);
 int		get_out_fd(char **str, int fd);
 int		redirection(t_prompt_info *data);
-void	dup_fd_start(t_prompt_info *data, int *fd_in, int *fd_out, int pipefd[2]);
+void	dup_fd_start(t_prompt_info *data, int *fd_in, int *fd_out, int (*pipefd)[2]);
 void	dup_fd_end(t_prompt_info *data, int *fd_in, int *fd_out);
 int		check_builtins(char **prompt);
 int		is_pipe(char **str);
@@ -113,7 +113,7 @@ int		is_valid_cmd(char *str);
 int		check_valid_builtins(char *cmd);
 char	**get_all_path();
 // execution
-int		extern_exec(t_prompt_info *data);
+int		extern_exec(t_prompt_info *data, int (*pipefd)[2]);
 int		is_child(int status);
 //split wquote
 char	**split_wquote(char const *s, char c);

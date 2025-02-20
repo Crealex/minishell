@@ -6,15 +6,12 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/19 15:55:02 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/20 16:09:18 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "../../includes/minishell.h"
-#include <stdio.h>
-#include <strings.h>
-#include <unistd.h>
 
 int	is_child(int status)
 {
@@ -81,41 +78,27 @@ int	check_acces_file(char *cmd)
 	return (0);
 }
 
-int	extern_exec(t_prompt_info *data, int (*pipefd)[2])
+int	extern_exec(t_prompt_info *data)
 {
 	char	*path;
-	int		i;
-	// int		exit_status;
-	// pid_t	pid;
+	int		exit_status;
+	pid_t	pid;
 
-	// exit_status = 0;
-	i = data->pos_pipe;
 	if (data->prompt[0] && ft_strlen(data->prompt[0]) > 2
 		&& data->prompt[0][0] == '.' && data->prompt[0][1] == '/')
-	{
-		if (!check_acces_file(data->prompt[0]))
-			return (0);
-	}
+		{
+			if (!check_acces_file(data->prompt[0]))
+				return (0);
+		}
 	path = get_path(data->prompt[0]);
-	// pid = fork();
-	// if (pid == 0)
-	// {
-	if (data->pos_pipe == 0)
-		close(pipefd[i][1]);
-	else if (data->pos_pipe == data->pipe_len - 1)
-		close(pipefd[i - 1][0]);
-	else
-	{
-		close(pipefd[i][1]);
-		close(pipefd[i - 1][0]);
-	}
-	if (execve(path, data->prompt, data->env) == -1)
-		return (free(path), printf("pas exec\n"), 0);
-	// is_child(1);
-	// printf("pid of %s : %i, %i\n", data->prompt[0], pid, exit_status);
-	// printf("ret waitpid in extern of %s : %i\n", data->prompt[0], waitpid(pid, &exit_status, 0));
-	// printf("after waitpid of : %s, pid : %d\n", data->prompt[0], pid);
-	// is_child(0);
-	// update_exit_code(WEXITSTATUS(exit_status));
+	pid = fork();
+	if (pid == 0)
+		if (execve(path, data->prompt, data->env) == -1)
+			return (printf("pas exec\n"), 0);
+	is_child(1);
+	waitpid(pid, &exit_status, 0);
+	is_child(0);
+	free(path);
+	update_exit_code(WEXITSTATUS(exit_status));
 	return (1);
 }

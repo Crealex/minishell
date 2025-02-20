@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/19 15:54:47 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/20 15:28:06 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,9 +112,14 @@ char	**ft_splitpipe(char const *s, char c);
 int		is_valid_cmd(char *str);
 int		check_valid_builtins(char *cmd);
 char	**get_all_path();
+void	make_redirect(t_prompt_info *data, int *temp_fd_in, int *temp_fd_out);
+void	end_redirect(t_prompt_info *data, int temp_fd_in, int temp_fd_out);
 // execution
-int		extern_exec(t_prompt_info *data, int (*pipefd)[2]);
+int		extern_exec(t_prompt_info *data);
 int		is_child(int status);
+int		exec_no_pipe(t_prompt_info *data);
+int		exec_pipe(t_prompt_info *data);
+int		last_step(char **str, t_prompt_info *data);
 //split wquote
 char	**split_wquote(char const *s, char c);
 int		ft_nb_row(char const *s, char c);

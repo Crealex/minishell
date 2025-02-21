@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/21 16:20:41 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/21 17:15:51 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ int	check_acces_file(char *cmd)
 // 	}
 // }
 
-int	extern_exec(t_prompt_info *data, int (*pipefd)[2])
+int	extern_exec(t_prompt_info *data)
 {
 	char	*path;
 	int		exit_status;
@@ -116,18 +116,15 @@ int	extern_exec(t_prompt_info *data, int (*pipefd)[2])
 		}
 	path = get_path(data->prompt[0]);
 	pid = fork();
-	(void)pipefd;
-	// closing_pipe(data, pipefd);	
 	if (pid == 0)
 	{
-		//close(7);
 		if (execve(path, data->prompt, data->env) == -1)
 			return (printf("pas exec\n"), 0);
 	}
 	is_child(1);
-	fprintf(stderr, "before waitpid : %s\n", data->prompt[0]);
+	// fprintf(stderr, "before waitpid : %s\n", data->prompt[0]);
 	waitpid(pid, &exit_status, 0);
-	fprintf(stderr, "end of process : %s\n", data->prompt[0]);
+	// fprintf(stderr, "end of process : %s\n", data->prompt[0]);
 	is_child(0);
 	free(path);
 	update_exit_code(WEXITSTATUS(exit_status));

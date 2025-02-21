@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:57:04 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/21 16:26:55 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/21 17:15:57 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	redirect_pipe(t_prompt_info *data, int i, int (*pipefd)[2])
 		return (0);
 	if (i < data->pipe_len - 1)
 	{
-		fprintf(stderr, "redirect firsts\n");
+		// fprintf(stderr, "redirect firsts\n");
 		if (data->fd_out[i] < 2)
 			dup2(pipefd[i][1], STDOUT_FILENO);
 		close(pipefd[i][1]);
@@ -29,8 +29,8 @@ static int	redirect_pipe(t_prompt_info *data, int i, int (*pipefd)[2])
 	}
 	if (i > 0)
 	{
-		fprintf(stderr, "redirect lasts\n");
-		fprintf(stderr, "pipefd[i - 1][0] : %d, pipefd[i - 1][1] : %d\n", pipefd[i - 1][0], pipefd[i - 1][1]);
+		// fprintf(stderr, "redirect lasts\n");
+		// fprintf(stderr, "pipefd[i - 1][0] : %d, pipefd[i - 1][1] : %d\n", pipefd[i - 1][0], pipefd[i - 1][1]);
 		if (data->fd_in[i] < 2)
 			dup2(pipefd[i - 1][0], STDIN_FILENO);
 		close(pipefd[i - 1][0]);
@@ -77,24 +77,34 @@ int	exec_pipe(t_prompt_info  *data)
 		data->pos_pipe = i;
 		if (i < data->pipe_len - 1)
 			pipe(pipefd[i]);
-		printf("pipefd[%d][0] : %d, pipefd[%d][1] : %d\n", i, pipefd[i][0], i, pipefd[i][1]);
+		// printf("pipefd[%d][0] : %d, pipefd[%d][1] : %d\n", i, pipefd[i][0], i, pipefd[i][1]);
 		pid = fork();
+		if (pid > 0)
+		{
+			if (i < data->pipe_len - 1)
+				close(pipefd[i][1]);
+			if (i > 0)
+				close(pipefd[i - 1][0]);
+		}
 		if (pid == 0)
 		{
-			fprintf(stderr, "-----------------------------------------\n");
-			fprintf(stderr, "in child fork\n");
+			// fprintf(stderr, "-----------------------------------------\n");
+			// fprintf(stderr, "in child fork\n");
 			redirect_pipe(data, i, pipefd);
-			fprintf(stderr, "in child fork, after redirect\n");
-			if (!last_step(&data->pipe[i], data, pipefd))
+			// fprintf(stderr, "in child fork, after redirect\n");
+			if (!last_step(&data->pipe[i], data))
 				exit (0);
-			fprintf(stderr, "in child fork, after last step\n");
+			// fprintf(stderr, "in child fork, after last step\n");
+			// close(temp_fd[0]);
+			// close(temp_fd[1]);
 			exit (1);
 		}
 		waitpid(pid, &exit_status, 0);
+		// fprintf(stderr, "after waitpid\n");
 		i++;
 	}
-	update_exit_code(WEXITSTATUS(exit_status));
 	if (closing_all_pipes(data, pipefd) == 0)
 		return (free(pipefd), 0);
+	update_exit_code(WEXITSTATUS(exit_status));
 	return (free(pipefd), 1);
 }

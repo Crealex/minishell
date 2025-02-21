@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:55:00 by alexandre         #+#    #+#             */
-/*   Updated: 2025/02/19 17:20:26 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/21 10:11:04 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,16 +80,27 @@ char	*ft_getenv(char *var, char **env)
 
 void	cleanup(t_prompt_info *data)
 {
+	int	i;
+
+	i = 0;
 	if (data->prompt)
 		freesplit(data->prompt);
 	if (data->pipe)
 		freesplit(data->pipe);
 	if (data->str_prt)
 		free(data->str_prt);
-	if (data->fd_in > 2)
-		close(data->fd_in);
-	if (data->fd_out > 2)
-		close(data->fd_out);
+	while (i < data->pipe_len)
+	{
+		if (data->fd_in[i] > 2)
+			close(data->fd_in[i]);
+		if (data->fd_out[i] > 2)
+			close(data->fd_out[i]);
+		i++;
+	}
+	if (data->fd_in)
+		free(data->fd_in);
+	if (data->fd_out)
+		free(data->fd_out);
 }
 
 void	print_error(char *s1, char *s2, char *s3)

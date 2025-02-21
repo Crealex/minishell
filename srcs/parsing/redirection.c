@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redirection.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:02:55 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/02/20 15:01:11 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/21 09:56:12 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,27 +32,27 @@ static int	no_redirect(char *str)
 	return (1);
 }
 
-int	redirection(t_prompt_info *data)
+int	redirection(t_prompt_info *data, char **str, int i)
 {
-	data->fd_in = 0;
-	data->fd_out = 1;
-	if (no_redirect(data->str_prt))
+	data->fd_in[i] = 0;
+	data->fd_out[i] = 1;
+	if (no_redirect(*str))
 		return (1);
-	if (!in_redirect(&(data->str_prt)))
+	if (!in_redirect(str))
 		return (0);
 	else
 	{
-		data->fd_in = get_in_fd(&(data->str_prt), data->fd_in, data);
+		data->fd_in[i] = get_in_fd(str, data->fd_in[i], data);
 		is_child(0);
-		if (data->fd_in == -1)
+		if (data->fd_in[i] == -1)
 			return (0);
 	}
-	if (!out_redirect(&(data->str_prt)))
+	if (!out_redirect(str))
 		return (0);
 	else
 	{
-		data->fd_out = get_out_fd(&(data->str_prt), data->fd_out);
-		if (data->fd_out == -1)
+		data->fd_out[i] = get_out_fd(str, data->fd_out[i]);
+		if (data->fd_out[i] == -1)
 			return (0);
 	}
 	return (2);

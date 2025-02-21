@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   extern.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/20 16:09:18 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/21 16:20:41 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,31 @@ int	check_acces_file(char *cmd)
 	return (0);
 }
 
-int	extern_exec(t_prompt_info *data)
+// static void	closing_pipe(t_prompt_info *data, int (*pipefd)[2])
+// {
+// 	int	i;
+
+// 	i = data->pos_pipe;
+// 	if (!pipefd)
+// 		return ;
+// 	if (i < data->pipe_len - 1)
+// 	{
+// 		fprintf(stderr, "closing pipe start < len max : %s\n", data->prompt[0]);
+// 		if (data->fd_out[i] < 2)
+// 			fprintf(stderr,"rest close %d\n", close(pipefd[i][1]));
+// 	}
+// 	if (i > 0)
+// 	{
+// 		fprintf(stderr, "closing pipe > 0 : %s\n", data->prompt[0]);
+// 		if (data->fd_in[i] < 2)
+// 		{
+// 			fprintf(stderr, "closing pipefd[i- 1][0]\n");
+// 			fprintf(stderr, "ret close : %d\n", close(pipefd[i - 1][0]));
+// 		}
+// 	}
+// }
+
+int	extern_exec(t_prompt_info *data, int (*pipefd)[2])
 {
 	char	*path;
 	int		exit_status;
@@ -92,11 +116,18 @@ int	extern_exec(t_prompt_info *data)
 		}
 	path = get_path(data->prompt[0]);
 	pid = fork();
+	(void)pipefd;
+	// closing_pipe(data, pipefd);	
 	if (pid == 0)
+	{
+		//close(7);
 		if (execve(path, data->prompt, data->env) == -1)
 			return (printf("pas exec\n"), 0);
+	}
 	is_child(1);
+	fprintf(stderr, "before waitpid : %s\n", data->prompt[0]);
 	waitpid(pid, &exit_status, 0);
+	fprintf(stderr, "end of process : %s\n", data->prompt[0]);
 	is_child(0);
 	free(path);
 	update_exit_code(WEXITSTATUS(exit_status));

@@ -394,3 +394,274 @@ cat test.txt
 cat test.txt > text
 << end cat
 exit
+echo salut
+ls
+cat Makefile 
+< Makefile cat
+< Makefile grep a
+cat Makefile > out
+cat Makefile > out1
+cat .history >> out
+<< END wc -l
+<< END cat
+exit
+echo salut
+ls
+< Makefile cat
+<< END cat
+cat Makefile > out
+cat Makefile >> out
+ls | grep a
+^C2004l
+2004h^C2004l
+^C2004l
+^C2004l
+2004h
+^C2004l
+^C2004l
+^C2004l
+^C2004l
+^C2004l
+^C2004l
+^C2004l
+^C2004l
+^C2004l
+^C2004l
+^C2004l
+^C2004l
+^C2004l
+^C2004l
+^C2004l
+^C2004l
+2004h
+^C2004l
+^C2004l
+2004h
+^C2004l
+^C2004l
+^C2004l
+^C2004l
+^C2004l
+^C2004l
+2004h
+^C2004l
+^C2004l
+^C2004l
+^C2004l
+2004h
+^C2004l
+^C2004l
+^C2004l
+^C2004l
+^C2004l
+^C2004l
+2004h
+^C2004l
+^C2004l
+2004h
+^C2004l
+^C2004l
+^C2004l
+^C2004l
+^C2004l
+^C2004l
+^C2004l
+^C2004l
+^C2004l
+^C2004l
+^C2004l
+^C2004l
+2004h2004h2004l
+exit
+exit
+exit
+exit
+ls | grep a
+^C2004l
+^C2004l
+ei[[
+minishell $ > 2004h2004hminishell $ > x2004l
+ei[[: command not found
+xet[[
+2004hminishell $ > et
+2004l
+xet[[: command not found
+[[tietls | grep a
+ls | grep a
+^C2004l
+^C2004l
+2004h
+^C2004l
+minishell $ > ^C
+2004l
+x
+ls | grep a
+^C2004l
+^C2004l
+minishell $ > 2004h
+^C2004l
+2004h^C2004l
+ls | grep a
+ls | grep a
+^C2004l
+^C2004l
+[
+minishell $ > 2004h2004hminishell $ > [
+2004l
+e2
+004hminishell $ > e
+2004l
+e: command not found
+i2
+004hminishell $ > i
+2004l
+i: command not found
+ls | grep a
+ls | grep a
+^C^C2004l
+2004l
+ls | grep a
+ls | grep a
+ls | grep a
+ls | grep a
+ls | grep a
+ls | grep a
+ls | grep a
+ls | grep a
+ls | grep a
+ls | grep a
+ls | grep a
+ls | grep a
+ls | grep a
+ls | grep a
+ls | grep a
+ls | grep a
+ls | grep a
+exit
+exit
+ls | grep a
+^C^C2004l
+2004l
+minishell $ > 2004h2004h2004l
+exit
+2004hminishell $ > 2004l
+exit
+teiext
+xi
+xieteexxiit
+exit
+ls | grep a
+exit
+ls | grep a
+ls | grep a
+exit
+exit
+ls | grep a
+exit
+ls | grep a
+exit
+ls | grep a
+exit
+ls | grep a
+exit
+ls | grep a
+ls | grep a
+exit
+ls | grep a
+exit
+ls | grep a
+exitt
+exitt
+exit
+<> Makefile cat
+>< Makefile cat
+rm 2004h2004h2004l 
+exit
+>< text cat
+<> text cat
+exit
+ls | grep a
+exit
+ls | grep a | grep b
+ls | wc - l
+exot
+exit
+ls | wc -l
+exit
+ls | wc -l
+ls | grep a | grep b
+exit
+ls | grep a | grep b
+exit
+ls | grep a
+exit
+ls | grep a
+exit
+ls | grep a
+exit
+ls | grep a
+exit
+ls | grep a
+ls | grep a
+exit
+ls | grep a
+exit
+ls | grep a
+rxit
+exit
+ls | grep a
+exit
+ls | grep a
+exit
+ls | grep a
+exit
+ls | grep a
+exit
+ls | grep a
+ls | grep a
+ls | grep a
+ls | grep a
+ls | grep a
+exit
+ls | grep a
+ls | ls
+ls | ls
+clear
+ls | ls
+ls | grep a
+exit
+ls | grep a
+ls
+ls | grep a
+exoit
+exit
+ls | grep a
+exit
+cat Makefile | wc -l
+cat Makefile > out | wc -l
+exit
+cat Makefile > out | wc -l
+ls | grep a
+exit
+ls | grep a
+exit
+ls | grep a
+exit
+ls | grep a
+ls | grep a
+exit
+ls | grep a
+exit
+ls | grep a
+exit
+ls | grep a
+exit
+ls | grep a
+make re
+exit
+ls | grep a
+exit
+ls | grep a
+exit
+ls | grep a
+ls | grep a

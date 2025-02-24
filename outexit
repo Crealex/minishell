@@ -1,0 +1,523 @@
+
+minishell $ > 
+minishell $ > before readline
+minishell $ > NAME=minishell
+NAME=minishell: command not found
+after exec
+before readline
+minishell $ > LIBFT=libft/libft.a
+LIBFT=libft/libft.a: command not found
+after exec
+before readline
+minishell $ > SRCS=$(addprefix srcs/, main.c history.c signal_handler.c)
+SRCS=$(addprefix: command not found
+after exec
+before readline
+minishell $ > PROMPT =$(addprefix srcs/parsing/, handle_dollars.c handle_dollars_utils.c is_pipe.c parsing.c check_builtins.c redirection.c\
+PROMPT: command not found
+after exec
+before readline
+minishell $ > 
+.a                          .git/                       .history                    a.out                       includes/                   minishell                   outexit                     test.txt                    
+.b                          .gitignore                  .vscode/                    ascii_art.txt               leakslogs.txt               objets/                     srcs/                       text                        
+.c                          .gitmodules                 Makefile                    ignore_readline_leaks.supp  libft/                      out                         tes                         
+minishell $ > 
+.a                          .git/                       .history                    a.out                       includes/                   minishell                   outexit                     test.txt                    
+.b                          .gitignore                  .vscode/                    ascii_art.txt               leakslogs.txt               objets/                     srcs/                       text                        
+.c                          .gitmodules                 Makefile                    ignore_readline_leaks.supp  libft/                      out                         tes                         
+minishell $ > 
+.a                          .git/                       .history                    a.out                       includes/                   minishell                   outexit                     test.txt                    
+.b                          .gitignore                  .vscode/                    ascii_art.txt               leakslogs.txt               objets/                     srcs/                       text                        
+.c                          .gitmodules                 Makefile                    ignore_readline_leaks.supp  libft/                      out                         tes                         
+minishell $ > 
+.a                          .git/                       .history                    a.out                       includes/                   minishell                   outexit                     test.txt                    
+.b                          .gitignore                  .vscode/                    ascii_art.txt               leakslogs.txt               objets/                     srcs/                       text                        
+.c                          .gitmodules                 Makefile                    ignore_readline_leaks.supp  libft/                      out                         tes                         
+minishell $ > 
+.a                          .git/                       .history                    a.out                       includes/                   minishell                   outexit                     test.txt                    
+.b                          .gitignore                  .vscode/                    ascii_art.txt               leakslogs.txt               objets/                     srcs/                       text                        
+.c                          .gitmodules                 Makefile                    ignore_readline_leaks.supp  libft/                      out                         tes                         
+minishell $ > 
+.a                          .git/                       .history                    a.out                       includes/                   minishell                   outexit                     test.txt                    
+.b                          .gitignore                  .vscode/                    ascii_art.txt               leakslogs.txt               objets/                     srcs/                       text                        
+.c                          .gitmodules                 Makefile                    ignore_readline_leaks.supp  libft/                      out                         tes                         
+minishell $ > in_out_redirect.c get_in_fd.c heredoc.c parse_heredoc.c get_out_fd.c fd_init.c add_space.c is_valid_cmd.c\
+in_out_redirect.c: command not found
+after exec
+before readline
+minishell $ > 
+.a                          .git/                       .history                    a.out                       includes/                   minishell                   outexit                     test.txt                    
+.b                          .gitignore                  .vscode/                    ascii_art.txt               leakslogs.txt               objets/                     srcs/                       text                        
+.c                          .gitmodules                 Makefile                    ignore_readline_leaks.supp  libft/                      out                         tes                         
+minishell $ > 
+.a                          .git/                       .history                    a.out                       includes/                   minishell                   outexit                     test.txt                    
+.b                          .gitignore                  .vscode/                    ascii_art.txt               leakslogs.txt               objets/                     srcs/                       text                        
+.c                          .gitmodules                 Makefile                    ignore_readline_leaks.supp  libft/                      out                         tes                         
+minishell $ > 
+.a                          .git/                       .history                    a.out                       includes/                   minishell                   outexit                     test.txt                    
+.b                          .gitignore                  .vscode/                    ascii_art.txt               leakslogs.txt               objets/                     srcs/                       text                        
+.c                          .gitmodules                 Makefile                    ignore_readline_leaks.supp  libft/                      out                         tes                         
+minishell $ > 
+.a                          .git/                       .history                    a.out                       includes/                   minishell                   outexit                     test.txt                    
+.b                          .gitignore                  .vscode/                    ascii_art.txt               leakslogs.txt               objets/                     srcs/                       text                        
+.c                          .gitmodules                 Makefile                    ignore_readline_leaks.supp  libft/                      out                         tes                         
+minishell $ > 
+.a                          .git/                       .history                    a.out                       includes/                   minishell                   outexit                     test.txt                    
+.b                          .gitignore                  .vscode/                    ascii_art.txt               leakslogs.txt               objets/                     srcs/                       text                        
+.c                          .gitmodules                 Makefile                    ignore_readline_leaks.supp  libft/                      out                         tes                         
+minishell $ > 
+.a                          .git/                       .history                    a.out                       includes/                   minishell                   outexit                     test.txt                    
+.b                          .gitignore                  .vscode/                    ascii_art.txt               leakslogs.txt               objets/                     srcs/                       text                        
+.c                          .gitmodules                 Makefile                    ignore_readline_leaks.supp  libft/                      out                         tes                         
+minishell $ > make_redirect.c handle_pipe.c)
+make_redirect.c: command not found
+after exec
+before readline
+minishell $ > BUILTINS=$(addprefix srcs/builtins/, ft_echo.c ft_exit.c ft_cd.c ft_pwd.c ft_export.c ft_export2.c ft_export_sort_display.c \
+BUILTINS=$(addprefix: command not found
+after exec
+before readline
+minishell $ > 
+.a                          .git/                       .history                    a.out                       includes/                   minishell                   outexit                     test.txt                    
+.b                          .gitignore                  .vscode/                    ascii_art.txt               leakslogs.txt               objets/                     srcs/                       text                        
+.c                          .gitmodules                 Makefile                    ignore_readline_leaks.supp  libft/                      out                         tes                         
+minishell $ > 
+.a                          .git/                       .history                    a.out                       includes/                   minishell                   outexit                     test.txt                    
+.b                          .gitignore                  .vscode/                    ascii_art.txt               leakslogs.txt               objets/                     srcs/                       text                        
+.c                          .gitmodules                 Makefile                    ignore_readline_leaks.supp  libft/                      out                         tes                         
+minishell $ > 
+.a                          .git/                       .history                    a.out                       includes/                   minishell                   outexit                     test.txt                    
+.b                          .gitignore                  .vscode/                    ascii_art.txt               leakslogs.txt               objets/                     srcs/                       text                        
+.c                          .gitmodules                 Makefile                    ignore_readline_leaks.supp  libft/                      out                         tes                         
+minishell $ > 
+.a                          .git/                       .history                    a.out                       includes/                   minishell                   outexit                     test.txt                    
+.b                          .gitignore                  .vscode/                    ascii_art.txt               leakslogs.txt               objets/                     srcs/                       text                        
+.c                          .gitmodules                 Makefile                    ignore_readline_leaks.supp  libft/                      out                         tes                         
+minishell $ > 
+.a                          .git/                       .history                    a.out                       includes/                   minishell                   outexit                     test.txt                    
+.b                          .gitignore                  .vscode/                    ascii_art.txt               leakslogs.txt               objets/                     srcs/                       text                        
+.c                          .gitmodules                 Makefile                    ignore_readline_leaks.supp  libft/                      out                         tes                         
+minishell $ > 
+.a                          .git/                       .history                    a.out                       includes/                   minishell                   outexit                     test.txt                    
+.b                          .gitignore                  .vscode/                    ascii_art.txt               leakslogs.txt               objets/                     srcs/                       text                        
+.c                          .gitmodules                 Makefile                    ignore_readline_leaks.supp  libft/                      out                         tes                         
+minishell $ > ft_env.c ft_unset.c ft_export3.c)
+ft_env.c: command not found
+after exec
+before readline
+minishell $ > UTILS=$(addprefix srcs/utils/, split_pipe.c split_pipe2.c split_wquote.c utils.c quote.c cmd_utils.c)
+UTILS=$(addprefix: command not found
+after exec
+before readline
+minishell $ > EXEC=$(addprefix srcs/execution/, extern.c exec_pipe.c exec_nopipe.c last_step.c)
+EXEC=$(addprefix: command not found
+after exec
+before readline
+minishell $ > #prevoir plusieurs dossier dans srcs
+#prevoir: command not found
+after exec
+before readline
+minishell $ > OBJS=${SRCS:%.c=${OBJDIR}/%.o}
+OBJS=${SRCS:%.c=${OBJDIR}/%.o}: command not found
+after exec
+before readline
+minishell $ > OBJSB=${BUILTINS:%.c=${OBJDIR}/%.o}
+OBJSB=${BUILTINS:%.c=${OBJDIR}/%.o}: command not found
+after exec
+before readline
+minishell $ > OBJSP=${PROMPT:%.c=${OBJDIR}/%.o}
+OBJSP=${PROMPT:%.c=${OBJDIR}/%.o}: command not found
+after exec
+before readline
+minishell $ > OBJSU=${UTILS:%.c=${OBJDIR}/%.o}
+OBJSU=${UTILS:%.c=${OBJDIR}/%.o}: command not found
+after exec
+before readline
+minishell $ > OBJSEX=${EXEC:%.c=${OBJDIR}/%.o}
+OBJSEX=${EXEC:%.c=${OBJDIR}/%.o}: command not found
+after exec
+before readline
+minishell $ > CC=gcc
+CC=gcc: command not found
+after exec
+before readline
+minishell $ > CFLAGS=-Werror -Wextra -Wall -g
+CFLAGS=-Werror: command not found
+after exec
+before readline
+minishell $ > OBJDIR=objets
+OBJDIR=objets: command not found
+after exec
+before readline
+minishell $ > 
+before readline
+minishell $ > # Colors and style
+#: command not found
+after exec
+before readline
+minishell $ > END:= \033[0m
+END:=: command not found
+after exec
+before readline
+minishell $ > WHITE:= \033[1;37m
+WHITE:=: command not found
+after exec
+before readline
+minishell $ > NC:= \033[0m
+NC:=: command not found
+after exec
+before readline
+minishell $ > RED:= \033[0;31m
+RED:=: command not found
+after exec
+before readline
+minishell $ > PINK:= \033[1;35m
+PINK:=: command not found
+after exec
+before readline
+minishell $ > GREEN:= \033[0;32m
+GREEN:=: command not found
+after exec
+before readline
+minishell $ > BOLD:= \033[1m
+BOLD:=: command not found
+after exec
+before readline
+minishell $ > L_PURPLE:= \033[38;5;55m
+L_PURPLE:=: command not found
+after exec
+before readline
+minishell $ > YELLOW:= \033[0;33m
+YELLOW:=: command not found
+after exec
+before readline
+minishell $ > BLUE:= \033[34m
+BLUE:=: command not found
+after exec
+before readline
+minishell $ > 
+before readline
+minishell $ > # Counter for compiled files
+#: command not found
+after exec
+before readline
+minishell $ > TOTAL_FILES := 27
+TOTAL_FILES: command not found
+after exec
+before readline
+minishell $ > CURRENT_FILE = 0
+CURRENT_FILE: command not found
+after exec
+before readline
+minishell $ > 
+before readline
+minishell $ > all:${NAME} display_ascii
+all:${NAME}: command not found
+after exec
+before readline
+minishell $ > 
+before readline
+minishell $ > ${NAME}:${OBJS} ${OBJSB} ${OBJSP} ${OBJSU} ${OBJSEX} ${LIBFT}
+${NAME}:${OBJS}: command not found
+after exec
+before readline
+minishell $ > @${CC} ${CFLAGS} ${OBJS} ${OBJSB} ${OBJSP} ${OBJSU} ${OBJSEX} ${LIBFT} -lreadline -o ${NAME}
+@${CC}: command not found
+after exec
+before readline
+minishell $ > @echo "${BOLD}${GREEN}📦 Link complete: ${NAME}${END}"
+@echo: command not found
+after exec
+before readline
+minishell $ > 
+before readline
+minishell $ > ${LIBFT}:
+${LIBFT}:: command not found
+after exec
+before readline
+minishell $ > @echo "${BOLD}${BLUE}🔨 Building LIBFT...${END}"
+@echo: command not found
+after exec
+before readline
+minishell $ > @${MAKE} -C ./libft/ bonus
+@${MAKE}: command not found
+after exec
+before readline
+minishell $ > @echo "${BOLD}${GREEN}✓ LIBFT ready${END}"
+@echo: command not found
+after exec
+before readline
+minishell $ > 
+before readline
+minishell $ > ${OBJDIR}/%.o: %.c | ${OBJDIR}
+${OBJDIR}/%.o:: command not found
+${OBJDIR}: command not found
+before readline
+minishell $ > @$(eval CURRENT_FILE=$(shell echo $$(($(CURRENT_FILE)+1))))
+@$(eval: command not found
+after exec
+before readline
+minishell $ > @printf "${BOLD}${L_PURPLE}⚡ [%2d/%2d] Compiling: %-20s ${END}" $(CURRENT_FILE) $(TOTAL_FILES) "$<"
+@printf: command not found
+after exec
+before readline
+minishell $ > @${CC} ${CFLAGS} -c -o $@ $<
+before readline
+minishell $ > @echo "${BOLD}${GREEN}✓${END}"
+@echo: command not found
+after exec
+before readline
+minishell $ > 
+before readline
+minishell $ > ${OBJDIR}:
+${OBJDIR}:: command not found
+after exec
+before readline
+minishell $ > @mkdir -p ${OBJDIR}
+@mkdir: command not found
+after exec
+before readline
+minishell $ > @mkdir -p ${OBJDIR}/srcs
+@mkdir: command not found
+after exec
+before readline
+minishell $ > @mkdir -p ${OBJDIR}/srcs/builtins
+@mkdir: command not found
+after exec
+before readline
+minishell $ > @mkdir -p ${OBJDIR}/srcs/parsing
+@mkdir: command not found
+after exec
+before readline
+minishell $ > @mkdir -p ${OBJDIR}/srcs/utils
+@mkdir: command not found
+after exec
+before readline
+minishell $ > @mkdir -p ${OBJDIR}/srcs/execution
+@mkdir: command not found
+after exec
+before readline
+minishell $ > @echo "${BOLD}${BLUE}📁 Created objects directory${END}"
+@echo: command not found
+after exec
+before readline
+minishell $ > 
+before readline
+minishell $ > leaks: ${NAME}
+leaks:: command not found
+after exec
+before readline
+minishell $ > @echo "${GREEN}Valgrind launched, outfiles :${YELLOW} leakslogs.txt${END}"
+@echo: command not found
+after exec
+before readline
+minishell $ > @valgrind --leak-check=full --log-file=leakslogs.txt --show-leak-kinds=all --trace-children=yes --track-fds=yes --suppressions=ignore_readline_leaks.supp ./minishell
+@valgrind: command not found
+after exec
+before readline
+minishell $ > 
+before readline
+minishell $ > clean:
+clean:: command not found
+after exec
+before readline
+minishell $ > @echo "${BOLD}${YELLOW}🧹 Cleaning objects...${END}"
+@echo: command not found
+after exec
+before readline
+minishell $ > @rm -rf ${OBJDIR}
+@rm: command not found
+after exec
+before readline
+minishell $ > @${MAKE} -C ./libft/ clean
+@${MAKE}: command not found
+after exec
+before readline
+minishell $ > @echo "${BOLD}${GREEN}✓ Clean complete${END}"
+@echo: command not found
+after exec
+before readline
+minishell $ > 
+before readline
+minishell $ > fclean: clean
+fclean:: command not found
+after exec
+before readline
+minishell $ > @echo "${BOLD}${YELLOW}🗑️  Deep cleaning...${END}"
+@echo: command not found
+after exec
+before readline
+minishell $ > @rm -f ${NAME}
+@rm: command not found
+after exec
+before readline
+minishell $ > @${MAKE} -C ./libft/ fclean
+@${MAKE}: command not found
+after exec
+before readline
+minishell $ > @echo "${BOLD}${GREEN}✨ All clean ✨${END}"
+@echo: command not found
+after exec
+before readline
+minishell $ > 
+before readline
+minishell $ > re: fclean all
+re:: command not found
+after exec
+before readline
+minishell $ > 
+before readline
+minishell $ > party:
+party:: command not found
+after exec
+before readline
+minishell $ > @echo "$(BOLD)Let's party!"
+@echo: command not found
+after exec
+before readline
+minishell $ > @echo "$(RED)  $(BOLD) (^-^) $(END) "
+@echo: command not found
+after exec
+before readline
+minishell $ > @sleep 0.5
+@sleep: command not found
+after exec
+before readline
+minishell $ > @echo "$(L_PURPLE) $(BOLD) \(^-^\) $(END)"
+@echo: command not found
+after exec
+before readline
+minishell $ > @sleep 0.5
+@sleep: command not found
+after exec
+before readline
+minishell $ > @echo "$(YELLOW) $(BOLD) (^-^) $(END)"
+@echo: command not found
+after exec
+before readline
+minishell $ > @sleep 0.5
+@sleep: command not found
+after exec
+before readline
+minishell $ > @echo "$(BLUE) $(BOLD) (/^•^)/ $(END)"
+@echo: command not found
+after exec
+before readline
+minishell $ > @sleep 0.5
+@sleep: command not found
+after exec
+before readline
+minishell $ > @echo "$(PINK) $(BOLD) (^-^) $(END)"
+@echo: command not found
+after exec
+before readline
+minishell $ > @sleep 0.5
+@sleep: command not found
+after exec
+before readline
+minishell $ > @echo "$(GREEN) $(BOLD) \(^-^)/ $(END)"
+@echo: command not found
+after exec
+before readline
+minishell $ > @sleep 0.5
+@sleep: command not found
+after exec
+before readline
+minishell $ > @echo "$(BOLD) Party time is over! Back to work! \n (^-^)7$(END)"
+@echo: command not found
+after exec
+before readline
+minishell $ > 
+before readline
+minishell $ > cat:
+cat:: command not found
+after exec
+before readline
+minishell $ > @echo "    ⢀⠠⠤⠀⢀⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+@echo: command not found
+after exec
+before readline
+minishell $ > @echo "⠀⠀⠐⠀⠐⠀⠀⢀⣾⣿⡇⠀⠀⠀⠀⠀⢀⣼⡇⠀⠀⠀⠀"
+@echo: command not found
+after exec
+before readline
+minishell $ > @echo "⠀⠀⠀⠀⠀⠀⠀⣸⣿⣿⣿⠀⠀⠀⠀⣴⣿⣿⠇⠀⠀⠀⠀"
+@echo: command not found
+after exec
+before readline
+minishell $ > @echo "⠀⠀⠀⠀⠀⠀⢠⣿⣿⣿⣇⠀⠀⢀⣾⣿⣿⣿⠀⠀⠀⠀⠀"
+@echo: command not found
+after exec
+before readline
+minishell $ > @echo "⠀⠀⠀⠀⠀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⠐⠀⡀"
+@echo: command not found
+after exec
+before readline
+minishell $ > @echo "⠀⠀⠀⠀⢰⡿⠉⠀⡜⣿⣿⣿⡿⠿⢿⣿⣿⡃⠀⠀⠂⠄⠀"
+@echo: command not found
+after exec
+before readline
+minishell $ > @echo "⠀⠀⠒⠒⠸⣿⣄⡘⣃⣿⣿⡟⢰⠃⠀⢹⣿⡇⠀⠀⠀⠀⠀"
+@echo: command not found
+after exec
+before readline
+minishell $ > @echo "⠀⠀⠚⠉⠀⠊⠻⣿⣿⣿⣿⣿⣮⣤⣤⣿⡟⠁⠘⠠⠁⠀⠀"
+@echo: command not found
+after exec
+before readline
+minishell $ > @echo "⠀⠀⠀⠀⠀⠠⠀⠀⠈⠙⠛⠛⠛⠛⠛⠁⠀⠒⠤⠀⠀⠀⠀"
+@echo: command not found
+after exec
+before readline
+minishell $ > @echo "⠨⠠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⠀⠀⠀⠀⠀⠀"
+@echo: command not found
+after exec
+before readline
+minishell $ > @echo "⠁⠃⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+@echo: command not found
+after exec
+before readline
+minishell $ > 
+before readline
+minishell $ > .PHONY: all clean fclean re display_ascii
+.PHONY:: command not found
+after exec
+before readline
+minishell $ > 
+before readline
+minishell $ > display_ascii:
+display_ascii:: command not found
+after exec
+before readline
+minishell $ > @echo "$(BOLD)$(L_PURPLE)"
+@echo: command not found
+after exec
+before readline
+minishell $ > @if [ -f ascii_art.txt ]; then \
+@if: command not found
+after exec
+before readline
+minishell $ > 
+.a                          .git/                       .history                    a.out                       includes/                   minishell                   outexit                     test.txt                    
+.b                          .gitignore                  .vscode/                    ascii_art.txt               leakslogs.txt               objets/                     srcs/                       text                        
+.c                          .gitmodules                 Makefile                    ignore_readline_leaks.supp  libft/                      out                         tes                         
+minishell $ > cat ascii_art.txt; \
+after exec
+before readline
+minishell $ > fi
+fi: command not found
+after exec
+before readline
+minishell $ > @echo "$(END)"
+@echo: command not found
+after exec
+before readline
+minishell $ > @echo "${BOLD}${L_PURPLE} ✨minishell✨ ${GREEN}is ready 🎉 ${END}"
+@echo: command not found
+after exec
+before readline
+minishell $ > @echo "${BOLD}${BLUE}➜ Use ./${NAME} to run the program${END}"
+@echo: command not found
+after exec
+before readline
+minishell $ > exit

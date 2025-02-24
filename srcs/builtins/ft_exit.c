@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:50:04 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/02/20 14:36:04 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/24 15:05:34 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-void	ft_exit(t_prompt_info *data)
+void	ft_exit(t_prompt_info *data, int temp_fd[2])
 {
 	int	i;
 	int	value;
@@ -34,6 +34,7 @@ void	ft_exit(t_prompt_info *data)
 		}
 	}
 	cleanup(data);
+	end_redirect(data, temp_fd);
 	if (data->env)
 		freesplit(data->env);
 	close(data->fd_history);

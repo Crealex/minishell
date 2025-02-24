@@ -6,13 +6,13 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:11:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/21 17:16:29 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/24 15:05:15 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-static int	which_builtins(t_prompt_info *data)
+static int	which_builtins(t_prompt_info *data, int temp_fd[2])
 {
 	if (!ft_strncmp(data->prompt[0], "echo", 4))
 		ft_echo(data->str_prt);
@@ -27,15 +27,14 @@ static int	which_builtins(t_prompt_info *data)
 	else if (!ft_strncmp(data->prompt[0], "env", 3))
 		ft_env(data->env);
 	else if (!ft_strncmp(data->prompt[0], "exit", 4))
-		ft_exit(data);
+		ft_exit(data, temp_fd);
 	else
-		if (extern_exec(data) == 0)
+		if (extern_exec(data, temp_fd) == 0)
 			return (0);
-	// fprintf(stderr, "after exec in wb : %s\n", data->prompt[0]);
 	return (1);
 }
 
-int	last_step(char **str, t_prompt_info *data)
+int	last_step(char **str, t_prompt_info *data, int temp_fd[2])
 {
 	if (only_space(*str))
 		return (1);
@@ -50,8 +49,7 @@ int	last_step(char **str, t_prompt_info *data)
 	if (!check_builtins(data->prompt))
 		return (1);
 	else
- 		if (which_builtins(data) == 0)
+ 		if (which_builtins(data, temp_fd) == 0)
 			return (0);
-	// fprintf(stderr, "after wb in ls : %s\n", data->prompt[0]);
 	return (1);
 }

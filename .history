@@ -665,3 +665,21 @@ ls | grep a
 exit
 ls | grep a
 ls | grep a
+ls | grep e
+ls | grep e | grep a
+ls | grep e | grep a | grep l
+ls | grep e | grep a | grep l | grep k
+ls | grep e | grep a | grep l | grep k | grep x
+ls | grep e | grep a | grep l | grep k | grep x | wc -l
+exit
+cd ~
+cd ~
+cd ~
+cd ~
+cd ~
+cd ''
+cd ''
+< Makefile cat
+< Makefile cat | wc -l
+cat Makefile | wc -l
+exit

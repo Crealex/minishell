@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/21 17:15:51 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/24 10:50:22 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,29 +78,28 @@ int	check_acces_file(char *cmd)
 	return (0);
 }
 
-// static void	closing_pipe(t_prompt_info *data, int (*pipefd)[2])
-// {
-// 	int	i;
+static void	cleanup_exec(t_prompt_info *data)
+{
+	int	i;
 
-// 	i = data->pos_pipe;
-// 	if (!pipefd)
-// 		return ;
-// 	if (i < data->pipe_len - 1)
-// 	{
-// 		fprintf(stderr, "closing pipe start < len max : %s\n", data->prompt[0]);
-// 		if (data->fd_out[i] < 2)
-// 			fprintf(stderr,"rest close %d\n", close(pipefd[i][1]));
-// 	}
-// 	if (i > 0)
-// 	{
-// 		fprintf(stderr, "closing pipe > 0 : %s\n", data->prompt[0]);
-// 		if (data->fd_in[i] < 2)
-// 		{
-// 			fprintf(stderr, "closing pipefd[i- 1][0]\n");
-// 			fprintf(stderr, "ret close : %d\n", close(pipefd[i - 1][0]));
-// 		}
-// 	}
-// }
+	i = 0;
+	if (data->pipe)
+		freesplit(data->pipe);
+	if (data->str_prt)
+		free(data->str_prt);
+	while (i < data->pipe_len)
+	{
+		if (data->fd_in[i] > 2)
+			close(data->fd_in[i]);
+		if (data->fd_out[i] > 2)
+			close(data->fd_out[i]);
+		i++;
+	}
+	if (data->fd_in)
+		free(data->fd_in);
+	if (data->fd_out)
+		free(data->fd_out);
+}
 
 int	extern_exec(t_prompt_info *data)
 {
@@ -118,6 +117,7 @@ int	extern_exec(t_prompt_info *data)
 	pid = fork();
 	if (pid == 0)
 	{
+		cleanup_exec(data);
 		if (execve(path, data->prompt, data->env) == -1)
 			return (printf("pas exec\n"), 0);
 	}

@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:37:37 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/18 17:22:35 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/24 10:57:21 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int main(int argc, char **argv, char **env)
 	update_shell_level(&data);
 	while (1)
 	{
+		printf("before readline\n");
 		data.str_prt = readline("minishell $ > ");
 		if (!data.str_prt)
 			return (printf("exit\n"), 0);

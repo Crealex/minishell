@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:11:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/21 17:16:29 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/24 10:52:02 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	which_builtins(t_prompt_info *data)
 	else
 		if (extern_exec(data) == 0)
 			return (0);
-	// fprintf(stderr, "after exec in wb : %s\n", data->prompt[0]);
+	fprintf(stderr, "after exec in wb : %s\n", data->prompt[0]);
 	return (1);
 }
 
@@ -52,6 +52,6 @@ int	last_step(char **str, t_prompt_info *data)
 	else
  		if (which_builtins(data) == 0)
 			return (0);
-	// fprintf(stderr, "after wb in ls : %s\n", data->prompt[0]);
+	fprintf(stderr, "after wb in ls : %s\n", data->prompt[0]);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/21 17:04:06 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:07:39 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ int		get_out_fd(char **str, int fd);
 int		redirection(t_prompt_info *data, char **str, int i);
 int		check_builtins(char **prompt);
 int		is_pipe(char **str);
-int		handle_pipe(t_prompt_info *data, int *temp_fdin, int *temp_fdout);
+int		handle_pipe(t_prompt_info *data);
 char	**dollar_pipe(char **pipe_prompt, char **env);
 char	*add_space(char *str, int i, int is_double);
 int		ft_nb_row(char const *s, char c);
@@ -117,7 +117,7 @@ void	end_redirect(t_prompt_info *data, int temp_fd_in, int temp_fd_out);
 int		extern_exec(t_prompt_info *data);
 int		is_child(int status);
 int		exec_no_pipe(t_prompt_info *data);
-int		exec_pipe(t_prompt_info *data);
+int		exec_pipe(t_prompt_info *data, int temp_fd[2]);
 int		last_step(char **str, t_prompt_info *data);
 //split wquote
 char	**split_wquote(char const *s, char c);

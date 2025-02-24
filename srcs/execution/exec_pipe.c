@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:57:04 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/21 17:15:57 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/24 10:56:02 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,13 @@ static int	closing_all_pipes(t_prompt_info *data, int (*pipefd)[2])
 	return (1);
 }
 
-int	exec_pipe(t_prompt_info  *data)
+int	exec_pipe(t_prompt_info  *data, int temp_fd[2])
 {
 	int	pid;
 	int	i;
 	int	exit_status;
 	int	(*pipefd)[2];
+	(void)temp_fd;
 
 	i = 0;
 	pipefd = ft_calloc(data->pipe_len - 1, sizeof(int *));
@@ -77,7 +78,6 @@ int	exec_pipe(t_prompt_info  *data)
 		data->pos_pipe = i;
 		if (i < data->pipe_len - 1)
 			pipe(pipefd[i]);
-		// printf("pipefd[%d][0] : %d, pipefd[%d][1] : %d\n", i, pipefd[i][0], i, pipefd[i][1]);
 		pid = fork();
 		if (pid > 0)
 		{
@@ -88,19 +88,21 @@ int	exec_pipe(t_prompt_info  *data)
 		}
 		if (pid == 0)
 		{
-			// fprintf(stderr, "-----------------------------------------\n");
-			// fprintf(stderr, "in child fork\n");
+			if (data->fd_in[i] > 2)
+				close(temp_fd[0]);
+			if (data->fd_out[i] > 2)
+				close(temp_fd[1]);
 			redirect_pipe(data, i, pipefd);
-			// fprintf(stderr, "in child fork, after redirect\n");
+			free(pipefd);
 			if (!last_step(&data->pipe[i], data))
 				exit (0);
-			// fprintf(stderr, "in child fork, after last step\n");
-			// close(temp_fd[0]);
-			// close(temp_fd[1]);
+			cleanup(data);
+			if (data->env)
+				freesplit(data->env);
 			exit (1);
 		}
 		waitpid(pid, &exit_status, 0);
-		// fprintf(stderr, "after waitpid\n");
+		fprintf(stderr, "after waitpid\n");
 		i++;
 	}
 	if (closing_all_pipes(data, pipefd) == 0)

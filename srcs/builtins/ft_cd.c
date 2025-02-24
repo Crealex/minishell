@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:11:07 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/24 10:07:23 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/24 16:14:28 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	ft_cd(char **prompt, char ***env)
 		update_exit_code(0);
 		return ;
 	}
+	prompt[1] = rm_quote(prompt[1]);
 	if (chdir(prompt[1]) == -1 && strncmp(prompt[1], "~", 2) != 0)
 		printf("minishell: cd: %s: No such file or directory\n", prompt[1]);
 	else if (strncmp(prompt[1], "~", 2) == 0)

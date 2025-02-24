@@ -1,3 +1,0 @@
-ignore_readline_leaks.supp
-leakslogs.txt
-Makefile

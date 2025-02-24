@@ -683,3 +683,84 @@ cd ''
 < Makefile cat | wc -l
 cat Makefile | wc -l
 exit
+ls
+< makefile cat
+< Makefile cat
+< Makefile cat | wc -l
+exit
+cd .
+cd "."
+cat | cat | ls
+cat | cat | ls
+cat | cat | ls
+bash
+ls | cat
+ls | cat | cat
+clear
+cat | cat | ls
+clear
+echo $ola
+clear
+env
+clear
+debo=3
+bash
+clear
+echo $(pwd)
+bash
+clear
+pwd
+echo $(ewqo)
+bash
+clear
+echo cool | echo top | echo super
+> a > b > c > d
+echo bonjour > a > b > c
+env olapo
+clear
+env qqw
+clear
+env qwf
+env qw qw qw
+clear
+bash
+clear
+unset
+export 4_a
+"ls" 
+'ls'
+ls
+"ls"
+exit
+exit 9999999
+cat
+echo $?
+exit
+cd "."
+cd ".."
+ls
+cd 'philosophers'
+;
+;s
+ls
+cd '..'
+cd "minishell/"
+ls
+exit
+echo salut
+echo -n salut
+exit
+echo salut
+echo salut | ls
+echo salut | echo salut
+echo salut | wc -l
+echo salut\n | wc -l
+ls | grep e | echo salut | grep t
+ls | grep e | echo salut | grep v
+ls | grep e | echo salut | grep v
+wzir
+exit
+echo salut ma couille
+echo "salut ma couille | comment vas?"
+echo salut ma couille | comment vas?
+exit

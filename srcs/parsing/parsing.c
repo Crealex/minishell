@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/24 11:11:12 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/24 15:33:41 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,7 @@ static int	redirect_nopipe(t_prompt_info *data)
 	if (redirect == 0)
 		return (0);
 	else if (redirect == 2)
-	{
-		printf("str prt : %s\n", data->str_prt);
 		make_redirect(data);
-	}
 	return (1);
 }
 
@@ -105,10 +102,11 @@ int parsing(t_prompt_info *data)
 	{
 		if (!redirect_nopipe(data))
 			return (cleanup(data), 1);
-		if (!exec_no_pipe(data))
+		if (!exec_no_pipe(data, temp_fd))
 			return (cleanup(data), 1);
 	}
-	printf("after exec\n");
-	end_redirect(data, temp_fd[0], temp_fd[1]);
+	dup2(temp_fd[0], STDIN_FILENO);
+	dup2(temp_fd[1], STDOUT_FILENO);
+	end_redirect(data, temp_fd);
 	return (cleanup(data), 1);
 }

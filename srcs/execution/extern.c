@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/24 10:50:22 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/24 14:50:38 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ static void	cleanup_exec(t_prompt_info *data)
 		free(data->fd_out);
 }
 
-int	extern_exec(t_prompt_info *data)
+int	extern_exec(t_prompt_info *data, int temp_fd[2])
 {
 	char	*path;
 	int		exit_status;
@@ -118,13 +118,12 @@ int	extern_exec(t_prompt_info *data)
 	if (pid == 0)
 	{
 		cleanup_exec(data);
+		end_redirect(data, temp_fd);
 		if (execve(path, data->prompt, data->env) == -1)
 			return (printf("pas exec\n"), 0);
 	}
 	is_child(1);
-	// fprintf(stderr, "before waitpid : %s\n", data->prompt[0]);
 	waitpid(pid, &exit_status, 0);
-	// fprintf(stderr, "end of process : %s\n", data->prompt[0]);
 	is_child(0);
 	free(path);
 	update_exit_code(WEXITSTATUS(exit_status));

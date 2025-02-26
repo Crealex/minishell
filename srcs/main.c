@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:37:37 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/24 14:30:35 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/26 11:33:45 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int main(int argc, char **argv, char **env)
 	(void)argv;
 	data.env = NULL;
 	data.env = cpy_double_array(data.env, env);
-	if (!data.env)
+	if (data.env == NULL)
 		return (1);
 	data.fd_history = open(".history", O_CREAT | O_APPEND | O_RDWR,  0744);
 	get_history(data.fd_history);
@@ -59,7 +59,7 @@ int main(int argc, char **argv, char **env)
 	{
 		data.str_prt = readline("minishell $ > ");
 		if (!data.str_prt)
-			return (printf("exit\n"), 0);
+			return (ft_putstr_fd("exit\n", 1), 0);
 		if (ft_strlen(data.str_prt) > 0)
 		{
 			if (!prompt_handler(&data, data.fd_history))

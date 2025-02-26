@@ -1,0 +1,2 @@
+awk: cmd. line:1: {print
+awk: cmd. line:1:       ^ unexpected newline or end of string

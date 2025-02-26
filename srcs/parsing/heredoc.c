@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 11:06:39 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/02/14 16:40:40 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/25 11:19:40 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int	read_write(int fd, char *end_word, t_prompt_info *data)
 	int		len_word;
 	char	*name;
 
-	line = get_next_line(1);
+	line = get_next_line(0);
 	len_word = ft_strlen(end_word);
 	if (fd > 2)
 		close (fd);
@@ -58,7 +58,7 @@ static int	read_write(int fd, char *end_word, t_prompt_info *data)
 		line = parse_heredoc(line, data);
 		write(fd, line, ft_strlen(line));
 		free(line);
-		line = get_next_line(1);
+		line = get_next_line(0);
 	}
 	close(fd);
 	fd = open(name, O_RDONLY);

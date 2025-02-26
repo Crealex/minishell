@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:55:00 by alexandre         #+#    #+#             */
-/*   Updated: 2025/02/21 10:11:04 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/26 11:20:01 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	**cpy_double_array(char **cpy, char **src)
 
 	i = 0;
 	len = 0;
+	if (!src || !*src)
+		return (NULL);
 	while (src[len])
 		len++;
 	cpy = ft_calloc(len + 1, sizeof(char *));
@@ -80,6 +82,7 @@ char	*ft_getenv(char *var, char **env)
 
 void	cleanup(t_prompt_info *data)
 {
+	(void)data;
 	int	i;
 
 	i = 0;
@@ -103,7 +106,7 @@ void	cleanup(t_prompt_info *data)
 		free(data->fd_out);
 }
 
-void	print_error(char *s1, char *s2, char *s3)
+void	print_err(char *s1, char *s2, char *s3)
 {
 	char *res;
 	char *temp;

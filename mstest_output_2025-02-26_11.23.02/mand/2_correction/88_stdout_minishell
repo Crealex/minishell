@@ -1,0 +1,11 @@
+""
+"$H"OM"E"
+$HOME
+$notexists
+"$USER"
+'$USER'
+"$USER'$USER'"
+tmp_redir_out
+"tmp_test folder"
+"tmp_test_folder"
+minishell: cd: /notsuchdir: No such file or directory

@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:50:04 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/02/24 15:05:34 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/26 11:38:33 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,8 @@ void	ft_exit(t_prompt_info *data, int temp_fd[2])
 			value = ft_atoi(data->prompt[1]);
 		else
 		{
-			write(2, "minishell: exit: ", 17);
-			write(2, data->prompt[1], ft_strlen(data->prompt[1]));
-			write(2, ": numeric argument required\n", 28);
+			print_err("minishell: exit: ", data->prompt[1],
+				": numeric argument required\n");
 			value = 2;
 		}
 	}

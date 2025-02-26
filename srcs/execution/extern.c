@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/24 14:50:38 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/26 11:43:43 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ char *get_path(char *cmd)
 		free(res);
 		i++;
 	}
-	printf("res : %s\n", res);
 	freesplit(path);
 	free(cmd_path);
 	return (res);
@@ -60,7 +59,7 @@ int	check_acces_file(char *cmd)
 	stat(file, &statt);
 	if (S_ISDIR(statt.st_mode) || ft_strlen(file) == 0)
 	{
-		print_error("minishell: ", cmd, ": Is a directory\n");
+		print_err("minishell: ", cmd, ": Is a directory\n");
 		update_exit_code(126);
 		return (0);
 	}
@@ -68,12 +67,12 @@ int	check_acces_file(char *cmd)
 		return (free(file), 1);
 	if (access(file, F_OK) == -1)
 	{
-		print_error("minishell: ", cmd, ": No such file or directory\n");
+		print_err("minishell: ", cmd, ": No such file or directory\n");
 		update_exit_code(127);
 		free(file);
 		return (0);
 	}
-	print_error("minishell: ", cmd, ": Permission denied\n");
+	print_err("minishell: ", cmd, ": Permission denied\n");
 	update_exit_code(126);
 	return (0);
 }
@@ -120,7 +119,7 @@ int	extern_exec(t_prompt_info *data, int temp_fd[2])
 		cleanup_exec(data);
 		end_redirect(data, temp_fd);
 		if (execve(path, data->prompt, data->env) == -1)
-			return (printf("pas exec\n"), 0);
+			return (0);
 	}
 	is_child(1);
 	waitpid(pid, &exit_status, 0);

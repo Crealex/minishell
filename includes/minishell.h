@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/24 16:18:35 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/26 10:19:47 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ typedef struct	s_prompt_info
 	int		pos_pipe;
 	int		pipe_len;
 	char	*str_prt;
-	pid_t	*pid;
 	char 	**pipe;
 	char	**prompt;
 	char	**env;
@@ -79,7 +78,7 @@ void	*ft_freesplit(char **res, int j);
 char	*ft_getenv(char *var, char **env);
 void	cleanup(t_prompt_info *data);
 int		ft_isspace(int c);
-void	print_error(char *s1, char *s2, char *s3);
+void	print_err(char *s1, char *s2, char *s3);
 int		only_space(char *str);
 //quote
 int		len_wquote(char *str);

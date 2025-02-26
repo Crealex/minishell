@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cd.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:11:07 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/24 16:14:28 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/26 11:36:40 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_cd(char **prompt, char ***env)
 {
 	if (prompt[1] && prompt[2])
 	{
-		printf("cd: too many arguments\n");
+		print_err("cd: too many arguments\n", NULL, NULL);
 		update_exit_code(1);
 		return ;
 	}
@@ -64,7 +64,10 @@ void	ft_cd(char **prompt, char ***env)
 	}
 	prompt[1] = rm_quote(prompt[1]);
 	if (chdir(prompt[1]) == -1 && strncmp(prompt[1], "~", 2) != 0)
-		printf("minishell: cd: %s: No such file or directory\n", prompt[1]);
+	{
+		print_err("minishell: cd: ", prompt[1],
+			": No such file or directory\n");
+	}
 	else if (strncmp(prompt[1], "~", 2) == 0)
 		goto_home(*env);
 	else

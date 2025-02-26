@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   last_step.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:11:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/24 16:18:56 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/26 10:43:28 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ int	last_step(char **str, t_prompt_info *data, int temp_fd[2])
 	if (!(*str))
 		return (0);
 	if (!is_valid_cmd(*str))
-		return (1);
+		return (0);
 	if (!check_builtins(data->prompt))
-		return (1);
+		return (0);
 	else
  		if (which_builtins(data, temp_fd) == 0)
 			return (0);

@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:28:28 by alexandre         #+#    #+#             */
-/*   Updated: 2025/02/14 16:38:05 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/26 11:34:38 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	which_sig(int signal)
 {
 	if (signal == SIGINT)
 	{
-		printf("\n");
+		ft_putstr_fd("\n", 1);
 		if (is_child(-1) == 0)
 		{
 			rl_replace_line("", 0);

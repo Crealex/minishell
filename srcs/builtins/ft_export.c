@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_export.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 11:35:36 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/17 10:15:45 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/26 11:41:59 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void	add_to_env(char *str, char ***env)
 		free(str);
 	}
 	else if (check_name(str) == 0)
-		printf("minishell: export: `%s': not a valid identifier\n", str);
+		print_err("minishell: export: `", str, "': not a valid identifier\n");
 }
 
 void	ft_export(char **prompt, char ***env)

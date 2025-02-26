@@ -1,1 +1,0 @@
-/home/dvauthey/42_minishell_tester/tester.sh: line 635: 230600 Segmentation fault      (core dumped) LD_PRELOAD=/home/dvauthey/42_minishell_tester/utils/libintercept/libintercept.so /home/dvauthey/Documents/rk03/minishell/minishell/minishell

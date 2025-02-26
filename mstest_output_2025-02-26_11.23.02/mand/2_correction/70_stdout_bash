@@ -1,9 +1,0 @@
-LOGNAME=dvauthey
-XAUTHORITY=/home/dvauthey/.Xauthority
-XDG_GREETER_DATA_DIR=/var/lib/lightdm-data/dvauthey
-LD_PRELOAD=/home/dvauthey/42_minishell_tester/utils/libintercept/libintercept.so
-HOME=/home/dvauthey
-USER=dvauthey
-XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/home/dvauthey/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
-PATH=/bin:/usr/bin:/usr/sbin:/home/dvauthey/bin:/home/dvauthey/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
-OLDPWD=/home/dvauthey/Documents/rk03/minishell/minishell

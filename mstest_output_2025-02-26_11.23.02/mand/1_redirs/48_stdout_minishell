@@ -1,3 +1,0 @@
-in error
-in error
-minishell: ls  >> ./test_files/invalid_permission  >> ./outfiles/outfile01: No such file or directory

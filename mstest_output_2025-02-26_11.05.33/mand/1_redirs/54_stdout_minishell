@@ -1,3 +1,0 @@
-in error
-in error
-minishell: echo hi  >> ./outfiles/outfile01  >> ./outfiles/outfile02  : No such file or directory

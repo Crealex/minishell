@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/26 11:43:43 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/26 15:19:49 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,9 +98,10 @@ static void	cleanup_exec(t_prompt_info *data)
 		free(data->fd_in);
 	if (data->fd_out)
 		free(data->fd_out);
+	end_redirect(data, 0);
 }
 
-int	extern_exec(t_prompt_info *data, int temp_fd[2])
+int	extern_exec(t_prompt_info *data)
 {
 	char	*path;
 	int		exit_status;
@@ -117,7 +118,6 @@ int	extern_exec(t_prompt_info *data, int temp_fd[2])
 	if (pid == 0)
 	{
 		cleanup_exec(data);
-		end_redirect(data, temp_fd);
 		if (execve(path, data->prompt, data->env) == -1)
 			return (0);
 	}

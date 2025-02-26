@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:02:53 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/24 15:31:46 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/26 15:16:19 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,16 @@ void		make_redirect(t_prompt_info *data)
 	}
 }
 
-void	end_redirect(t_prompt_info *data, int *temp_fd)
+void	end_redirect(t_prompt_info *data, int redirect)
 {
 	int	i;
 
 	i = 0;
+	if (redirect)
+	{
+		dup2(data->temp_fdin, STDIN_FILENO);
+		dup2(data->temp_fdout, STDOUT_FILENO);
+	}
 	if (data->is_pipe == 1)
 	{
 		while (data->pipe[i])
@@ -39,6 +44,6 @@ void	end_redirect(t_prompt_info *data, int *temp_fd)
 			i++;
 		}
 	}
-	close(temp_fd[0]);
-	close(temp_fd[1]);
+	close(data->temp_fdin);
+	close(data->temp_fdout);
 }

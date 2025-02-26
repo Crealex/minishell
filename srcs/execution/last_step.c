@@ -6,13 +6,13 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:11:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/26 10:43:28 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/26 15:12:00 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-static int	which_builtins(t_prompt_info *data, int temp_fd[2])
+static int	which_builtins(t_prompt_info *data)
 {
 	if (!ft_strncmp(data->prompt[0], "echo", 4))
 		ft_echo(data->str_prt, data);
@@ -27,14 +27,14 @@ static int	which_builtins(t_prompt_info *data, int temp_fd[2])
 	else if (!ft_strncmp(data->prompt[0], "env", 3))
 		ft_env(data->env);
 	else if (!ft_strncmp(data->prompt[0], "exit", 4))
-		ft_exit(data, temp_fd);
+		ft_exit(data);
 	else
-		if (extern_exec(data, temp_fd) == 0)
+		if (extern_exec(data) == 0)
 			return (0);
 	return (1);
 }
 
-int	last_step(char **str, t_prompt_info *data, int temp_fd[2])
+int	last_step(char **str, t_prompt_info *data)
 {
 	if (only_space(*str))
 		return (1);
@@ -49,7 +49,7 @@ int	last_step(char **str, t_prompt_info *data, int temp_fd[2])
 	if (!check_builtins(data->prompt))
 		return (0);
 	else
- 		if (which_builtins(data, temp_fd) == 0)
+ 		if (which_builtins(data) == 0)
 			return (0);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:21:45 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/26 10:46:46 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/26 14:56:25 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ static int	check_validity(char *cmd)
 	else if (ft_strlen(cmd) <= 2 && cmd[0] == '.' && cmd[1] == '/')
 	 	return(0);
 	path = get_all_path();
+	if (!path || !*path)
+		return (update_exit_code(127), 0);
 	i = 0;
 	cmd_path = ft_strjoin("/", cmd);
 	while (path[i])

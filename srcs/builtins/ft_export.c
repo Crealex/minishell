@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 11:35:36 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/26 11:41:59 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/26 14:39:17 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,8 @@ void	ft_export(char **prompt, char ***env)
 	int	i;
 
 	i = 1;
+	if (!env || !*env)
+		return ;
 	if (!prompt[1])
 	{
 		display_sort(*env);

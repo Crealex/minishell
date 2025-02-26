@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:37:37 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/26 11:33:45 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/26 15:04:35 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	update_shell_level(t_prompt_info *data)
 	char	**false_prompt;
 
 	lvl = ft_atoi(ft_getenv("SHLVL", data->env));
+	if (lvl == 0)
+		lvl = 2;
 	new_lvl = ft_itoa(lvl + 1);
 	false_prompt = malloc(sizeof(char *) * 3);
 	false_prompt[0] = ft_strdup("Une testicule de grenouille");
@@ -49,8 +51,6 @@ int main(int argc, char **argv, char **env)
 	(void)argv;
 	data.env = NULL;
 	data.env = cpy_double_array(data.env, env);
-	if (data.env == NULL)
-		return (1);
 	data.fd_history = open(".history", O_CREAT | O_APPEND | O_RDWR,  0744);
 	get_history(data.fd_history);
 	signal_handler();

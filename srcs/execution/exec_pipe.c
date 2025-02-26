@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:57:04 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/26 10:58:32 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/26 15:18:25 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int	redirect_pipe(t_prompt_info *data, int i, int (*pipefd)[2])
 	return (1);
 }
 
-int	exec_pipe(t_prompt_info  *data, int temp_fd[2])
+int	exec_pipe(t_prompt_info  *data)
 {
 	pid_t	*pid;
 	int		i;
@@ -78,10 +78,9 @@ int	exec_pipe(t_prompt_info  *data, int temp_fd[2])
 			free(pid);
 			redirect_pipe(data, i, pipefd);
 			free(pipefd);
-			if (!last_step(&data->pipe[i], data, temp_fd))
+			if (!last_step(&data->pipe[i], data))
 				exit (0);
-			end_redirect(data, temp_fd);
-			cleanup(data);
+			cleanup(data, 0);
 			if (data->env)
 				freesplit(data->env);
 			exit (1);

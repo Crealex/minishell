@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 16:24:42 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/17 15:12:24 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/26 14:39:34 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	len_double_tab(char **tab)
 	int	i;
 
 	i = 0;
+	if (!tab || !*tab)
+		return (0);
 	while (tab[i])
 		i++;
 	return (i);
@@ -132,6 +134,8 @@ void	display_sort(char **env)
 	char	**res;
 	int		i;
 
+	if (!env)
+		return ;
 	res = sort_env(env);
 	i = 0;
 	while (res[i])

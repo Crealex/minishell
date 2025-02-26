@@ -6,13 +6,13 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:50:04 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/02/26 11:38:33 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/26 15:18:47 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-void	ft_exit(t_prompt_info *data, int temp_fd[2])
+void	ft_exit(t_prompt_info *data)
 {
 	int	i;
 	int	value;
@@ -32,8 +32,7 @@ void	ft_exit(t_prompt_info *data, int temp_fd[2])
 			value = 2;
 		}
 	}
-	cleanup(data);
-	end_redirect(data, temp_fd);
+	cleanup(data, 1);
 	if (data->env)
 		freesplit(data->env);
 	close(data->fd_history);

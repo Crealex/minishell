@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:55:00 by alexandre         #+#    #+#             */
-/*   Updated: 2025/02/26 11:20:01 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/26 15:16:37 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ char	*ft_getenv(char *var, char **env)
 	int	len_var;
 
 	i = 0;
+	if (!env || !*env)
+		return (NULL);
 	len_var = strlen(var);
 	while (env[i])
 	{
@@ -80,7 +82,7 @@ char	*ft_getenv(char *var, char **env)
 	return (NULL);
 }
 
-void	cleanup(t_prompt_info *data)
+void	cleanup(t_prompt_info *data, int redirect)
 {
 	(void)data;
 	int	i;
@@ -104,6 +106,7 @@ void	cleanup(t_prompt_info *data)
 		free(data->fd_in);
 	if (data->fd_out)
 		free(data->fd_out);
+	end_redirect(data, redirect);
 }
 
 void	print_err(char *s1, char *s2, char *s3)

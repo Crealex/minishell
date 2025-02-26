@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:46:25 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/17 14:23:19 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/26 14:47:08 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*parse_heredoc(char *line, t_prompt_info *data)
 
 	il = 0;
 	new_line.i = 0;
+	if (data->env == NULL)
+		return (line);
 	new_line.str = ft_calloc(ft_strlen(line) + 1, sizeof(char));
 	while (line[il])
 	{

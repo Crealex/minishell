@@ -913,3 +913,61 @@ assa
 va
 echo pipicaca
 exit
+echo
+echo salut
+exit
+echo salut
+echo ""salut""
+echo ""$?""
+echo ""$?""
+echo ""$?""
+echo ""$?""
+echo ""$?""
+echo ""$?""
+echo ""$?""
+echo ""$?""
+echo ""$?""exit
+exit
+|
+exit
+exit
+/bin/echo
+/bin/echo 1
+/bin/echo 42
+""
+exit
+""
+exit
+""
+exit
+""
+"    "
+"        "
+""
+"    "
+exit
+""
+ls
+"    "
+ls
+"            "
+exit
+"            "
+exit
+|
+exit
+exit
+|
+exit
+exit
+echo hello world
+echo hello world
+echo hello world
+echo hello world
+echo hello world
+./../../../../42_minishell_tester/cmds/mand/2_correction.sh 
+./../../../../42_minishell_tester/cmds/mand/2_correction.sh > out
+chmod 0744 ./../../../../42_minishell_tester/cmds/mand/2_correction.sh 
+./../../../../42_minishell_tester/cmds/mand/2_correction.sh > out
+./../../../../42_minishell_tester/cmds/mand/2_correction.sh > out
+exit

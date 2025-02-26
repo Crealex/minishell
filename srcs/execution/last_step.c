@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:11:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/26 16:41:31 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/26 17:07:10 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int	last_step(char **str, t_prompt_info *data)
 	*str = rm_quote(*str);
 	if (!(*str))
 		return (0);
+	if (only_space(*str))
+		return (1);
 	if (!is_valid_cmd(*str))
 		return (0);
 	if (!check_builtins(data->prompt))

@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:55:00 by alexandre         #+#    #+#             */
-/*   Updated: 2025/02/26 15:16:37 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/26 17:12:42 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,11 +168,17 @@ int	only_space(char *str)
 	int i;
 
 	i = 0;
+	if (!str)
+	{
+		print_err("minishell: : command not found\n", NULL, NULL);
+		return (1);
+	}
 	while (str[i])
 	{
-		if (str[i] != ' ')
+		if (!ft_isspace(str[i]))
 			return (0);
 		i++;
 	}
+	print_err("minishell: ", str, ": command not found\n");
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/26 16:44:54 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/26 16:54:02 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ typedef struct	s_prompt_info
 	int		is_pipe;
 	int		*fd_in;
 	int		*fd_out;
+	int		temp_fdin;
+	int		temp_fdout;
 	int		fd_history;
 	int		pos_pipe;
 	int		pipe_len;
@@ -112,7 +114,7 @@ int		is_valid_cmd(char *str);
 int		check_valid_builtins(char *cmd);
 char	**get_all_path();
 void	make_redirect(t_prompt_info *data);
-void	end_redirect(t_prompt_info *data, int *temp_fd);
+void	end_redirect(t_prompt_info *data, int redirect);
 // execution
 int		extern_exec(t_prompt_info *data);
 int		is_child(int status);

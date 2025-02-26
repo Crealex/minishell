@@ -1,1 +1,0 @@
-echo hi  >> ./outfiles/outfile01  : No such file or directory

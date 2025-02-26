@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:16:15 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/17 10:06:01 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/26 16:16:11 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ char	*handle_dollars(char *prompt, char **env)
 	res.str = ft_calloc((ft_strlen(prompt) + 1), sizeof(char));
 	if (!res.str)
 		return (NULL);
+	prompt = rm_cons_quote(prompt);
+	printf("after rm_quote : %s\n", prompt);
 	while (prompt[i])
 	{
 		if ((prompt[i] == '\'' || prompt[i] == '\"') && ft_strchr(prompt, '$'))

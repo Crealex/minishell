@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/26 10:19:47 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/26 16:09:12 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,8 @@ int		only_space(char *str);
 int		len_wquote(char *str);
 char	*rm_quote(char *str);
 int		is_quote(char *str);
-void	update_quote(int *in_single, int *in_double, int *i, char *prompt);
+int		update_quote(int *in_single, int *in_double, int *i, char *prompt);
+char	*rm_cons_quote(char *str);
 //parsing
 char	*handle_dollars(char *prompt, char **env);
 char	*add_env(char *prompt, int *i, t_str *res, char **all_env);

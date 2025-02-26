@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec_pipe.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:57:04 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/24 15:33:05 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/26 09:51:47 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,9 @@ int	exec_pipe(t_prompt_info  *data, int temp_fd[2])
 				freesplit(data->env);
 			exit (1);
 		}
+		is_child(1);
 		waitpid(pid, &exit_status, 0);
+		is_child(0);
 		i++;
 	}
 	update_exit_code(WEXITSTATUS(exit_status));

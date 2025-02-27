@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   last_step.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:11:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/26 17:07:10 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/27 16:05:16 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ int	last_step(char **str, t_prompt_info *data)
 	data->prompt = split_wquote(*str, ' ');
 	if (!data->prompt)
 		return (0);
-	*str = rm_quote(*str);
+	if (!(!ft_strncmp(data->prompt[0], "echo", 4)))
+		*str = rm_quote(*str);
 	if (!(*str))
 		return (0);
 	if (only_space(*str))

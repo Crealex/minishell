@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:16:15 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/27 11:45:05 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/27 16:15:05 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	*add_env(char *prompt, int *i, t_str *res, char **all_env)
 	var_name = get_var_name(prompt, i);
 	if (ft_strncmp(var_name, "?", 1) == 0)
 	{
-		(*i)++;
+		//(*i)++;
 		env = ft_itoa(update_exit_code(-1));
 	}
 	else if (var_name[0] == '\0')
@@ -84,13 +84,16 @@ char	*handle_dollars(char *prompt, char **env)
 	if (!res.str)
 		return (NULL);
 	prompt = rm_cons_quote(prompt);
-	printf("after rm_quote : %s\n", prompt);
 	while (prompt[i])
 	{
-		if ((prompt[i] == '\'' || prompt[i] == '\"') && ft_strchr(prompt, '$'))
+		if (((prompt[i] == '\'' || prompt[i] == '\"') && ft_strchr(prompt, '$'))
+			|| !ft_strncmp(prompt, "echo", 4))
 			update_quote(&in_single, &in_double, &i, prompt);
 		if (prompt[i] == '$' && in_single == 0)
 			res.str = add_env(prompt, &i, &res, env);
+		if (((prompt[i] == '\'' || prompt[i] == '\"') && ft_strchr(prompt, '$'))
+			|| !ft_strncmp(prompt, "echo", 4))
+			update_quote(&in_single, &in_double, &i, prompt);
 		if (prompt[i] && (prompt[i] != '\"' || !in_double)
 			&& (prompt[i] != '$' || in_single))
 			res.str[res.i++] = prompt[i++];

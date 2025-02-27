@@ -1129,3 +1129,103 @@ exit
 |
 exit
 exit
+|
+exit
+exit
+echo <123 <456 hi | echo 42
+echo <123 <456 hi
+<123
+<123 <456
+<123 <123
+exit
+echo $?"42"
+echo $?l42"
+echo $?.42"
+exit
+echo $?.42"
+echo $?.42"
+echo $?"42"
+echo
+echo salut
+exit
+make
+exit
+exitr
+echo $?"42"
+echo $?
+exit
+|
+exit
+exit
+echo "'USER'"
+echo "'$USER'"
+echo "'slaur'"
+echo '"test"'
+echo '"$USER"'
+exit
+echo '"$USER"'
+exit
+echo '"$USER"'
+exit
+echo '"$USER"'
+echo "salut:
+echo "salut"
+exit
+echo "salut"
+exit
+echo "salut"
+exit
+echo "salut"
+exit
+echo "salut"
+exit
+ed
+exit
+echo "salut"
+"salut"
+exit
+echo "salut"
+exit
+echo "salut"
+echo ""salut""
+echo "'salut'"
+exit
+|
+exit
+exit
+|
+exit
+exit
+echo "'$USER'"
+rm -r mstest*
+rm -r mstest_*
+rm mstest_*
+exit
+echo "salut"
+echo "'$USER'"
+exit
+|
+exit
+exit
+echo "salut"
+echo ""salut""
+echo "'salut'"
+echo "'$USER'"
+exit
+|
+exit
+exit
+echo $?"42"
+file
+exit
+echo $?"42"
+echo "42"
+echo "'42'"
+echo "'42"'
+echo '"42"'
+exit
+|
+exit
+exit
+echo "''$USER''"
+exit

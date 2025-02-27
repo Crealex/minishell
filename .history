@@ -971,3 +971,161 @@ chmod 0744 ./../../../../42_minishell_tester/cmds/mand/2_correction.sh
 ./../../../../42_minishell_tester/cmds/mand/2_correction.sh > out
 ./../../../../42_minishell_tester/cmds/mand/2_correction.sh > out
 exit
+echo salut
+echo """""salut"""""
+exit
+|
+exit
+exit
+echo cd $HOME
+echo "'tset'"
+echo ''tset''
+echo echo echo echo echo
+echo hi >./outfiles/outfile01 | echo bye
+echo cd $HOME | cat -e
+echo salut | cat -e
+echo -n salut | cat -e
+echo -n salut
+eixt
+exit
+echo salut | cat -e
+echo salut
+echo salut -n
+echo -n salut
+echo -n salut | cat -e
+echo -n salut | echo salut
+echo -
+exit
+echo 
+echo salut
+salut salut
+exit
+echo salut | cat -e
+exit
+echo salut | cat -e
+exit
+|
+exit
+exit
+echo salut | cat -e
+echo -n salut | cat -e
+echo -n salut
+echo -n salut | echo -n al
+echo -n salut | echo -n salut
+echo -n salut | echo -n salut
+echo -n salut | cat -e
+exit
+|
+exit
+exit
+|
+exit
+exit
+cd /home/atomasi/42_minishell_tester/cmds/mand/
+chmod +x 1_builtins_echo.sh 
+./1_builtins_echo.sh 
+./1_builtins_echo.sh 
+./1_builtins_echo.sh 
+./1_builtins_echo.sh 
+./1_builtins_echo.sh 
+./1_builtins_echo.sh 
+./1_builtins_echo.sh 
+./1_builtins_echo.sh 
+./1_builtins_echo.sh 
+exit
+/bin/ls
+./bin/ls
+./minishell 
+exit
+echo salut | cat -e
+exit
+echo """""""""""'"""""""""'"""""
+echo '"'"'"'"
+echo """"''""""''""
+echo """"''""''""
+echo ""''""""''""
+echo ""''""''""
+echo ""''""''""
+echo ""''""''""
+echo ""''""''""
+echo ""''""''""
+echo ""''""''""
+echo ""''""''""
+exit
+echo ""''""''""
+echo ""''""''""
+echo ''""''""''
+echo ''""''""''
+echo ''""''""''
+echo ''""''""''
+echo ''""''""''
+echo ''""''
+echo ''""''""
+echo ''""''""''
+echo ''""''""
+echo ''""''""''
+echo ''""''""'
+echo ''""''""''""
+echo ''""''""''
+echo ''""''''''
+echo ''""''''''
+echo ''""''''''""
+echo ''""''''''""''
+echo ''""''''''""''
+echo ''""''''''""''
+echo ''""''''''""''
+echo ''""''''''""''
+echo ''""''''''""
+exit
+echo ''""''''''""
+exit
+echo ''""''''''""
+echo ''""''''''""''
+echo ''""''''''""''
+echo ''""''''''""
+echo ''""''''''""
+echo ''""''''''""''
+exit
+echo ''""''''''""''
+echo ''""''''''""
+echo ''""''''''""'
+echo ''""''''''""'''
+echo ''""''''''""''"'"
+'
+echo "
+echo '
+echo '''
+echo '''""''"""''""
+echo ''""''''''""''"'"
+echo '''""''"""''""
+echo ''""''''''""''
+echo ''""''''''""''"
+echo "
+echo ''""''''''""''"
+echo ''""''''''""''"
+echo ''""''''''""''"
+echo ''""''''''""''"
+echo ''""''''''""''"
+echo ''""''''''""''"
+echo ''""''''''""''"
+echo ''""''''''""''"
+echo
+echo
+echo ''""''''''""''"
+echo ''""''''''""''"'
+echo ''""''''''""''"'
+echo ''""''''''""''"'
+echo ''""''''''""''"'
+echo ''""''''''""''"'
+echo ''""''''''""''"'
+echo ''""''''''""''"'
+echo ''""''''''""''"'
+echo ''""''''''""''"'
+echo ''""''''''""''"'
+exit
+|
+exit
+exit
+|
+exit
+exit

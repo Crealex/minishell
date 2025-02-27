@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:47:23 by alexandre         #+#    #+#             */
-/*   Updated: 2025/02/26 16:20:18 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/27 14:40:47 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,12 +129,9 @@ char *rm_cons_quote(char *str)
 	int i;
 	char *res;
 	int ires;
-	int quote[2];
 
 	i = 0;
 	ires = 0;
-	quote[0] = 0;
-	quote[1] = 0;
 	res = malloc(sizeof(char) * (ft_strlen(str) + 1));
 	if (!res)
 		return (NULL);
@@ -142,8 +139,7 @@ char *rm_cons_quote(char *str)
 	{
 		if (str[i + 1] && ((str[i] == '\'' && str[i + 1] == '\'') || (str[i] == '\"' && str[i + 1] == '\"')))
 		{
-			update_quote(&quote[0], &quote[1], &i, str);
-			update_quote(&quote[0], &quote[1], &i, str);
+			i += 2;
 		}
 		if (str[i + 1] && ((str[i] == '\'' && str[i + 1] == '\'') || (str[i] == '\"' && str[i + 1] == '\"')))
 			continue ;

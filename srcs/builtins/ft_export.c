@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_export.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 11:35:36 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/26 14:39:17 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/27 17:22:35 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ static int	check_name(char *str)
 	int	i;
 
 	i = 0;
-	if (str[0] && ft_isdigit(str[0]))
-		return (0);
+	if ((str[0] && ft_isdigit(str[0])) || str[0] == '=')
+		return (update_exit_code(1), 0);
 	while (str[i])
 	{
 		if (str[i] == '=')
@@ -53,10 +53,10 @@ static int	check_name(char *str)
 			i++;
 			if (str[i] == '=')
 				return (2);
-			return (0);
+			return (update_exit_code(1), 0);
 		}
 		if (!ft_isalnum(str[i]) && str[i] != '_')
-			return (0);
+			return (update_exit_code(1), 0);
 		i++;
 	}
 	return (-1);

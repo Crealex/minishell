@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:21:45 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/27 14:52:34 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/27 17:53:30 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ int	check_validity(char *cmd)
 	return (update_exit_code(127), 0);
 }
 
-int	is_valid_cmd(char *str)
+int	is_valid_cmd(char *str, t_prompt_info *data)
 {
 	char	*cmd_name;
 	int		res;
@@ -110,6 +110,12 @@ int	is_valid_cmd(char *str)
 	res = 0;
 	if (str)
 	{
+		if (is_quote(data->prompt[0]))
+		{
+			data->prompt[0] = rm_quote(data->prompt[0]);
+			print_err(data->prompt[0], ": command not found\n", NULL);
+			return (update_exit_code(127), 0);
+		}
 		cmd_name = extract_name_cmd(str);
 		res = check_validity(cmd_name);
 		if (res == 0)

@@ -1229,3 +1229,132 @@ exit
 exit
 echo "''$USER''"
 exit
+echo "''$USER''"
+< Makefile cat
+< truc de nul cat
+exit
+< truc de nul cat
+|
+exit
+exit
+exit
+< truc de nul cat
+echo oups > truc de nul 
+exit
+< truc de nul cat
+< truc de nul cat
+exit
+< truc de nul cat
+echo oups > truc de nul 
+echo oups >> truc de nul 
+<< end cat
+exit
+|
+exit
+exit
+|
+exit
+exit
+./1_redirs.sh 
+/bin/echo 42 > tmp_redir_out  42
+exit
+/bin/echo 42 > tmp_redir_out  42
+exit
+/bin/echo 42 > tmp_redir_out  42
+|
+exit
+exit
+|
+exit
+exit
+exit
+>">" asd
+exit
+>">" asd
+echo
+echo salut
+<234 >456
+<234 <456
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+echo sallut
+ls
+echo sallut
+ls
+ls
+ls
+ls
+|
+exit
+exit
+|
+exit
+exit
+"echo "
+"echo -nnnnnnnnnnn"
+"echo "
+"echo " | cat -e
+"echo "
+"dsf"
+"dsf"
+"dsf"
+"dsf"
+"dsf"
+"dsf"
+"dsf"
+"dsf"
+"echo salut"
+"echo salut"
+"echo salut"
+"echo salut"
+"echo salut"
+"echo salut"
+"ls"
+"ls"
+"ls"
+"env"
+"env"
+"env"
+"env"
+"env"
+"env"
+"env"
+"env"
+"env"
+"env"
+"ls"
+"ls"
+"ls"
+"ls"
+"ls"
+"ls"
+"ls"
+"ls"
+"echo "
+"echo "
+"echo "
+"echo "
+"echo -nnnnnnnnn"
+"echo -nnnnnnnnn"
+"echo -nnnnnnnnn"
+"echo -nnnnnnnnn"
+"echo -nnnnnnnnn"
+"echo -nnnnnnnnn"
+"echo -nnnnnnnnn"
+"echo -nnnnnnnnn"
+"echo -nnnnnnnnn"
+exit
+|
+exit
+exit
+|
+exit
+exit

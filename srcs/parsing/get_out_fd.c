@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 16:08:33 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/02/26 11:45:03 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/27 17:22:18 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,21 @@ static void	len_file_out(char *str, int i, int *start, int *end)
 	i++;
 	if (str[i] == '>')
 		i++;
-	while (str[i] && ft_isspace(str[i]))
-		i++;
-	while (str[i] && !ft_isspace(str[i]))
-		i++;
-	*end = i;
+	// if (!strncmp(str, "echo", 4) || !ft_strncmp(str, "/bin/echo", 9))
+	// {
+		while (str[i] && ft_isspace(str[i]))
+			i++;
+		while (str[i] && !ft_isspace(str[i]))
+			i++;
+		*end = i;
+	// }
+	// else
+	// {
+	// 	*end = is_cmd(str, i, ">");
+	// 	while (!str[*end] || ft_isspace(str[*end]))
+	// 		(*end)--;
+	// 	(*end)++;
+	// }
 }
 
 static void	is_double(char c, int *isdouble)

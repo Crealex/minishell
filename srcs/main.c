@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:37:37 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/27 14:43:52 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/27 17:33:41 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,20 @@ void	update_shell_level(t_prompt_info *data)
 	free(new_lvl);
 }
 
+static int	str_empty(t_prompt_info *data)
+{
+	if (!data->str_prt)
+	{
+		if (data->env)
+			freesplit(data->env);
+		if (data->fd_history > 2)
+			close(data->fd_history);
+		return (1);
+	}
+	return (0);
+}
+
+
 int main(int argc, char **argv, char **env)
 {
 	t_prompt_info data;
@@ -58,7 +72,7 @@ int main(int argc, char **argv, char **env)
 	while (1)
 	{
 		data.str_prt = readline("minishell $ > ");
-		if (!data.str_prt)
+		if (str_empty(&data))
 			return (0);
 		if (ft_strlen(data.str_prt) > 0)
 		{

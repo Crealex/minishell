@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 11:11:51 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/02/26 15:28:24 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/27 16:04:37 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	in_redirect(char **str)
 		if (!quote[0] && !quote[1] && (*str)[i] == '<')
 		{
 			double_quote((*str)[i + 1], '<', &i, &is_double);
-			if ((i > 0 && error_out(*str[i - 1])) ||
+			if ((i > 0 && error_out((*str)[i - 1])) ||
 				error(*str, &i, "<", ">"))
 				return (0);
 			*str = add_space(*str, i, is_double);

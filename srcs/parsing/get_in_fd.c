@@ -6,23 +6,74 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 11:15:33 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/02/26 14:50:45 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/27 16:17:15 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+static int	is_cmd(char *str, int i)
+{
+	int		index;
+	int		index_space;
+	char	*line;
+
+	index = 0;
+	line = NULL;
+	fprintf(stderr, "in cmddddddddddddddddddddddddddddddddddddddddddddd\n");
+	index_space = i;
+	while (str[i] && ft_isspace(str[i]))
+		i++;
+	fprintf(stderr, "i : %i, index : %i\n", i, index);
+	while (str[i + index])
+	{
+		if (ft_isspace(str[i + index]) || !str[i + index + 1])
+		{	
+			if (!str[i + index + 1])
+				index++;
+			fprintf(stderr, "in if\n");
+			line = ft_substr(str, i, index);
+			fprintf(stderr, "line : %s\n", line);
+			if (!line)
+				return (0);
+			if (!check_validity(line) && ft_strncmp(line, "|", 1)
+				&& ft_strncmp(line, "<", 1))
+			{
+				fprintf(stderr, "in check : %i\n", i + index);
+				return (free(line), is_cmd(str, i + index));
+			}
+			else
+			{
+				fprintf(stderr, "in else : %i\n", i);
+				return (free(line), index_space);
+			}
+		}
+		index++;
+	}
+	return (index_space);
+}
+
 void	len_file(char *str, int i, int *start, int *end)
 {
 	*start = i;
+	fprintf(stderr, "start : %i\n", *start);
 	i++;
 	if (str[i] == '<')
+	{
 		i++;
-	while (str[i] && ft_isspace(str[i]))
-		i++;
-	while (str[i] && !ft_isspace(str[i]))
-		i++;
-	*end = i;
+		while (str[i] && ft_isspace(str[i]))
+			i++;
+		while (str[i] && !ft_isspace(str[i]))
+			i++;
+		*end = i;
+	}
+	else
+	{
+		*end = is_cmd(str, i);
+		while (!str[*end] || ft_isspace(str[*end]))
+			(*end)--;
+		(*end)++;
+	}
 }
 
 static int	open_fd(char *str, int fd_arg, int *len)
@@ -79,6 +130,7 @@ int	get_in_fd(char **str, int fd, t_prompt_info *data)
 
 	init_fd(&i, &len[0], &len[1]);
 	init_two(&quote[0], &quote[1]);
+			fprintf(stderr, "here\n");
 	while ((*str)[i])
 	{
 		update_quote(&quote[0], &quote[1], &i, *str);

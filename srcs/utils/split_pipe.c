@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 15:57:09 by alexandre         #+#    #+#             */
-/*   Updated: 2025/01/31 15:49:23 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/27 10:33:37 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	ft_nb(const char *s, char c, int *i, int *start)
     int j;
 
     j = 0;
-    while (s[*i] && (s[*i] == c || s[*i] == ' '))
+    while (s[*i] && (s[*i] == c || ft_isspace(s[*i])))
         (*i)++;
     *start = *i;
     while (s[*i] && s[*i] != c && s[*i] != '\'' && s[*i] != '\"')
@@ -28,7 +28,7 @@ static int	ft_nb(const char *s, char c, int *i, int *start)
 		*i = double_single_quote(s, *i);
     while (s[*i] && s[*i] != c)
         (*i)++;
-    if (*i > 0 && s[*i - 1] == ' ')
+    if (*i > 0 && ft_isspace(s[*i - 1]))
         j++;
     while (*i > 0 && s[*i] == ' ')
         j++;

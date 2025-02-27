@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/26 16:54:02 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/27 14:52:51 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,7 @@ char	**dollar_pipe(char **pipe_prompt, char **env);
 char	*add_space(char *str, int i, int is_double);
 int		ft_nb_row(char const *s, char c);
 char	**ft_splitpipe(char const *s, char c);
+int		check_validity(char *cmd);
 int		is_valid_cmd(char *str);
 int		check_valid_builtins(char *cmd);
 char	**get_all_path();

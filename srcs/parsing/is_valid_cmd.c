@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:21:45 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/26 14:56:25 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/27 14:52:34 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	check_valid_builtins(char *cmd)
 	return (0);
 }
 
-static int	check_validity(char *cmd)
+int	check_validity(char *cmd)
 {
 	char	**path;
 	char	*abs_path;

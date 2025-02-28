@@ -37,10 +37,10 @@ echo -nnnnnnnnnnnnnnnnnnnnnnnnnnnnnn-n teste
 echo -nnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -n teste
 exit
 ls | grep a
-./minishell 
+./minishell
 ls
 ls
-./minishell 
+./minishell
 [ei
 [[xtx
 exit
@@ -147,13 +147,13 @@ ls | grep a
 ls | grep a | grep b
 ls | grep a | grep e
 ls | cat | grep a
-echi 
+echi
 echo salut
 echo salut > salut | cat salut
 echo salut < salut | cat salut
 echo salut < salut | cat
-echo salut < salut 
-echo salut > salut 
+echo salut < salut
+echo salut > salut
 echo salut > salut  | cat
 ls | cat | grep a
 ls | cat | grep a
@@ -233,7 +233,7 @@ ls
 exit
 exit
 pwd
-cat Makefile 
+cat Makefile
 ls | grep a
 ls | grep a
 cat Makefile | grep a
@@ -254,7 +254,7 @@ cat Makefile | grep a | grep e
 exit
 ls | grep a | grep e
 exit
-ls | grep a 
+ls | grep a
 ls | grep a | grep e
 ls | grep a
 ls | grep a
@@ -389,14 +389,14 @@ cd ~/Documents/
 pwd
 cd ~
 exit
-cat Makefile 
-cat test.txt 
+cat Makefile
+cat test.txt
 cat test.txt > text
 << end cat
 exit
 echo salut
 ls
-cat Makefile 
+cat Makefile
 < Makefile cat
 < Makefile grep a
 cat Makefile > out
@@ -575,7 +575,7 @@ exitt
 exit
 <> Makefile cat
 >< Makefile cat
-rm 2004h2004h2004l 
+rm 2004h2004h2004l
 exit
 >< text cat
 <> text cat
@@ -727,7 +727,7 @@ bash
 clear
 unset
 export 4_a
-"ls" 
+"ls"
 'ls'
 ls
 "ls"
@@ -772,7 +772,7 @@ cat
 cat | cat | ls
 cat | cat | ls
 cat | cat | ls
-cat | cat | 
+cat | cat |
 cat | cat
 cat | cat
 cat | cat
@@ -965,9 +965,9 @@ echo hello world
 echo hello world
 echo hello world
 echo hello world
-./../../../../42_minishell_tester/cmds/mand/2_correction.sh 
+./../../../../42_minishell_tester/cmds/mand/2_correction.sh
 ./../../../../42_minishell_tester/cmds/mand/2_correction.sh > out
-chmod 0744 ./../../../../42_minishell_tester/cmds/mand/2_correction.sh 
+chmod 0744 ./../../../../42_minishell_tester/cmds/mand/2_correction.sh
 ./../../../../42_minishell_tester/cmds/mand/2_correction.sh > out
 ./../../../../42_minishell_tester/cmds/mand/2_correction.sh > out
 exit
@@ -996,7 +996,7 @@ echo -n salut | cat -e
 echo -n salut | echo salut
 echo -
 exit
-echo 
+echo
 echo salut
 salut salut
 exit
@@ -1022,20 +1022,20 @@ exit
 exit
 exit
 cd /home/atomasi/42_minishell_tester/cmds/mand/
-chmod +x 1_builtins_echo.sh 
-./1_builtins_echo.sh 
-./1_builtins_echo.sh 
-./1_builtins_echo.sh 
-./1_builtins_echo.sh 
-./1_builtins_echo.sh 
-./1_builtins_echo.sh 
-./1_builtins_echo.sh 
-./1_builtins_echo.sh 
-./1_builtins_echo.sh 
+chmod +x 1_builtins_echo.sh
+./1_builtins_echo.sh
+./1_builtins_echo.sh
+./1_builtins_echo.sh
+./1_builtins_echo.sh
+./1_builtins_echo.sh
+./1_builtins_echo.sh
+./1_builtins_echo.sh
+./1_builtins_echo.sh
+./1_builtins_echo.sh
 exit
 /bin/ls
 ./bin/ls
-./minishell 
+./minishell
 exit
 echo salut | cat -e
 exit

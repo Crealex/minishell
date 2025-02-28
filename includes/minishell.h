@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/26 16:54:02 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/27 17:51:46 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ void	len_file(char *str, int i, int *start, int *end);
 char	*del_rd(char *str, int *len);
 int		heredoc(char **str, int i, int *fd, t_prompt_info *data);
 char	*parse_heredoc(char *line, t_prompt_info *data);
+int		is_cmd(char *str, int i, char *s);
 int		get_in_fd(char **str, int fd, t_prompt_info *data);
 int		out_redirect(char **str);
 int		get_out_fd(char **str, int fd);
@@ -110,7 +111,8 @@ char	**dollar_pipe(char **pipe_prompt, char **env);
 char	*add_space(char *str, int i, int is_double);
 int		ft_nb_row(char const *s, char c);
 char	**ft_splitpipe(char const *s, char c);
-int		is_valid_cmd(char *str);
+int		check_validity(char *cmd);
+int		is_valid_cmd(char *str, t_prompt_info *data);
 int		check_valid_builtins(char *cmd);
 char	**get_all_path();
 void	make_redirect(t_prompt_info *data);

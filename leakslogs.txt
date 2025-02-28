@@ -1,102 +1,194 @@
-==3841429== Memcheck, a memory error detector
-==3841429== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==3841429== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==3841429== Command: ./minishell
-==3841429== Parent PID: 3841417
-==3841429== 
-==3841429== Invalid read of size 1
-==3841429==    at 0x10BF5B: no_pipe (is_pipe.c:23)
-==3841429==    by 0x10C1EF: is_pipe (is_pipe.c:100)
-==3841429==    by 0x10C435: parsing (parsing.c:46)
-==3841429==    by 0x10953C: prompt_handler (main.c:18)
-==3841429==    by 0x10977F: main (main.c:79)
-==3841429==  Address 0x4d95a8f is 0 bytes after a block of size 15 alloc'd
-==3841429==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==3841429==    by 0x48ABBAC: xmalloc (in /usr/lib/x86_64-linux-gnu/libreadline.so.8.1)
-==3841429==    by 0x4889694: readline_internal_teardown (in /usr/lib/x86_64-linux-gnu/libreadline.so.8.1)
-==3841429==    by 0x4893D2A: readline (in /usr/lib/x86_64-linux-gnu/libreadline.so.8.1)
-==3841429==    by 0x109742: main (main.c:74)
-==3841429== 
-==3841429== Invalid read of size 1
-==3841429==    at 0x10C945: no_redirect (redirection.c:23)
-==3841429==    by 0x10C9C5: redirection (redirection.c:39)
-==3841429==    by 0x10C38F: redirect_nopipe (parsing.c:29)
-==3841429==    by 0x10C4C5: parsing (parsing.c:57)
-==3841429==    by 0x10953C: prompt_handler (main.c:18)
-==3841429==    by 0x10977F: main (main.c:79)
-==3841429==  Address 0x4d95a8f is 0 bytes after a block of size 15 alloc'd
-==3841429==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==3841429==    by 0x48ABBAC: xmalloc (in /usr/lib/x86_64-linux-gnu/libreadline.so.8.1)
-==3841429==    by 0x4889694: readline_internal_teardown (in /usr/lib/x86_64-linux-gnu/libreadline.so.8.1)
-==3841429==    by 0x4893D2A: readline (in /usr/lib/x86_64-linux-gnu/libreadline.so.8.1)
-==3841429==    by 0x109742: main (main.c:74)
-==3841429== 
-==3841429== Invalid free() / delete / delete[] / realloc()
-==3841429==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==3841429==    by 0x10F2FB: freesplit (utils.c:47)
-==3841429==    by 0x10F47C: cleanup (utils.c:92)
-==3841429==    by 0x10C51A: parsing (parsing.c:62)
-==3841429==    by 0x10953C: prompt_handler (main.c:18)
-==3841429==    by 0x10977F: main (main.c:79)
-==3841429==  Address 0x4d95dc0 is 0 bytes inside a block of size 8 free'd
-==3841429==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==3841429==    by 0x10FA4C: rm_quote (quote.c:100)
-==3841429==    by 0x10A5A4: add_to_env (ft_export.c:99)
-==3841429==    by 0x10A773: ft_export (ft_export.c:137)
-==3841429==    by 0x1108C1: which_builtins (last_step.c:24)
-==3841429==    by 0x110AB8: last_step (last_step.c:55)
-==3841429==    by 0x11079B: exec_no_pipe (exec_nopipe.c:21)
-==3841429==    by 0x10C4ED: parsing (parsing.c:59)
-==3841429==    by 0x10953C: prompt_handler (main.c:18)
-==3841429==    by 0x10977F: main (main.c:79)
-==3841429==  Block was alloc'd at
-==3841429==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==3841429==    by 0x10EFFF: ft_strinrow (split_wquote.c:37)
-==3841429==    by 0x10F11D: split_wquote (split_wquote.c:66)
-==3841429==    by 0x1109E8: last_step (last_step.c:41)
-==3841429==    by 0x11079B: exec_no_pipe (exec_nopipe.c:21)
-==3841429==    by 0x10C4ED: parsing (parsing.c:59)
-==3841429==    by 0x10953C: prompt_handler (main.c:18)
-==3841429==    by 0x10977F: main (main.c:79)
-==3841429== 
-==3841429== 
-==3841429== FILE DESCRIPTORS: 7 open (3 std) at exit.
-==3841429== Open file descriptor 103: /usr/share/code/v8_context_snapshot.bin
-==3841429==    <inherited from parent>
-==3841429== 
-==3841429== Open AF_UNIX socket 43: <unknown>
-==3841429==    <inherited from parent>
-==3841429== 
-==3841429== Open file descriptor 42: /home/atomasi/.config/Code/logs/20250228T094347/ptyhost.log
-==3841429==    <inherited from parent>
-==3841429== 
-==3841429== Open file descriptor 3: /home/atomasi/Documents/minishell/leakslogs.txt
-==3841429==    <inherited from parent>
-==3841429== 
-==3841429== 
-==3841429== HEAP SUMMARY:
-==3841429==     in use at exit: 276,208 bytes in 4,088 blocks
-==3841429==   total heap usage: 13,372 allocs, 9,286 frees, 1,614,415 bytes allocated
-==3841429== 
-==3841429== 14 bytes in 2 blocks are definitely lost in loss record 9 of 79
-==3841429==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==3841429==    by 0x110C3C: ft_calloc (in /home/atomasi/Documents/minishell/minishell)
-==3841429==    by 0x10F974: rm_quote (quote.c:89)
-==3841429==    by 0x10A5A4: add_to_env (ft_export.c:99)
-==3841429==    by 0x10A773: ft_export (ft_export.c:137)
-==3841429==    by 0x1108C1: which_builtins (last_step.c:24)
-==3841429==    by 0x110AB8: last_step (last_step.c:55)
-==3841429==    by 0x11079B: exec_no_pipe (exec_nopipe.c:21)
-==3841429==    by 0x10C4ED: parsing (parsing.c:59)
-==3841429==    by 0x10953C: prompt_handler (main.c:18)
-==3841429==    by 0x10977F: main (main.c:79)
-==3841429== 
-==3841429== LEAK SUMMARY:
-==3841429==    definitely lost: 14 bytes in 2 blocks
-==3841429==    indirectly lost: 0 bytes in 0 blocks
-==3841429==      possibly lost: 0 bytes in 0 blocks
-==3841429==    still reachable: 0 bytes in 0 blocks
-==3841429==         suppressed: 276,194 bytes in 4,086 blocks
-==3841429== 
-==3841429== For lists of detected and suppressed errors, rerun with: -s
-==3841429== ERROR SUMMARY: 7 errors from 4 contexts (suppressed: 0 from 0)
+==3910673== Memcheck, a memory error detector
+==3910673== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==3910673== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==3910673== Command: ./minishell
+==3910673== Parent PID: 3910671
+==3910673== 
+==3910701== Invalid free() / delete / delete[] / realloc()
+==3910701==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3910701==    by 0x10F4EE: cleanup (utils.c:96)
+==3910701==    by 0x10C536: parsing (parsing.c:60)
+==3910701==    by 0x10953C: prompt_handler (main.c:18)
+==3910701==    by 0x10977F: main (main.c:79)
+==3910701==  Address 0x4de0980 is 0 bytes inside a block of size 61 free'd
+==3910701==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3910701==    by 0x1100A6: cleanup_exec (extern.c:88)
+==3910701==    by 0x110238: extern_exec (extern.c:120)
+==3910701==    by 0x1109C5: which_builtins (last_step.c:32)
+==3910701==    by 0x110AEC: last_step (last_step.c:55)
+==3910701==    by 0x1107CF: exec_no_pipe (exec_nopipe.c:21)
+==3910701==    by 0x10C521: parsing (parsing.c:59)
+==3910701==    by 0x10953C: prompt_handler (main.c:18)
+==3910701==    by 0x10977F: main (main.c:79)
+==3910701==  Block was alloc'd at
+==3910701==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3910701==    by 0x110C70: ft_calloc (in /home/atomasi/Documents/minishell/minishell)
+==3910701==    by 0x10F9A8: rm_quote (quote.c:89)
+==3910701==    by 0x110A70: last_step (last_step.c:45)
+==3910701==    by 0x1107CF: exec_no_pipe (exec_nopipe.c:21)
+==3910701==    by 0x10C521: parsing (parsing.c:59)
+==3910701==    by 0x10953C: prompt_handler (main.c:18)
+==3910701==    by 0x10977F: main (main.c:79)
+==3910701== 
+==3910701== Invalid read of size 4
+==3910701==    at 0x10F505: cleanup (utils.c:99)
+==3910701==    by 0x10C536: parsing (parsing.c:60)
+==3910701==    by 0x10953C: prompt_handler (main.c:18)
+==3910701==    by 0x10977F: main (main.c:79)
+==3910701==  Address 0x4de0710 is 0 bytes inside a block of size 4 free'd
+==3910701==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3910701==    by 0x110156: cleanup_exec (extern.c:99)
+==3910701==    by 0x110238: extern_exec (extern.c:120)
+==3910701==    by 0x1109C5: which_builtins (last_step.c:32)
+==3910701==    by 0x110AEC: last_step (last_step.c:55)
+==3910701==    by 0x1107CF: exec_no_pipe (exec_nopipe.c:21)
+==3910701==    by 0x10C521: parsing (parsing.c:59)
+==3910701==    by 0x10953C: prompt_handler (main.c:18)
+==3910701==    by 0x10977F: main (main.c:79)
+==3910701==  Block was alloc'd at
+==3910701==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3910701==    by 0x110C70: ft_calloc (in /home/atomasi/Documents/minishell/minishell)
+==3910701==    by 0x10C360: redirect_nopipe (parsing.c:23)
+==3910701==    by 0x10C4F9: parsing (parsing.c:57)
+==3910701==    by 0x10953C: prompt_handler (main.c:18)
+==3910701==    by 0x10977F: main (main.c:79)
+==3910701== 
+==3910701== Invalid read of size 4
+==3910701==    at 0x10F53D: cleanup (utils.c:101)
+==3910701==    by 0x10C536: parsing (parsing.c:60)
+==3910701==    by 0x10953C: prompt_handler (main.c:18)
+==3910701==    by 0x10977F: main (main.c:79)
+==3910701==  Address 0x4de0760 is 0 bytes inside a block of size 4 free'd
+==3910701==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3910701==    by 0x110173: cleanup_exec (extern.c:101)
+==3910701==    by 0x110238: extern_exec (extern.c:120)
+==3910701==    by 0x1109C5: which_builtins (last_step.c:32)
+==3910701==    by 0x110AEC: last_step (last_step.c:55)
+==3910701==    by 0x1107CF: exec_no_pipe (exec_nopipe.c:21)
+==3910701==    by 0x10C521: parsing (parsing.c:59)
+==3910701==    by 0x10953C: prompt_handler (main.c:18)
+==3910701==    by 0x10977F: main (main.c:79)
+==3910701==  Block was alloc'd at
+==3910701==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3910701==    by 0x110C70: ft_calloc (in /home/atomasi/Documents/minishell/minishell)
+==3910701==    by 0x10C38B: redirect_nopipe (parsing.c:26)
+==3910701==    by 0x10C4F9: parsing (parsing.c:57)
+==3910701==    by 0x10953C: prompt_handler (main.c:18)
+==3910701==    by 0x10977F: main (main.c:79)
+==3910701== 
+==3910701== Invalid free() / delete / delete[] / realloc()
+==3910701==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3910701==    by 0x10F58D: cleanup (utils.c:106)
+==3910701==    by 0x10C536: parsing (parsing.c:60)
+==3910701==    by 0x10953C: prompt_handler (main.c:18)
+==3910701==    by 0x10977F: main (main.c:79)
+==3910701==  Address 0x4de0710 is 0 bytes inside a block of size 4 free'd
+==3910701==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3910701==    by 0x110156: cleanup_exec (extern.c:99)
+==3910701==    by 0x110238: extern_exec (extern.c:120)
+==3910701==    by 0x1109C5: which_builtins (last_step.c:32)
+==3910701==    by 0x110AEC: last_step (last_step.c:55)
+==3910701==    by 0x1107CF: exec_no_pipe (exec_nopipe.c:21)
+==3910701==    by 0x10C521: parsing (parsing.c:59)
+==3910701==    by 0x10953C: prompt_handler (main.c:18)
+==3910701==    by 0x10977F: main (main.c:79)
+==3910701==  Block was alloc'd at
+==3910701==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3910701==    by 0x110C70: ft_calloc (in /home/atomasi/Documents/minishell/minishell)
+==3910701==    by 0x10C360: redirect_nopipe (parsing.c:23)
+==3910701==    by 0x10C4F9: parsing (parsing.c:57)
+==3910701==    by 0x10953C: prompt_handler (main.c:18)
+==3910701==    by 0x10977F: main (main.c:79)
+==3910701== 
+==3910701== Invalid free() / delete / delete[] / realloc()
+==3910701==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3910701==    by 0x10F5AA: cleanup (utils.c:108)
+==3910701==    by 0x10C536: parsing (parsing.c:60)
+==3910701==    by 0x10953C: prompt_handler (main.c:18)
+==3910701==    by 0x10977F: main (main.c:79)
+==3910701==  Address 0x4de0760 is 0 bytes inside a block of size 4 free'd
+==3910701==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3910701==    by 0x110173: cleanup_exec (extern.c:101)
+==3910701==    by 0x110238: extern_exec (extern.c:120)
+==3910701==    by 0x1109C5: which_builtins (last_step.c:32)
+==3910701==    by 0x110AEC: last_step (last_step.c:55)
+==3910701==    by 0x1107CF: exec_no_pipe (exec_nopipe.c:21)
+==3910701==    by 0x10C521: parsing (parsing.c:59)
+==3910701==    by 0x10953C: prompt_handler (main.c:18)
+==3910701==    by 0x10977F: main (main.c:79)
+==3910701==  Block was alloc'd at
+==3910701==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3910701==    by 0x110C70: ft_calloc (in /home/atomasi/Documents/minishell/minishell)
+==3910701==    by 0x10C38B: redirect_nopipe (parsing.c:26)
+==3910701==    by 0x10C4F9: parsing (parsing.c:57)
+==3910701==    by 0x10953C: prompt_handler (main.c:18)
+==3910701==    by 0x10977F: main (main.c:79)
+==3910701== 
+==3910701== 
+==3910701== FILE DESCRIPTORS: 7 open (3 std) at exit.
+==3910701== Open file descriptor 103: /usr/share/code/v8_context_snapshot.bin
+==3910701==    <inherited from parent>
+==3910701== 
+==3910701== Open AF_UNIX socket 43: <unknown>
+==3910701==    <inherited from parent>
+==3910701== 
+==3910701== Open file descriptor 42: /home/atomasi/.config/Code/logs/20250228T094347/ptyhost.log
+==3910701==    <inherited from parent>
+==3910701== 
+==3910701== Open file descriptor 3: /home/atomasi/Documents/minishell/leakslogs.txt
+==3910701==    <inherited from parent>
+==3910701== 
+==3910701== 
+==3910701== HEAP SUMMARY:
+==3910701==     in use at exit: 280,950 bytes in 4,324 blocks
+==3910701==   total heap usage: 14,214 allocs, 9,893 frees, 1,857,068 bytes allocated
+==3910701== 
+==3910701== 61 bytes in 1 blocks are definitely lost in loss record 21 of 73
+==3910701==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3910701==    by 0x111378: ft_strdup (in /home/atomasi/Documents/minishell/minishell)
+==3910701==    by 0x10FDC6: get_path (extern.c:35)
+==3910701==    by 0x11021A: extern_exec (extern.c:116)
+==3910701==    by 0x1109C5: which_builtins (last_step.c:32)
+==3910701==    by 0x110AEC: last_step (last_step.c:55)
+==3910701==    by 0x1107CF: exec_no_pipe (exec_nopipe.c:21)
+==3910701==    by 0x10C521: parsing (parsing.c:59)
+==3910701==    by 0x10953C: prompt_handler (main.c:18)
+==3910701==    by 0x10977F: main (main.c:79)
+==3910701== 
+==3910701== LEAK SUMMARY:
+==3910701==    definitely lost: 61 bytes in 1 blocks
+==3910701==    indirectly lost: 0 bytes in 0 blocks
+==3910701==      possibly lost: 0 bytes in 0 blocks
+==3910701==    still reachable: 0 bytes in 0 blocks
+==3910701==         suppressed: 280,889 bytes in 4,323 blocks
+==3910701== 
+==3910701== For lists of detected and suppressed errors, rerun with: -s
+==3910701== ERROR SUMMARY: 6 errors from 6 contexts (suppressed: 0 from 0)
+==3910673== 
+==3910673== FILE DESCRIPTORS: 7 open (3 std) at exit.
+==3910673== Open file descriptor 103: /usr/share/code/v8_context_snapshot.bin
+==3910673==    <inherited from parent>
+==3910673== 
+==3910673== Open AF_UNIX socket 43: <unknown>
+==3910673==    <inherited from parent>
+==3910673== 
+==3910673== Open file descriptor 42: /home/atomasi/.config/Code/logs/20250228T094347/ptyhost.log
+==3910673==    <inherited from parent>
+==3910673== 
+==3910673== Open file descriptor 3: /home/atomasi/Documents/minishell/leakslogs.txt
+==3910673==    <inherited from parent>
+==3910673== 
+==3910673== 
+==3910673== HEAP SUMMARY:
+==3910673==     in use at exit: 280,889 bytes in 4,323 blocks
+==3910673==   total heap usage: 14,214 allocs, 9,891 frees, 1,857,068 bytes allocated
+==3910673== 
+==3910673== LEAK SUMMARY:
+==3910673==    definitely lost: 0 bytes in 0 blocks
+==3910673==    indirectly lost: 0 bytes in 0 blocks
+==3910673==      possibly lost: 0 bytes in 0 blocks
+==3910673==    still reachable: 0 bytes in 0 blocks
+==3910673==         suppressed: 280,889 bytes in 4,323 blocks
+==3910673== 
+==3910673== For lists of detected and suppressed errors, rerun with: -s
+==3910673== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

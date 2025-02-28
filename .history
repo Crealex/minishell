@@ -1357,3 +1357,105 @@ pwd
 cd //////
 pwd
 exit
+cd '//////' >/dev/null
+"doesntexist" >/dev/null
+exit
+/home/atomasi/42_minishell_tester/cmds/mand/1_builtins_cd.sh
+exit
+exit
+/home/atomasi/42_minishell_tester/cmds/mand/1_builtins_cd.sh
+exit
+exit
+cd
+cd salut
+cd "doesnexist" >/dev/null
+cd salut
+cd "doesnexist" >/dev/null
+cd
+cd salut
+cd "doesnexist" >/dev/null
+exit
+cd "doesnexist" >/dev/null
+exit
+cd "doesnexist" >/dev/null
+exit
+cd
+cd salut
+cd "doesnexist" >/dev/null
+exit
+cd
+cd salut
+cd "doesnexist" >/dev/null
+cd
+cd "doesnexist" >/dev/null
+cd
+cd salut
+cd "doesnexist" >/dev/null
+cd salut
+cd "doesnexist" >/dev/null
+cd
+cd salut
+cd "doesnexist" >/dev/null
+exit
+cd salut
+cd "doesnexist" >/dev/null
+exit
+cd
+cd salut
+cd "doesnexist" >/dev/null
+exit
+cd
+cd salut
+cd "doesnexist" >/dev/null
+cd
+cd salut
+cd "doesnexist" >/dev/null
+eit
+exit
+cd "doesnexist" >/dev/null
+cd salut
+cd
+cd salut
+cd "doesnexist" >/dev/null
+exit
+|
+exit
+exit
+cd ./ls
+exit
+/bin/exe42 42
+/bin/exe42
+/bin/exe42
+/bin/exe42
+/bin/exe42 42
+re
+|
+exit
+exit
+'e'cho 42
+wfd
+|
+exit
+exit
+/vfsfvsv/
+sdvds
+/
+exit
+/
+.
+./
+./
+./
+./
+./
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+exit

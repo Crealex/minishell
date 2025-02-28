@@ -1459,3 +1459,8 @@ exit
 /
 /
 exit
+|
+exit
+exit
+/bin/echo $HOME$USER
+exit

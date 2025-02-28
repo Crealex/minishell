@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   make_redirect.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:02:53 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/26 15:16:19 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/28 11:50:46 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,6 @@ void	end_redirect(t_prompt_info *data, int redirect)
 	{
 		dup2(data->temp_fdin, STDIN_FILENO);
 		dup2(data->temp_fdout, STDOUT_FILENO);
-	}
-	if (data->is_pipe == 1)
-	{
-		while (data->pipe[i])
-		{
-			if (data->fd_in[i] > 2)
-				close(data->fd_in[i]);
-			if (data->fd_out[i] > 2)
-				close(data->fd_out[i]);
-			i++;
-		}
 	}
 	close(data->temp_fdin);
 	close(data->temp_fdout);

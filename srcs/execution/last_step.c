@@ -6,11 +6,30 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:11:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/27 17:54:43 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/28 11:24:15 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
+
+static int	rm_quote_prompt(t_prompt_info *data)
+{
+	int	i;
+
+	i = 0;
+	while (data->prompt[i])
+	{
+		data->prompt[i] = rm_quote(data->prompt[i]);
+		if (!data->prompt[i])
+		{
+			ft_freesplit(data->prompt, i);
+			data->prompt = NULL;
+			return (0);
+		}
+		i++;
+	}
+	return (1);
+}
 
 static int	which_builtins(t_prompt_info *data)
 {
@@ -29,8 +48,12 @@ static int	which_builtins(t_prompt_info *data)
 	else if (!ft_strncmp(data->prompt[0], "exit", 4))
 		ft_exit(data);
 	else
+	{
+		if (!rm_quote_prompt(data))
+			return (0);
 		if (extern_exec(data) == 0)
 			return (0);
+	}
 	return (1);
 }
 

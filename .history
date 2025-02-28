@@ -1357,3 +1357,214 @@ pwd
 cd //////
 pwd
 exit
+|
+exit
+exit
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+exit
+./1_builtins_cd.sh 
+exit
+./1_builtins_cd.sh 
+exit
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+cd "doesntexist" > /dev/null
+cd "doesntexist" > /dev/null
+cd "doesntexist" > /dev/null
+cd "doesntexist" > /dev/null
+cd "doesntexist" > /dev/null
+cd "doesntexist" > /dev/null
+cd "doesntexist" > /dev/null
+cd "doesntexist" > /dev/null
+cd "doesntexist" > /dev/null
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+|
+exit
+exit
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+./1_builtins_cd.sh 
+cd "doesntexist" > /dev/null
+cd "doesntexist" > /dev/null
+cd "doesntexist" > /dev/null
+cd "doesntexist" > /dev/null
+cd "doesntexist" > /dev/null
+cd "doesntexist" > /dev/null
+cd "doesntexist" > /dev/null
+cd "doesntexist" > /dev/null
+cd "doesntexist" > /dev/null
+cd
+cd salut
+cd "doesntexist" > /dev/null
+cd
+cd "doesntexist" > /dev/null
+cd
+cd salut
+cd "doesntexist" > /dev/null
+exit
+"./"ls
+"./"ls
+"./"ls
+"./"ls
+"./"ls
+"./"ls
+"./"ls
+./ls
+./ls
+exit
+exit
+./ls
+"./"ls
+exit
+"./"ls
+"./"ls
+"./"ls
+exit
+"./"ls
+"./"ls
+"./"ls
+"./"ls
+"./"ls
+"./"ls
+"./"ls
+"./"ls
+"./"ls
+"./"ls
+"./"ls
+"./"ls
+"./"ls
+make
+exit
+"./"ls
+exit
+|
+exit
+exit
+|
+exit
+exit
+" ls"
+" ls"
+" ls"
+exit
+" ls"
+" ls"
+" ls"
+" ls"
+" ls"
+" ls"
+" ls"
+" ls"
+"./"ls
+"./"ls
+"./"ls
+"./"ls
+"./"ls
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+"./"ls
+"./"ls
+"./"ls
+"./"ls
+"./"ls
+exit
+|
+exit
+exit
+/ls/
+/ls/
+exit
+/ls/
+/ls/
+/ls/
+exit
+/ls/
+exit
+/ls/
+exit
+/ls/
+exit
+/ls/
+exit
+/ls/
+exit
+/ls/
+/ls/
+/ls/
+/ls/
+/ls/
+/ls/
+/ls/
+exit
+/ls/
+/ls/
+/ls/
+/ls/
+/ls/
+/ls/
+/ls/
+/ls/
+exit
+|
+exit
+exit
+|
+exit
+exit
+/bin/ls
+exit
+/bin/ls
+/ls/
+exit
+|
+exit
+exit

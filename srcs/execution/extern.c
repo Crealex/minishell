@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/27 11:11:18 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/28 11:29:07 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,9 @@ char *get_path(char *cmd)
 	}
 	freesplit(path);
 	free(cmd_path);
-	return (res);
+	print_err("minishell: ", cmd, ": No such file or directory\n");
+	update_exit_code(127);
+	return (NULL);
 }
 
 int	check_acces_file(char *cmd)
@@ -107,13 +109,13 @@ int	extern_exec(t_prompt_info *data)
 	int		exit_status;
 	pid_t	pid;
 
-	if (data->prompt[0] && ft_strlen(data->prompt[0]) > 2
-		&& data->prompt[0][0] == '.' && data->prompt[0][1] == '/')
-		{
+	if (data->prompt[0] && ((ft_strlen(data->prompt[0]) > 2
+		&& data->prompt[0][0] == '.' && data->prompt[0][1] == '/')))
 			if (!check_acces_file(data->prompt[0]))
 				return (0);
-		}
 	path = get_path(data->prompt[0]);
+	if (!path)
+		return (0);
 	pid = fork();
 	if (pid == 0)
 	{

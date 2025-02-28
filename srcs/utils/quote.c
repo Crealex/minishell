@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:47:23 by alexandre         #+#    #+#             */
-/*   Updated: 2025/02/27 14:40:47 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/28 09:53:27 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	is_quote(char *str)
 		return (0);
 }
 
- char	*rm_quote(char *str)
+char	*rm_quote(char *str)
 {
 	int i;
 	int ires;

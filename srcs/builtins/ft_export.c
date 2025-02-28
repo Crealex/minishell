@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 11:35:36 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/27 17:22:35 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/28 09:58:19 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,6 @@ void	add_to_env(char *str, char ***env)
 	int	i;
 
 	i = 0;
-	if (is_quote(str))
-		str = rm_quote(str);
 	if (check_name(str) == 1)
 	{
 		str = format_content(str);
@@ -133,6 +131,8 @@ void	ft_export(char **prompt, char ***env)
 	}
 	while (prompt[i])
 	{
+		if (is_quote(prompt[i]))
+			prompt[i] = rm_quote(prompt[i]);
 		add_to_env(prompt[i], env);
 		i++;
 	}

@@ -1270,3 +1270,90 @@ env
 export
 echo "salut"salut"sa;;it"
 exit
+|
+exit
+exit
+export "salut"salut"salut"
+export "salut"salut"salut"
+export "="="="
+export "="="="
+export "="="="
+export "="="="
+exit
+export "="="="
+exit
+export "="="="
+export "==="
+exit
+export "==="
+export "==="
+export "="="="
+exit
+|
+exit
+exit
+cd "dontexist"
+cd "dontexist" >/dev/null
+cd "doesntexist" >/dev/null
+cd "doesntexist" >/dev/null
+cd "doesntexist" >/dev/null
+cd "doesntexist" >/dev/null
+cd '/var'
+cd "doesntexist" >/dev/null
+cd '/////' >/dev/null
+ls
+cd //////
+ls
+ped
+pwd
+cd home/atomasi/
+ls
+/home/atomasi/42_minishell_tester/cmds/mand/1_builtins_cd.sh
+cd /vat
+cd /var
+;s
+ls
+cd "doesntexist" >/dev/null
+cd ../../..
+pwd
+chmdod +x /home/atomasi/42_minishell_tester/cmds/mand/1_builtins_cd.sh
+chmod +x /home/atomasi/42_minishell_tester/cmds/mand/1_builtins_cd.sh
+/home/atomasi/42_minishell_tester/cmds/mand/1_builtins_cd.sh
+cd '/var'
+cd "doesntexist" >/dev/null
+cd ../../..
+cd "doesntexist" >/dev/null
+cd "doesntexist" >/dev/null
+cd "doesntexist" >/dev/null
+cd "doesntexist" >/dev/null
+cd "doesntexist" >/dev/null
+cd '/etc'
+cd '/var'
+cd "doesntexist" >/dev/null
+cd '/////' >/dev/null
+cd '/etc'
+cd '/var'
+cd "doesntexist" >/dev/null
+exit
+pwd
+cd
+pwd
+pwd
+cd ..
+pwd
+cd ..
+cd $OLDPWD
+pwd
+cd
+cd .
+pwd
+pwd
+cd "."
+pwd
+pwd
+cd /Users
+pwd
+pwd
+cd //////
+pwd
+exit

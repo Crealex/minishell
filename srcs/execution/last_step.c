@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   last_step.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:11:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/28 14:39:59 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/28 16:33:05 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ static int	rm_quote_prompt(t_prompt_info *data)
 
 static int	which_builtins(t_prompt_info *data)
 {
+	data->prompt[0] = rm_quote(data->prompt[0]);
 	if (!ft_strncmp(data->prompt[0], "echo", 4))
 		ft_echo(data->str_prt, data);
 	else if (!ft_strncmp(data->prompt[0], "cd", 2))
@@ -59,13 +60,12 @@ static int	which_builtins(t_prompt_info *data)
 
 int	last_step(char **str, t_prompt_info *data)
 {
-	fprintf(stderr, "here\n");
 	if (only_space(*str))
 		return (1);
 	data->prompt = split_wquote(*str, ' ');
 	if (!data->prompt)
 		return (0);
-	if (!(!ft_strncmp(data->prompt[0], "echo", 4)))
+	if (ft_strncmp(data->prompt[0], "echo", 4))
 		*str = rm_quote(*str);
 	if (!(*str))
 		return (0);
@@ -77,7 +77,6 @@ int	last_step(char **str, t_prompt_info *data)
 		return (0);
 	else
 	{
-		fprintf(stderr, "here 1\n");
  		if (which_builtins(data) == 0)
 			return (0);
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redirection.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:02:55 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/02/26 15:23:29 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/28 16:47:47 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	redirection(t_prompt_info *data, char **str, int i)
 		data->fd_in[i] = get_in_fd(str, data->fd_in[i], data);
 		is_child(0);
 		if (data->fd_in[i] == -1)
-			return (0);
+			return (update_exit_code(2), 0);
 	}
 	if (!out_redirect(str))
 		return (0);
@@ -53,7 +53,7 @@ int	redirection(t_prompt_info *data, char **str, int i)
 	{
 		data->fd_out[i] = get_out_fd(str, data->fd_out[i]);
 		if (data->fd_out[i] == -1)
-			return (0);
+			return (update_exit_code(2), 0);
 	}
 	return (2);
 }

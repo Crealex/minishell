@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_valid_cmd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:21:45 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/28 11:07:52 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/28 16:34:37 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int	is_valid_cmd(char *str, t_prompt_info *data)
 	res = 0;
 	if (str)
 	{
-		if (is_quote(data->prompt[0]))
+		if (is_quote(data->prompt[0]) && !check_valid_builtins(str))
 		{
 			data->prompt[0] = rm_quote(data->prompt[0]);
 			print_err(data->prompt[0], ": command not found\n", NULL);

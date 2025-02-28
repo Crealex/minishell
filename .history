@@ -321,3 +321,100 @@ $HOME$USER
 '<<' lim echo 1 >>/dev/null
 '<<' lim echo 1 >>/dev/null
 exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+echo '"$USER";
+echo '"$USER"'
+/bin/echo '"$USER"'
+exit
+/bin/echo '"$USER"'
+exit
+echo '"$USER"'
+exit
+echo '"$USER"'
+/bin/echo '"$USER"'
+exit
+/bin/echo '"$USER"'
+echo '"$USER"'
+/bin/echo '"$USER"'
+exit
+echo '"$USER"'
+exit
+exit
+chmod +x  /home/atomasi/42_minishell_tester/cmds/mand/1_builtins_cd.sh
+/home/atomasi/42_minishell_tester/cmds/mand/1_builtins_cd.sh
+/home/atomasi/42_minishell_tester/cmds/mand/1_builtins_cd.sh
+exit
+pwd
+"pwd"
+pwd obfew
+exit
+"pwd"
+exit
+"pwd"
+exit
+"p"wd
+exit
+"pwd"
+exit
+|
+exit
+exit
+|
+exit
+exit
+>>>
+echo $?
+exit
+|
+exit
+exit
+ls >>
+echo $?
+exit
+<<| echo wtf
+echo $?
+>
+echo $?
+| fds
+echo $?
+ls > >out
+echo $?
+<< "<" ls
+exit
+<< "test" cat
+exit
+<< end cat
+<< $USER cat
+export a="<"
+ls $a
+export test"je tesete ma fonciton de merde"
+export test="je tesete ma fonciton de merde"
+echo $test
+export test="4 2"
+echo $test
+exit
+|
+exit
+exit
+'$USER'
+"$USER"
+""$USER""
+""'$USER'""
+echo ""'$USER'""
+ "'$USER'"
+echo "'$USER'"
+ls "| cat"
+ls ">" out
+echo $213
+exit

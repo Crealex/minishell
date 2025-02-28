@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/28 15:00:19 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/28 16:43:54 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int parsing(t_prompt_info *data)
 	{
 		data->pipe_len = 1;
 		if (!redirect_nopipe(data))
-			return (cleanup(data, 1), 1);
+			return (update_exit_code(2), cleanup(data, 1), 1);
 		if (!exec_no_pipe(data))
 			return (cleanup(data, 1), 1);
 	}

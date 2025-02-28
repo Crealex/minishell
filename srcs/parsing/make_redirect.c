@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:02:53 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/28 11:50:46 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/28 14:08:44 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@ void		make_redirect(t_prompt_info *data)
 
 void	end_redirect(t_prompt_info *data, int redirect)
 {
-	int	i;
-
-	i = 0;
 	if (redirect)
 	{
 		dup2(data->temp_fdin, STDIN_FILENO);

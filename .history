@@ -1464,3 +1464,114 @@ exit
 exit
 /bin/echo $HOME$USER
 exit
+|
+exit
+exit
+echo /bin/echo $HOME$USER
+echo /bin/echo $HOME$USER
+echo /bin/echo $HOME$USER
+echo /bin/echo $HOME$USER
+echo /bin/echo $HOME$USER
+echo /bin/echo $HOME$USER
+|
+exit
+exit
+echo /bin/echo $HOME$USER
+echo /bin/echo $HOME$USER
+echo /bin/echo $HOME
+echo /bin/echo $USER
+echo /bin/echo $USER$HOME
+echo /bin/echo $HOME$USER
+echo /bin/echo $USER$HOME
+echo /bin/echo $USER$HOME
+echo /bin/echo $USER$HOME
+echo /bin/echo $USER$HOME
+exit
+echo /bin/echo $USER$HOME
+echo /bin/echo $HOME$USER
+exit
+echo /bin/echo $HOME$USER
+echo /bin/echo $HOME$USER
+echo /bin/echo $HOME$USER
+echo /bin/echo $HOME$USER
+echo /bin/echo $HOME$USER
+echo /bin/echo $HOME$USER
+/bin/echo $HOME$USER
+/bin/echo $HOME$USER
+/bin/echo $HOME$USER
+/bin/echo $HOME$USER
+/bin/echo $HOME$USER
+/bin/echo $HOME$USER
+/bin/echo $HOME$USER
+/bin/echo $HOME$USER
+/bin/echo $HOME$USER
+/bin/echo $HOME$USER
+exit
+echo /salut/am
+echo /salut/am $USER
+echo /salut/am $USER$HOME
+exit
+/bin/echo $HOME$USER
+/bin/echo $HOME$USER
+/bin/echo $HOME$USER
+/bin/echo $HOME$USER
+/bin/echo $HOME$USER
+/bin/echo $USER$HOME
+/bin/echo $USER$HOME
+/bin/echo $USER$HOME
+/bin/echo $USER$HOME
+/bin/echo $USER$HOME
+/bin/echo $USER$HOME
+/bin/echo $USER$HOME
+/bin/echo $USER$HOME
+/bin/echo $USER$HOME
+/bin/echo $USER$HOME
+/bin/echo $USER$HOME
+/bin/echo $USER$HOME
+/bin/echo $USER$HOME
+/bin/echo $USER$HOME
+/bin/echo $USER$HOME
+/bin/echo $USER$HOME
+/bin/echo $USER$HOME
+/bin/echo $USER$HOME
+/bin/echo $USER$HOME
+/bin/echo $USER$HOME
+/bin/echo $USER$HOME
+$USER$HOME
+$USER$HOME
+$USER$HOME
+$USER$HOME
+$HOME$USER
+$HOME$USER
+$HOME$USER
+$HOME$USER
+$HOME$USER
+$HOME$USER
+$HOME$USER
+$HOME$USER
+$HOME$USER
+$HOME$USER
+$HOME$USER
+$HOME$USER
+$HOME$USER
+$HOME$USER
+$HOME$USER
+/bin/echo $HOME$USER
+'<<' lim echo 1 >>/dev/null
+'<<' lim echo 1 >>/dev/null
+'<<' lim echo 1 >>/dev/null
+'<<' lim echo 1 >>/dev/null
+'<<' lim echo 1 >>/dev/null
+'<<' lim echo 1 >>/dev/null
+'<<' lim echo 1 >>/dev/null
+'<<' lim echo 1 >>/dev/null
+'<<' lim echo 1 >>/dev/null
+'<<' lim echo 1 >>/dev/null
+'<<' lim echo 1 >>/dev/null
+'<<' lim echo 1 >>/dev/null
+'<<' lim echo 1 >>/dev/null
+'<<' lim echo 1 >>/dev/null
+'<<' lim echo 1 >>/dev/null
+'<<' lim echo 1 >>/dev/null
+'<<' lim echo 1 >>/dev/null
+exit

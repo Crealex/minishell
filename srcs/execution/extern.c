@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   extern.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/28 11:29:07 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/28 15:19:52 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ int	extern_exec(t_prompt_info *data)
 	int		exit_status;
 	pid_t	pid;
 
+	//printf("extern_exec\n");
 	if (data->prompt[0] && ((ft_strlen(data->prompt[0]) > 2
 		&& data->prompt[0][0] == '.' && data->prompt[0][1] == '/')))
 			if (!check_acces_file(data->prompt[0]))
@@ -121,7 +122,7 @@ int	extern_exec(t_prompt_info *data)
 	{
 		cleanup_exec(data);
 		if (execve(path, data->prompt, data->env) == -1)
-			return (0);
+			exit(0);
 	}
 	is_child(1);
 	waitpid(pid, &exit_status, 0);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:55:00 by alexandre         #+#    #+#             */
-/*   Updated: 2025/02/26 17:12:42 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/28 14:29:41 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,10 +102,10 @@ void	cleanup(t_prompt_info *data, int redirect)
 			close(data->fd_out[i]);
 		i++;
 	}
-	if (data->fd_in)
-		free(data->fd_in);
-	if (data->fd_out)
-		free(data->fd_out);
+	// if (data->fd_in)
+	// 	free(data->fd_in);
+	// if (data->fd_out)
+	// 	free(data->fd_out);
 	end_redirect(data, redirect);
 }
 

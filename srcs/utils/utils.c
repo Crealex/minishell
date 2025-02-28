@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:55:00 by alexandre         #+#    #+#             */
-/*   Updated: 2025/02/28 14:29:41 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/28 15:41:50 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ char	*ft_getenv(char *var, char **env)
 
 void	cleanup(t_prompt_info *data, int redirect)
 {
-	(void)data;
 	int	i;
 
 	i = 0;

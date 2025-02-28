@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_dollars.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:16:15 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/27 16:40:07 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/02/28 15:00:13 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,21 +51,21 @@ char	*add_env(char *prompt, int *i, t_str *res, char **all_env)
 		return (NULL);
 	ft_strlcpy(temp, res->str, res->i + 1);
 	var_name = get_var_name(prompt, i);
+	if (!var_name)
+		return (free(temp), ft_strdup("$"));
 	if (ft_strncmp(var_name, "?", 1) == 0)
-	{
-		//(*i)++;
 		env = ft_itoa(update_exit_code(-1));
-	}
 	else if (var_name[0] == '\0')
 		env = ft_strdup("$");
 	else
 		env = ft_getenv(var_name, all_env);
-	free(var_name);
+	if (var_name)
+		free(var_name);
 	if (!env)
 		return (res->str);
 	free(res->str);
 	res->str = better_strjoin(temp, env, prompt, *i);
-	(res->i) += strlen(env);
+	(res->i) += ft_strlen(env);
 	return (free(temp), res->str);
 }
 

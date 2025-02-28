@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:55:00 by alexandre         #+#    #+#             */
-/*   Updated: 2025/02/26 17:12:42 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/28 15:21:54 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ char	*ft_getenv(char *var, char **env)
 
 void	cleanup(t_prompt_info *data, int redirect)
 {
-	(void)data;
 	int	i;
 
 	i = 0;
@@ -102,10 +101,10 @@ void	cleanup(t_prompt_info *data, int redirect)
 			close(data->fd_out[i]);
 		i++;
 	}
-	if (data->fd_in)
-		free(data->fd_in);
-	if (data->fd_out)
-		free(data->fd_out);
+	// if (data->fd_in)
+	// 	free(data->fd_in);
+	// if (data->fd_out)
+	// 	free(data->fd_out);
 	end_redirect(data, redirect);
 }
 

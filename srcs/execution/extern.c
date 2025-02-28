@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/28 11:29:07 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/28 15:19:35 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,10 +97,10 @@ static void	cleanup_exec(t_prompt_info *data)
 		i++;
 	}
 	end_redirect(data, 0);
-	if (data->fd_in)
-		free(data->fd_in);
-	if (data->fd_out)
-		free(data->fd_out);
+	// if (data->fd_in)
+	// 	free(data->fd_in);
+	// if (data->fd_out)
+	// 	free(data->fd_out);
 }
 
 int	extern_exec(t_prompt_info *data)
@@ -109,6 +109,7 @@ int	extern_exec(t_prompt_info *data)
 	int		exit_status;
 	pid_t	pid;
 
+	fprintf(stderr, "%s, %s\n", data->prompt[0], data->prompt[1]);
 	if (data->prompt[0] && ((ft_strlen(data->prompt[0]) > 2
 		&& data->prompt[0][0] == '.' && data->prompt[0][1] == '/')))
 			if (!check_acces_file(data->prompt[0]))
@@ -121,7 +122,10 @@ int	extern_exec(t_prompt_info *data)
 	{
 		cleanup_exec(data);
 		if (execve(path, data->prompt, data->env) == -1)
-			return (0);
+		{
+			fprintf(stderr, "pas exec\n");
+			exit (0);
+		}
 	}
 	is_child(1);
 	waitpid(pid, &exit_status, 0);

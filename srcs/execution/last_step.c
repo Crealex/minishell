@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:11:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/28 11:24:15 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/28 14:39:59 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ static int	which_builtins(t_prompt_info *data)
 
 int	last_step(char **str, t_prompt_info *data)
 {
+	fprintf(stderr, "here\n");
 	if (only_space(*str))
 		return (1);
 	data->prompt = split_wquote(*str, ' ');
@@ -75,7 +76,10 @@ int	last_step(char **str, t_prompt_info *data)
 	if (!check_builtins(data->prompt))
 		return (0);
 	else
+	{
+		fprintf(stderr, "here 1\n");
  		if (which_builtins(data) == 0)
 			return (0);
+	}
 	return (1);
 }

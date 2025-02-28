@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/26 15:37:57 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/02/28 15:00:19 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ static int	redirect_nopipe(t_prompt_info *data)
 	if (redirect == 0)
 		return (0);
 	else if (redirect == 2)
+	{
 		make_redirect(data);
+	}
 	return (1);
 }
 

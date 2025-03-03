@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/28 15:46:21 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/03 16:21:41 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ int	extern_exec(t_prompt_info *data)
 	{
 		cleanup_exec(data);
 		if (execve(path, data->prompt, data->env) == -1)
-			exit (0);
+			exit (EXIT_FAILURE);
 	}
 	is_child(1);
 	waitpid(pid, &exit_status, 0);

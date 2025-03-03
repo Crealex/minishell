@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:02:55 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/02/28 16:47:47 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/03 16:29:39 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,5 @@ int	redirection(t_prompt_info *data, char **str, int i)
 		if (data->fd_out[i] == -1)
 			return (update_exit_code(2), 0);
 	}
-	return (2);
+	return (update_exit_code(0), 2);
 }

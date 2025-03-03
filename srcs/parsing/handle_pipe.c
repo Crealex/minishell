@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_pipe.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 16:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/24 14:27:07 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/03 11:33:17 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	handle_pipe(t_prompt_info *data)
 	data->pipe = ft_splitpipe(data->str_prt, '|');
 	if (!data->pipe)
 		return (0);
-	data->pipe = dollar_pipe(data->pipe, data->env);
+	data->pipe = dollar_pipe(data->pipe, data);
 	if (!data->pipe)
 		return (0);
 	data->pipe_len = len_double_tab(data->pipe);

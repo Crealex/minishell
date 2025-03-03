@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:11:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/28 16:33:05 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/03 11:15:11 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,19 +58,15 @@ static int	which_builtins(t_prompt_info *data)
 	return (1);
 }
 
-int	last_step(char **str, t_prompt_info *data)
+int	last_step(char **str, t_prompt_info *data) // uniquement pour pipe
 {
-	if (only_space(*str))
-		return (1);
 	data->prompt = split_wquote(*str, ' ');
-	if (!data->prompt)
+	if (!data->prompt || !data->prompt[0])
 		return (0);
-	if (ft_strncmp(data->prompt[0], "echo", 4))
-		*str = rm_quote(*str);
-	if (!(*str))
+	if (!handle_quote(data))
 		return (0);
-	if (only_space(*str))
-		return (1);
+	if (only_space(data->prompt))
+		return (0);
 	if (!is_valid_cmd(*str, data))
 		return (0);
 	if (!check_builtins(data->prompt))

@@ -418,3 +418,20 @@ ls "| cat"
 ls ">" out
 echo $213
 exit
+salut
+echo salut'
+echo """'''''"""
+echo "salut"
+exit
+echo "salui"
+echo """""''''""""""
+echo $123
+echo $USER
+echo '$USER'
+echo "$USER"
+echo 'salut'
+echo '$'
+echo '$USER'
+|
+exit
+exit

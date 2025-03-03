@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_dollars.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:16:15 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/28 15:00:13 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/03 11:33:43 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,6 @@ char	*get_var_name(char *prompt, int *i)
 	(*i)++;
 	countc = *i;
 	ires = 0;
-	if ((prompt[*i] >= '0' && prompt[*i] <= '9') && prompt[*i] != '_'
-		&& prompt[*i] != '?')
-		return (NULL);
 	while (prompt[*i] && ((prompt[*i] >= 'A' && prompt[*i] <= 'Z')
 			|| (prompt[*i] >= 'a' && prompt[*i] <= 'z') || (prompt[*i] >= '0'
 				&& prompt[*i] <= '9') || prompt[*i] == '_'
@@ -69,40 +66,40 @@ char	*add_env(char *prompt, int *i, t_str *res, char **all_env)
 	return (free(temp), res->str);
 }
 
-char	*handle_dollars(char *prompt, char **env)
-{
-	int		i;
-	int		in_single;
-	int		in_double;
-	t_str	res;
+// char	*handle_dollars(char *prompt, char **env)
+// {
+// 	int		i;
+// 	int		in_single;
+// 	int		in_double;
+// 	t_str	res;
 
-	i = 0;
-	res.i = 0;
-	in_single = 0;
-	in_double = 0;
-	res.str = ft_calloc((ft_strlen(prompt) + 1), sizeof(char));
-	if (!res.str)
-		return (NULL);
-	prompt = rm_cons_quote(prompt);
-	while (prompt[i])
-	{
-		if (((prompt[i] == '\'' || prompt[i] == '\"') && ft_strchr(prompt, '$'))
-			|| !ft_strncmp(prompt, "echo", 4))
-			update_quote(&in_single, &in_double, &i, prompt);
-		if (prompt[i] == '$' && in_single == 0)
-			res.str = add_env(prompt, &i, &res, env);
-		if (((prompt[i] == '\'' || prompt[i] == '\"') && ft_strchr(prompt, '$'))
-			|| !ft_strncmp(prompt, "echo", 4))
-			update_quote(&in_single, &in_double, &i, prompt);
-		if (prompt[i] && (prompt[i] != '\"' || !in_double)
-			&& (prompt[i] != '$' || in_single))
-			res.str[res.i++] = prompt[i++];
-	}
-	res.str[res.i] = '\0';
-	return (free(prompt), res.str);
-}
+// 	i = 0;
+// 	res.i = 0;
+// 	in_single = 0;
+// 	in_double = 0;
+// 	res.str = ft_calloc((ft_strlen(prompt) + 1), sizeof(char));
+// 	if (!res.str)
+// 		return (NULL);
+// 	prompt = rm_cons_quote(prompt);
+// 	while (prompt[i])
+// 	{
+// 		if (((prompt[i] == '\'' || prompt[i] == '\"') && ft_strchr(prompt, '$'))
+// 			|| !ft_strncmp(prompt, "echo", 4))
+// 			update_quote(&in_single, &in_double, &i, prompt);
+// 		if (prompt[i] == '$' && in_single == 0)
+// 			res.str = add_env(prompt, &i, &res, env);
+// 		if (((prompt[i] == '\'' || prompt[i] == '\"') && ft_strchr(prompt, '$'))
+// 			|| !ft_strncmp(prompt, "echo", 4))
+// 			update_quote(&in_single, &in_double, &i, prompt);
+// 		if (prompt[i] && (prompt[i] != '\"' || !in_double)
+// 			&& (prompt[i] != '$' || in_single))
+// 			res.str[res.i++] = prompt[i++];
+// 	}
+// 	res.str[res.i] = '\0';
+// 	return (free(prompt), res.str);
+// }
 
-char	**dollar_pipe(char **pipe_prompt, char **env)
+char	**dollar_pipe(char **pipe_prompt, t_prompt_info *data)
 {
 	int		i;
 	char	**res;
@@ -116,7 +113,7 @@ char	**dollar_pipe(char **pipe_prompt, char **env)
 	i = 0;
 	while (pipe_prompt[i])
 	{
-		res[i] = handle_dollars(pipe_prompt[i], env);
+		res[i] = expansion(pipe_prompt[i], data);
 		if (!res[i])
 			return (ft_freesplit(res, i), NULL);
 		i++;

@@ -3,7 +3,7 @@ LIBFT	=	libft/libft.a
 SRCS	=	$(addprefix srcs/, main.c history.c signal_handler.c)
 PROMPT 	=	$(addprefix srcs/parsing/, handle_dollars.c handle_dollars_utils.c is_pipe.c parsing.c check_builtins.c redirection.c\
 							in_out_redirect.c get_in_fd.c heredoc.c parse_heredoc.c get_out_fd.c fd_init.c add_space.c is_valid_cmd.c\
-							make_redirect.c handle_pipe.c)
+							make_redirect.c handle_pipe.c expansion.c handle_quote.c)
 BUILTINS	=	$(addprefix srcs/builtins/, ft_echo.c ft_exit.c ft_cd.c ft_pwd.c ft_export.c ft_export2.c ft_export_sort_display.c \
 							ft_env.c ft_unset.c ft_export3.c)
 UTILS	=	$(addprefix srcs/utils/, split_pipe.c split_pipe2.c split_wquote.c utils.c quote.c cmd_utils.c)
@@ -63,6 +63,10 @@ ${OBJDIR}:
 leaks: ${NAME}
 	@echo "${GREEN}Valgrind launched, outfiles :${YELLOW} leakslogs.txt${END}"
 	@valgrind --leak-check=full --log-file=leakslogs.txt --show-leak-kinds=all --trace-children=yes --track-fds=yes --suppressions=ignore_readline_leaks.supp ./minishell
+
+test: ${OBJSB} ${OBJSP} ${OBJSU} ${OBJSEX} ${LIBFT}
+	@${CC} ${CFLAGS} ${OBJSB} ${OBJSP} ${OBJSU} ${OBJSEX} ${LIBFT} -lreadline -o ${NAME}
+	@echo "${BOLD}${GREEN}📦 Link complete: ${NAME}${END}"
 
 clean:
 	@echo "${BOLD}${YELLOW}🧹 Cleaning objects...${END}"

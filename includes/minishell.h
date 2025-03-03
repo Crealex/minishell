@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/27 17:51:46 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/03 11:31:35 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ char	*ft_getenv(char *var, char **env);
 void	cleanup(t_prompt_info *data, int redirect);
 int		ft_isspace(int c);
 void	print_err(char *s1, char *s2, char *s3);
-int		only_space(char *str);
+int		only_space(char **prompt);
 //quote
 int		len_wquote(char *str);
 char	*rm_quote(char *str);
@@ -107,7 +107,7 @@ int		redirection(t_prompt_info *data, char **str, int i);
 int		check_builtins(char **prompt);
 int		is_pipe(char **str);
 int		handle_pipe(t_prompt_info *data);
-char	**dollar_pipe(char **pipe_prompt, char **env);
+char	**dollar_pipe(char **pipe_prompt, t_prompt_info *data);
 char	*add_space(char *str, int i, int is_double);
 int		ft_nb_row(char const *s, char c);
 char	**ft_splitpipe(char const *s, char c);
@@ -117,6 +117,8 @@ int		check_valid_builtins(char *cmd);
 char	**get_all_path();
 void	make_redirect(t_prompt_info *data);
 void	end_redirect(t_prompt_info *data, int redirect);
+char	*expansion(char *str, t_prompt_info *data);
+int		handle_quote(t_prompt_info *data);
 // execution
 int		extern_exec(t_prompt_info *data);
 int		is_child(int status);

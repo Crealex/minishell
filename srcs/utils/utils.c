@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:55:00 by alexandre         #+#    #+#             */
-/*   Updated: 2025/02/28 15:41:50 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/03 11:00:41 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,22 +162,22 @@ int	ft_isspace(int c)
 	return (c == ' ' || (9 <= c && c <= 13));
 }
 
-int	only_space(char *str)
+int	only_space(char **prompt)
 {
 	int i;
+	int iprompt;
 
 	i = 0;
-	if (!str)
+	iprompt = 0;
+	while (prompt[iprompt])
 	{
-		print_err("minishell: : command not found\n", NULL, NULL);
-		return (1);
+		while (prompt[iprompt][i])
+		{
+			if (!ft_isspace(prompt[iprompt][i]))
+				return (0);
+			i++;
+		}
+		iprompt++;
 	}
-	while (str[i])
-	{
-		if (!ft_isspace(str[i]))
-			return (0);
-		i++;
-	}
-	print_err("minishell: ", str, ": command not found\n");
 	return (1);
 }

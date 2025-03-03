@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_quote.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 20:20:51 by alexandre         #+#    #+#             */
-/*   Updated: 2025/03/03 11:38:38 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/03 15:06:37 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ char	*rm_all_quote(char *str)
 		while ((str[i] == '\'' && !quote[1]) || (str[i] == '\"' && !quote[0]))
 			if (!update_quote(&quote[0], &quote[1], &i, str))
 				break ;
-		res[ires++] = str[i++];
+		if (str[i])
+			res[ires++] = str[i++];
 	}
 	res[ires] = '\0';
 	if (str)

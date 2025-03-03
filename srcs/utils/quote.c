@@ -67,7 +67,7 @@ int	update_quote(int *in_single, int *in_double, int *i, char *prompt)
 			*in_double = 0;
 		(*i)++;
 	}
-	if (quote_status == 3)
+    if (quote_status == 3)
 		(*i)++;
 	return (1);
 }
@@ -120,11 +120,12 @@ int	len_wquote(char *str)
 	quote[1] = 0;
 	while (str[i])
 	{
-		if (str[i] == '\'' || str[i] == '\"')
+		if ((str[i] == '\'' && !quote[1]) || (str[i] == '\"' && !quote[0]))
 		{
 			if (!update_quote(&quote[0], &quote[1], &i, str))
 			{
-				break;
+			    i++;
+                count++;
 			}
 		}
 		else
@@ -132,7 +133,6 @@ int	len_wquote(char *str)
 			i++;
 			count++;
 		}
-		printf("test\n");
 	}
 	return (count);
 }

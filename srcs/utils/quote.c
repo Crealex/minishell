@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quote.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:47:23 by alexandre         #+#    #+#             */
-/*   Updated: 2025/03/03 17:23:21 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/04 10:37:16 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	update_quote(int *in_single, int *in_double, int *i, char *prompt)
 {
 	int	quote_status;
 
+	quote_status = 0;
 	if (prompt[*i] == '\'' && !*in_double)
 	{
 		quote_status = exist_closing(prompt, '\'', *i);

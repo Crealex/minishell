@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 16:08:33 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/04 14:00:36 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/04 14:38:58 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,13 @@ static int	open_fd(char *str, int fd_arg, int *len, int is_double)
 	str_cut = ft_substr(str, s, len[1] - s);
 	if (!str_cut)
 		return (-1);
+	fprintf(stderr, "file : %s\n", str_cut);
 	if (!is_double)
 		fd = open(str_cut, O_WRONLY | O_CREAT | O_TRUNC, 0744);
 	else
 		fd = open(str_cut, O_WRONLY | O_CREAT | O_APPEND, 0744);
 	if (fd == -1)
-		print_err("minishell: ", str, ": No such file or directory\n");
+		print_err("minishell: ", str_cut, ": No such file or directory\n");
 	free(str_cut);
 	return (fd);
 }

@@ -6,11 +6,21 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 11:06:39 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/04 13:57:02 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/04 14:31:57 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
+
+static int	is_endword(char *s1, char *s2, int len)
+{
+	if (!strncmp(s1, s2, len))
+	{
+		if (s1[len] == '\n' && !s1[len + 1])
+			return (1);
+	}
+	return (0);
+}
 
 static char	*which_heredoc(int *fd, t_prompt_info *data)
 {
@@ -53,7 +63,7 @@ static int	read_write(int fd, char *end_word, t_prompt_info *data)
 	name = which_heredoc(&fd, data);
 	if (fd == -1)
 		return (free(name), -1);
-	while (line && ft_strncmp(line, end_word, len_word) != 0)
+	while (line && !is_endword(line, end_word, len_word))
 	{
 		line = parse_heredoc(line, data);
 		write(fd, line, ft_strlen(line));

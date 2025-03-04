@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:55:00 by alexandre         #+#    #+#             */
-/*   Updated: 2025/03/04 10:30:53 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/04 14:48:28 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,8 @@ void	cleanup(t_prompt_info *data, int redirect)
 		free(data->fd_in);
 	if (data->fd_out)
 		free(data->fd_out);
+	if (data->redirection)
+		free(data->redirection);
 	end_redirect(data, redirect);
 }
 

@@ -1061,3 +1061,93 @@ exit
 |
 exit
 exit
+cat << lim
+ "lim"
+HELLO
+42
+ lim
+testing your minishell
+limm
+lim
+echo $?
+./1_redirs.sh 
+cat << lim
+echo $?
+cat << lim
+exit
+cat << lim
+exit
+cat << lim
+exit
+cat << lim
+exit
+cat << lim
+exit
+cat << lim
+exit
+cat << lim
+exit
+cat << lim
+exit
+cat << lim
+exit
+cat << lim
+exit
+cat << lim
+cat << lim
+exit
+cat << lim
+exit
+|
+exit
+exit
+cat << lim
+ "lim"
+HELLO
+42
+ lim
+testing your minishell
+limm
+lim
+cat << lim
+cat << lim
+ "lim"
+HELLO
+42
+ lim
+testing your minishell
+limm
+lim
+echo hi >>./outfiles/outfile01 | echo bye
+exit
+echo hi >>./outfiles/outfile01 | echo bye
+exit
+echo hi >>./outfiles/outfile01 | echo bye
+exit
+cat <Makefile 
+cat < Makefile 
+cat < Makefile 
+cat < Makefile 
+cat < Makefile 
+cat < Makefile 
+cat < Makefile 
+cat < Makefile 
+cat < Makefile 
+cat < Makefile 
+cat < Makefile 
+cat < Makefile 
+cat < Makefile 
+echo
+echo
+echo
+echo
+cat < Makefile 
+exit
+exit
+cat < Makefile 
+cat < Makefile | cat
+cat < djehd | echo hi
+exit
+cat < Makefile | cat
+cat < djehd | echo hi
+exit

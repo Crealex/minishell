@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/04 13:59:53 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/04 14:42:39 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct	s_prompt_info
 	int		fd_history;
 	int		pos_pipe;
 	int		pipe_len;
+	int		*redirection;
 	char	*str_prt;
 	char 	**pipe;
 	char	**prompt;

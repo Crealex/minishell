@@ -1056,3 +1056,6 @@ cat out
 /bin/rm -f out
 echo $?
 exit
+|
+exit
+exit

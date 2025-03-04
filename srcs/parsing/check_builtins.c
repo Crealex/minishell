@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_builtins.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 13:25:02 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/02/06 16:00:52 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/03/04 17:34:25 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@ static int	is_echo_not_valid(char *cmd)
 	return (0);
 }
 
-static int	is_cd_not_valid(char *cmd)
-{
-	if (!cmd)
-		return (0);
-	if (cmd[0] == '-')
-		return (1);
-	if (cmd[0] == '~')
-		if (cmd[1] == '-' || cmd[1] == '+')
-			return (1);
-	return (0);
-}
+// static int	is_cd_not_valid(char *cmd)
+// {
+// 	if (!cmd)
+// 		return (0);
+// 	if (cmd[0] == '-')
+// 		return (1);
+// 	if (cmd[0] == '~')
+// 		if (cmd[1] == '-' || cmd[1] == '+')
+// 			return (1);
+// 	return (0);
+// }
 
 static int	is_builtin(char *cmd)
 {
@@ -54,9 +54,9 @@ int	check_builtins(char **prompt)
 		if (is_builtin(prompt[i]))
 			if (prompt[i + 1] && prompt[i + 1][0] == '-')
 				return (0);
-		if (!ft_strncmp(prompt[i], "cd", 2))
-			if (is_cd_not_valid(prompt[i + 1]))
-				return (0);
+		// if (!ft_strncmp(prompt[i], "cd", 2))
+		// 	if (is_cd_not_valid(prompt[i + 1]))
+		// 		return (0);
 		if (!ft_strncmp(prompt[i], "env", 3))
 		{
 			if (prompt[i + 1]

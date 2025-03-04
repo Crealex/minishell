@@ -1253,35 +1253,85 @@ exit
 |
 exit
 exit
-grep hi <./test_files/infile
+|
 exit
-grep hi <./test_files/infile
 exit
-grep hi <./test_files/infile
+"1""2""3""4""5"
+echo "1""2""3""4""5"
+|
+exit
+exit
+export $A='"echo salut"'
+export A='"echo salut"'
+$A
+echo $A
+cd -
+ls
+pwq
+pwd
+cd -
+pwd
+cd
+cd -
+pwd
+cd -pwd
+cd -
+pwd
+cd
+pwd
+|
+exit
+exit
+exit
+pwd
+cd
+pwd
+cd -
+pwd
+exit
+cd
+cd -
+cd jjbvdss
+cd --
+pwd
+cd Documents/
+ls
+pwd
+cd -
+pwd
+cd -----
+pwd
+exit
+cd -----
+cd -
+cd ~
+ls
+pwd
+cd Documents/
+cd ~
+ls
+exit
+cd ~
+pwd
+cd -
+pwd
+exit
+pwd
+exit
+cd -
+cd ~
+exit
+cd -
+pwd
+cd ~
+pwd -
+cd -
+pwd
 exit
 |
 exit
 exit
-cat <"1""2""3""4""5"
-exit
-cat <"1""2""3""4""5"
-cat <"1" "2""3""4""5"
-cat < Makefile"1"
-exit
-cat < Makefile"1"
-cat < Makefile 
-exit
-cat < Makefile 
-cat < Makefile"1"
-exit
-cat < Makefile"1"
-cat <"1" "2""3""4""5"
-cat <"1""2""3""4""5"
-exit
-cat <"1""2""3""4""5"
-cat <"1" "2""3""4""5"
-cat <"1"'2'"3""4""5"
-exit
 |
+exit
 exit
 exit

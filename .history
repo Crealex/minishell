@@ -1067,63 +1067,23 @@ exit
 |
 exit
 exit
-cat <"./test_files/infile"
-cat < "Makefile"
-exit
-cat < "Makefile"
-exit
-cat < "Makefile"
-exit
-cat < "Makefile"
-exit
-cat < "Makefile"
+|
 exit
 exit
+$jsavjhcac echo salut
 exit
-cat < "Makefile"
+echo -n                               salut
+echo                                sa;ut
 exit
-cat < "Makefile"
+echo                    salut
+$cuqcasbckabsc echo salut
 exit
-exit
-cat < "Makefile"
-cat < Makefile
-exit
-cat < Makefile
-exit
-cat < Makefile
-cat < "Makefile"
-exit
-cat < "Makefile"
-exit
-cat < "Makefile"
-exit
-cat < "Makefile"
-exit
-cat < "Makefile"
-exit
-cat < "Makefile"
-exit
-cat < "Makefile"
-exit
-cat < "Makefile"
-exit
-cat < "Makefile"
+|
 exit
 exit
-cat < "Makefile"
+echo "                 sa'ut"
+|
 exit
-cat < "Makefile"
-exit
-cat < "Makefile"
-exit
-cat < "Makefile"
-exit
-cat < "Makefile"
-exit
-cat < "Makefile"
-exit
-cat < "Makefile"
-cat < Makefile
 exit
 |
 exit
@@ -1131,51 +1091,152 @@ exit
 |
 exit
 exit
-mkdir tmp_path_test1 tmp_path_test2
-printf '#include <unistd.h>\nint main(){write(1, \"1\\n\", 2);}' > tmp_path_test1/test1.c
-gcc tmp_path_test1/test1.c -o tmp_path_test1/a.out
-printf '#include <unistd.h>\nint main(){write(1, \"2\\n\", 2);}' > tmp_path_test2/test2.c
-gcc tmp_path_test2/test2.c -o tmp_path_test2/a.out
-export PATH=tmp_path_test1:tmp_path_test2
-a.out
-export PATH=tmp_path_test2:tmp_path_test1
-a.out
-/bin/rm -rf tmp_path_test1 tmp_path_test2
-mkdir tmp_path_test1 tmp_path_test2
-printf '#include <unistd.h>\nint main(){write(1, \"1\\n\", 2);}' > tmp_path_test1/test1.c
-gcc tmp_path_test1/test1.c -o tmp_path_test1/a.out
-printf '#include <unistd.h>\nint main(){write(1, \"2\\n\", 2);}' > tmp_path_test2/test2.c
-gcc tmp_path_test2/test2.c -o tmp_path_test2/a.out
-export PATH=tmp_path_test1:tmp_path_test2
-a.out
-export PATH=tmp_path_test2:tmp_path_test1
-a.out
-/bin/rm -rf tmp_path_test1 tmp_path_test2
-mkdir tmp_path_test1 tmp_path_test2
-printf '#include <unistd.h>\nint main(){write(1, \"1\\n\", 2);}' > tmp_path_test1/test1.c
-gcc tmp_path_test2/test2.c -o tmp_path_test2/a.out
-gcc tmp_path_test2/test2.c -o tmp_path_test2/a.out
-cc tmp_path_test2/test2.c -o tmp_path_test2/a.out
-gcc tmp_path_test2/test2.c -o tmp_path_test2/a.out
-cd tmp_path_test2/
-gcc tmp_path_test1/test1.c -o tmp_path_test1/a.out
-cc tmp_path_test1/test1.c -o tmp_path_test1/a.out
-ls
-pwd
-cd ..
-gcc tmp_path_test1/test1.c -o tmp_path_test1/a.out
-cc tmp_path_test1/test1.c -o tmp_path_test1/a.out
-cd tmp_path_test1/
-ls
-cc test1.c -o a.out
-cd ..
-/bin/rm -rf tmp_path_test1 tmp_path_test2
-rm \'
-rm '
-cat lol.c 
-cc lol.c -o lol
 exit
-./lol
+echo                                 salut
+exit
+echo                                 salut
+exit
+echo                                 salut
+exit
+echo                                 salut
+exit
+echo                                 salut
+exit
+echo                                 salut
+echo "                     sakur"
+$sgauciu echo salut
+exit
+$sgauciu echo salut
+exit
+echo                salur
+echo                salur
+$sgauciu echo salut
+echo "                     sakur"
+exit
+echo "                     sakur"
+echo "                     sakur"
+echo "                     sakur"
+export test="ls -la"
+echo $test
+$test
+$test
+$test
+$test
+$test
+unset test
+exit
+echo "                     sakur"
+echo                salur
+exit
+echo                salur
+ecce
+echo                salur
+echo salur
+exit
+echo salur
+echo salur
+echo salur
+echo salur
+echo salur
+echo salur
+echo salur
+echo salut
+exit
+echo salut
+exit
+echo salut
+exit
+echo salut
+echo salut
+echo                                             s alut
+echo                                             salut
+echo salut ma couille
+exit
+echo salut ma couille
+fvfdvfd
+dsvsd
+exit
+echo salut ma couille
+echo                             "salut"
+echo "                               salut"
+$cbakcaksc echo salut
+exit
+|
+exit
+exit
+"echo hi"
+export A='"echo hi"'
+A
+$A
+"echo assavb"
+exit
+"echo assavb"
+                          
+"                                         "
+exit
+|
+exit
+exit
+"echo assavb"
+"echo hi"
+export A='"echo hi"'
+$A
+exit
+export A='"echo hi"'
+$A
+salut $A
+echo $A
+exit
+export A='"echo hi"'
+echo $A
+export A='"echo hi"'
+$A
+"echo hi"
+exit
+"echo hi"
+export A='"echo hi"'
+exit
+export A='"echo hi"'
+$A
+echo $A
+env
+export A='"echo hi"'
+env
+'"salut"'
+echo '"salut"'
+"echo"
+exit
+"echo"
+echo '"salut"'
+export A='"echo hi"'
+env
+export A='"echo hi'
+env
+echo '"salut"'
+env
+exit
+exit
+echo '"salut"'
+export A='"echo hi"'
+env
+$A
+"echo salut"
+exit
+|
+exit
+exit
+|
+exit
+exit
+"echo sa;it"
+export A='"echo salut"'
+$A
+exit
+|
+exit
+exit
+|
+exit
 exit
 |
 exit

@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_echo.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:42:41 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/04 10:22:17 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/04 14:29:38 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-// static int	end_echo(char *str)
+// static int	nb_space(char *str)
 // {
 // 	int i;
 
 // 	i = 0;
-// 	while (str[i])
+// 	while (str[i] && str[i] == ' ')
 // 	{
 // 		if (str[i + 1] && str[i] == 'e' && str[i + 1] == 'c')
 // 		{

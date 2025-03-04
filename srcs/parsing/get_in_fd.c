@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 11:15:33 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/02/27 17:27:32 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/04 13:54:43 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ static int	open_fd(char *str, int fd_arg, int *len)
 	return (fd);
 }
 
-char	*del_rd(char *str, int *len)
+char	*del_rd(char *str, int *len, int *index)
 {
 	int		i;
 	int		j;
@@ -101,11 +101,12 @@ char	*del_rd(char *str, int *len)
 		if (i == len[0])
 			while (i < len[1])
 				i++;
-		new[j] = str[i];
-		i++;
-		j++;
+		if (str[i])
+			new[j++] = str[i++];
 	}
 	new[j] = '\0';
+	if (!str[i])
+		(*index)--;
 	free(str);
 	return (new);
 }
@@ -127,7 +128,7 @@ int	get_in_fd(char **str, int fd, t_prompt_info *data)
 			fd = open_fd(*str, fd, len);
 			if (fd == -1)
 				return (-1);
-			*str = del_rd(*str, len);
+			*str = del_rd(*str, len, &i);
 			if (!(*str))
 				return (-1);
 		}

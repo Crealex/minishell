@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/03 11:31:35 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/04 13:54:56 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int		in_redirect(char **str);
 void	init_fd(int *i, int *start, int *end);
 void	init_two(int *i, int *j);
 void	len_file(char *str, int i, int *start, int *end);
-char	*del_rd(char *str, int *len);
+char	*del_rd(char *str, int *len, int *index);
 int		heredoc(char **str, int i, int *fd, t_prompt_info *data);
 char	*parse_heredoc(char *line, t_prompt_info *data);
 int		is_cmd(char *str, int i, char *s);

@@ -840,3 +840,53 @@ exit
 |
 exit
 exit
+/
+echo $?
+exit
+/
+/
+/bin
+/
+/tgtgrgtegte
+exit
+/
+/bin
+exit
+exit
+/bin
+/bin
+exit
+exit
+/bin
+exit
+/bin
+/bin/echo
+exit
+/bin/echo
+/bin/echo bruh
+/bin
+exit
+/bin
+/
+/bin/echo bruh
+exit
+/bin/echo bruh
+exit
+/bin/echo bruh
+/bin
+/
+exit
+|
+exit
+exit
+./minishell 
+exit
+./
+./dsajj
+exit
+'<<' lim echo 1 >>/dev/null
+exit
+'<<' lim echo 1 >>/dev/null
+exit
+'<<' lim echo 1 >>/dev/null
+exit

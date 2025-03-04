@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:47:23 by alexandre         #+#    #+#             */
-/*   Updated: 2025/02/28 10:59:57 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/03 17:23:21 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,12 @@ static int	exist_closing(char *prompt, char c, int i)
 	}
 	else if (in_quote == 0)
 	{
-		while (prompt[i])
+		if (prompt[i + 1] && prompt[i + 1] == c)
+		{
+			in_quote = 0;
+			return (3);
+		}
+		while (prompt[+i])
 		{
 			i++;
 			if (prompt[i] == c)
@@ -62,6 +67,8 @@ int	update_quote(int *in_single, int *in_double, int *i, char *prompt)
 			*in_double = 0;
 		(*i)++;
 	}
+    if (quote_status == 3)
+		(*i)++;
 	return (1);
 }
 
@@ -113,9 +120,15 @@ int	len_wquote(char *str)
 	quote[1] = 0;
 	while (str[i])
 	{
-		if (str[i] == '\'' || str[i] == '\"')
-			update_quote(&quote[0], &quote[1], &i, str);
-		if (str[i])
+		if ((str[i] == '\'' && !quote[1]) || (str[i] == '\"' && !quote[0]))
+		{
+			if (!update_quote(&quote[0], &quote[1], &i, str))
+			{
+			    i++;
+                count++;
+			}
+		}
+		else
 		{
 			i++;
 			count++;

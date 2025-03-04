@@ -6,34 +6,15 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:11:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/03 11:15:11 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/03 15:09:54 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-static int	rm_quote_prompt(t_prompt_info *data)
-{
-	int	i;
-
-	i = 0;
-	while (data->prompt[i])
-	{
-		data->prompt[i] = rm_quote(data->prompt[i]);
-		if (!data->prompt[i])
-		{
-			ft_freesplit(data->prompt, i);
-			data->prompt = NULL;
-			return (0);
-		}
-		i++;
-	}
-	return (1);
-}
-
 static int	which_builtins(t_prompt_info *data)
 {
-	data->prompt[0] = rm_quote(data->prompt[0]);
+	//data->prompt[0] = rm_quote(data->prompt[0]);
 	if (!ft_strncmp(data->prompt[0], "echo", 4))
 		ft_echo(data->str_prt, data);
 	else if (!ft_strncmp(data->prompt[0], "cd", 2))
@@ -50,8 +31,6 @@ static int	which_builtins(t_prompt_info *data)
 		ft_exit(data);
 	else
 	{
-		if (!rm_quote_prompt(data))
-			return (0);
 		if (extern_exec(data) == 0)
 			return (0);
 	}
@@ -70,10 +49,10 @@ int	last_step(char **str, t_prompt_info *data) // uniquement pour pipe
 	if (!is_valid_cmd(*str, data))
 		return (0);
 	if (!check_builtins(data->prompt))
-		return (0);
+	 	return (0);
 	else
 	{
- 		if (which_builtins(data) == 0)
+		if (which_builtins(data) == 0)
 			return (0);
 	}
 	return (1);

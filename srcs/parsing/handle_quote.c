@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 20:20:51 by alexandre         #+#    #+#             */
-/*   Updated: 2025/03/03 15:06:37 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/04 10:22:02 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 char	*rm_all_quote(char *str)
 {
-	int     i;
-	int     ires;
-	char    *res;
-	int     quote[2];
+	int		i;
+	int		ires;
+	char	*res;
+	int		quote[2];
 
 	i = 0;
 	ires = 0;

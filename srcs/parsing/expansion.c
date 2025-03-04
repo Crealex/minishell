@@ -6,22 +6,33 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 12:08:37 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/03 11:45:08 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/04 10:09:08 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
+
+
+int chckquote(char *str, int i, int *tested)
+{
+	if (str[i] == '\'' && *tested == 0)
+		return (0);
+	*tested = 0;
+	return (1);
+}
 
 char *expansion(char *str, t_prompt_info *data)
 {
 	int		i;
 	int		quote[2];
 	t_str	res;
+	int tested;
 
 	i = 0;
 	quote[0] = 0;
 	quote[1] = 0;
 	res.i = 0;
+	tested = 1;
 	res.str = ft_calloc((ft_strlen(str) + 1), sizeof(char));
 	if (!res.str)
 		return (NULL);
@@ -31,10 +42,11 @@ char *expansion(char *str, t_prompt_info *data)
 		{
 			if (update_quote(&quote[0], &quote[1], &i, str) > 0)
 				i--;
+			tested = 1;
 		}
 		else if (str[i] == '$' && !quote[0])
 			res.str = add_env(str, &i, &res, data->env);
-		if (str[i] && (str[i] != '$' || quote[0]))
+		if (str[i] && (str[i] != '$' || quote[0]) && chckquote(str, i, &tested))
 			res.str[res.i++] = str[i++];
 	}
 	res.str[res.i] = '\0';

@@ -435,3 +435,408 @@ echo '$USER'
 |
 exit
 exit
+/bin/echo "''$USER''"
+echo "''$USER''"
+exit
+/bin/echo "''$USER''"
+exit
+|
+exit
+exit
+echo ''$?''"42"
+echo ''$?''"42"
+echo ''$?''"42"
+echo ''$?''"42"
+echo ''$?''"42"
+echo ''$?''"42"
+echo ''$?''"42"
+echo ''$?''"42"
+echo ''$?''"42"
+echo ''$?''"42"
+echo ''$?''"42"
+echo ''$?''"42"
+echo ''$?''"42"
+echo ''$?''"42"
+echo ''$?''"42"
+echo ''$?''"42"
+echo ''$?''"42"
+echo ''$?''"42"
+echo $?"42"
+echo $?"42"
+echo $?"42"
+echo $?"42"
+echo $?"42"
+echo '"$USER"'
+echo "exit_code ->$? user->$USER home -<$HOME"
+echo "exit_code ->$? user->$USER home ->$HOME"
+echo "exit_code ->$? user ->$USER home ->$HOME"
+echo "exit_code ->$? user ->$USER home ->$HOME"
+echo "exit_code ->$? user ->$USER home ->$HOME"
+echo "exit_code ->$? user ->$USER home ->$HOME"
+echo "exit_code ->$? user ->$USER home ->$HOME"
+echo "exit_code ->$? user ->$USER home ->$HOME"
+echo """""""$USER"""""""
+echo """"""""$USER""""""""
+echo """"""""$USER""""""""
+echo """"""""$USER""""""""
+echo """"""""$USER""""""""
+echo """"""""$USER""""""""
+echo """"""""$USER""""""""
+echo """"""""$USER""""""""
+echo """"""""$USER""""""""
+echo "$ "
+echo "$ "
+echo "$ "
+echo "$ "
+echo "$ "
+echo "$ "
+echo "$ "
+echo "$ "
+echo "$ "
+echo """"""""$USER""""""""
+echo """"""""$USER""""""""
+echo """"""""$USER""""""""
+echo "$ "
+echo "$ "
+echo "$ "
+echo "$ "
+echo "$ "
+echo "$ "
+echo "$ "
+echo "$ "
+echo "$ "
+echo "$ "
+echo "$ "
+echo "$ "
+echo "$ "
+echo "$ "
+echo "$ "
+echo "$ "
+echo "$ "
+exit
+echo salut
+echo "$ "
+echo "$ "
+echo "$ "
+echo "$ "
+echo "$ "
+echo "$ "
+echo "cat lol.c | cat > lol.c"
+echo "cat lol.c | cat > lol.c"
+echo "cat lol.c | cat > lol.c"
+echo "cat lol.c | cat > lol.c"
+echo cat lol.c | cat > lol.c
+/bin/echo "cat lol.c | cat > lol.c"
+echo "cat lol.c | cat > lol.c"
+echo "cat lol.c | cat > lol.c"
+echo "cat lol.c | cat > lol.c"
+echo "cat lol.c | cat > lol.c"
+echo "cat lol.c | cat > lol.c"
+echo "cat lol.c | cat > lol.c"
+echo "cat lol.c | cat > lol.c"
+echo "cat lol.c | cat > lol.c"
+echo "cat lol.c | cat > lol.c"
+/bin/echo "cat lol.c | cat > lol.c"
+/bin/echo "cat lol.c | cat > lol.c"
+echo "cat lol.c | cat > lol.c"
+echo "cat lol.c  cat > lol.c"
+echo 't lol.c  bibou > lol.c"
+/bin/echo cat lol.c | cat > lol.c
+/bin/echo "assca ascas | csaca sacc"
+/bin/echo cat lol.c | cat > lol.c
+/bin/echo 'cat lol.c | cat > lol.c'
+/bin/echo 'cat lol.c | cat > lol.c' | cat -e
+exit
+echo "salut | ma couille"
+echo "salut | ma couille"
+echo "salut | ma couille"
+echo "salut | ma couille"
+echo "salut | ma couille"
+echo "salut | ma couille"
+echo "salut | ma couille"
+echo "salut | ma couille"
+echo "cat lol.c | cat > lol.c"
+echo "cat lol.c | cat > lol.c"
+echo "cat lol.c | cat > lol.c"
+echo "cat lol.c | cat > lol.c"
+echo "cat lol.c | cat > lol.c"
+echo "cat lol.c | cat > lol.c"
+echo "cat lol.c | cat > lol.c"
+echo "cat lol.c | cat > lol.c"
+echo "cat lol.c | cat > lol.c"
+echo "cat lol.c | cat > lol.c"
+echo "cat lol.c | cat > lol.c"
+echo "cat lol.c | cat > lol.c"
+echo "cat lol.c | cat > lol.c"
+echo "cat lol.c | cat > lol.c"
+echo "cat lol.c | cat > lol.c"
+echo "cat lol.c | cat > lol.c"
+echo "cat lol.c | cat > lol.c"
+exit
+/bin/echo "cat lol.c | cat > lol.c"
+/bin/echo "cat lol.c | cat > lol.c"
+/bin/echo $USER'$USER'
+/bin/echo $USER'$USER'
+/bin/echo $USER '$USER'
+/bin/echo $USER'$USER'
+echo $USER'$USER'
+exit
+echo $USER'$USER'
+/bin/echo "cat lol.c | cat > lol.c"
+make fclean
+exit
+/bin/echo "cat lol.c | cat > lol.c"
+exit
+|
+exit
+exit
+|
+exit
+exit
+echo $USER'$USER'
+echo $USER'$USER'
+exit
+echo $USER'$USER'
+exit
+exit
+echo $USER'$USER'
+exit
+echo $USER'$USER'
+exit
+echo $USER'$USER'
+exit
+echo $USER'$USER'
+cd "doesntexist" >/dev/null
+cd "doesntexist" >/dev/null
+cd "doesntexist" >/dev/null
+cd "doesntexist" >/dev/null
+cd "doesntexist" >/dev/null
+cd "doesntexist" >/dev/null
+cd "doesntexist" >/dev/null
+cd "doesntexist" >/dev/null
+cd "doesntexist" >/dev/null
+cd "doesntexist" >/dev/null
+cd "doesntexist" >/dev/null
+cd "doesntexist" >/dev/null
+cd "doesntexist" >/dev/null
+cd "doesntexist" >/dev/null
+cd "doesntexist" >/dev/null
+cd "doesntexist" >/dev/null
+cd "doesntexist" >/dev/null
+cd '/var/
+echo $USER'$USER'
+exit
+echo $USER'$USER'
+exit
+echo $USER'$USER'
+exit
+|
+exit
+exit
+echo $USER"$USER"
+echo $USER"$USER
+exit
+grep hi <./test_files/infile
+echo $?
+|
+exit
+exit
+|
+exit
+exit
+env | grep $USER
+ECHO $?
+echo $?
+env | grep $USER
+echo $?
+exit
+env | grep $USER
+echo $?
+|
+exit
+exit
+|
+exit
+exit
+exit
+pwd test42
+exit
+exit
+pwd test42
+|
+exit
+exit
+TEST""
+echo ""
+"""
+""
+test""
+exit
+test""
+exit
+test""
+exit
+""test""
+""test
+''
+''''
+exit
+test""
+exiit
+exit
+test""
+exit
+test""
+exit
+test""
+exit
+test""
+exit
+|
+exit
+exit
+|
+exit
+exit
+/bin/echo '$='
+/bin/echo '""'""'""""$USER""""'""'""'
+/bin/echo """"""""'$USER'""""""""
+/bin/echo """"""""'$USER'""""""""
+/bin/echo """"""""'$USER'""""""""
+/bin/echo """"""""'$USER'""""""""
+/bin/echo """"""""'$USER'""""""""
+/bin/echo """"""""'$USER'""""""""
+/bin/echo """"""""'$USER'""""""""
+/bin/echo ""'""""""$USER""""""'""
+/bin/echo ""'""""""$USER""""""'""
+/bin/echo ""'""""""$USER""""""'""
+/bin/echo ""'""""""$USER""""""'""
+exit
+/bin/echo ""'""""""$USER""""""'""
+/bin/echo ""'""""""$USER""""""'""
+/bin/echo ""'""""""$USER""""""'""
+/bin/echo ""'""""""$USER""""""'""
+/bin/echo ""'""""""$USER""""""'""
+/bin/echo ""'""""""$USER""""""'""
+/bin/echo ""'""""""$USER""""""'""
+/bin/echo ""'""""""$USER""""""'""
+/bin/echo ""'""""""$USER""""""'""
+/bin/echo ""'""""""$USER""""""'""
+/bin/echo ""'""""""$USER""""""'""
+/bin/echo ""'""""""$USER""""""'""
+/bin/echo ""'""""""$USER""""""'""
+/bin/echo ""'""""""$USER""""""'""
+/bin/echo ""'""""""$USER""""""'""
+exit
+/bin/echo ""'""""""$USER""""""'""
+echo ""'""""""$USER""""""'""
+exit
+echo ""'""""""$USER""""""'""
+echo ""'
+echo ""'""
+echo ""'""'
+echo ""'""'
+echo ""'""'
+echo ""'""'
+exit
+echo ""'""'
+echo ""'""'
+echo ""'""""""$USER""""""'""
+exit
+echo ""'""""""$USER""""""'""
+exit
+echo ""'""""""$USER""""""'""
+exit
+echo ""'""""""$USER""""""'""
+exit
+echo ""'""""""$USER""""""'""
+echo ""'""'
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+echo $USYER
+echo $USER
+echo $USER$XAX
+echo $HOME$USER
+/bin/echo $HOME$USER
+/bin/echo $HOME$NOTHING$USER$
+/bin/echo $HOME$NOTHING$USER$
+/bin/echo $HOME$NOTHING$USER
+/bin/echo $HOME$NOTHINGUSER
+/bin/echo $HOME
+/bin/echo $HOME$USER
+/bin/echo $HOME$USER
+/bin/echo $HOME$USER
+/bin/echo $HOME$USER
+/bin/echo $HOME$USER
+echo $USER'$USER'
+echo $USER'$USER
+"'''''''''''"
+echo "'''''''''''"
+echo $USER$HOME$USER
+echo $USER$d
+echo $USER$dcsdc
+exit
+echo $USER$dcsdc
+echo $USER$dcsdc$cdsc
+echo $USER$HOME$
+|
+exit
+exit
+dbkvdsv echo salut
+$cddcac echo salut
+echo salut
+$cddcac echo salut ma couille
+$casca /bin/echo salut
+ echo salut
+    echo salut
+ls |echo a
+ls | echo a
+ls | > out echo a
+echo                                    salut
+exit
+echo                                    salut
+$cddcac echo salut ma couille
+|
+exit
+exit
+                      echo salut
+> echo echo
+> echo echo fsdf
+> echo echo
+echo echo
+echo
+> echo echo
+> echo ech echo
+> echo echo echo
+> echo echo
+echo > echo
+echo > echo ls
+> echo echo
+echo "$USER"
+echo '$USER'
+echo "'$USER'"
+exit
+echo "'$USER'"
+exit
+echo "'$USER'"
+echo "''salut''"
+exit
+echo "''salut''"
+exit
+|
+exit
+exit
+|
+exit
+exit

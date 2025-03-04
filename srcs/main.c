@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:37:37 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/27 17:33:41 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/03 16:11:59 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,12 @@ int main(int argc, char **argv, char **env)
 	{
 		data.str_prt = readline("minishell $ > ");
 		if (str_empty(&data))
-			return (0);
+			return (update_exit_code(-1));
 		if (ft_strlen(data.str_prt) > 0)
 		{
 			if (!prompt_handler(&data, data.fd_history))
 				return (1);
 		}
 	}
-	return (0);
+	return (update_exit_code(-1));
 }

@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:11:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/04 16:43:55 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/04 16:55:39 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ int	last_step(char **str, t_prompt_info *data) // uniquement pour pipe
 	data->prompt = split_wquote(*str, ' ');
 	if (!data->prompt || !data->prompt[0])
 		return (0);
-	if (!is_valid_cmd(*str, data))
-		return (0);
 	if (!handle_quote(data))
 		return (0);
 	if (only_space(data->prompt))
+		return (0);
+	if (!is_valid_cmd(*str, data))
 		return (0);
 	if (!check_builtins(data->prompt))
 	 	return (0);

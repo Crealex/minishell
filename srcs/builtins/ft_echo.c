@@ -6,11 +6,34 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:42:41 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/03 14:53:17 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/04 10:19:43 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
+
+// static int	end_echo(char *str)
+// {
+// 	int i;
+
+// 	i = 0;
+// 	while (str[i])
+// 	{
+// 		if (str[i + 1] && str[i] == 'e' && str[i + 1] == 'c')
+// 		{
+// 			i += 2;
+// 			if (str[i] && str[i + i] && str[i] == 'h' && str[i + 1] == 'o')
+// 			{
+// 				i += 2;
+// 				while (str[i] && str[i] == ' ')
+// 					i++;
+// 				return (i);
+// 			}
+// 		}
+// 		i++;
+// 	}
+// 	return (5);
+// }
 
 static int	handle_flags(char *prompt)
 {

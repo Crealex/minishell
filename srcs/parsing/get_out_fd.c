@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 16:08:33 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/04 13:54:49 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/04 14:00:36 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,7 @@ int	get_out_fd(char **str, int fd)
 	int		isdouble;
 
 	init_fd(&i, &len[0], &len[1]);
-	init_two(&inquote[0], &inquote[1]);
-	isdouble = 0;
+	init_fd(&inquote[0], &inquote[1], &isdouble);
 	while ((*str)[i])
 	{
 		update_quote(&inquote[0], &inquote[1], &i, *str);

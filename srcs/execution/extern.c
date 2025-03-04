@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   extern.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/03 16:21:41 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/04 10:30:55 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,10 @@ static void	cleanup_exec(t_prompt_info *data)
 			close(data->fd_out[i]);
 		i++;
 	}
+	if (data->fd_in)
+		free(data->fd_in);
+	if (data->fd_out)
+		free(data->fd_out);
 	end_redirect(data, 0);
 }
 

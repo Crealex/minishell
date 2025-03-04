@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:37:37 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/03 16:11:59 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/04 10:36:28 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int main(int argc, char **argv, char **env)
 	if (argc != 1)
 		return (1);
 	(void)argv;
+	data.str_prt = NULL;
 	data.env = NULL;
 	data.env = cpy_double_array(data.env, env);
 	data.fd_history = open(".history", O_CREAT | O_APPEND | O_RDWR,  0744);

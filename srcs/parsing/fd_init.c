@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 15:18:21 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/02/12 17:05:02 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/04 11:12:12 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ void	init_fd(int *i, int *start, int *end)
 
 void	init_two(int *i, int *j)
 {
-	*i= 0;
-	*j= 0;
+	*i = 0;
+	*j = 0;
 }

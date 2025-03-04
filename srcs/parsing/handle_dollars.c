@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_dollars.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:16:15 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/03 11:33:43 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/04 10:42:08 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*add_env(char *prompt, int *i, t_str *res, char **all_env)
 	char	*env;
 	char	*temp;
 
-	temp = ft_calloc(*i + 1, sizeof(char));
+	temp = ft_calloc(res->i + 1, sizeof(char));
 	if (!temp)
 		return (NULL);
 	ft_strlcpy(temp, res->str, res->i + 1);

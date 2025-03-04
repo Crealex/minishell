@@ -840,3 +840,219 @@ exit
 |
 exit
 exit
+|
+exit
+exit
+/bin/echo $HOME$USER
+echo "''$USER''"
+echo $USER'$USER'
+echo "'"'$USER'"'"
+echo '"'"'$USER'"'"'
+echo '"$USER"'
+exit
+echo '"$USER"'
+/bin/echo $HOME$USER
+/bin/echo $HOME$USER
+/bin/echo $HOME$USER
+/bin/echo $HOME$USER
+/bin/echo $HOME$USER
+/bin/echo $HOME$USER
+/bin/echo $HOME$USER
+exit
+/bin/echo $HOME$USER
+/bin/echo $HOME$USER
+exit
+/bin/echo $HOME$USER
+exit
+/bin/echo $HOME$USER
+exit
+/bin/echo $HOME$USER
+exit
+/bin/echo $HOME$USER
+exit
+echo $USER
+echo '$USER'
+echo ''$USER''
+echo "''$USER''"
+exit
+/bin/echo $HOME$USER
+exit
+/bin/echo $HOME$USER
+/bin/echo $HOME$USER
+/bin/echo $HOME$USER
+/bin/echo $HOME$USER
+/bin/echo $HOME$USER
+/bin/echo $HOME$USER
+/bin/echo $HOME$NOTHING$USER$
+/bin/echo $HOME$NOTHING$USER$
+/bin/echo $HOME$NOTHING$USER$
+/bin/echo $HOME$NOTHING$USER$
+/bin/echo $HOME$NOTHING$USER$
+/bin/echo $HOME$NOTHING$USER$
+exit
+|
+exit
+exit
+'<<' lim echo 1 >>/dev/null
+'<<' lim echo 1 >>/dev/null
+'<<' lim echo 1 >>/dev/null
+'<<' lim echo 1 >>/dev/null
+'<<' lim echo 1 >>/dev/null
+'<<' lim echo 1 >>/dev/null
+'<<' lim echo 1 >>/dev/null
+'<<' lim echo 1 >>/dev/null
+exit
+'<<' lim echo 1 >>/dev/null
+exit
+'<<' lim echo 1 >>/dev/null
+cat < Makefile 
+exit
+'<<' lim echo 1 >>/dev/null
+exit
+'<<' lim echo 1 >>/dev/null
+exit
+'<<' lim echo 1 >>/dev/null
+exit
+'<<' lim echo 1 >>/dev/null
+exit
+'<<' lim echo 1 >>/dev/null
+exit
+'<<' lim echo 1 <Makefile
+exit
+'<<' lim echo 1 <Makefile
+'<<' lim echo 1 >>/dev/null
+exit
+'<<' lim echo 1 >>/dev/null
+'<<' lim echo 1 >>/dev/null
+exit
+|
+exit
+exit
+cat < bruh
+echo $?
+cat Makefile > out
+echo $?
+cat < Makefile 
+echo $?
+exit
+cat < bruh
+echo $?
+exit
+cat < bruh
+echo $?
+cat Makefile > out
+echo $?
+cat < Makefile 
+echo $?
+exit
+|
+exit
+exit
+< >
+echo $?
+|
+exit
+exit
+<>
+exit
+<>
+echo $?
+< >
+exit
+< >
+< <
+exit
+< <
+<    <
+< >
+<>
+><
+exit
+<>
+exit
+<>
+<  >
+<      >  
+<< end
+<<
+<
+>
+>>
+>> out cat Makefile 
+chmod 0744 out
+>> out cat Makefile 
+> out cat Makefile 
+><
+>   <
+exit
+>   <
+>> out cat Makefile 
+>>
+<<
+<< Makefile cat
+exit
+<< Makefile cat
+exit
+<< end
+< <
+exit
+> >
+><
+>   <
+exit
+<
+<   
+<<  
+<   <
+<  >
+<>
+>
+>>
+>>   
+>   >
+><
+exit
+>
+>>
+>>  
+>  >
+><
+>    <
+exit
+|
+exit
+exit
+ls | cat << stop | ls -la | cat << stop1 | ls | cat << stop2 | ls -la > > out | cat << stop3
+echo $?
+ls | cat << stop | ls -la | cat << stop1 | ls | cat << stop2 | ls -la > > out | cat << stop3
+fe
+wf
+fwe
+f
+stop
+dw
+stop1
+dwasd
+stop2
+cat Makefile | ls > out
+cat out
+/bin/rm -f out
+grep 1 < filedoesnotexist | echo 1 | grep 1 | head -1 | cat | ls
+|
+exit
+exit
+ls | cat << stop | ls -la | cat << stop1 | ls | cat << stop2 | ls -la > > out | cat << stop3
+fe
+wf
+fwe
+f
+stop
+dw
+stop1
+dwasd
+stop2
+cat Makefile | ls > out
+cat out
+/bin/rm -f out
+echo $?
+exit

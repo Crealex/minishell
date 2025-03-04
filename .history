@@ -1056,6 +1056,8 @@ cat out
 /bin/rm -f out
 echo $?
 exit
+/bin/echo $HOME$TESTNOTFOUND
+exit
 |
 exit
 exit

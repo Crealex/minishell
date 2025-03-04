@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/04 13:31:46 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/04 14:07:13 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,39 +24,12 @@ int	is_child(int status)
 	return (bool);
 }
 
-char *get_path(char *cmd)
-{
-	int i;
-	char	*res;
-	char	*cmd_path;
-	char	**path;
-
-	if (access(cmd, X_OK) != -1 && (cmd[0] == '/' || cmd[0] == '.'))
-		return (ft_strdup(cmd));
-	path = get_all_path();
-	i = 0;
-	cmd_path = ft_strjoin("/", cmd);
-	while (path[i])
-	{
-		res = ft_strjoin(path[i], cmd_path);
-		if (access(res, X_OK) != -1)
-			return (freesplit(path), free(cmd_path), res);
-		free(res);
-		i++;
-	}
-	freesplit(path);
-	free(cmd_path);
-	print_err("minishell: ", cmd, ": No such file or directory\n");
-	update_exit_code(127);
-	return (NULL);
-}
-
-int	check_acces_file(char *cmd)
+static int	check_acces_file(char *cmd, int i)
 {
 	char *file;
 	struct stat statt;
 
-	file = ft_substr(cmd, 2, ft_strlen(cmd));
+	file = ft_substr(cmd, i, ft_strlen(cmd));
 	ft_bzero(&statt, sizeof(statt));
 	stat(file, &statt);
 	if (S_ISDIR(statt.st_mode) || ft_strlen(file) == 0)
@@ -77,6 +50,35 @@ int	check_acces_file(char *cmd)
 	print_err("minishell: ", cmd, ": Permission denied\n");
 	update_exit_code(126);
 	return (0);
+}
+
+char *get_path(char *cmd)
+{
+	int i;
+	char	*res;
+	char	*cmd_path;
+	char	**path;
+
+	if (access(cmd, X_OK) != -1 && (cmd[0] == '/' || cmd[0] == '.'))
+	{
+		if (cmd[0] == '/' && !check_acces_file(cmd, 0))
+			return (NULL);
+		else
+			return (ft_strdup(cmd));
+	}
+	path = get_all_path();
+	i = 0;
+	cmd_path = ft_strjoin("/", cmd);
+	while (path[i])
+	{
+		res = ft_strjoin(path[i], cmd_path);
+		if (access(res, X_OK) != -1)
+			return (freesplit(path), free(cmd_path), res);
+		free(res);
+		i++;
+	}
+	print_err("minishell: ", cmd, ": No such file or directory\n");
+	return (freesplit(path), free(cmd_path), update_exit_code(127), NULL);
 }
 
 static void	cleanup_exec(t_prompt_info *data)
@@ -111,7 +113,7 @@ int	extern_exec(t_prompt_info *data)
 
 	if (data->prompt[0] && ((ft_strlen(data->prompt[0]) > 2
 		&& data->prompt[0][0] == '.' && data->prompt[0][1] == '/')))
-			if (!check_acces_file(data->prompt[0]))
+			if (!check_acces_file(data->prompt[0], 2))
 				return (0);
 	path = get_path(data->prompt[0]);
 	if (!path)

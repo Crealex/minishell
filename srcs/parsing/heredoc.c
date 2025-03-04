@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 11:06:39 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/02/26 14:49:56 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/04 13:57:02 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	heredoc(char **str, int i, int *fd, t_prompt_info *data)
 	*fd = read_write(*fd, end_word, data);
 	if (*fd == -1)
 		return (free(end_word), -1);
-	*str = del_rd(*str, len);
+	*str = del_rd(*str, len, &i);
 	if (!(*str))
 		return (free(end_word), -1);
 	return (free(end_word), *fd);

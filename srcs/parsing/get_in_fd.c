@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 11:15:33 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/04 16:34:55 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/04 17:55:55 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,18 +54,41 @@ void	len_file(char *str, int i, int *start, int *end)
 		i++;
 	while (str[i] && ft_isspace(str[i]))
 		i++;
-	update_quote(&quote[0], &quote[1], &i, str);
-	if (quote[0])
-		while (str[i] && str[i] != '\'')
-			i++;
-	else if (quote[1])
-		while (str[i] && str[i] != '\"')
-			i++;
-	else
-		while (str[i] && !ft_isspace(str[i]))
-			i++;
-	update_quote(&quote[0], &quote[1], &i, str);
+	while (str[i])
+	{
+		update_quote(&quote[0], &quote[1], &i, str);
+		if (!quote[0] && !quote[1] && isspace(str[i]))
+			break ;
+		i++;
+	}
 	*end = i;
+}
+
+static char	*filename(char *str, int i)
+{
+	char	*temp;
+	int		quote[2];
+
+	temp = ft_calloc(2, sizeof(char));
+	if (!temp)
+		return (NULL);
+	init_two(&quote[0], &quote[1]);
+	while (str[i])
+	{
+		update_quote(&quote[0], &quote[1], &i, str);
+		if (str[i] && (str[i] == '\'' || str[i] == '\"'))
+			continue ;
+		if (!str[i] || (!quote[0] && !quote[1] && isspace(str[i])))
+			return (temp);
+		else
+		{
+			temp = char_strjoin(temp, str[i]);
+			if (!temp)
+				return (NULL);			
+		}
+		i++;
+	}
+	return (temp);
 }
 
 static int	open_fd(char *str, int fd_arg, int *len)
@@ -81,17 +104,12 @@ static int	open_fd(char *str, int fd_arg, int *len)
 	s = len[0] + 1;
 	while (str[s] && ft_isspace(str[s]))
 		s++;
-	update_quote(&quote[0], &quote[1], &s, str);
-	if (quote[0] || quote[1])
-		str_cut = ft_substr(str, s, len[1] - 1 - s);
-	else
-		str_cut = ft_substr(str, s, len[1] - s);
+	str_cut = filename(str, s);
 	if (!str_cut)
 		return (-1);
-	s = len[1] - 1;
-	update_quote(&quote[0], &quote[1], &s, str);
 	fd = open(str_cut, O_RDONLY);
 	if (fd == -1)
+		print_err("minishell: ", str_cut, ": No such file or directory\n");
 	free(str_cut);
 	return (fd);
 }

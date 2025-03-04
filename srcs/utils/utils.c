@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:55:00 by alexandre         #+#    #+#             */
-/*   Updated: 2025/03/04 16:37:01 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/04 17:49:22 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,4 +182,25 @@ int	only_space(char **prompt)
 		iprompt++;
 	}
 	return (1);
+}
+
+char	*char_strjoin(char *str, char c)
+{
+	int		i;
+	char	*result;
+
+	i = 0;
+	result = malloc((ft_strlen(str) + 2) * sizeof(char));
+	if (result == NULL)
+		return (NULL);
+	while (str && str[i])
+	{
+		result[i] = str[i];
+		i++;
+	}
+	result[i] = c;
+	result[i + 1] = '\0';
+	if (str)
+		free(str);
+	return (result);
 }

@@ -1253,3 +1253,35 @@ exit
 |
 exit
 exit
+grep hi <./test_files/infile
+exit
+grep hi <./test_files/infile
+exit
+grep hi <./test_files/infile
+exit
+|
+exit
+exit
+cat <"1""2""3""4""5"
+exit
+cat <"1""2""3""4""5"
+cat <"1" "2""3""4""5"
+cat < Makefile"1"
+exit
+cat < Makefile"1"
+cat < Makefile 
+exit
+cat < Makefile 
+cat < Makefile"1"
+exit
+cat < Makefile"1"
+cat <"1" "2""3""4""5"
+cat <"1""2""3""4""5"
+exit
+cat <"1""2""3""4""5"
+cat <"1" "2""3""4""5"
+cat <"1"'2'"3""4""5"
+exit
+|
+exit
+exit

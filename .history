@@ -840,3 +840,62 @@ exit
 |
 exit
 exit
+|
+exit
+exit
+|
+exit
+exit
+echo salut '>' ma couille
+exit
+echo "'$USER'"
+echo "'$USER'"
+echo "'$USER'"
+echo "'$USER'"
+echo "'$USER'"
+echo "'$USER'"
+echo "'$USER'"
+echo "'$USER'"
+echo "'$USER'"
+echo "'$USER'"
+echo "'$USER'"
+exit
+echo "'$USER'"
+echo "''"
+echo "'"
+echo '""'
+echo '""'
+exit
+|
+exit
+exit
+echo ""'$USER'""
+echo ""'salut'""
+echo "''salut''"
+exit
+echo "''salut''"
+echo ""'$USER'""
+exit
+echo ""'$USER'""
+exit
+echo ""'$USER'""
+exit
+echo ""'$USER'""
+exit
+echo ""'$USER'""
+echo "salut"
+echo "salut"
+echo ""'$USER'""
+echo "''salut''"
+exit
+|
+exit
+exit
+|
+exit
+exit
+echo $?
+echo "&?"
+echo "$?"
+echo "$?"42
+exit

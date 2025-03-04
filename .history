@@ -905,7 +905,7 @@ exit
 '<<' lim echo 1 >>/dev/null
 exit
 '<<' lim echo 1 >>/dev/null
-cat < Makefile 
+cat < Makefile
 exit
 '<<' lim echo 1 >>/dev/null
 exit
@@ -932,7 +932,7 @@ cat < bruh
 echo $?
 cat Makefile > out
 echo $?
-cat < Makefile 
+cat < Makefile
 echo $?
 exit
 cat < bruh
@@ -942,7 +942,7 @@ cat < bruh
 echo $?
 cat Makefile > out
 echo $?
-cat < Makefile 
+cat < Makefile
 echo $?
 exit
 |
@@ -972,21 +972,21 @@ exit
 exit
 <>
 <  >
-<      >  
+<      >
 << end
 <<
 <
 >
 >>
->> out cat Makefile 
+>> out cat Makefile
 chmod 0744 out
->> out cat Makefile 
-> out cat Makefile 
+>> out cat Makefile
+> out cat Makefile
 ><
 >   <
 exit
 >   <
->> out cat Makefile 
+>> out cat Makefile
 >>
 <<
 << Makefile cat
@@ -1001,20 +1001,20 @@ exit
 >   <
 exit
 <
-<   
-<<  
+<
+<<
 <   <
 <  >
 <>
 >
 >>
->>   
+>>
 >   >
 ><
 exit
 >
 >>
->>  
+>>
 >  >
 ><
 >    <
@@ -1061,93 +1061,122 @@ exit
 |
 exit
 exit
-cat << lim
- "lim"
-HELLO
-42
- lim
-testing your minishell
-limm
-lim
-echo $?
-./1_redirs.sh 
-cat << lim
-echo $?
-cat << lim
+|
 exit
-cat << lim
-exit
-cat << lim
-exit
-cat << lim
-exit
-cat << lim
-exit
-cat << lim
-exit
-cat << lim
-exit
-cat << lim
-exit
-cat << lim
-exit
-cat << lim
-exit
-cat << lim
-cat << lim
-exit
-cat << lim
 exit
 |
 exit
 exit
-cat << lim
- "lim"
-HELLO
-42
- lim
-testing your minishell
-limm
-lim
-cat << lim
-cat << lim
- "lim"
-HELLO
-42
- lim
-testing your minishell
-limm
-lim
-echo hi >>./outfiles/outfile01 | echo bye
+cat <"./test_files/infile"
+cat < "Makefile"
 exit
-echo hi >>./outfiles/outfile01 | echo bye
+cat < "Makefile"
 exit
-echo hi >>./outfiles/outfile01 | echo bye
+cat < "Makefile"
 exit
-cat <Makefile 
-cat < Makefile 
-cat < Makefile 
-cat < Makefile 
-cat < Makefile 
-cat < Makefile 
-cat < Makefile 
-cat < Makefile 
-cat < Makefile 
-cat < Makefile 
-cat < Makefile 
-cat < Makefile 
-cat < Makefile 
-echo
-echo
-echo
-echo
-cat < Makefile 
+cat < "Makefile"
+exit
+cat < "Makefile"
 exit
 exit
-cat < Makefile 
-cat < Makefile | cat
-cat < djehd | echo hi
 exit
-cat < Makefile | cat
-cat < djehd | echo hi
+cat < "Makefile"
+exit
+cat < "Makefile"
+exit
+exit
+cat < "Makefile"
+cat < Makefile
+exit
+cat < Makefile
+exit
+cat < Makefile
+cat < "Makefile"
+exit
+cat < "Makefile"
+exit
+cat < "Makefile"
+exit
+cat < "Makefile"
+exit
+cat < "Makefile"
+exit
+cat < "Makefile"
+exit
+cat < "Makefile"
+exit
+cat < "Makefile"
+exit
+cat < "Makefile"
+exit
+exit
+cat < "Makefile"
+exit
+cat < "Makefile"
+exit
+cat < "Makefile"
+exit
+cat < "Makefile"
+exit
+cat < "Makefile"
+exit
+cat < "Makefile"
+exit
+cat < "Makefile"
+cat < Makefile
+exit
+|
+exit
+exit
+|
+exit
+exit
+mkdir tmp_path_test1 tmp_path_test2
+printf '#include <unistd.h>\nint main(){write(1, \"1\\n\", 2);}' > tmp_path_test1/test1.c
+gcc tmp_path_test1/test1.c -o tmp_path_test1/a.out
+printf '#include <unistd.h>\nint main(){write(1, \"2\\n\", 2);}' > tmp_path_test2/test2.c
+gcc tmp_path_test2/test2.c -o tmp_path_test2/a.out
+export PATH=tmp_path_test1:tmp_path_test2
+a.out
+export PATH=tmp_path_test2:tmp_path_test1
+a.out
+/bin/rm -rf tmp_path_test1 tmp_path_test2
+mkdir tmp_path_test1 tmp_path_test2
+printf '#include <unistd.h>\nint main(){write(1, \"1\\n\", 2);}' > tmp_path_test1/test1.c
+gcc tmp_path_test1/test1.c -o tmp_path_test1/a.out
+printf '#include <unistd.h>\nint main(){write(1, \"2\\n\", 2);}' > tmp_path_test2/test2.c
+gcc tmp_path_test2/test2.c -o tmp_path_test2/a.out
+export PATH=tmp_path_test1:tmp_path_test2
+a.out
+export PATH=tmp_path_test2:tmp_path_test1
+a.out
+/bin/rm -rf tmp_path_test1 tmp_path_test2
+mkdir tmp_path_test1 tmp_path_test2
+printf '#include <unistd.h>\nint main(){write(1, \"1\\n\", 2);}' > tmp_path_test1/test1.c
+gcc tmp_path_test2/test2.c -o tmp_path_test2/a.out
+gcc tmp_path_test2/test2.c -o tmp_path_test2/a.out
+cc tmp_path_test2/test2.c -o tmp_path_test2/a.out
+gcc tmp_path_test2/test2.c -o tmp_path_test2/a.out
+cd tmp_path_test2/
+gcc tmp_path_test1/test1.c -o tmp_path_test1/a.out
+cc tmp_path_test1/test1.c -o tmp_path_test1/a.out
+ls
+pwd
+cd ..
+gcc tmp_path_test1/test1.c -o tmp_path_test1/a.out
+cc tmp_path_test1/test1.c -o tmp_path_test1/a.out
+cd tmp_path_test1/
+ls
+cc test1.c -o a.out
+cd ..
+/bin/rm -rf tmp_path_test1 tmp_path_test2
+rm \'
+rm '
+cat lol.c 
+cc lol.c -o lol
+exit
+./lol
+exit
+|
+exit
 exit

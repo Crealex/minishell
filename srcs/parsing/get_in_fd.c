@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 11:15:33 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/04 14:00:27 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/04 16:34:55 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,23 +45,27 @@
 
 void	len_file(char *str, int i, int *start, int *end)
 {
+	int	quote[2];
+
+	init_two(&quote[0], &quote[1]);
 	*start = i;
 	i++;
 	if (str[i] == '<')
 		i++;
 	while (str[i] && ft_isspace(str[i]))
 		i++;
-	while (str[i] && !ft_isspace(str[i]))
-		i++;
+	update_quote(&quote[0], &quote[1], &i, str);
+	if (quote[0])
+		while (str[i] && str[i] != '\'')
+			i++;
+	else if (quote[1])
+		while (str[i] && str[i] != '\"')
+			i++;
+	else
+		while (str[i] && !ft_isspace(str[i]))
+			i++;
+	update_quote(&quote[0], &quote[1], &i, str);
 	*end = i;
-	// }
-	// else
-	// {
-	// 	*end = is_cmd(str, i, "<");
-	// 	while (!str[*end] || ft_isspace(str[*end]))
-	// 		(*end)--;
-	// 	(*end)++;
-	// }
 }
 
 static int	open_fd(char *str, int fd_arg, int *len)
@@ -69,16 +73,25 @@ static int	open_fd(char *str, int fd_arg, int *len)
 	int		fd;
 	char	*str_cut;
 	int		s;
+	int		quote[2];
 
+	init_two(&quote[0], &quote[1]);
 	if (fd_arg > 2)
 		close(fd_arg);
 	s = len[0] + 1;
 	while (str[s] && ft_isspace(str[s]))
 		s++;
-	str_cut = ft_substr(str, s, len[1] - s);
+	update_quote(&quote[0], &quote[1], &s, str);
+	if (quote[0] || quote[1])
+		str_cut = ft_substr(str, s, len[1] - 1 - s);
+	else
+		str_cut = ft_substr(str, s, len[1] - s);
+	if (!str_cut)
+		return (-1);
+	s = len[1] - 1;
+	update_quote(&quote[0], &quote[1], &s, str);
 	fd = open(str_cut, O_RDONLY);
 	if (fd == -1)
-		print_err("minishell: ", str_cut, ": No such file or directory\n");
 	free(str_cut);
 	return (fd);
 }

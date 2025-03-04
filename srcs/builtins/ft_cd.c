@@ -6,27 +6,13 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:11:07 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/28 10:31:45 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/04 17:39:53 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 #include <string.h>
 #include <unistd.h>
-
-static int goto_home(char **env)
-{
-	char *path;
-	char *user;
-
-	user = ft_getenv("USER", env);
-	path = ft_strjoin("/home/", user);
-	if (!path)
-		return (0);
-	chdir(path);
-	free(path);
-	return (1);
-}
 
 static void	update_env(char ***env)
 {
@@ -47,6 +33,32 @@ static void	update_env(char ***env)
 	free(new_pwd);
 }
 
+static int	goto_last_path(char ***env)
+{
+	char *path;
+	path = ft_getenv("OLDPWD", *env);
+	if (!path)
+		return (0);
+	chdir(path);
+	//update_env(env);
+	return (1);
+}
+
+static int goto_home(char ***env)
+{
+	char *path;
+	char *user;
+
+	user = ft_getenv("USER", *env);
+	path = ft_strjoin("/home/", user);
+	if (!path)
+		return (0);
+	chdir(path);
+	free(path);
+	//update_env(env);
+	return (1);
+}
+
 void	ft_cd(char **prompt, char ***env)
 {
 	if (prompt[1] && prompt[2])
@@ -57,19 +69,21 @@ void	ft_cd(char **prompt, char ***env)
 	}
 	if (!prompt[1])
 	{
-		chdir("/home");
+		goto_home(env);
 		update_env(env);
 		update_exit_code(0);
 		return ;
 	}
-	prompt[1] = rm_quote(prompt[1]);
-	if (chdir(prompt[1]) == -1 && strncmp(prompt[1], "~", 2) != 0)
+	if (strncmp(prompt[1], "~", 2) == 0)
+		goto_home(env);
+	else if (strncmp(prompt[1], "-", 2) == 0)
+		goto_last_path(env);
+	else if (chdir(prompt[1]) == -1)
 	{
 		print_err("minishell: cd: ", prompt[1],
 			": No such file or directory\n");
+		update_exit_code(1);
 	}
-	else if (strncmp(prompt[1], "~", 2) == 0)
-		goto_home(*env);
 	else
 		update_env(env);
 }

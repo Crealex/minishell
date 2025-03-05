@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_builtins.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 13:25:02 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/04 17:34:25 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/05 16:22:13 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	is_builtin(char *cmd)
 	if (!cmd)
 		return (0);
 	if (!ft_strncmp(cmd, "pwd", 3) || !ft_strncmp(cmd, "export", 6)
-		|| !ft_strncmp(cmd, "unset", 5) || !ft_strncmp(cmd, "exit", 4))
+		|| !ft_strncmp(cmd, "unset", 5))
 		return (1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 16:08:33 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/05 11:51:50 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/05 14:32:10 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,10 @@ static int	open_fd(char *str, int fd_arg, int *len, int is_double)
 	else
 		fd = open(str_cut, O_WRONLY | O_CREAT | O_APPEND, 0744);
 	if (fd == -1)
-		print_err("minishell: ", str_cut, ": No such file or directory\n");
+	{
+		print_err("minishell: ", NULL, NULL);
+		perror(str_cut);
+	}
 	free(str_cut);
 	return (fd);
 }

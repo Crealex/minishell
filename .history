@@ -1496,3 +1496,94 @@ exit
 exit
 cat >./test_files/invalid_permission <"./test_files/infile"
 exit
+|
+exit
+exit
+ls
+echo salut
+< Makefile cat
+exit
+< Makefile cat
+exit
+< Makefile cat
+exit
+< Makefile cat
+exit
+< Makefile cat
+exit
+< Makefile cat
+exit
+< Makefile cat
+exit
+< Makefile cat
+exit
+< Makefile cat
+make
+< Makefile cat
+exit
+< Makefile cat
+exit
+< Makefile cat
+exit
+< Makefile cat
+<< end cat
+exit
+< Makefile 
+< Makefile cat
+cat < Makefile 
+<< end wc -l
+>> out echo salut
+cat < out
+> out echo je ne sais pas quoi ecrire
+cat < out
+cat >./test_files/invalid_permission <"./test_files/infile"
+<
+>
+<<
+>>
+<<  
+>>   
+< jdash cat
+chmod 0000 out
+> out cat
+exit
+< out cat
+< duyasgu cat
+exit
+> out cat
+chmod 0744 out
+> out cat
+exit
+< Makefile cat
+cat < Makefile 
+<
+<<
+<<   
+<  <
+< dsagd cat
+>> 
+> >
+>> out echo bruh
+cat out
+exit
+>> out echo bruh
+cat out
+< dsagd cat
+<  <
+<<   
+<
+< dhasgd
+<>
+><
+<   >
+>   <
+exit
+|
+exit
+exit
+>
+echo $?
+exit
+|
+exit
+exit

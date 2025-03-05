@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 12:08:37 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/05 10:55:08 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/05 11:16:30 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ char *expansion(char *str, t_prompt_info *data)
 		if (str[i] == '$' && !quote[0])
 			res.str = add_env(str, &i, &res, data->env);
 		//printf("str[i] : %c, i : %d, tested : %d\n", str[i], i, tested);
-		if (str[i] && (str[i] != '$' || quote[0]))
+		if (str[i] && (str[i] != '$' || quote[0]) && !(str[i] == '\'' && !quote[1]))
 		{
 			res.str[res.i++] = str[i++];
 		}

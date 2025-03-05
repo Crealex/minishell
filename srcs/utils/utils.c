@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:55:00 by alexandre         #+#    #+#             */
-/*   Updated: 2025/03/04 17:49:22 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/05 15:52:22 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,8 @@ void	cleanup(t_prompt_info *data, int redirect)
 		freesplit(data->pipe);
 	if (data->str_prt)
 		free(data->str_prt);
+	// if (data->prt_raw)
+	// 	free(data->prt_raw);
 	while (i < data->pipe_len)
 	{
 		if (data->fd_in[i] > 2)

@@ -1448,3 +1448,144 @@ exit
 |
 exit
 exit
+echo $USER'$USER'
+exit
+echo $USER'$USER'
+|
+exit
+exit
+echo test1              test2
+echo test1              test2
+echo test1              test2
+echo -n " test1 test2 " 'test3 '
+echo test1\ttest2
+echo test		test
+exit
+echo test		test
+echo -n " test1 test2 " 'test3 '
+|
+exit
+exit
+echo "-n test"
+echo '-n test'
+|
+exit
+exit
+echo " test"
+echo -n " test"
+echo -n "               test"
+echo "               test"
+echo "               test               "
+echo -n "               test               "
+exit
+echo -n "               test               "
+exit
+echo -n "               test               "
+echo -n "               test               "
+echo -n "               test               "
+exit
+echo -n "               test               "
+exit
+echo -n "               test               "
+exit
+echo -n "               test               "
+exit
+echo -n "               test               "
+exit
+echo -n " test"
+xit
+exit
+|
+exit
+exit
+echo ---------------------n
+exit
+exit
+echo -n " test"
+echo "-n" salut
+exit
+echo "-n" salut
+echo -n " test"
+echo -n  test
+exit
+echo -n  test
+exit
+echo -n  test
+exit
+echo -n test
+echo -n "test"
+echo "-n "test
+echo -n test
+cd .. | echo "42"
+echo 42
+echo "42"
+pwd | echo "42"
+exit
+echo -n test
+echo "-n "test
+exit
+|
+exit
+exit
+echo "-n "test
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+sal
+klbveba
+ls
+|
+exit
+exit
+ls
+ls
+ls
+ls
+ls
+ls
+exit
+ls
+ls
+|
+exit
+exit
+echo -n
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+echo $USER'$USER'text oui oui     oui  oui $USER oui      $USER ''
+|
+exit
+exit
+exit

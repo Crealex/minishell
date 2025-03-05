@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   extern.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/04 14:57:32 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/05 15:51:53 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ static void	cleanup_exec(t_prompt_info *data)
 		freesplit(data->pipe);
 	if (data->str_prt)
 		free(data->str_prt);
+	// if (data->prt_raw)
+	// 	free(data->prt_raw);
 	while (i < data->pipe_len)
 	{
 		if (data->fd_in[i] > 2)

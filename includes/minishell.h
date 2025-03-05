@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/04 17:46:18 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/05 16:25:59 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct	s_prompt_info
 	int		pipe_len;
 	int		*redirection;
 	char	*str_prt;
+	// char	*prt_raw;
 	char 	**pipe;
 	char	**prompt;
 	char	**env;

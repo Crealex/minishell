@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:55:00 by alexandre         #+#    #+#             */
-/*   Updated: 2025/03/04 17:49:22 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/05 11:38:19 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,7 +190,10 @@ char	*char_strjoin(char *str, char c)
 	char	*result;
 
 	i = 0;
-	result = malloc((ft_strlen(str) + 2) * sizeof(char));
+	if (!str)
+		result = ft_calloc(2, sizeof(char));
+	else
+		result = ft_calloc((ft_strlen(str) + 2), sizeof(char));
 	if (result == NULL)
 		return (NULL);
 	while (str && str[i])

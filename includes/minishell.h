@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/04 17:46:18 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/05 11:48:28 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,13 +98,14 @@ int		in_redirect(char **str);
 void	init_fd(int *i, int *start, int *end);
 void	init_two(int *i, int *j);
 void	len_file(char *str, int i, int *start, int *end);
+char	*filename(char *str, int i);
 char	*del_rd(char *str, int *len, int *index);
 int		heredoc(char **str, int i, int *fd, t_prompt_info *data);
 char	*parse_heredoc(char *line, t_prompt_info *data);
 int		is_cmd(char *str, int i, char *s);
 int		get_in_fd(char **str, int fd, t_prompt_info *data);
 int		out_redirect(char **str);
-int		get_out_fd(char **str, int fd);
+int		get_out_fd(char **str, int fd, t_prompt_info *data);
 int		redirection(t_prompt_info *data, char **str, int i);
 int		check_builtins(char **prompt);
 int		is_pipe(char **str);

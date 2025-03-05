@@ -1448,3 +1448,51 @@ exit
 |
 exit
 exit
+|
+exit
+exit
+echo <"./test_files/infile_big" | cat <"./test_files/infile"
+cat <missing | cat <"./test_files/infile"
+ls >"./outfiles/outfile with spaces"
+exit
+ls >"./outfiles/outfile with spaces"
+exit
+|
+exit
+exit
+>> "$USER'$USER'"
+cat "$USER'$USER'"
+/bin/rm -f "$USER'$USER'"
+>> out
+>> out echo salut
+exit
+>> out echo salut
+>> "$USER'$USER'" cat "$USER'$USER'"
+>> "$USER'$USER'"
+>> "$USER'$USER'"
+>> "$USER'$USER'"
+>> "$USER'$USER'"
+>> "$USER'$USER'"
+>> "$USER'$USER'"
+>> "$USER'$USER'"
+>> "$USER'$USER'"
+>> "$USER'$USER'"
+echo "$USER'$USER'"
+cat "$USER'$USER'"
+/bin/rm -f "$USER'$USER'"
+/bin/rm -f "$USER'$USER'"
+exit
+>> "$USER'$USER'"
+cat "$USER'$USER'"
+echo salut > "$USER'$USER'" 
+cat "$USER'$USER'"
+/bin/rm -f "$USER'$USER'"
+exit
+|
+exit
+exit
+|
+exit
+exit
+cat >./test_files/invalid_permission <"./test_files/infile"
+exit

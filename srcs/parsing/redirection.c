@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:02:55 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/04 11:24:31 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/05 11:48:36 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	redirection(t_prompt_info *data, char **str, int i)
 		return (0);
 	else
 	{
-		data->fd_out[i] = get_out_fd(str, data->fd_out[i]);
+		data->fd_out[i] = get_out_fd(str, data->fd_out[i], data);
 		if (data->fd_out[i] == -1)
 			return (update_exit_code(1), 0);
 	}

@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 11:15:33 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/04 17:55:55 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/05 11:51:40 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,19 +64,18 @@ void	len_file(char *str, int i, int *start, int *end)
 	*end = i;
 }
 
-static char	*filename(char *str, int i)
+char	*filename(char *str, int i)
 {
 	char	*temp;
 	int		quote[2];
 
-	temp = ft_calloc(2, sizeof(char));
-	if (!temp)
-		return (NULL);
+	temp = NULL;
 	init_two(&quote[0], &quote[1]);
 	while (str[i])
 	{
 		update_quote(&quote[0], &quote[1], &i, str);
-		if (str[i] && (str[i] == '\'' || str[i] == '\"'))
+		if (str[i] && (str[i] == '\'' || str[i] == '\"') && i > 0
+			&& (str[i - 1] == '\'' || str[i - 1] == '\"'))
 			continue ;
 		if (!str[i] || (!quote[0] && !quote[1] && isspace(str[i])))
 			return (temp);
@@ -150,6 +149,7 @@ int	get_in_fd(char **str, int fd, t_prompt_info *data)
 
 	init_fd(&i, &len[0], &len[1]);
 	init_two(&quote[0], &quote[1]);
+	*str = expansion(*str, data);
 	while ((*str)[i])
 	{
 		update_quote(&quote[0], &quote[1], &i, *str);

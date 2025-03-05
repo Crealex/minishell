@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 16:08:33 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/04 16:36:55 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/05 11:51:50 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,23 @@
 
 static void	len_file_out(char *str, int i, int *start, int *end)
 {
+	int	quote[2];
+
+	init_two(&quote[0], &quote[1]);
 	*start = i;
 	i++;
 	if (str[i] == '>')
 		i++;
-	// if (!strncmp(str, "echo", 4) || !ft_strncmp(str, "/bin/echo", 9))
-	// {
-		while (str[i] && ft_isspace(str[i]))
-			i++;
-		while (str[i] && !ft_isspace(str[i]))
-			i++;
-		*end = i;
-	// }
-	// else
-	// {
-	// 	*end = is_cmd(str, i, ">");
-	// 	while (!str[*end] || ft_isspace(str[*end]))
-	// 		(*end)--;
-	// 	(*end)++;
-	// }
+	while (str[i] && ft_isspace(str[i]))
+		i++;
+	while (str[i])
+	{
+		update_quote(&quote[0], &quote[1], &i, str);
+		if (!quote[0] && !quote[1] && isspace(str[i]))
+			break ;
+		i++;
+	}
+	*end = i;
 }
 
 static void	is_double(char c, int *isdouble)
@@ -56,7 +54,7 @@ static int	open_fd(char *str, int fd_arg, int *len, int is_double)
 		s++;
 	while (str[s] && ft_isspace(str[s]))
 		s++;
-	str_cut = ft_substr(str, s, len[1] - s);
+	str_cut = filename(str, s);
 	if (!str_cut)
 		return (-1);
 	if (!is_double)
@@ -69,7 +67,7 @@ static int	open_fd(char *str, int fd_arg, int *len, int is_double)
 	return (fd);
 }
 
-int	get_out_fd(char **str, int fd)
+int	get_out_fd(char **str, int fd, t_prompt_info *data)
 {
 	int		i;
 	int		inquote[2];
@@ -78,6 +76,7 @@ int	get_out_fd(char **str, int fd)
 
 	init_fd(&i, &len[0], &len[1]);
 	init_fd(&inquote[0], &inquote[1], &isdouble);
+	*str = expansion(*str, data);
 	while ((*str)[i])
 	{
 		update_quote(&inquote[0], &inquote[1], &i, *str);

@@ -1171,7 +1171,7 @@ $A
 "echo assavb"
 exit
 "echo assavb"
-                          
+
 "                                         "
 exit
 |
@@ -1484,7 +1484,7 @@ cat "$USER'$USER'"
 exit
 >> "$USER'$USER'"
 cat "$USER'$USER'"
-echo salut > "$USER'$USER'" 
+echo salut > "$USER'$USER'"
 cat "$USER'$USER'"
 /bin/rm -f "$USER'$USER'"
 exit
@@ -1528,9 +1528,9 @@ exit
 < Makefile cat
 << end cat
 exit
-< Makefile 
+< Makefile
 < Makefile cat
-cat < Makefile 
+cat < Makefile
 << end wc -l
 >> out echo salut
 cat < out
@@ -1541,8 +1541,8 @@ cat >./test_files/invalid_permission <"./test_files/infile"
 >
 <<
 >>
-<<  
->>   
+<<
+>>
 < jdash cat
 chmod 0000 out
 > out cat
@@ -1555,13 +1555,13 @@ chmod 0744 out
 > out cat
 exit
 < Makefile cat
-cat < Makefile 
+cat < Makefile
 <
 <<
-<<   
+<<
 <  <
 < dsagd cat
->> 
+>>
 > >
 >> out echo bruh
 cat out
@@ -1570,7 +1570,7 @@ exit
 cat out
 < dsagd cat
 <  <
-<<   
+<<
 <
 < dhasgd
 <>

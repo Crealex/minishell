@@ -6,42 +6,41 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:42:41 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/04 14:29:38 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/05 16:25:17 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-// static int	nb_space(char *str)
+// static int check_flag(t_prompt_info *data)
 // {
-// 	int i;
+// 	int	i;
+// 	int	quote[2];
 
 // 	i = 0;
-// 	while (str[i] && str[i] == ' ')
+// 	quote[0] = 0;
+// 	quote[1] = 0;
+// 	while (data->prt_raw[i])
 // 	{
-// 		if (str[i + 1] && str[i] == 'e' && str[i + 1] == 'c')
-// 		{
-// 			i += 2;
-// 			if (str[i] && str[i + i] && str[i] == 'h' && str[i + 1] == 'o')
-// 			{
-// 				i += 2;
-// 				while (str[i] && str[i] == ' ')
-// 					i++;
-// 				return (i);
-// 			}
-// 		}
+// 		while ((data->prt_raw[i] == '\'' && !quote[1]) || (data->prt_raw[i] == '\"' && !quote[0]))
+// 			if (!update_quote(&quote[0], &quote[1], &i, data->prt_raw))
+// 				break ;
+// 		if (data->prt_raw[i] && data->prt_raw[i + 1] &&  data->prt_raw[i] == '-'
+// 			&& data->prt_raw[i + 1] == 'n' && !quote[0] && !quote[1])
+// 			return (1);
 // 		i++;
 // 	}
-// 	return (5);
+// 	return (0);
 // }
 
-static int	handle_flags(char *prompt)
+static int	handle_flags(char *prompt, t_prompt_info *data)
 {
 	int	i;
 	int	countn;
 
 	i = 0;
 	countn = 0;
+	(void)data;
 	while (prompt[i] && (prompt[i] == '-' || prompt[i] == ' '
 			|| prompt[i] == 'n'))
 	{
@@ -56,6 +55,8 @@ static int	handle_flags(char *prompt)
 		i++;
 		if (prompt[i] == ' ' || !prompt[i])
 			countn = i + 1;
+		if ((prompt[i] && prompt[i + 1]) && (prompt[i] == ' ' && prompt[i + 1] == ' '))
+			return (countn);
 	}
 	return (countn);
 }
@@ -75,7 +76,7 @@ void	ft_echo(char *str, t_prompt_info *data)
 		return ;
 	if (prompt[0] == '-')
 	{
-		n = handle_flags(prompt);
+		n = handle_flags(prompt, data);
 		res = ft_substr(prompt, n, ft_strlen(prompt));
 		if (!res)
 			return ;

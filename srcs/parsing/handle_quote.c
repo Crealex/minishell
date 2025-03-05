@@ -6,14 +6,14 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 20:20:51 by alexandre         #+#    #+#             */
-/*   Updated: 2025/03/04 16:34:58 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/05 11:37:47 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 #include <unistd.h>
 
-static char *rm_too_space(char *str)
+static char *rm_too_char(char *str, char c)
 {
 	char	*res;
 	char	**darray;
@@ -21,7 +21,7 @@ static char *rm_too_space(char *str)
 	int i;
 
 	i = 1;
-	darray = split_wquote(str, ' ');
+	darray = split_wquote(str, c);
 	temp = ft_strdup(darray[0]);
 	if (!darray || !darray[0] || !temp)
 		return (NULL);
@@ -90,7 +90,8 @@ int	handle_quote(t_prompt_info *data)
 		}
 		i++;
 	}
-	data->str_prt = rm_too_space(data->str_prt);
+	data->str_prt = rm_too_char(data->str_prt, ' ');
+	data->str_prt = rm_too_char(data->str_prt, '	');
 	data->str_prt = rm_all_quote(data->str_prt);
 	if (!data->str_prt)
 		return (0);

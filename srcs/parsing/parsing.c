@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/05 16:17:54 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/05 16:36:07 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,8 @@ static int	redirect_nopipe(t_prompt_info *data)
 	data->redirection[0] = redirection(data, &data->str_prt, 0);
 	if (data->redirection[0] == 0)
 		return (0);
-	else if (data->redirection[0] == 2)
-	{
+	else
 		make_redirect(data);
-	}
 	return (1);
 }
 

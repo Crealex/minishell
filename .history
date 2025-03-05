@@ -1171,7 +1171,7 @@ $A
 "echo assavb"
 exit
 "echo assavb"
-                          
+
 "                                         "
 exit
 |
@@ -1448,88 +1448,45 @@ exit
 |
 exit
 exit
-echo $USER'$USER'
-exit
-echo $USER'$USER'
 |
 exit
 exit
-echo test1              test2
-echo test1              test2
-echo test1              test2
-echo -n " test1 test2 " 'test3 '
-echo test1\ttest2
-echo test		test
+echo <"./test_files/infile_big" | cat <"./test_files/infile"
+cat <missing | cat <"./test_files/infile"
+ls >"./outfiles/outfile with spaces"
 exit
-echo test		test
-echo -n " test1 test2 " 'test3 '
-|
-exit
-exit
-echo "-n test"
-echo '-n test'
-|
-exit
-exit
-echo " test"
-echo -n " test"
-echo -n "               test"
-echo "               test"
-echo "               test               "
-echo -n "               test               "
-exit
-echo -n "               test               "
-exit
-echo -n "               test               "
-echo -n "               test               "
-echo -n "               test               "
-exit
-echo -n "               test               "
-exit
-echo -n "               test               "
-exit
-echo -n "               test               "
-exit
-echo -n "               test               "
-exit
-echo -n " test"
-xit
+ls >"./outfiles/outfile with spaces"
 exit
 |
 exit
 exit
-echo ---------------------n
+>> "$USER'$USER'"
+cat "$USER'$USER'"
+/bin/rm -f "$USER'$USER'"
+>> out
+>> out echo salut
 exit
+>> out echo salut
+>> "$USER'$USER'" cat "$USER'$USER'"
+>> "$USER'$USER'"
+>> "$USER'$USER'"
+>> "$USER'$USER'"
+>> "$USER'$USER'"
+>> "$USER'$USER'"
+>> "$USER'$USER'"
+>> "$USER'$USER'"
+>> "$USER'$USER'"
+>> "$USER'$USER'"
+echo "$USER'$USER'"
+cat "$USER'$USER'"
+/bin/rm -f "$USER'$USER'"
+/bin/rm -f "$USER'$USER'"
 exit
-echo -n " test"
-echo "-n" salut
-exit
-echo "-n" salut
-echo -n " test"
-echo -n  test
-exit
-echo -n  test
-exit
-echo -n  test
-exit
-echo -n test
-echo -n "test"
-echo "-n "test
-echo -n test
-cd .. | echo "42"
-echo 42
-echo "42"
-pwd | echo "42"
-exit
-echo -n test
-echo "-n "test
-exit
-|
-exit
-exit
-echo "-n "test
-|
-exit
+>> "$USER'$USER'"
+cat "$USER'$USER'"
+echo salut > "$USER'$USER'"
+cat "$USER'$USER'"
+/bin/rm -f "$USER'$USER'"
 exit
 |
 exit
@@ -1537,55 +1494,96 @@ exit
 |
 exit
 exit
-sal
-klbveba
-ls
+cat >./test_files/invalid_permission <"./test_files/infile"
+exit
 |
 exit
 exit
 ls
-ls
-ls
-ls
-ls
-ls
+echo salut
+< Makefile cat
 exit
-ls
-ls
+< Makefile cat
+exit
+< Makefile cat
+exit
+< Makefile cat
+exit
+< Makefile cat
+exit
+< Makefile cat
+exit
+< Makefile cat
+exit
+< Makefile cat
+exit
+< Makefile cat
+make
+< Makefile cat
+exit
+< Makefile cat
+exit
+< Makefile cat
+exit
+< Makefile cat
+<< end cat
+exit
+< Makefile
+< Makefile cat
+cat < Makefile
+<< end wc -l
+>> out echo salut
+cat < out
+> out echo je ne sais pas quoi ecrire
+cat < out
+cat >./test_files/invalid_permission <"./test_files/infile"
+<
+>
+<<
+>>
+<<
+>>
+< jdash cat
+chmod 0000 out
+> out cat
+exit
+< out cat
+< duyasgu cat
+exit
+> out cat
+chmod 0744 out
+> out cat
+exit
+< Makefile cat
+cat < Makefile
+<
+<<
+<<
+<  <
+< dsagd cat
+>>
+> >
+>> out echo bruh
+cat out
+exit
+>> out echo bruh
+cat out
+< dsagd cat
+<  <
+<<
+<
+< dhasgd
+<>
+><
+<   >
+>   <
+exit
 |
 exit
 exit
-echo -n
-|
-exit
-exit
-|
-exit
+>
+echo $?
 exit
 |
-exit
-exit
-|
-exit
-exit
-|
-exit
-exit
-exit
-|
-exit
-exit
-|
-exit
-exit
-|
-exit
-exit
-|
-exit
-exit
-echo $USER'$USER'text oui oui     oui  oui $USER oui      $USER ''
-|
-exit
 exit
 exit

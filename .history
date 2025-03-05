@@ -1335,3 +1335,116 @@ exit
 exit
 exit
 exit
+|
+exit
+exit
+make
+exit
+cd -
+cd -
+cd -
+cd -
+cd -
+cd -
+cd ../../
+cd -
+cd -
+exit
+cd ../../
+cd -
+cd -
+cd
+cd ../../
+cd -
+cd -
+exit
+|
+exit
+exit
+cd caca
+exit
+cd caca
+cd Makefile
+exit
+|
+exit
+exit
+echo '$USER'
+echo '''$USER'''
+echo ''$?''"42"
+echo ''$USER''
+echo ""'$USER'""
+echo ''"salut"''
+exit
+echo ""'$USER'""
+echo ""'$USER'""
+echo ""'$USER'""
+exit
+echo ""'$USER'""
+exit
+echo ""'$USER'""
+echo ""'$USER'""
+echo ""'$USER'""
+echo ""'$USER'""
+echo ""'$USER'""
+exit
+echo ""'$USER'""
+echo ""'$USER'""
+echo ""'$USER'""
+echo ""'$USER'""
+echo ""$USER""
+echo ""''$USER''""
+exit
+|
+exit
+exit
+echo "'"'$USER'"'"
+exit
+echo "'"'$USER'"'"
+echo ''$USER''
+exit
+echo ''$USER''
+exit
+echo ''$USER''
+echo "'"'$USER'"'"
+exit
+echo "'"'$USER'"'"
+exit
+echo "'"'$USER'"'"
+exit
+echo "'"'$USER'"'"
+exit
+cat | cat | ls
+exit
+echo "'"'$USER'"'"
+exit
+echo "'"'$USER'"'"
+exit
+echo "'"'$USER'"'"
+echo ""$USER
+echo ''$USER
+echo '$USER'
+echo '''$USER'''
+echo ''$USER''
+exit
+echo ''$USER''
+echo "'"'$USER'"'"
+echo "'"'$USER'"'"
+exit
+echo "'"'$USER'"'"
+echo ''$USER''
+exit
+echo ''$USER''
+echo "'"'$USER'"'"
+echo '''$USER'''
+echo '"'$USER'"'
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit

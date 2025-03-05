@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 12:08:37 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/04 13:28:03 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/05 10:55:08 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,7 @@ static int	exist_closing(char *prompt, char c, int i)
 	}
 	else if (in_quote == 0)
 	{
-		if (prompt[i + 1] && prompt[i + 1] == c)
-		{
-			in_quote = 0;
-			return (3);
-		}
-		while (prompt[+i])
+		while (prompt[i])
 		{
 			i++;
 			if (prompt[i] == c)
@@ -82,27 +77,32 @@ char *expansion(char *str, t_prompt_info *data)
 	int		i;
 	int		quote[2];
 	t_str	res;
-	int tested;
+	//int tested;
 
 	i = 0;
 	quote[0] = 0;
 	quote[1] = 0;
 	res.i = 0;
-	tested = 1;
+	//tested = 1;
 	res.str = ft_calloc((ft_strlen(str) + 1), sizeof(char));
 	if (!res.str)
 		return (NULL);
 	while (str[i])
 	{
-		if ((str[i] == '\'' && !quote[1]) || (str[i] == '\"' && !quote[0]))
+		while ((str[i] == '\'' && !quote[1]) || (str[i] == '\"' && !quote[0]))
 		{
 			up_quote(&quote[0], &quote[1], &i, str);
+			//printf("str[i] in conditon : %c quote[0] : %d, i : %d\n", str[i], quote[0], i);
+			res.str[res.i++] = str[i++];
+			//tested = 1;
+		}
+		if (str[i] == '$' && !quote[0])
+			res.str = add_env(str, &i, &res, data->env);
+		//printf("str[i] : %c, i : %d, tested : %d\n", str[i], i, tested);
+		if (str[i] && (str[i] != '$' || quote[0]))
+		{
 			res.str[res.i++] = str[i++];
 		}
-		else if (str[i] == '$' && !quote[0])
-			res.str = add_env(str, &i, &res, data->env);
-		if (str[i] && (str[i] != '$' || quote[0]) && chckquote(str, i, &tested, quote))
-			res.str[res.i++] = str[i++];
 	}
 	res.str[res.i] = '\0';
 	return (free(str), res.str);

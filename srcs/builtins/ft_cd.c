@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:11:07 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/04 17:39:53 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/05 10:13:29 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,14 @@ static void	update_env(char ***env)
 static int	goto_last_path(char ***env)
 {
 	char *path;
+
 	path = ft_getenv("OLDPWD", *env);
 	if (!path)
 		return (0);
 	chdir(path);
-	//update_env(env);
+	getcwd(path, 1000);
+	printf("%s\n", path);
+	update_env(env);
 	return (1);
 }
 
@@ -57,6 +60,22 @@ static int goto_home(char ***env)
 	free(path);
 	//update_env(env);
 	return (1);
+}
+
+static void	handle_err(char *str)
+{
+	struct stat	statt;
+
+	stat(str, &statt);
+	if (!S_ISDIR(statt.st_mode) && access(str, F_OK) != -1)
+	{
+		print_err("cd: ", str, ": Not a directory\n");
+	}
+	else
+	{
+		print_err("minishell: cd: ", str,
+		": No such file or directory\n");
+	}
 }
 
 void	ft_cd(char **prompt, char ***env)
@@ -80,8 +99,7 @@ void	ft_cd(char **prompt, char ***env)
 		goto_last_path(env);
 	else if (chdir(prompt[1]) == -1)
 	{
-		print_err("minishell: cd: ", prompt[1],
-			": No such file or directory\n");
+		handle_err(prompt[1]);
 		update_exit_code(1);
 	}
 	else

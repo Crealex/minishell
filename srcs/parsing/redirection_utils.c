@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 11:11:51 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/05 14:47:24 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/06 11:38:42 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void	double_quote(char s, char c, int *i, int *is_double)
 		*is_double = 1;
 		(*i)++;
 	}
+	else
+		*is_double = 0;
 }
 
 int	error_out(char *str, int i)
@@ -62,4 +64,30 @@ int	error_out(char *str, int i)
 		return (1);
 	}
 	return (0);
+}
+
+int	space_around(char **str, char c)
+{
+	int	i;
+	int	is_double;
+	int	quote[2];
+
+	init_two(&i, &is_double);
+	init_two(&quote[0], &quote[1]);
+	while ((*str)[i])
+	{
+		update_quote(&quote[0], &quote[1], &i, *str);
+		if (!quote[0] && !quote[1] && (*str)[i] == c)
+		{
+			double_quote((*str)[i + 1], c, &i, &is_double);
+			*str = add_space(*str, i, is_double);
+			if (!(*str))
+				return (0);
+			if (is_double)
+				i++;
+			i++;
+		}
+		i++;
+	}
+	return (1);
 }

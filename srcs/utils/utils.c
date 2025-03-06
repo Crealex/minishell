@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:55:00 by alexandre         #+#    #+#             */
-/*   Updated: 2025/03/05 16:36:21 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/06 15:07:13 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,7 +183,8 @@ int	only_space(char **prompt)
 		}
 		iprompt++;
 	}
-	return (1);
+	print_err("minishell: ", prompt[0], ": command not found\n");
+	return (update_exit_code(127), 1);
 }
 
 char	*char_strjoin(char *str, char c)

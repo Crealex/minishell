@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cd.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:11:07 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/05 10:13:29 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/06 14:50:51 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ static void	handle_err(char *str)
 	}
 	else
 	{
-		print_err("minishell: cd: ", str,
-		": No such file or directory\n");
+		print_err("minishell: cd: ", NULL, NULL);
+		perror(str);
 	}
 }
 

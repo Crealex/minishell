@@ -1669,3 +1669,129 @@ exit
 |
 exit
 exit
+|
+exit
+exit
+cat <minishell.h>./outfiles/outfile
+exit
+cat <minishell.h>./outfiles/outfile
+exit
+cat <minishell.h>./outfiles/outfile
+exit
+cat <minishell.h>./outfiles/outfile
+exit
+cat <minishell.h>./outfiles/outfile
+exit
+|
+exit
+exit
+<< << << << <
+|
+exit
+exit
+<< << << << <
+<< << << << <
+<< << << << <
+<< << << << <
+<< << << << < | cat -e
+exit
+<< << << << <
+<< << << << <
+<< << << << <
+exit
+<< << << << <
+exit
+<< << << << <
+exit
+<< << << << <
+<< < << << << <
+exit
+<< < << << << <
+<< << << << <
+exit
+<< << << << <
+exit
+<< << << << <
+exit
+<< << << << <
+exit
+<< << << << <
+exit
+<< << << << <
+exit
+<< << << << <
+exit
+|
+exit
+exit
+ls >./outfiles/outfile01
+exit
+|
+exit
+exit
+|
+exit
+exit
+cd .. | echo "42"
+exit
+cd .. | echo "42"
+exit
+cd .. | echo "42"
+exit
+cd .. | echo "42"
+exit
+exit
+cd .. | echo "42"
+exit
+|
+exit
+exit
+mkdir bla_test
+chmod -wrx bla_test
+cd bla_test
+exit
+cd bla_test
+chmod +wrx bla_test
+cd bla_test
+pwd
+cd ..
+rm -r bla_test
+exit
+|
+exit
+exit
+env | grep $USER
+""
+"   "
+exit
+""
+"" | cat -e
+exit
+"" | cat -e
+"   "
+exit
+"   "
+exit
+"   "
+"              "
+exit
+"              "
+exit
+"              "
+exit
+|
+exit
+exit
+|
+exit
+exit
+"              "
+echo $?
+exit
+|
+exit
+exit
+cat << lim
+echo test |  <<lala
+echo test |  <<lala
+exit

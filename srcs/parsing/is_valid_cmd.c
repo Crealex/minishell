@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:21:45 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/28 16:34:37 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/06 16:32:23 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,14 +71,14 @@ int	check_valid_builtins(char *cmd)
 	return (0);
 }
 
-int	check_validity(char *cmd)
+int	check_validity(char *cmd, int tok)
 {
 	char	**path;
 	char	*abs_path;
 	char	*cmd_path;
 	int		i;
 
-	if (check_valid_builtins(cmd) == 1)
+	if (check_valid_builtins(cmd) == 1 && tok == 0)
 		return (1);
 	if (is_file(cmd) == 1)
 		return (1);
@@ -117,7 +117,7 @@ int	is_valid_cmd(char *str, t_prompt_info *data)
 			return (update_exit_code(127), 0);
 		}
 		cmd_name = extract_name_cmd(str);
-		res = check_validity(cmd_name);
+		res = check_validity(cmd_name, 0);
 		if (res == 0)
 			print_err(cmd_name, ": command not found\n", NULL);
 		free(cmd_name);

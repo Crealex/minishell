@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 16:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/06 14:45:43 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/07 17:02:09 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ static int	redirection_pipe(t_prompt_info *data)
 	while (data->pipe[i])
 	{
 		data->redirection[i] = redirection(data, &data->pipe[i], i);
+		if (data->redirection[i] == 0)
+			return (0);
 		i++;
 	}
 	make_redirect(data);

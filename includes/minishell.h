@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/06 10:45:33 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/07 16:44:55 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ void	double_quote(char s, char c, int *i, int *is_double);
 int		error_out(char *str, int i);
 int		space_around(char **str, char c);
 int		get_in_fd(char **str, int fd, t_prompt_info *data);
+void	len_file_out(char *str, int i, int *start, int *end);
 int		get_out_fd(char **str, int fd, t_prompt_info *data);
 int		redirection(t_prompt_info *data, char **str, int i);
 int		check_builtins(char **prompt);

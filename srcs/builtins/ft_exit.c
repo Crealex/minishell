@@ -28,7 +28,6 @@ void	ft_exit(t_prompt_info *data)
 
 	init_two(&i, &value);
 	printf("exit\n");
-	// fprintf(stderr, "prompt : %s, %s\n", data->prompt[0], data->prompt[1]);
 	if (data->prompt[1])
 	{
 		while ((i == 0 && (data->prompt[1][0] == '+' || data->prompt[1][0] == '-'))

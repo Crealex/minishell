@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 11:15:33 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/07 11:15:44 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/07 16:49:51 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,10 +160,8 @@ int	get_in_fd(char **str, int fd, t_prompt_info *data)
 		{
 			len_file(*str, i, &len[0], &len[1]);
 			fd = open_fd(*str, fd, len);
-			if (fd == -1)
-				return (-1);
 			*str = del_rd(*str, len, &i);
-			if (!(*str))
+			if (!(*str) || fd == -1)
 				return (-1);
 		}
 		if (!quote[0] && !quote[1] && (*str)[i] == '<' && (*str)[i + 1] == '<')

@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:57:04 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/04 14:47:18 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/07 16:48:44 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	exec_pipe(t_prompt_info  *data)
 			free(pid);
 			redirect_pipe(data, i, pipefd);
 			free(pipefd);
-			if (data->redirection[i] != 0)
+			if (data->redirection[i] == 1)
 				if (!last_step(&data->pipe[i], data))
 					exit (update_exit_code(-1));
 			cleanup(data, 0);

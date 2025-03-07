@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:55:00 by alexandre         #+#    #+#             */
-/*   Updated: 2025/03/06 15:07:13 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/07 14:33:20 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,18 +119,18 @@ void	print_err(char *s1, char *s2, char *s3)
 
 	if (!s2)
 	{
-		ft_putstr_fd(s1, 2);
+		write(2, s1, ft_strlen(s1));
 		return ;
 	}
 	temp = ft_strjoin(s1, s2);
 	if (!s3)
 	{
-		ft_putstr_fd(temp, 2);
+		write(2, temp, ft_strlen(temp));
 		free(temp);
 		return ;
 	}
 	res = ft_strjoin(temp, s3);
-	ft_putstr_fd(res, 2);
+	write(2, res, ft_strlen(res));
 	free(temp);
 	free(res);
 }
@@ -183,7 +183,7 @@ int	only_space(char **prompt)
 		}
 		iprompt++;
 	}
-	print_err("minishell: ", prompt[0], ": command not found\n");
+	print_err(prompt[0], ": command not found\n", NULL);
 	return (update_exit_code(127), 1);
 }
 

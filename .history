@@ -1824,3 +1824,90 @@ echo test |  <<lala
 exit
 /bin/echo -n test1		test2
 exit
+|
+exit
+exit
+>> >> >> >>
+/bin/cat <Makefile >
+echo $?
+.
+exit
+.
+exit
+.
+exit
+.
+exit
+.
+..
+...
+.a
+exit
+.a
+.
+..
+./
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb
+exit
+aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb
+exit
+aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb
+exit
+aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb | aaa | bbb
+make
+exit
+|
+exit
+exit
+echo segf <|< echo super valid
+exit
+echo segf <|< echo super valid
+chmod 000 out
+cat < out
+cat < out | echo salut
+exit
+cat < out | echo salut
+exit
+cat < out | echo salut
+exit
+cat < out | echo salut
+|
+exit
+exit
+cat < out | echo salut
+exit
+cat < out | echo salut
+exit
+cat < out | echo salut
+exit
+cat < out | echo salut
+exit
+cat < out | echo salut
+exit
+|
+exit
+exit
+grep hi "<infile" <         ./test_files/infile
+grep hi "<infile"
+exit
+grep hi "<infile"
+exit
+grep hi "<infile"
+grep hi "<infile" <         ./test_files/infile
+exit
+|
+exit
+exit

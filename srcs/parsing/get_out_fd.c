@@ -6,13 +6,13 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 16:08:33 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/07 11:15:33 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/07 16:46:18 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-static void	len_file_out(char *str, int i, int *start, int *end)
+void	len_file_out(char *str, int i, int *start, int *end)
 {
 	int	quote[2];
 
@@ -47,7 +47,6 @@ static int	open_fd(char *str, int fd_arg, int *len, int is_double)
 	char	*str_cut;
 	int		s;
 
-	fprintf(stderr, "here\n");
 	if (fd_arg > 2)
 		close(fd_arg);
 	s = len[0] + 1;
@@ -56,7 +55,6 @@ static int	open_fd(char *str, int fd_arg, int *len, int is_double)
 	while (str[s] && ft_isspace(str[s]))
 		s++;
 	str_cut = filename(str, s);
-	fprintf(stderr, "str cut : %s\n", str_cut);
 	if (!str_cut)
 		return (-1);
 	if (!is_double)
@@ -90,10 +88,10 @@ int	get_out_fd(char **str, int fd, t_prompt_info *data)
 			len_file_out(*str, i, &len[0], &len[1]);
 			is_double((*str)[i + 1], &isdouble);
 			fd = open_fd(*str, fd, len, isdouble);
-			if (fd == -1)
-				return (-1);
 			*str = del_rd(*str, len, &i);
 			if (!(*str))
+				return (-1);
+			if (fd == -1)
 				return (-1);
 		}
 		i++;

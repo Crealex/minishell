@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:02:55 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/05 16:10:55 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/07 11:15:24 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,6 @@ static int	in_redirect(char **str)
 			double_quote((*str)[i + 1], '<', &i, &is_double);
 			if ((i > 0 && error_out(*str, i)) ||
 				error(*str, &i, "<", ">"))
-				return (0);
-			*str = add_space(*str, i, is_double);
-			if (!(*str))
 				return (0);
 			i++;
 		}
@@ -66,9 +63,6 @@ static int	out_redirect(char **str)
 			double_quote((*str)[i + 1], '>', &i, &is_double);
 			if (error(*str, &i, ">", "<"))
 				return (0);
-			*str = add_space(*str, i, is_double);
-			if (!(*str))
-				return (0);
 			i++;
 		}
 		i++;
@@ -97,6 +91,10 @@ int	redirection(t_prompt_info *data, char **str, int index)
 	quote[1] = 0;
 	data->fd_in[index] = 0;
 	data->fd_out[index] = 1;
+	if (!space_around(str, '<'))
+		return (0);
+	if (!space_around(str, '>'))
+		return (0);
 	while ((*str)[i])
 	{
 		update_quote(&quote[0], &quote[1], &i, *str);

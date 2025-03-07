@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/06 11:41:04 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/07 17:07:05 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ char	*parse_heredoc(char *line, t_prompt_info *data);
 int		error(char *str, int *i, char *c, char *c1);
 void	double_quote(char s, char c, int *i, int *is_double);
 int		error_out(char *str, int i);
+int		space_around(char **str, char c);
 int		get_in_fd(char **str, int fd, t_prompt_info *data);
 int		get_out_fd(char **str, int fd, t_prompt_info *data);
 int		redirection(t_prompt_info *data, char **str, int i);

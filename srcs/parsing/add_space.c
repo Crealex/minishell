@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 10:34:55 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/02/03 14:44:14 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/06 11:38:39 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,8 @@ char	*add_space(char *str, int i, int is_double)
 			result(&res, str, &index, is_double);
 			j++;
 		}
-		res[index] = str[j];
-		index++;
-		j++;
+		if (str[j])
+			res[index++] = str[j++];
 	}
 	res[index] = '\0';
 	return (free(str), res);

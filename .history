@@ -1672,223 +1672,59 @@ exit
 |
 exit
 exit
-"echo"
-"echo "
-"echo -nnnnn"
-echo 
-echo 
-'echo  fsdaf'
-echo dsvs'
-'echo  dsvs'
-'echo                          dsvs'
-echo                                  
-echo                                  ecece
+cat <minishell.h>./outfiles/outfile
 exit
-echo                                  ecece
-'echo                          dsvs'
-'echo dsvs'
+cat <minishell.h>./outfiles/outfile
 exit
-'echo dsvs'
-echo dsvs
-e''cho a
+cat <minishell.h>./outfiles/outfile
 exit
-e''cho a
-"echo"
-echo
-echo "$US"E"R"
+cat <minishell.h>./outfiles/outfile
 exit
-echo "$US"E"R"
-ec' 'ho
-exit
-"echo"
-exit
-echo 
-echo salut
-echo
-"echo"
-"echo "
-"echo    ls"
-exit
-echo
-"echo cd"
-exit
-"echo cd"
-exit
-"echo cd"
-ext
-make
-exit
-"echo cd"
-exit
-"echo cd"
-exit
-exit
-exit
-echo
-exit
-exit
-"exit "
-"exit  "
-"exit  caca"
-exit
-"exit  caca"
-"exit"
-"exit "
-"exit   "
-"echo   "
-exit
-echo salut
-echo
-"echo"
-"echo "
-"echo salit"
-exit
-"exit "
-"echo "
-"echo salut"
-"echo"
-exit
-e" "cho
+cat <minishell.h>./outfiles/outfile
 exit
 |
 exit
 exit
-e" "cho
-"echo"
-"echo "
-"echo caca"
-exit
-echo "Hello bonojour" | cat
-clear
-echo "Hello bonjour" | cat
-echo Hello bonjour | cat
-ls | echo hello bonjour
-ls | echo "hello bonjour"
-ls | echo -n "hello bonjour"
-ls | echo  "hello bonjour"
-ls | echo                                                    "hello bonjour"
+<< << << << <
 |
 exit
 exit
-$notexist | ls | $NOtesxos
+<< << << << <
+<< << << << <
+<< << << << <
+<< << << << <
+<< << << << < | cat -e
 exit
-$USER
-$caca
+<< << << << <
+<< << << << <
+<< << << << <
 exit
-$caca
-$notexist | ls | $NOtesxos
-caca
-$notexist | ls | $NOtesxos
+<< << << << <
 exit
-salut
-ls
-echo
-|
+<< << << << <
 exit
+<< << << << <
+<< < << << << <
 exit
-$tet | cat
+<< < << << << <
+<< << << << <
 exit
-$tet | cat
+<< << << << <
 exit
-$tet
-$tet |
-$tet | dsd
+<< << << << <
 exit
-$tet | dsd
-|
+<< << << << <
 exit
+<< << << << <
+exit
+<< << << << <
+exit
+<< << << << <
 exit
 |
 exit
 exit
-ls | echo "salut"
-exit
-ls | echo "salut"
-echo salut
-echo "salut:
-echo "salut"
-exit
-echo "salut"
-ls | echo "salut"
-ls | echo "salut"
-ls | echo "salut"
-ls | echo "salut"
-ls | echo "salut"
-exit
-ls | echo "salut"
-exit
-ls | echo "salut"
-exit
-ls | echo "salut"
-exit
-ls | echo "salut"
-ls | echo "salut"
-exit
-ls | echo "salut"
-exit
-ls | echo "salut"
-ls | echo "salut"
-ls | echo "salut"
-ls | echo "salut"
-ls | echo "salut"
-ls | echo "salut"
-ls | echo "salut"
-ls | echo "salut"
-ls | echo "salut"
-ls | echo "salut"
-ls | echo "salut"
-ls | echo "salut"
-ls | echo "salut"
-ls | echo "salut"
-ls | echo "salut"
-ls | echo "salut"
-ls | echo "salut"
-ls | echo "salut"
-ls | echo "salut"
-ls | echo "salut"
-exit
-ls | echo "salut"
-exit
-ls | echo "salut"
-exit
-ls | echo "salut"
-exit
-ls | echo "salut"
-exit
-ls | echo "salut"
-exit
-ls | echo "salut"
-exit
-ls | echo "salut"
-exit
-ls | echo "salut"
-exit
-ls | echo "salut"
-exit
-ls | echo "salut"
-exit
-ls | echo "salut"
-exit
-ls | echo "salut"
-exit
-ls | echo "salut"
-exit
-ls | echo "salut"
-|
-exit
-exit
-cat << "$USER
-'echo'
-"echo"
-'echo'
-exit
-'echo'
-exit
-'echo'
-"echo"
-exit
-"echo"
-'echo'
+ls >./outfiles/outfile01
 exit
 |
 exit
@@ -1896,37 +1732,95 @@ exit
 |
 exit
 exit
-'exit 1'
-'exit' "1"
-echo "-nnnnn "
-echo "-nnnnn"
-echo "-n"
-ls '|' cat
-ls < cat
-clear
-clear > out
-a
-ping google.com
-ping google.com 3
-ping 3 google.com
-ping google.com
-man ping
-ping -c 3 google.com
-ping -c 3 google.com
-clear
-"e"'x''p''o''r''t' L=T
-'e''x''p''o''r''t' L=T
-'e'x''p''o''r''t L=T
-'e'x''p''o''r''t'' L=T
-'e''x''p''o''r''t' L=T
+cd .. | echo "42"
 exit
-'e''x''p''o''r''t' L=T
-'e''c''h''o' salut
+cd .. | echo "42"
 exit
-'e''c''h''o' salut
+cd .. | echo "42"
 exit
-'e''c''h''o' salut
+cd .. | echo "42"
+exit
+exit
+cd .. | echo "42"
 exit
 |
 exit
+exit
+mkdir bla_test
+chmod -wrx bla_test
+cd bla_test
+exit
+cd bla_test
+chmod +wrx bla_test
+cd bla_test
+pwd
+cd ..
+rm -r bla_test
+exit
+|
+exit
+exit
+env | grep $USER
+""
+"   "
+exit
+""
+"" | cat -e
+exit
+"" | cat -e
+"   "
+exit
+"   "
+exit
+"   "
+"              "
+exit
+"              "
+exit
+"              "
+exit
+|
+exit
+exit
+|
+exit
+exit
+"              "
+echo $?
+exit
+|
+exit
+exit
+cat << lim
+echo test |  <<lala
+echo test |  <<lala
+exit
+|
+exit
+exit
+echo test |  <<lala
+exit
+echo test |  <<lala
+exit
+echo test |  <<lala
+exit
+echo test |  <<lala
+exit
+echo test |  <<lala
+exit
+echo test |  <<lala
+exit
+echo test |  <<lala
+exit
+echo test |  <<lala
+exit
+echo test |  <<lala
+exit
+echo test |  <<lala
+exit
+echo test |  <<lala
+exit
+echo test |  <<lala
+exit
+/bin/echo -n test1		test2
 exit

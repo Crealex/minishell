@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/05 16:36:07 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/07 15:43:45 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ static void init_data(t_prompt_info *data)
 	data->fd_out = NULL;
 	data->is_pipe = -1;
 	data->redirection = NULL;
-	// data->prt_raw = ft_strdup(data->str_prt);
 }
 
 

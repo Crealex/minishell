@@ -6,11 +6,12 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 20:20:51 by alexandre         #+#    #+#             */
-/*   Updated: 2025/03/05 11:37:47 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/07 15:09:36 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
+#include <stdlib.h>
 #include <unistd.h>
 
 static char *rm_too_char(char *str, char c)
@@ -70,6 +71,24 @@ static char	*rm_all_quote(char *str)
 	return (res);
 }
 
+static char	**quote_pipe(char **pipe)
+{
+	int		i;
+
+	i = 0;
+	while (pipe[i])
+	{
+		pipe[i] = rm_all_quote(pipe[i]);
+		if (!pipe[i])
+		{
+			ft_freesplit(pipe, i);
+			return (NULL);
+		}
+		i++;
+	}
+	return (pipe);
+}
+
 int	handle_quote(t_prompt_info *data)
 {
 	int i;
@@ -77,11 +96,6 @@ int	handle_quote(t_prompt_info *data)
 	i = 0;
 	while (data->prompt[i])
 	{
-		// if (ft_strchr(data->prompt[i], '$') || !ft_strncmp(data->prompt[i], "$", 1))
-		// {
-		// 	i++;
-		// 	continue ;
-		// }
 		data->prompt[i] = rm_all_quote(data->prompt[i]);
 		if (!data->prompt[i])
 		{
@@ -89,6 +103,12 @@ int	handle_quote(t_prompt_info *data)
 			return (0);
 		}
 		i++;
+	}
+	if (data->is_pipe == 1)
+	{
+		data->pipe = quote_pipe(data->pipe);
+		if (!data->pipe)
+			return (0);
 	}
 	data->str_prt = rm_too_char(data->str_prt, ' ');
 	data->str_prt = rm_too_char(data->str_prt, '	');

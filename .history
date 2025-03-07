@@ -1798,3 +1798,135 @@ $tet | dsd
 |
 exit
 exit
+|
+exit
+exit
+ls | echo "salut"
+exit
+ls | echo "salut"
+echo salut
+echo "salut:
+echo "salut"
+exit
+echo "salut"
+ls | echo "salut"
+ls | echo "salut"
+ls | echo "salut"
+ls | echo "salut"
+ls | echo "salut"
+exit
+ls | echo "salut"
+exit
+ls | echo "salut"
+exit
+ls | echo "salut"
+exit
+ls | echo "salut"
+ls | echo "salut"
+exit
+ls | echo "salut"
+exit
+ls | echo "salut"
+ls | echo "salut"
+ls | echo "salut"
+ls | echo "salut"
+ls | echo "salut"
+ls | echo "salut"
+ls | echo "salut"
+ls | echo "salut"
+ls | echo "salut"
+ls | echo "salut"
+ls | echo "salut"
+ls | echo "salut"
+ls | echo "salut"
+ls | echo "salut"
+ls | echo "salut"
+ls | echo "salut"
+ls | echo "salut"
+ls | echo "salut"
+ls | echo "salut"
+ls | echo "salut"
+exit
+ls | echo "salut"
+exit
+ls | echo "salut"
+exit
+ls | echo "salut"
+exit
+ls | echo "salut"
+exit
+ls | echo "salut"
+exit
+ls | echo "salut"
+exit
+ls | echo "salut"
+exit
+ls | echo "salut"
+exit
+ls | echo "salut"
+exit
+ls | echo "salut"
+exit
+ls | echo "salut"
+exit
+ls | echo "salut"
+exit
+ls | echo "salut"
+exit
+ls | echo "salut"
+|
+exit
+exit
+cat << "$USER
+'echo'
+"echo"
+'echo'
+exit
+'echo'
+exit
+'echo'
+"echo"
+exit
+"echo"
+'echo'
+exit
+|
+exit
+exit
+|
+exit
+exit
+'exit 1'
+'exit' "1"
+echo "-nnnnn "
+echo "-nnnnn"
+echo "-n"
+ls '|' cat
+ls < cat
+clear
+clear > out
+a
+ping google.com
+ping google.com 3
+ping 3 google.com
+ping google.com
+man ping
+ping -c 3 google.com
+ping -c 3 google.com
+clear
+"e"'x''p''o''r''t' L=T
+'e''x''p''o''r''t' L=T
+'e'x''p''o''r''t L=T
+'e'x''p''o''r''t'' L=T
+'e''x''p''o''r''t' L=T
+exit
+'e''x''p''o''r''t' L=T
+'e''c''h''o' salut
+exit
+'e''c''h''o' salut
+exit
+'e''c''h''o' salut
+exit
+|
+exit
+exit

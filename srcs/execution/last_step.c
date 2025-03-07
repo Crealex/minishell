@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   last_step.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:11:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/06 14:45:53 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/07 17:06:37 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	last_step(char **str, t_prompt_info *data) // uniquement pour pipe
 	data->prompt = split_wquote(*str, ' ');
 	if (!data->prompt || !data->prompt[0])
 		return (0);
+	if (!valid_token_cmd(data))
+		return (0);
 	if (!handle_quote(data))
 		return (0);
 	if (only_space(data->prompt))
@@ -57,4 +59,5 @@ int	last_step(char **str, t_prompt_info *data) // uniquement pour pipe
 	}
 	return (1);
 }
+
 

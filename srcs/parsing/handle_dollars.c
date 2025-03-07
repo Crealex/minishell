@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_dollars.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:16:15 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/04 10:42:08 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/06 16:40:54 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,7 @@ char	**dollar_pipe(char **pipe_prompt, t_prompt_info *data)
 			return (ft_freesplit(res, i), NULL);
 		i++;
 	}
+	data->str_prt = expansion(data->str_prt, data);
 	free(pipe_prompt);
 	res[i] = NULL;
 	return (res);

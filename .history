@@ -1795,3 +1795,32 @@ cat << lim
 echo test |  <<lala
 echo test |  <<lala
 exit
+|
+exit
+exit
+echo test |  <<lala
+exit
+echo test |  <<lala
+exit
+echo test |  <<lala
+exit
+echo test |  <<lala
+exit
+echo test |  <<lala
+exit
+echo test |  <<lala
+exit
+echo test |  <<lala
+exit
+echo test |  <<lala
+exit
+echo test |  <<lala
+exit
+echo test |  <<lala
+exit
+echo test |  <<lala
+exit
+echo test |  <<lala
+exit
+/bin/echo -n test1		test2
+exit

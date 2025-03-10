@@ -6,13 +6,13 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:02:55 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/10 15:01:36 by marvin           ###   ########.fr       */
+/*   Updated: 2025/03/10 15:17:55 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include "../../includes/minishell.h"
 
-int	pre_redirect(t_prompt_info *data, |char **str, int index)
+int	pre_redirect(t_prompt_info *data, char **str, int index)
 {
 	data->fd_in[index] = 0;
 	data->fd_out[index] = 1;

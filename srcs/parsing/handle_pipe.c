@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   handle_pipe.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 16:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/10 14:49:18 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/10 15:18:21 by marvin           ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "../../includes/minishell.h"
 
@@ -28,6 +28,8 @@ static int	redirection_pipe(t_prompt_info *data)
 		return (0);
 	while (data->pipe[i])
 	{
+		if (!pre_redirect(data, &data->pipe[i], i))
+			return (0);
 		data->redirection[i] = redirection(data, &data->pipe[i], i);
 		if (data->redirection[i] == 0)
 			return (0);

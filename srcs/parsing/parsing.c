@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/10 11:35:53 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/10 15:17:53 by marvin           ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "../../includes/minishell.h"
 #include <fcntl.h>
@@ -27,6 +27,8 @@ static int	redirect_nopipe(t_prompt_info *data)
 		return (0);
 	data->redirection = ft_calloc(1, sizeof(int));
 	if (!data->redirection)
+		return (0);
+	if (!pre_redirect(data, &data->str_prt, 0))
 		return (0);
 	data->redirection[0] = redirection(data, &data->str_prt, 0);
 	if (data->redirection[0] != 1)

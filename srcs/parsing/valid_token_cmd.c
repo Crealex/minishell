@@ -1,31 +1,32 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   valid_token_cmd.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 10:57:17 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/10 09:58:56 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/10 14:45:12 by marvin           ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "../../includes/minishell.h"
 
 static int	len_token(char *str)
 {
-	int i;
-	int quote[2];
+	int	i;
+	int	quote[2];
 
 	i = 0;
 	quote[0] = 0;
 	quote[1] = 0;
 	while (str[i])
 	{
-		if (str[i] == (str[i] == '\'' && !quote[1]) || (str[i] == '\"' && !quote[0]))
+		if (str[i] == (str[i] == '\'' && !quote[1])
+			|| (str[i] == '\"' && !quote[0]))
 			update_quote(&quote[0], &quote[1], &i, str);
 		if (str[i] == ' ' && !quote[0] && !quote[1])
-			break;
+			break ;
 		i++;
 	}
 	return (i + 1);
@@ -47,10 +48,11 @@ static char	*extract_token(char *str)
 		return (res);
 	while (str[i])
 	{
-		if (str[i] && ((str[i] == '\'' && !quote[1]) || (str[i] == '\"' && !quote[0])))
+		if (str[i] && ((str[i] == '\'' && !quote[1])
+				|| (str[i] == '\"' && !quote[0])))
 			update_quote(&quote[0], &quote[1], &i, str);
 		if (str[i] == ' ' && !quote[0] && !quote[1])
-			break;
+			break ;
 		res[ires++] = str[i++];
 	}
 	res[ires] = '\0';
@@ -59,8 +61,8 @@ static char	*extract_token(char *str)
 
 int	valid_token_cmd(t_prompt_info *data)
 {
-	char *token_cmd;
-	int len_tok;
+	char	*token_cmd;
+	int		len_tok;
 
 	token_cmd = extract_token(data->str_prt);
 	if (!token_cmd)

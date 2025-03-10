@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:37:37 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/06 14:44:08 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/10 15:32:35 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,9 @@ static int	str_empty(t_prompt_info *data)
 	return (0);
 }
 
-
-int main(int argc, char **argv, char **env)
+int	main(int argc, char **argv, char **env)
 {
-	t_prompt_info data;
+	t_prompt_info	data;
 
 	if (argc != 1)
 		return (1);
@@ -66,7 +65,7 @@ int main(int argc, char **argv, char **env)
 	data.str_prt = NULL;
 	data.env = NULL;
 	data.env = cpy_double_array(data.env, env);
-	data.fd_history = open(".history", O_CREAT | O_APPEND | O_RDWR,  0744);
+	data.fd_history = open(".history", O_CREAT | O_APPEND | O_RDWR, 0744);
 	get_history(data.fd_history);
 	signal_handler();
 	update_shell_level(&data);

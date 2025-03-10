@@ -1,21 +1,16 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/10 15:17:53 by marvin           ###   ########.fr       */
+/*   Created: 2025/03/10 15:27:36 by atomasi           #+#    #+#             */
+/*   Updated: 2025/03/10 15:27:54 by atomasi          ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "../../includes/minishell.h"
-#include <fcntl.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <unistd.h>
-
 
 static int	redirect_nopipe(t_prompt_info *data)
 {
@@ -47,6 +42,7 @@ static int	parsing_no_pipe(t_prompt_info *data)
 		return (0);
 	return (1);
 }
+
 static void	init_data(t_prompt_info *data)
 {
 	data->temp_fdin = dup(STDIN_FILENO);
@@ -59,7 +55,6 @@ static void	init_data(t_prompt_info *data)
 	data->is_pipe = -1;
 	data->redirection = NULL;
 }
-
 
 int	parsing(t_prompt_info *data)
 {

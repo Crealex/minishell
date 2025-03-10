@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redirection_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 11:11:51 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/06 11:38:42 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/10 15:31:23 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	error(char *str, int *i, char *c, char *c1)
 {
-	int temp;
+	int	temp;
 
 	temp = *i;
 	(*i)++;
@@ -22,7 +22,7 @@ int	error(char *str, int *i, char *c, char *c1)
 		(*i)++;
 	if (str[*i] && str[*i] == c1[0])
 		return (print_err("minishell: syntax error near unexpected token `",
-			c1, "'\n"), update_exit_code(2), 1);
+				c1, "'\n"), update_exit_code(2), 1);
 	if (!str[*i])
 	{
 		print_err("minishell: syntax error near unexpected token `newline'\n",

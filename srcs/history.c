@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   history.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 11:46:28 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/01/27 14:35:29 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/10 15:32:55 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static char	*del_newline(char *str)
 		i++;
 	}
 	free(str);
-	return(new_str);
+	return (new_str);
 }
 
 void	get_history(int fd)

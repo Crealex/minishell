@@ -3,20 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   parse_heredoc.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:46:25 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/26 14:47:08 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/10 15:28:46 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
-#include <stdlib.h>
 
 char	*parse_heredoc(char *line, t_prompt_info *data)
 {
-	t_str new_line;
-	int il;
+	t_str	new_line;
+	int		il;
 
 	il = 0;
 	new_line.i = 0;

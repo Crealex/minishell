@@ -1,16 +1,14 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/10 15:19:26 by marvin           ###   ########.fr       */
+/*   Updated: 2025/03/10 15:36:01 by atomasi          ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
-
-
+/* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
@@ -28,7 +26,7 @@
 # include <readline/readline.h>
 # include <readline/history.h>
 
-typedef struct	s_prompt_info
+typedef struct s_prompt_info
 {
 	int		is_pipe;
 	int		*fd_in;
@@ -40,8 +38,7 @@ typedef struct	s_prompt_info
 	int		pipe_len;
 	int		*redirection;
 	char	*str_prt;
-	// char	*prt_raw;
-	char 	**pipe;
+	char	**pipe;
 	char	**prompt;
 	char	**env;
 }			t_prompt_info;
@@ -94,7 +91,8 @@ char	*rm_cons_quote(char *str);
 //parsing
 char	*handle_dollars(char *prompt, char **env);
 char	*add_env(char *prompt, int *i, t_str *res, char **all_env);
-char	*better_strjoin(char const *s1, char const *s2, char *prompt, int iprompt);
+char	*better_strjoin(char const *s1, char const *s2, char *prompt,
+			int iprompt);
 void	init_fd(int *i, int *start, int *end);
 void	init_two(int *i, int *j);
 void	init_four(int *i, int *j, int *k, int *l);
@@ -124,7 +122,7 @@ int		ft_nb_row(char const *s, char c);
 char	**ft_splitpipe(char const *s, char c);
 int		is_valid_cmd(char *str, t_prompt_info *data);
 int		check_valid_builtins(char *cmd);
-char	**get_all_path();
+char	**get_all_path(void);
 void	make_redirect(t_prompt_info *data);
 void	end_redirect(t_prompt_info *data, int redirect);
 char	*expansion(char *str, t_prompt_info *data);
@@ -142,6 +140,5 @@ int		ft_nb_row(char const *s, char c);
 int		double_single_quote(const char *s, int i);
 //signal
 void	signal_handler(void);
-
 
 #endif

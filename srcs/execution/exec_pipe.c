@@ -3,17 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   exec_pipe.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:57:04 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/07 16:48:44 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/10 13:36:35 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 #include <bits/pthreadtypes.h>
+#include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
+
+static void	double_close(int fd1, int fd2)
+{
+	close(fd1);
+	close(fd2);
+}
 
 static int	redirect_pipe(t_prompt_info *data, int i, int (*pipefd)[2])
 {
@@ -27,26 +34,51 @@ static int	redirect_pipe(t_prompt_info *data, int i, int (*pipefd)[2])
 	{
 		if (data->fd_out[i] < 2)
 			dup2(pipefd[i][1], STDOUT_FILENO);
-		close(pipefd[i][1]);
-		close(pipefd[i][0]);
+		double_close(pipefd[i][1], pipefd[i][0]);
 	}
 	if (i > 0)
 	{
 		if (data->fd_in[i] < 2)
 			dup2(pipefd[i - 1][0], STDIN_FILENO);
-		close(pipefd[i - 1][0]);
-		close(pipefd[i - 1][1]);
+		double_close(pipefd[i - 1][0], pipefd[i - 1][1]);
 		while (i - 2 >= 0)
 		{
-			close(pipefd[i - 2][0]);
-			close(pipefd[i - 2][1]);
+			double_close(pipefd[i - 2][0], pipefd[i - 2][1]);
 			i--;
 		}
 	}
 	return (1);
 }
 
-int	exec_pipe(t_prompt_info  *data)
+static void	fork_handler(t_prompt_info *data, int i, pid_t *pid, int (*pifd)[2])
+{
+	data->pos_pipe = i;
+	if (i < data->pipe_len - 1)
+		pipe(pifd[i]);
+	pid[i] = fork();
+	if (pid[i] > 0)
+	{
+		if (i < data->pipe_len - 1)
+			close(pifd[i][1]);
+		if (i > 0)
+			close(pifd[i - 1][0]);
+	}
+	if (pid[i] == 0)
+	{
+		free(pid);
+		redirect_pipe(data, i, pifd);
+		free(pifd);
+		if (data->redirection[i] == 1)
+			if (!last_step(&data->pipe[i], data))
+				exit (update_exit_code(-1));
+		cleanup(data, 0);
+		if (data->env)
+			freesplit(data->env);
+		exit (update_exit_code(-1));
+	}
+}
+
+int	exec_pipe(t_prompt_info *data)
 {
 	pid_t	*pid;
 	int		i;
@@ -62,39 +94,13 @@ int	exec_pipe(t_prompt_info  *data)
 		return (free(pipefd), 0);
 	while (data->pipe[i])
 	{
-		data->pos_pipe = i;
-		if (i < data->pipe_len - 1)
-			pipe(pipefd[i]);
-		pid[i] = fork();
-		if (pid[i] > 0)
-		{
-			if (i < data->pipe_len - 1)
-				close(pipefd[i][1]);
-			if (i > 0)
-				close(pipefd[i - 1][0]);
-		}
-		if (pid[i] == 0)
-		{
-			free(pid);
-			redirect_pipe(data, i, pipefd);
-			free(pipefd);
-			if (data->redirection[i] == 1)
-				if (!last_step(&data->pipe[i], data))
-					exit (update_exit_code(-1));
-			cleanup(data, 0);
-			if (data->env)
-				freesplit(data->env);
-			exit (update_exit_code(-1));
-		}
+		fork_handler(data, i, pid, pipefd);
 		i++;
 	}
 	i = 0;
 	is_child(1);
 	while (i < data->pipe_len)
-	{
-		waitpid(pid[i], &exit_status, 0);
-		i++;
-	}
+		waitpid(pid[i++], &exit_status, 0);
 	is_child(0);
 	update_exit_code(WEXITSTATUS(exit_status));
 	return (free(pipefd), 1);

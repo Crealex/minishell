@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:50:04 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/10 10:46:28 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/10 11:45:06 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	ft_exit(t_prompt_info *data)
 	printf("exit\n");
 	if (data->prompt[1])
 	{
-		while ((i == 0 && (data->prompt[1][0] == '+' || data->prompt[1][0] == '-'))
-			|| ft_isdigit(data->prompt[1][i]))
+		while ((!i && (data->prompt[1][0] == '+' || data->prompt[1][0] == '-'))
+				|| ft_isdigit(data->prompt[1][i]))
 			i++;
 		if (i != 0 && i == (int)ft_strlen(data->prompt[1]))
 			value = ft_atoi(data->prompt[1]);

@@ -6,16 +6,15 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/05 15:51:53 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/10 11:49:03 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../../includes/minishell.h"
 
 int	is_child(int status)
 {
-	static int bool = 0;
+	static int	bool = 0;
 
 	if (status == -1)
 		return (bool);
@@ -26,8 +25,8 @@ int	is_child(int status)
 
 static int	check_acces_file(char *cmd, int i)
 {
-	char *file;
-	struct stat statt;
+	char		*file;
+	struct stat	statt;
 
 	file = ft_substr(cmd, i, ft_strlen(cmd));
 	ft_bzero(&statt, sizeof(statt));
@@ -52,9 +51,9 @@ static int	check_acces_file(char *cmd, int i)
 	return (0);
 }
 
-char *get_path(char *cmd)
+char	*get_path(char *cmd)
 {
-	int i;
+	int		i;
 	char	*res;
 	char	*cmd_path;
 	char	**path;
@@ -90,8 +89,6 @@ static void	cleanup_exec(t_prompt_info *data)
 		freesplit(data->pipe);
 	if (data->str_prt)
 		free(data->str_prt);
-	// if (data->prt_raw)
-	// 	free(data->prt_raw);
 	while (i < data->pipe_len)
 	{
 		if (data->fd_in[i] > 2)
@@ -116,9 +113,9 @@ int	extern_exec(t_prompt_info *data)
 	pid_t	pid;
 
 	if (data->prompt[0] && ((ft_strlen(data->prompt[0]) > 2
-		&& data->prompt[0][0] == '.' && data->prompt[0][1] == '/')))
-			if (!check_acces_file(data->prompt[0], 2))
-				return (0);
+				&& data->prompt[0][0] == '.' && data->prompt[0][1] == '/')))
+		if (!check_acces_file(data->prompt[0], 2))
+			return (0);
 	path = get_path(data->prompt[0]);
 	if (!path)
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:28:22 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/10 10:44:58 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/10 13:19:39 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,6 @@ char	**ft_unset(char ***env, char **prompt, int n)
 			cpy_env(&new_env[index[1]], (*env)[index[0]], &index[1]);
 		index[0]++;
 	}
-	new_env[index[1]] = '\0';
+	new_env[index[1]] = 0;
 	return (update_exit_code(0), free(*env), new_env);
 }

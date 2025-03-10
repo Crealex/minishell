@@ -2035,3 +2035,28 @@ exit
 |
 exit
 exit
+|
+exit
+exit
+>> cat end
+>> end cat
+<< end cat
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit

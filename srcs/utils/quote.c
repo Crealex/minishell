@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quote.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:47:23 by alexandre         #+#    #+#             */
-/*   Updated: 2025/03/07 17:03:59 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/10 11:49:45 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int	update_quote(int *in_single, int *in_double, int *i, char *prompt)
 	int	quote_status;
 
 	quote_status = 0;
-	//printf("in update_quote prompt[i] : %c\n", prompt[*i]);
 	if (prompt[*i] == '\'' && !*in_double)
 	{
 		quote_status = exist_closing(prompt, '\'', *i);
@@ -69,7 +68,7 @@ int	update_quote(int *in_single, int *in_double, int *i, char *prompt)
 			*in_double = 0;
 		(*i)++;
 	}
-    if (quote_status == 3)
+	if (quote_status == 3)
 		(*i)++;
 	return (1);
 }
@@ -86,10 +85,10 @@ int	is_quote(char *str)
 
 char	*rm_quote(char *str)
 {
-	int i;
-	int ires;
-	char *res;
-	int quote[2];
+	int		i;
+	int		ires;
+	char	*res;
+	int		quote[2];
 
 	i = 0;
 	ires = 0;
@@ -103,7 +102,7 @@ char	*rm_quote(char *str)
 		if (str[i] && (str[i] == '\'' || str[i] == '\"'))
 			update_quote(&quote[0], &quote[1], &i, str);
 		if (!(str)[i])
-			break;
+			break ;
 		res[ires++] = (str)[i++];
 	}
 	free(str);
@@ -112,9 +111,9 @@ char	*rm_quote(char *str)
 
 int	len_wquote(char *str)
 {
-	int i;
-	int count;
-	int quote[2];
+	int	i;
+	int	count;
+	int	quote[2];
 
 	i = 0;
 	count = 0;
@@ -126,7 +125,7 @@ int	len_wquote(char *str)
 		{
 			if (!update_quote(&quote[0], &quote[1], &i, str))
 			{
-			    i++;
+				i++;
                 count++;
 			}
 		}
@@ -141,9 +140,9 @@ int	len_wquote(char *str)
 
 char *rm_cons_quote(char *str)
 {
-	int i;
-	char *res;
-	int ires;
+	int		i;
+	char	*res;
+	int		ires;
 
 	i = 0;
 	ires = 0;

@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 11:15:33 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/10 11:06:26 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/10 11:35:12 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ char	*filename(char *str, int i)
 		{
 			temp = char_strjoin(temp, str[i]);
 			if (!temp)
-				return (NULL);			
+				return (NULL);
 		}
 		i++;
 	}

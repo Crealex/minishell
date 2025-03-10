@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/07 17:08:47 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/10 14:53:29 by marvin           ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 
 
@@ -109,6 +109,8 @@ int		space_around(char **str, char c);
 int		get_in_fd(char **str, int fd, t_prompt_info *data);
 void	len_file_out(char *str, int i, int *start, int *end);
 int		get_out_fd(char **str, int fd, t_prompt_info *data);
+int		is_in_rd(char **str, t_prompt_info *data, int index);
+int		is_out_rd(char **str, t_prompt_info *data, int index);
 int		redirection(t_prompt_info *data, char **str, int i);
 int		check_builtins(char **prompt);
 int		check_validity(char *cmd, int tok);

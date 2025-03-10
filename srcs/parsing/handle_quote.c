@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 20:20:51 by alexandre         #+#    #+#             */
-/*   Updated: 2025/03/07 15:09:36 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/10 14:50:25 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-static char *rm_too_char(char *str, char c)
+static char	*rm_too_char(char *str, char c)
 {
 	char	*res;
 	char	**darray;
 	char	*temp;
-	int i;
+	int		i;
 
 	i = 1;
 	darray = split_wquote(str, c);
@@ -91,7 +91,7 @@ static char	**quote_pipe(char **pipe)
 
 int	handle_quote(t_prompt_info *data)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (data->prompt[i])
@@ -117,26 +117,3 @@ int	handle_quote(t_prompt_info *data)
 		return (0);
 	return (1);
 }
-
-// int main()
-// {
-//     int isread;
-//     char *buffer;
-
-//     isread = 1;
-//     buffer = malloc(sizeof(char) * 1000);
-//     while (isread > 0)
-//     {
-//         isread = read(0, buffer, 1000);
-//         buffer[isread] = '\0';
-//         if (buffer && ft_strlen(buffer) > 0)
-//         {
-//             printf("in conditoin\n");
-//             buffer = rm_all_quote(buffer);
-//             if (!buffer)
-//                 return (1);
-//             printf("res : %s\n", buffer);
-//         }
-//     }
-//     free(buffer);
-// }

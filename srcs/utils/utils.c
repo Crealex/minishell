@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 19:55:00 by alexandre         #+#    #+#             */
-/*   Updated: 2025/03/07 14:33:20 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/10 11:48:55 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,15 @@ char	**cpy_double_array(char **cpy, char **src)
 	return (cpy);
 }
 
-void    freesplit(char **str)
+void	freesplit(char **str)
 {
-    int    i;
+	int	i;
 
-    i = 0;
-     if (!str || !*str)
-         return ;
-    while (str[i])
-    {
+	i = 0;
+	if (!str || !*str)
+		return ;
+	while (str[i])
+	{
 		free(str[i]);
 		i++;
 	}
@@ -52,9 +52,9 @@ void    freesplit(char **str)
 
 // -1 = just get de last value
 // < -1 = update de exit value
-int update_exit_code(int param)
+int	update_exit_code(int param)
 {
-	static int code = 0;
+	static int	code = 0;
 
 	if (param == -1)
 		return (code);
@@ -62,7 +62,6 @@ int update_exit_code(int param)
 		code = param;
 	return (code);
 }
-
 
 char	*ft_getenv(char *var, char **env)
 {
@@ -93,8 +92,6 @@ void	cleanup(t_prompt_info *data, int redirect)
 		freesplit(data->pipe);
 	if (data->str_prt)
 		free(data->str_prt);
-	// if (data->prt_raw)
-	// 	free(data->prt_raw);
 	while (i < data->pipe_len)
 	{
 		if (data->fd_in[i] > 2)
@@ -110,103 +107,4 @@ void	cleanup(t_prompt_info *data, int redirect)
 	if (data->redirection)
 		free(data->redirection);
 	end_redirect(data, redirect);
-}
-
-void	print_err(char *s1, char *s2, char *s3)
-{
-	char *res;
-	char *temp;
-
-	if (!s2)
-	{
-		write(2, s1, ft_strlen(s1));
-		return ;
-	}
-	temp = ft_strjoin(s1, s2);
-	if (!s3)
-	{
-		write(2, temp, ft_strlen(temp));
-		free(temp);
-		return ;
-	}
-	res = ft_strjoin(temp, s3);
-	write(2, res, ft_strlen(res));
-	free(temp);
-	free(res);
-}
-
-/* static char *reverse_split(char **prompt, int i)
-{
-	char *result;
-	char *temp;
-
-	result = malloc(sizeof(char) * (ft_strlen(prompt[i]) + 1));
-	if (!result)
-		return (NULL);
-	if (ft_strlcpy(result, prompt[i], ft_strlen(prompt[i]) + 1) == 0)
-		return (NULL);
-	i++;
-	while (prompt[i])
-	{
-		temp = ft_strjoin(result, " ");
-		if (!temp)
-			return (NULL);
-		free(result);
-		result = ft_strjoin(temp, prompt[i]);
-		if (!result)
-			return (NULL);
-		free(temp);
-		i++;
-	}
-	return (result);
-} */
-
-int	ft_isspace(int c)
-{
-	return (c == ' ' || (9 <= c && c <= 13));
-}
-
-int	only_space(char **prompt)
-{
-	int i;
-	int iprompt;
-
-	i = 0;
-	iprompt = 0;
-	while (prompt[iprompt])
-	{
-		while (prompt[iprompt][i])
-		{
-			if (!ft_isspace(prompt[iprompt][i]))
-				return (0);
-			i++;
-		}
-		iprompt++;
-	}
-	print_err(prompt[0], ": command not found\n", NULL);
-	return (update_exit_code(127), 1);
-}
-
-char	*char_strjoin(char *str, char c)
-{
-	int		i;
-	char	*result;
-
-	i = 0;
-	if (!str)
-		result = ft_calloc(2, sizeof(char));
-	else
-		result = ft_calloc((ft_strlen(str) + 2), sizeof(char));
-	if (result == NULL)
-		return (NULL);
-	while (str && str[i])
-	{
-		result[i] = str[i];
-		i++;
-	}
-	result[i] = c;
-	result[i + 1] = '\0';
-	if (str)
-		free(str);
-	return (result);
 }

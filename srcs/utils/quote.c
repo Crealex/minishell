@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   quote.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:47:23 by alexandre         #+#    #+#             */
-/*   Updated: 2025/03/07 17:03:59 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/10 14:21:18 by marvin           ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "../../includes/minishell.h"
 
@@ -41,21 +41,26 @@ static int	exist_closing(char *prompt, char c, int i)
 	return (0);
 }
 
+static void	update_status(int quote_status, int *quote)
+{
+	if (quote_status == 1)
+		*quote = 1;
+	else if (quote_status == 2)
+		*quote = 0;
+}
+
 int	update_quote(int *in_single, int *in_double, int *i, char *prompt)
 {
 	int	quote_status;
 
 	quote_status = 0;
-	//printf("in update_quote prompt[i] : %c\n", prompt[*i]);
 	if (prompt[*i] == '\'' && !*in_double)
 	{
 		quote_status = exist_closing(prompt, '\'', *i);
 		if (quote_status == 0)
 			return (0);
-		else if (quote_status == 1)
-			*in_single = 1;
-		else if (quote_status == 2)
-			*in_single = 0;
+		else
+			update_status(quote_status, in_single);
 		(*i)++;
 	}
 	else if (prompt[*i] == '\"' && !*in_single)
@@ -63,13 +68,11 @@ int	update_quote(int *in_single, int *in_double, int *i, char *prompt)
 		quote_status = exist_closing(prompt, '\"', *i);
 		if (quote_status == 0)
 			return (0);
-		else if (quote_status == 1)
-			*in_double = 1;
-		else if (quote_status == 2)
-			*in_double = 0;
+		else
+			update_status(quote_status, in_double);
 		(*i)++;
 	}
-    if (quote_status == 3)
+	if (quote_status == 3)
 		(*i)++;
 	return (1);
 }
@@ -86,10 +89,10 @@ int	is_quote(char *str)
 
 char	*rm_quote(char *str)
 {
-	int i;
-	int ires;
-	char *res;
-	int quote[2];
+	int		i;
+	int		ires;
+	char	*res;
+	int		quote[2];
 
 	i = 0;
 	ires = 0;
@@ -103,63 +106,9 @@ char	*rm_quote(char *str)
 		if (str[i] && (str[i] == '\'' || str[i] == '\"'))
 			update_quote(&quote[0], &quote[1], &i, str);
 		if (!(str)[i])
-			break;
+			break ;
 		res[ires++] = (str)[i++];
 	}
 	free(str);
 	return (res);
-}
-
-int	len_wquote(char *str)
-{
-	int i;
-	int count;
-	int quote[2];
-
-	i = 0;
-	count = 0;
-	quote[0] = 0;
-	quote[1] = 0;
-	while (str[i])
-	{
-		if ((str[i] == '\'' && !quote[1]) || (str[i] == '\"' && !quote[0]))
-		{
-			if (!update_quote(&quote[0], &quote[1], &i, str))
-			{
-			    i++;
-                count++;
-			}
-		}
-		else
-		{
-			i++;
-			count++;
-		}
-	}
-	return (count);
-}
-
-char *rm_cons_quote(char *str)
-{
-	int i;
-	char *res;
-	int ires;
-
-	i = 0;
-	ires = 0;
-	res = malloc(sizeof(char) * (ft_strlen(str) + 1));
-	if (!res)
-		return (NULL);
-	while (str[i])
-	{
-		if (str[i + 1] && ((str[i] == '\'' && str[i + 1] == '\'') || (str[i] == '\"' && str[i + 1] == '\"')))
-		{
-			i += 2;
-		}
-		if (str[i + 1] && ((str[i] == '\'' && str[i + 1] == '\'') || (str[i] == '\"' && str[i + 1] == '\"')))
-			continue ;
-		res[ires++] = str[i++];
-	}
-	res[ires] = '\0';
-	return (free(str), res);
 }

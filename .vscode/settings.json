@@ -6,4 +6,5 @@
 		"signal.h": "c",
 		"unistd.h": "c"
 	}
+	"editor.rulers": [80],
 }

@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:28 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/07 17:09:19 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/10 11:35:53 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static int	parsing_no_pipe(t_prompt_info *data)
 		return (0);
 	return (1);
 }
-static void init_data(t_prompt_info *data)
+static void	init_data(t_prompt_info *data)
 {
 	data->temp_fdin = dup(STDIN_FILENO);
 	data->temp_fdout = dup(STDOUT_FILENO);
@@ -59,7 +59,7 @@ static void init_data(t_prompt_info *data)
 }
 
 
-int parsing(t_prompt_info *data)
+int	parsing(t_prompt_info *data)
 {
 	init_data(data);
 	data->is_pipe = is_pipe(&data->str_prt);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redirection.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:02:55 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/07 11:15:24 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/10 10:49:01 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,8 @@ int	redirection(t_prompt_info *data, char **str, int index)
 	while ((*str)[i])
 	{
 		update_quote(&quote[0], &quote[1], &i, *str);
+		if (!str[i])
+			break ;
 		if (!quote[0] && !quote[1] && (*str)[i] == '<')
 			if (!is_in_rd(str, data, index))
 				return (0);

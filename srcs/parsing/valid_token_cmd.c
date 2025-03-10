@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 10:57:17 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/07 15:53:26 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/10 09:58:56 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,21 +67,21 @@ int	valid_token_cmd(t_prompt_info *data)
 		return (-1);
 	len_tok = ft_strlen(token_cmd);
 	if (!ft_strncmp("echo", token_cmd, len_tok))
-		return (1);
+		return (free(token_cmd), 1);
 	else if (!ft_strncmp("cd", token_cmd, len_tok))
-		return (1);
+		return (free(token_cmd), 1);
 	else if (!ft_strncmp("pwd", token_cmd, len_tok))
-		return (1);
+		return (free(token_cmd), 1);
 	else if (!ft_strncmp("export", token_cmd, len_tok))
-		return (1);
+		return (free(token_cmd), 1);
 	else if (!ft_strncmp("unset", token_cmd, len_tok))
-		return (1);
+		return (free(token_cmd), 1);
 	else if (!ft_strncmp("env", token_cmd, len_tok))
-		return (1);
+		return (free(token_cmd), 1);
 	else if (!ft_strncmp("exit", token_cmd, len_tok))
-		return (1);
+		return (free(token_cmd), 1);
 	else if (check_validity(token_cmd, 1))
-		return (1);
+		return (free(token_cmd), 1);
 	print_err(token_cmd, ": command not found\n", NULL);
-	return (0);
+	return (free(token_cmd), 0);
 }

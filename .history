@@ -1798,29 +1798,132 @@ exit
 |
 exit
 exit
-echo test |  <<lala
+cat << "$USER
+'echo'
+"echo"
+'echo'
 exit
-echo test |  <<lala
+'echo'
 exit
-echo test |  <<lala
+'echo'
+"echo"
 exit
-echo test |  <<lala
+"echo"
+'echo'
 exit
-echo test |  <<lala
+|
 exit
-echo test |  <<lala
 exit
-echo test |  <<lala
+|
 exit
-echo test |  <<lala
 exit
-echo test |  <<lala
+'exit 1'
+'exit' "1"
+echo "-nnnnn "
+echo "-nnnnn"
+echo "-n"
+ls '|' cat
+ls < cat
+clear
+clear > out
+a
+ping google.com
+ping google.com 3
+ping 3 google.com
+ping google.com
+man ping
+ping -c 3 google.com
+ping -c 3 google.com
+clear
+"e"'x''p''o''r''t' L=T
+'e''x''p''o''r''t' L=T
+'e'x''p''o''r''t L=T
+'e'x''p''o''r''t'' L=T
+'e''x''p''o''r''t' L=T
 exit
-echo test |  <<lala
+'e''x''p''o''r''t' L=T
+'e''c''h''o' salut
 exit
-echo test |  <<lala
+'e''c''h''o' salut
 exit
-echo test |  <<lala
+'e''c''h''o' salut
 exit
-/bin/echo -n test1		test2
+|
+exit
+exit
+|
+exit
+exit
+echo salut
+echo salut'
+echo 'salut'
+echo $USER
+echo '$USER'
+echo "$USER"
+exit
+echo "$USER"
+echo salut
+echo '$USER'
+echo salut'
+echo 'salut'
+echo $USER
+exit
+echo salut
+exit
+echo salut'
+exot
+exit
+echo 'salut'
+exit
+echo 'salutl'
+exit
+echo 'salutl'
+exit
+echo 'salutl'
+exit
+echo 'salutl'
+exit
+exit
+cd ..
+cd ..
+cd -
+exit
+cd ..
+cd ..
+cd -
+exit
+cd ..
+cd ..
+cd -
+exit
+cd ..
+cd ..
+cd -
+exit
+cd ~
+cd -
+cd ..
+ls
+exit
+pwd
+pwd -
+owd caca
+pwd caca
+pdw dsc dcscsd csdcsd csdc csdc
+pwd dsc dscs dsvsv dsvs vdsvs
+exit
+export test
+export TEST=test
+exit
+export TEST="test"
+export TEST+=test
+emv
+env
+export
+exit
+export 124=efwf
+export =vsvs
+exit
+export caca=CACA
+env
 exit

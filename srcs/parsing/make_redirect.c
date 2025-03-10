@@ -6,13 +6,13 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:02:53 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/28 15:41:41 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/10 14:59:18 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-void		make_redirect(t_prompt_info *data)
+void	make_redirect(t_prompt_info *data)
 {
 	if (data->is_pipe == 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 15:55:48 by alexandre         #+#    #+#             */
-/*   Updated: 2025/03/10 10:17:22 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/10 14:53:52 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,10 @@ static int	first_pipe(char *str)
 		}
 		if (!inquote[0] && !inquote[1] && str[i] == '|' && !quote_exist)
 		{
-			ft_putstr_fd("minishell: syntax error near unexpected token `|'\n", 2);
+			ft_putstr_fd("minishell: syntax error near unexpected token `|'\n",
+				2);
 			return (update_exit_code(2), 0);
 		}
-		return (1);
 	}
 	return (1);
 }
@@ -91,10 +91,10 @@ static int	verif_empty_pipe(int i, char *str)
 	return (0);
 }
 
-int is_pipe(char **str)
+int	is_pipe(char **str)
 {
-	int i;
-	int inquote[2];
+	int	i;
+	int	inquote[2];
 
 	i = 0;
 	inquote[0] = 0;

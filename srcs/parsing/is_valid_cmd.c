@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   is_valid_cmd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:21:45 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/10 11:36:12 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/10 14:58:04 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
+#include <stdlib.h>
 
 int	is_file(char *cmd)
 {
@@ -83,7 +84,7 @@ int	check_validity(char *cmd, int tok)
 	if (is_file(cmd) == 1)
 		return (1);
 	else if (ft_strlen(cmd) <= 2 && cmd[0] == '.' && cmd[1] != '/')
-	 	return (0);
+		return (0);
 	path = get_all_path();
 	if (!path || !*path)
 		return (update_exit_code(127), 0);
@@ -93,13 +94,11 @@ int	check_validity(char *cmd, int tok)
 	{
 		abs_path = ft_strjoin(path[i], cmd_path);
 		if (access(abs_path, X_OK) != -1)
-			return (freesplit(path), free(abs_path), free(cmd_path) , 1);
+			return (freesplit(path), free(abs_path), free(cmd_path), 1);
 		free(abs_path);
 		i++;
 	}
-	freesplit(path);
-	free(cmd_path);
-	return (update_exit_code(127), 0);
+	return (freesplit(path), free(cmd_path), update_exit_code(127), 0);
 }
 
 int	is_valid_cmd(char *str, t_prompt_info *data)

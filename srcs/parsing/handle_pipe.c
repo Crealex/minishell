@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_pipe.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 16:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/07 17:02:09 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/10 14:49:18 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	redirection_pipe(t_prompt_info *data)
 {
 	int	i;
-	
+
 	i = 0;
 	data->fd_in = ft_calloc(data->pipe_len, sizeof(int));
 	if (!data->fd_in)

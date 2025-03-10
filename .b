@@ -1,6 +1,0 @@
-,
-<
-lfsdf
-fsld
-sf
-exit

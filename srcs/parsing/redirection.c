@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 11:02:55 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/07 16:44:11 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/10 10:55:42 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,8 @@ int	redirection(t_prompt_info *data, char **str, int index)
 	while ((*str)[i])
 	{
 		update_quote(&quote[0], &quote[1], &i, *str);
+		if (!str[i])
+			break ;
 		if (!quote[0] && !quote[1] && (*str)[i] == '<')
 		{
 			out = is_in_rd(str, data, index);

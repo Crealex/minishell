@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 09:52:45 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/17 10:16:39 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/10 10:43:26 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,35 @@ char	*remove_plus(char *str)
 	free(temp);
 	free(content);
 	return (res);
+}
+
+int	len_double_tab(char **tab)
+{
+	int	i;
+
+	i = 0;
+	if (!tab || !*tab)
+		return (0);
+	while (tab[i])
+		i++;
+	return (i);
+}
+
+int	longer_str(char **tab)
+{
+	int	longer;
+	int	i;
+	int	actual_len;
+
+	i = 0;
+	longer = 0;
+	actual_len = 0;
+	while (tab[i])
+	{
+		actual_len = ft_strlen(tab[i]);
+		if (actual_len > longer)
+			longer = actual_len;
+		i++;
+	}
+	return (longer);
 }

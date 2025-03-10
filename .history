@@ -2017,3 +2017,21 @@ exit
 |
 exit
 exit
+|
+exit
+exit
+grep hi <./test_files/infile
+exit
+grep hi <./test_files/infile
+exit
+grep hi <./test_files/infile
+exit
+grep hi <./test_files/infile
+exit
+grep hi <./test_files/infile
+exit
+grep hi <./test_files/infile
+exit
+|
+exit
+exit

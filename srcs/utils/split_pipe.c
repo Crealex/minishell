@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 15:57:09 by alexandre         #+#    #+#             */
-/*   Updated: 2025/02/27 10:33:37 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/10 11:16:04 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ static int	ft_nb(const char *s, char c, int *i, int *start)
     {
         (*i)++;
     }
-	if (s[*i] && s[*i] != c)
-		*i = double_single_quote(s, *i);
+    if (s[*i] && s[*i] != c)
+        *i = double_single_quote(s, *i);
     while (s[*i] && s[*i] != c)
         (*i)++;
     if (*i > 0 && ft_isspace(s[*i - 1]))
@@ -37,8 +37,8 @@ static int	ft_nb(const char *s, char c, int *i, int *start)
 
 static char	*ft_strinrow(char const *s, int start, int end)
 {
-    char	*row;
-    int		i;
+    char    *row;
+    int     i;
 
     i = 0;
     row = malloc((end - start + 1) * sizeof(char));
@@ -69,9 +69,9 @@ static char	*ft_strinrow(char const *s, int start, int end)
 
 char	**ft_splitpipe(char const *s, char c)
 {
-    int		index[2];
-    int		start_end[2];
-    char	**result;
+    int     index[2];
+    int     start_end[2];
+    char    **result;
 
     index[0] = 0;
     index[1] = 0;

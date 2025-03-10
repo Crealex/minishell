@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_unset.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:28:22 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/01/24 16:59:32 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/10 10:44:58 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	count_env(char **env, char **prompt, int n)
 				&& env[i][len_prompt] == '=')
 			{
 				count++;
-				break;
+				break ;
 			}
 			i++;
 		}

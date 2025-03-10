@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:50:04 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/05 16:18:26dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/10 10:46:28 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	ft_exit(t_prompt_info *data)
 
 	init_two(&i, &value);
 	printf("exit\n");
-	// fprintf(stderr, "prompt : %s, %s\n", data->prompt[0], data->prompt[1]);
 	if (data->prompt[1])
 	{
 		while ((i == 0 && (data->prompt[1][0] == '+' || data->prompt[1][0] == '-'))

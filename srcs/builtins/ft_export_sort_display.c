@@ -3,45 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_export_sort_display.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 16:24:42 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/26 14:39:34 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/10 10:43:17 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
-
-int	len_double_tab(char **tab)
-{
-	int	i;
-
-	i = 0;
-	if (!tab || !*tab)
-		return (0);
-	while (tab[i])
-		i++;
-	return (i);
-}
-
-int	longer_str(char **tab)
-{
-	int	longer;
-	int	i;
-	int	actual_len;
-
-	i = 0;
-	longer = 0;
-	actual_len = 0;
-	while (tab[i])
-	{
-		actual_len = ft_strlen(tab[i]);
-		if (actual_len > longer)
-			longer = actual_len;
-		i++;
-	}
-	return (longer);
-}
 
 static int	in_array(int num, int *incr)
 {

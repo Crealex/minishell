@@ -6,32 +6,11 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:42:41 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/05 16:25:17 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/10 10:30:09 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
-
-// static int check_flag(t_prompt_info *data)
-// {
-// 	int	i;
-// 	int	quote[2];
-
-// 	i = 0;
-// 	quote[0] = 0;
-// 	quote[1] = 0;
-// 	while (data->prt_raw[i])
-// 	{
-// 		while ((data->prt_raw[i] == '\'' && !quote[1]) || (data->prt_raw[i] == '\"' && !quote[0]))
-// 			if (!update_quote(&quote[0], &quote[1], &i, data->prt_raw))
-// 				break ;
-// 		if (data->prt_raw[i] && data->prt_raw[i + 1] &&  data->prt_raw[i] == '-'
-// 			&& data->prt_raw[i + 1] == 'n' && !quote[0] && !quote[1])
-// 			return (1);
-// 		i++;
-// 	}
-// 	return (0);
-// }
 
 static int	handle_flags(char *prompt, t_prompt_info *data)
 {
@@ -55,7 +34,8 @@ static int	handle_flags(char *prompt, t_prompt_info *data)
 		i++;
 		if (prompt[i] == ' ' || !prompt[i])
 			countn = i + 1;
-		if ((prompt[i] && prompt[i + 1]) && (prompt[i] == ' ' && prompt[i + 1] == ' '))
+		if ((prompt[i] && prompt[i + 1]) && (prompt[i] == ' '
+				&& prompt[i + 1] == ' '))
 			return (countn);
 	}
 	return (countn);

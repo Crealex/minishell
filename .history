@@ -1930,3 +1930,79 @@ exit
 |
 exit
 exit
+|
+exit
+exit
+echo salut
+echo salut'
+echo 'salut'
+echo $USER
+echo '$USER'
+echo "$USER"
+exit
+echo "$USER"
+echo salut
+echo '$USER'
+echo salut'
+echo 'salut'
+echo $USER
+exit
+echo salut
+exit
+echo salut'
+exot
+exit
+echo 'salut'
+exit
+echo 'salutl'
+exit
+echo 'salutl'
+exit
+echo 'salutl'
+exit
+echo 'salutl'
+exit
+exit
+cd ..
+cd ..
+cd -
+exit
+cd ..
+cd ..
+cd -
+exit
+cd ..
+cd ..
+cd -
+exit
+cd ..
+cd ..
+cd -
+exit
+cd ~
+cd -
+cd ..
+ls
+exit
+pwd
+pwd -
+owd caca
+pwd caca
+pdw dsc dcscsd csdcsd csdc csdc
+pwd dsc dscs dsvsv dsvs vdsvs
+exit
+export test
+export TEST=test
+exit
+export TEST="test"
+export TEST+=test
+emv
+env
+export
+exit
+export 124=efwf
+export =vsvs
+exit
+export caca=CACA
+env
+exit

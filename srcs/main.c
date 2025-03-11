@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:37:37 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/10 15:32:35 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/11 11:07:31 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-static int	prompt_handler(t_prompt_info *data, int fd)
+static int	prompt_handler(t_prompt_info *data)
 {
-	manage_history(data->str_prt, fd);
+	manage_history(data, data->str_prt);
 	if (!parsing(data))
 	{
 		ft_putstr_fd("Error : Parsing\n", 2);
@@ -76,7 +76,7 @@ int	main(int argc, char **argv, char **env)
 			return (update_exit_code(-1));
 		if (ft_strlen(data.str_prt) > 0)
 		{
-			if (!prompt_handler(&data, data.fd_history))
+			if (!prompt_handler(&data))
 				return (1);
 		}
 	}

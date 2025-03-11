@@ -24,6 +24,8 @@ static int	in_redirect(char **str)
 	while ((*str)[i])
 	{
 		update_quote(&quote[0], &quote[1], &i, (*str));
+		if (!(*str)[i])
+			break ;
 		if (!quote[0] && !quote[1] && (*str)[i] == '<')
 		{
 			len_file(*str, i, &len[0], &len[1]);
@@ -64,6 +66,8 @@ static int	out_redirect(char **str)
 	while ((*str)[i])
 	{
 		update_quote(&quote[0], &quote[1], &i, *str);
+		if (!(*str)[i])
+			break ;
 		if (!quote[0] && !quote[1] && (*str)[i] == '>')
 		{
 			len_file_out(*str, i, &len[0], &len[1]);

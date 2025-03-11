@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   history.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 11:46:28 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/11 09:49:04 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/11 11:10:11 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,9 @@ void	get_history(int fd)
 		free(line);
 }
 
-void	manage_history(char *str, int fd)
+void	manage_history(t_prompt_info *data, char *str)
 {
-	ft_putstr_fd(str, fd);
-	ft_putstr_fd("\n", fd);
+	ft_putstr_fd(str, data->fd_history);
+	ft_putstr_fd("\n", data->fd_history);
 	add_history(str);
-	close(fd);
 }

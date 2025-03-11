@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/10 15:36:01 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/11 10:59:18 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct s_str
 }		t_str;
 
 void	get_history(int fd);
-void	manage_history(char *str, int fd);
+void	manage_history(t_prompt_info *data, char *str);
 int		parsing(t_prompt_info *data);
 // builtins
 void	ft_echo(char *str, t_prompt_info *data);
@@ -82,6 +82,9 @@ int		ft_isspace(int c);
 void	print_err(char *s1, char *s2, char *s3);
 int		only_space(char **prompt);
 char	*char_strjoin(char *str, char c);
+void	init_fd(int *i, int *start, int *end);
+void	init_two(int *i, int *j);
+void	init_four(int *i, int *j, int *k, int *l);
 //quote
 int		len_wquote(char *str);
 char	*rm_quote(char *str);
@@ -93,9 +96,6 @@ char	*handle_dollars(char *prompt, char **env);
 char	*add_env(char *prompt, int *i, t_str *res, char **all_env);
 char	*better_strjoin(char const *s1, char const *s2, char *prompt,
 			int iprompt);
-void	init_fd(int *i, int *start, int *end);
-void	init_two(int *i, int *j);
-void	init_four(int *i, int *j, int *k, int *l);
 void	len_file(char *str, int i, int *start, int *end);
 char	*filename(char *str, int i);
 char	*del_rd(char *str, int *len, int *index);

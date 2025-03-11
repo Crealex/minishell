@@ -2161,11 +2161,85 @@ ls > out
 |
 exit
 exit
-export a="'"
-code .
-cd .
+|
+exit
+exit
+exit
+/bin/echo ""$?""
+/bin/echo ""$?""
+/bin/echo ""$?""
+exit
+/bin/echo ""$?""
+exit
+exit
+echo salut
+exit
+exit
+echo salut
+/bin/echo ""$?""
+/bin/echo ""$?""
+/bin/echo ""$?""
+/bin/echo ""$?""
+exit
+/bin/echo ""$?""
+exit
+/bin/echo ""$?""
+exit
+/bin/echo ""$?"" | cat
+/bin/echo ""$?""
+exit
+pwd | echo salut
+echo $?
+exit
+pwd | echo salut
+exit
+pwd | echo salut
+echo $?
 exit
 |
 exit
 exit
-echo salt
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+pwd | echo salut
+exit
+|
+exit
+exit
+pwd | echo salut
+/bin/echo ""$?"" | cat
+exit
+|
+exit
+exit
+/bin/echo ""$?""
+exit
+/bin/echo ""$?""
+exit
+ls > out
+< out ls
+exit
+ls > out
+< out ls
+exit
+< out ls
+ls > out
+echo > /dev/null
+echo > /dev/null | ls
+/bin/echo ""$?""
+ls > out
+exit
+ls > out

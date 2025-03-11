@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redirection_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 11:11:51 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/10 15:31:23 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/11 11:23:57 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ int	space_around(char **str, char c)
 	while ((*str)[i])
 	{
 		update_quote(&quote[0], &quote[1], &i, *str);
+		if (!(*str)[i])
+			break ;
 		if (!quote[0] && !quote[1] && (*str)[i] == c)
 		{
 			double_quote((*str)[i + 1], c, &i, &is_double);

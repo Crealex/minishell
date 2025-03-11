@@ -1,4 +1,0 @@
-salut
-ma 
-couillasse
-comment

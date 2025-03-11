@@ -2392,3 +2392,10 @@ ls | dssv
 exit
 ls
 exit
+|
+exit
+exit
+/bin/echo "exit_code ->$? user ->$USER home -> $HOME"
+exit
+/bin/echo "exit_code ->$? user ->$USER home -> $HOME"
+exit

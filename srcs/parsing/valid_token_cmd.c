@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 15:29:11 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/10 15:29:14 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/11 13:20:15 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	len_token(char *str)
 		if (str[i] == (str[i] == '\'' && !quote[1])
 			|| (str[i] == '\"' && !quote[0]))
 			update_quote(&quote[0], &quote[1], &i, str);
-		if (str[i] == ' ' && !quote[0] && !quote[1])
+		if (!str[i] || (str[i] == ' ' && !quote[0] && !quote[1]))
 			break ;
 		i++;
 	}
@@ -51,7 +51,7 @@ static char	*extract_token(char *str)
 		if (str[i] && ((str[i] == '\'' && !quote[1])
 				|| (str[i] == '\"' && !quote[0])))
 			update_quote(&quote[0], &quote[1], &i, str);
-		if (str[i] == ' ' && !quote[0] && !quote[1])
+		if (!str[i] || (str[i] == ' ' && !quote[0] && !quote[1]))
 			break ;
 		res[ires++] = str[i++];
 	}

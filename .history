@@ -2243,3 +2243,32 @@ echo > /dev/null | ls
 ls > out
 exit
 ls > out
+ls | grep a
+pwd
+pwd wwfwfwf
+cd -
+cd .
+cd
+ls
+echho
+dscds
+"xsax:
+"casc"
+"salut"
+exit
+"salut"
+exit
+"salt:
+"salut"
+"salut ma couille"
+exit
+cdscsdcds
+dsvvsd
+dsbs
+exit
+"salut"
+'salut'
+exit
+|
+exit
+exit

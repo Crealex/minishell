@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:57:04 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/10 13:36:35 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/11 09:54:25 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,5 @@ int	exec_pipe(t_prompt_info *data)
 		waitpid(pid[i++], &exit_status, 0);
 	is_child(0);
 	update_exit_code(WEXITSTATUS(exit_status));
-	return (free(pipefd), 1);
+	return (free(pipefd), free(pid), 1);
 }

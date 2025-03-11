@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 11:46:28 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/10 15:32:55 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/11 09:49:04 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,5 @@ void	manage_history(char *str, int fd)
 	ft_putstr_fd(str, fd);
 	ft_putstr_fd("\n", fd);
 	add_history(str);
+	close(fd);
 }

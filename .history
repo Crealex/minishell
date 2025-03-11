@@ -2056,3 +2056,108 @@ exit
 |
 exit
 exit
+env
+export
+exit
+pwd
+export
+env
+ls
+cd .
+cd .
+cd .
+cd .
+export
+q
+y
+exit
+export
+unset PWD
+unset SHLVL
+export
+unset _
+export
+cd .
+export
+unset COLUMNS
+unet LINES
+unset LINES
+unset PWD
+unset SHLVL
+export
+unset _
+export
+cd .
+export
+unset PWD SHLVL
+export
+unset _ LINES COLUMNS
+export
+cd .
+cd .
+ls
+pwd
+cat | cat | ls
+cat | cat | cat | ls
+cat | cat | cat | cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat |cat | cat | cat | ls
+pwd
+ls
+echo "$HOME"
+echo "$HOME"'$HOME'
+echo "$HOME'$HOME'"
+echo '$HOME'$HOME''
+echo '$HOME'$HOME'
+echo '$HOME''$HOME'
+export
+export test='
+export
+echo "$test"$HOME"$test"
+echo $test$HOME$test
+export test2='"'
+export
+echo $test2$HOME$test2
+echo "$test2$HOME$test2"
+echo "$test2$HOME$test2"
+echo "$test2$HOME$test2"
+echo "''"
+echo "'''''''''''"
+echo "$test$test"
+echo "$test2$test2"
+echo "'""
+echo """"
+echo "$test2$test"
+echo "$test2$HOME$test"
+echo "$test2$HOME$test"
+echo "$test2$HOME$test"
+echo '$test$HOME$test'
+echo "$test2$HOME$test"
+export command="ls -la"
+echo command
+echo $command
+$command
+$test
+$test$command$test
+'$test$command$test'
+$test2'$test$command$test'$test2
+echo -n salt
+echo -nnnnnnnnnnnnnn salt
+exit
+exit
+ls
+ls | grep a
+ls | grep a
+|
+exit
+exit
+ls | grep a
+ls | grep a
+exit
+exit
+ls | grep a
+exit > out
+exit < out
+ls > out
+> out ls
+|
+exit
+exit

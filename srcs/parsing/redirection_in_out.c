@@ -30,7 +30,7 @@ static int	in_redirect(char **str)
 		{
 			len_file(*str, i, &len[0], &len[1]);
 			double_quote((*str)[i + 1], '<', &i, &is_double);
-			if ((i > 0 && error_out(*str, i))
+			if ((i > 1 && error_out(*str, i))
 				|| error(*str, &i, "<", ">"))
 			{
 				*str = del_rd(*str, len, &i);
@@ -43,11 +43,13 @@ static int	in_redirect(char **str)
 	return (1);
 }
 
-int	is_in_rd(char **str, t_prompt_info *data, int index)
+int	is_in_rd(char **str, t_prompt_info *data, int index, int *c)
 {
 	if (!in_redirect(str))
 		return (update_exit_code(2), 0);
-	data->fd_in[index] = get_in_fd(str, data->fd_in[index], data);
+	data->fd_in[index] = get_in_fd(str, data->fd_in[index], data, *c);
+	if (!(*str)[*c])
+		(*c)--;
 	is_child(0);
 	if (data->fd_in[index] == -1)
 		return (update_exit_code(1), -1);
@@ -84,11 +86,13 @@ static int	out_redirect(char **str)
 	return (1);
 }
 
-int	is_out_rd(char **str, t_prompt_info *data, int index)
+int	is_out_rd(char **str, t_prompt_info *data, int index, int *c)
 {
 	if (!out_redirect(str))
 		return (update_exit_code(2), 0);
-	data->fd_out[index] = get_out_fd(str, data->fd_out[index], data);
+	data->fd_out[index] = get_out_fd(str, data->fd_out[index], data, *c);
+	if (!(*str)[*c])
+		(*c)--;
 	is_child(0);
 	if (data->fd_out[index] == -1)
 		return (update_exit_code(1), -1);

@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 16:08:33 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/11 11:42:22 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/11 16:12:14 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	len_file_out(char *str, int i, int *start, int *end)
 	while (str[i])
 	{
 		update_quote(&quote[0], &quote[1], &i, str);
+		if (!str[i])
+			break ;
 		if (!quote[0] && !quote[1] && isspace(str[i]))
 			break ;
 		i++;
@@ -70,33 +72,20 @@ static int	open_fd(char *str, int fd_arg, int *len, int is_double)
 	return (fd);
 }
 
-int	get_out_fd(char **str, int fd, t_prompt_info *data)
+int	get_out_fd(char **str, int fd, t_prompt_info *data, int c)
 {
-	int		i;
-	int		inquote[2];
 	int		len[2];
 	int		isdouble;
 
-	init_fd(&i, &len[0], &len[1]);
-	init_fd(&inquote[0], &inquote[1], &isdouble);
+	init_fd(&len[0], &len[1], &isdouble);
 	*str = expansion(*str, data);
-	while ((*str)[i])
-	{
-		update_quote(&inquote[0], &inquote[1], &i, *str);
-		if (!(*str)[i])
-			break ;
-		if (!inquote[0] && !inquote[1] && (*str)[i] == '>')
-		{
-			len_file_out(*str, i, &len[0], &len[1]);
-			is_double((*str)[i + 1], &isdouble);
-			fd = open_fd(*str, fd, len, isdouble);
-			*str = del_rd(*str, len, &i);
-			if (!(*str))
-				return (-1);
-			if (fd == -1)
-				return (-1);
-		}
-		i++;
-	}
+	len_file_out(*str, c, &len[0], &len[1]);
+	is_double((*str)[c + 1], &isdouble);
+	fd = open_fd(*str, fd, len, isdouble);
+	*str = del_rd(*str, len, &c);
+	if (!(*str))
+		return (-1);
+	if (fd == -1)
+		return (-1);
 	return (fd);
 }

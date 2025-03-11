@@ -2243,3 +2243,139 @@ echo > /dev/null | ls
 ls > out
 exit
 ls > out
+ls > out
+exit
+ls > out
+exit
+ls > out
+exit
+ls > out
+exit
+ls > out
+exit
+ls > out
+exit
+ls > out
+exit
+ls > out
+exit
+|
+exit
+exit
+|
+exit
+exit
+echo seg <<<<<>> echo segf
+echo segf <|< echo super valid
+ls | cat << stop | ls -la | cat << stop1 | ls | cat << stop2 | ls -la > > out | cat << stop3
+cat Makefile | ls > out
+cat out
+/bin/rm -f out
+|
+exit
+exit
+|
+exit
+exit
+>echo>
+>echo>
+>echo>
+>echo>
+>echo>
+>echo>
+>echo>
+>echo>
+>echo>
+exit
+>echo>
+exit
+>echo>
+exit
+>echo>
+exit
+>echo>
+exit
+>echo>
+exit
+>echo>
+exit
+>echo>
+exit
+>echo>
+exit
+|
+exit
+exit
+|
+exit
+exit
+grep hi <./test_files/infile
+exit
+grep hi <./test_files/infile
+exit
+grep hi <./test_files/infile
+exit
+|
+exit
+exit
+echo segfault < " < < < " < < amazing
+exit
+echo segfault < " < < < " < < amazing
+exit
+|
+exit
+exit
+>> "$USER'$USER'"
+cat "$USER'$USER'"
+/bin/rm -f "$USER'$USER'"
+|
+exit
+exit
+exit
+ls > out
+exit
+ls > out
+< out ls
+exit
+<>
+><
+exit
+><
+exit
+< out ls
+exit
+|
+exit
+exit
+|
+exit
+exit
+exit
+cat | cat | ls
+exit
+cat | cat | ls
+exit
+pwd | echo salut
+exit
+pwd | echo salut
+exit
+pwd | echo salut
+exit
+/bin/echo "exit_code ->$? user ->$USER home -> $HOME"
+exit
+/bin/echo "exit_code ->$? user ->$USER home -> $HOME"
+exit
+/bin/echo "exit_code ->$?"
+/bin/echo "exit_code ->$? user ->$USER"
+/bin/echo "user ->$USER"
+/bin/echo "exit_code ->$? user ->$USER"
+exit
+/bin/echo "user ->$USER"
+/bin/echo "exit_code ->$? user ->$USER"
+exit
+/bin/echo "exit_code ->$? user ->$USER"
+exit
+/bin/echo "exit_code ->$? user ->$USER"
+exit
+/bin/echo "exit_code ->$? user ->$USER"
+exit

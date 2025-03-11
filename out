@@ -10,6 +10,7 @@
 8_syntax_errors.sh
 9_go_wild.sh
 ascii_art.txt
+echo
 ignore_readline_leaks.supp
 includes
 leakslogs.txt
@@ -17,6 +18,15 @@ libft
 Makefile
 minishell
 mstest_output_2025-03-11_11.34.47
+mstest_output_2025-03-11_14.57.41
+mstest_output_2025-03-11_14.58.02
+mstest_output_2025-03-11_15.33.23
+mstest_output_2025-03-11_15.34.19
+mstest_output_2025-03-11_15.52.11
+mstest_output_2025-03-11_15.53.13
+mstest_output_2025-03-11_16.00.07
+mstest_output_2025-03-11_16.12.26
+mstest_output_2025-03-11_16.15.21
 objets
 out
 out1

@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:16:15 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/11 11:33:26 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/11 17:07:20 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@ char	*add_env(char *prompt, int *i, t_str *res, char **all_env)
 	char	*env;
 	char	*temp;
 
+	env = NULL;
+	temp = NULL;
+	var_name = NULL;
 	temp = ft_calloc(res->i + 1, sizeof(char));
 	if (!temp)
 		return (NULL);

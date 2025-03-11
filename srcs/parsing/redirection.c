@@ -6,16 +6,17 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 15:29:44 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/11 15:57:09 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/11 17:10:54 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
+#include <unistd.h>
 
 int	pre_redirect(t_prompt_info *data, char **str, int index)
 {
-	data->fd_in[index] = 0;
-	data->fd_out[index] = 1;
+	data->fd_in[index] = STDIN_FILENO;
+	data->fd_out[index] = STDOUT_FILENO;
 	if (!space_around(str, '<') || !space_around(str, '>'))
 		return (0);
 	return (1);

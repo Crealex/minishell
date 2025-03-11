@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:11:07 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/10 10:49:12 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/11 15:33:34 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ static int	goto_last_path(char ***env)
 	path = malloc(sizeof(char) * 1000);
 	getcwd(path, 1000);
 	printf("%s\n", path);
+	free(path);
 	update_env(env);
 	return (1);
 }

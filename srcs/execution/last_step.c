@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:11:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/10 11:51:26 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/11 15:48:27 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ static int	which_builtins(t_prompt_info *data)
 
 int	last_step(char **str, t_prompt_info *data)
 {
+	if (str_only_space(data->str_prt))
+		return (0);
 	data->prompt = split_wquote(*str, ' ');
 	if (!data->prompt || !data->prompt[0])
 		return (0);

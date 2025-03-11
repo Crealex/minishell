@@ -6,11 +6,12 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 15:29:11 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/10 15:29:14 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/11 16:18:23 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
+#include <stddef.h>
 
 static int	len_token(char *str)
 {
@@ -25,7 +26,7 @@ static int	len_token(char *str)
 		if (str[i] == (str[i] == '\'' && !quote[1])
 			|| (str[i] == '\"' && !quote[0]))
 			update_quote(&quote[0], &quote[1], &i, str);
-		if (str[i] == ' ' && !quote[0] && !quote[1])
+		if (!str[i] || (str[i] == ' ' && !quote[0] && !quote[1]))
 			break ;
 		i++;
 	}
@@ -51,7 +52,7 @@ static char	*extract_token(char *str)
 		if (str[i] && ((str[i] == '\'' && !quote[1])
 				|| (str[i] == '\"' && !quote[0])))
 			update_quote(&quote[0], &quote[1], &i, str);
-		if (str[i] == ' ' && !quote[0] && !quote[1])
+		if (!str[i] || (str[i] == ' ' && !quote[0] && !quote[1]))
 			break ;
 		res[ires++] = str[i++];
 	}
@@ -59,28 +60,37 @@ static char	*extract_token(char *str)
 	return (res);
 }
 
+static int	is_valid_builtins(char *token_cmd, size_t len_tok)
+{
+	if (!ft_strncmp("echo", token_cmd, len_tok))
+		return (1);
+	else if (!ft_strncmp("cd", token_cmd, len_tok))
+		return (1);
+	else if (!ft_strncmp("pwd", token_cmd, len_tok))
+		return (1);
+	else if (!ft_strncmp("export", token_cmd, len_tok))
+		return (1);
+	else if (!ft_strncmp("unset", token_cmd, len_tok))
+		return (1);
+	else if (!ft_strncmp("env", token_cmd, len_tok))
+		return (1);
+	else if (!ft_strncmp("exit", token_cmd, len_tok))
+		return (1);
+	return (0);
+}
+
 int	valid_token_cmd(t_prompt_info *data)
 {
 	char	*token_cmd;
 	int		len_tok;
-
-	token_cmd = extract_token(data->str_prt);
+	if (data->is_pipe == 0)
+		token_cmd = extract_token(data->str_prt);
+	else
+		token_cmd = extract_token(data->pipe[data->pos_pipe]);
 	if (!token_cmd)
 		return (-1);
 	len_tok = ft_strlen(token_cmd);
-	if (!ft_strncmp("echo", token_cmd, len_tok))
-		return (free(token_cmd), 1);
-	else if (!ft_strncmp("cd", token_cmd, len_tok))
-		return (free(token_cmd), 1);
-	else if (!ft_strncmp("pwd", token_cmd, len_tok))
-		return (free(token_cmd), 1);
-	else if (!ft_strncmp("export", token_cmd, len_tok))
-		return (free(token_cmd), 1);
-	else if (!ft_strncmp("unset", token_cmd, len_tok))
-		return (free(token_cmd), 1);
-	else if (!ft_strncmp("env", token_cmd, len_tok))
-		return (free(token_cmd), 1);
-	else if (!ft_strncmp("exit", token_cmd, len_tok))
+	if (is_valid_builtins(token_cmd, len_tok))
 		return (free(token_cmd), 1);
 	else if (check_validity(token_cmd, 1))
 		return (free(token_cmd), 1);

@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 11:46:57 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/10 14:57:25 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/11 15:02:20 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,20 @@ int	only_space(char **prompt)
 	}
 	print_err(prompt[0], ": command not found\n", NULL);
 	return (update_exit_code(127), 1);
+}
+
+int	str_only_space(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (!ft_isspace(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 char	*char_strjoin(char *str, char c)

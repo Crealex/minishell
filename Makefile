@@ -8,6 +8,10 @@ BUILTINS	=	$(addprefix srcs/builtins/, ft_echo.c ft_exit.c ft_cd.c ft_pwd.c ft_e
 							ft_env.c ft_unset.c ft_export3.c)
 UTILS	=	$(addprefix srcs/utils/, split_pipe.c split_pipe2.c split_wquote.c utils.c utils2.c quote.c quote2.c cmd_utils.c)
 EXEC	=	$(addprefix srcs/execution/, extern.c exec_pipe.c exec_nopipe.c last_step.c)
+FLAGSMV =	--errors-for-leak-kinds=all --leak-check=full --show-error-list=yes \
+                  --show-leak-kinds=all --suppressions=/home/atomasi/42_minishell_tester/utils/minishell.supp --trace-children=yes \
+                  --trace-children-skip="$(shell echo /bin/* /usr/bin/* /usr/sbin/* $(shell which norminette) | tr ' ' ',')" \
+                  --track-fds=all --track-origins=yes --log-file=leakslogs.txt
 #prevoir plusieurs dossier dans srcs
 OBJS	=	${SRCS:%.c=${OBJDIR}/%.o}
 OBJSB	=	${BUILTINS:%.c=${OBJDIR}/%.o}
@@ -63,6 +67,10 @@ ${OBJDIR}:
 leaks: ${NAME}
 	@echo "${GREEN}Valgrind launched, outfiles :${YELLOW} leakslogs.txt${END}"
 	@valgrind --leak-check=full --log-file=leakslogs.txt --show-leak-kinds=all --track-fds=yes --suppressions=ignore_readline_leaks.supp ./minishell
+
+vm: ${NAME}
+	@echo "${GREEN}Valgrind launched with vm flags, outfiles :${YELLOW} leakslogs.txt${END}"
+	@valgrind ${FLAGSMV} ./minishell
 
 test: ${OBJSB} ${OBJSP} ${OBJSU} ${OBJSEX} ${LIBFT}
 	@${CC} ${CFLAGS} ${OBJSB} ${OBJSP} ${OBJSU} ${OBJSEX} ${LIBFT} -lreadline -o ${NAME}

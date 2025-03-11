@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/11 10:59:18 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/11 15:02:11 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void	cleanup(t_prompt_info *data, int redirect);
 int		ft_isspace(int c);
 void	print_err(char *s1, char *s2, char *s3);
 int		only_space(char **prompt);
+int		str_only_space(char *str);
 char	*char_strjoin(char *str, char c);
 void	init_fd(int *i, int *start, int *end);
 void	init_two(int *i, int *j);

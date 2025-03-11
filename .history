@@ -2161,3 +2161,11 @@ ls > out
 |
 exit
 exit
+export a="'"
+code .
+cd .
+exit
+|
+exit
+exit
+echo salt

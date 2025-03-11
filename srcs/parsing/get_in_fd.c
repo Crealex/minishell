@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 11:15:33 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/10 11:35:12 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/11 11:44:03 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,6 +156,8 @@ int	get_in_fd(char **str, int fd, t_prompt_info *data)
 	while ((*str)[i])
 	{
 		update_quote(&quote[0], &quote[1], &i, *str);
+		if (!(*str)[i])
+			break ;
 		if (!quote[0] && !quote[1] && (*str)[i] == '<' && (*str)[i + 1] != '<')
 		{
 			len_file(*str, i, &len[0], &len[1]);

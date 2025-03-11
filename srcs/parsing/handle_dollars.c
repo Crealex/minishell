@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_dollars.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:16:15 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/06 16:40:54 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/11 11:33:26 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	*add_env(char *prompt, int *i, t_str *res, char **all_env)
 	else if (var_name[0] == '\0')
 		env = ft_strdup("$");
 	else
-		env = ft_getenv(var_name, all_env);
+		env = ft_strdup(ft_getenv(var_name, all_env));
 	if (var_name)
 		free(var_name);
 	if (!env)
@@ -63,7 +63,7 @@ char	*add_env(char *prompt, int *i, t_str *res, char **all_env)
 	free(res->str);
 	res->str = better_strjoin(temp, env, prompt, *i);
 	(res->i) += ft_strlen(env);
-	return (free(temp), res->str);
+	return (free(env), free(temp), res->str);
 }
 
 // char	*handle_dollars(char *prompt, char **env)

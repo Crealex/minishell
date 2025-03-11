@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 15:24:47 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/10 15:24:52 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/11 11:33:17 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,10 @@ char	*ft_getenv(char *var, char **env)
 	i = 0;
 	if (!env || !*env)
 		return (NULL);
-	len_var = strlen(var);
+	len_var = ft_strlen(var);
 	while (env[i])
 	{
-		if (!strncmp(var, env[i], len_var) && env[i][len_var] == '=')
+		if (!ft_strncmp(var, env[i], len_var) && env[i][len_var] == '=')
 			return (env[i] + len_var + 1);
 		i++;
 	}

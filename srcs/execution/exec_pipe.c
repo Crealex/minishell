@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec_pipe.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:57:04 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/11 09:54:25 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/11 11:23:12 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ static void	fork_handler(t_prompt_info *data, int i, pid_t *pid, int (*pifd)[2])
 	}
 	if (pid[i] == 0)
 	{
+		close(data->fd_history);
 		free(pid);
 		redirect_pipe(data, i, pifd);
 		free(pifd);

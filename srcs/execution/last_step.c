@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   last_step.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:11:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/12 13:56:50 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/12 15:14:41 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	which_builtins(t_prompt_info *data)
 int	last_step(char **str, t_prompt_info *data)
 {
 	if (str_only_space(data->str_prt))
-		return (0);
+		return (1);
 	data->prompt = split_wquote(*str, ' ');
 	if (!data->prompt || !data->prompt[0])
 		return (0);
@@ -48,7 +48,7 @@ int	last_step(char **str, t_prompt_info *data)
 	if (!handle_quote(data))
 		return (0);
 	if (only_space(data->prompt))
-		return (0);
+		return (1);
 	if (!is_valid_cmd(*str, data))
 		return (0);
 	if (!check_builtins(data->prompt))

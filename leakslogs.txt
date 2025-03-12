@@ -1,147 +1,25 @@
-==3031354== Memcheck, a memory error detector
-==3031354== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==3031354== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==3031354== Command: ./minishell
-==3031354== Parent PID: 3031352
-==3031354== 
-==3031354== Invalid write of size 1
-==3031354==    at 0x10A4A7: format_content (ft_export.c:29)
-==3031354==    by 0x10A7DC: add_to_env (ft_export.c:95)
-==3031354==    by 0x10A9D6: ft_export (ft_export.c:131)
-==3031354==    by 0x112064: which_builtins (last_step.c:24)
-==3031354==    by 0x11224F: last_step (last_step.c:58)
-==3031354==    by 0x111F39: exec_no_pipe (exec_nopipe.c:17)
-==3031354==    by 0x10C610: parsing (parsing.c:75)
-==3031354==    by 0x10955B: prompt_handler (main.c:18)
-==3031354==    by 0x1097A6: main (main.c:79)
-==3031354==  Address 0x5e24947 is 0 bytes after a block of size 7 alloc'd
-==3031354==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==3031354==    by 0x10A40C: format_content (ft_export.c:23)
-==3031354==    by 0x10A7DC: add_to_env (ft_export.c:95)
-==3031354==    by 0x10A9D6: ft_export (ft_export.c:131)
-==3031354==    by 0x112064: which_builtins (last_step.c:24)
-==3031354==    by 0x11224F: last_step (last_step.c:58)
-==3031354==    by 0x111F39: exec_no_pipe (exec_nopipe.c:17)
-==3031354==    by 0x10C610: parsing (parsing.c:75)
-==3031354==    by 0x10955B: prompt_handler (main.c:18)
-==3031354==    by 0x1097A6: main (main.c:79)
-==3031354== 
-==3031354== Invalid write of size 1
-==3031354==    at 0x10A4CA: format_content (ft_export.c:31)
-==3031354==    by 0x10A7DC: add_to_env (ft_export.c:95)
-==3031354==    by 0x10A9D6: ft_export (ft_export.c:131)
-==3031354==    by 0x112064: which_builtins (last_step.c:24)
-==3031354==    by 0x11224F: last_step (last_step.c:58)
-==3031354==    by 0x111F39: exec_no_pipe (exec_nopipe.c:17)
-==3031354==    by 0x10C610: parsing (parsing.c:75)
-==3031354==    by 0x10955B: prompt_handler (main.c:18)
-==3031354==    by 0x1097A6: main (main.c:79)
-==3031354==  Address 0x5e24948 is 1 bytes after a block of size 7 alloc'd
-==3031354==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==3031354==    by 0x10A40C: format_content (ft_export.c:23)
-==3031354==    by 0x10A7DC: add_to_env (ft_export.c:95)
-==3031354==    by 0x10A9D6: ft_export (ft_export.c:131)
-==3031354==    by 0x112064: which_builtins (last_step.c:24)
-==3031354==    by 0x11224F: last_step (last_step.c:58)
-==3031354==    by 0x111F39: exec_no_pipe (exec_nopipe.c:17)
-==3031354==    by 0x10C610: parsing (parsing.c:75)
-==3031354==    by 0x10955B: prompt_handler (main.c:18)
-==3031354==    by 0x1097A6: main (main.c:79)
-==3031354== 
-==3031354== Invalid read of size 1
-==3031354==    at 0x112A6A: ft_strdup (in /home/atomasi/Documents/minishell/minishell)
-==3031354==    by 0x10AD54: modify_var (ft_export2.c:91)
-==3031354==    by 0x10A80E: add_to_env (ft_export.c:97)
-==3031354==    by 0x10A9D6: ft_export (ft_export.c:131)
-==3031354==    by 0x112064: which_builtins (last_step.c:24)
-==3031354==    by 0x11224F: last_step (last_step.c:58)
-==3031354==    by 0x111F39: exec_no_pipe (exec_nopipe.c:17)
-==3031354==    by 0x10C610: parsing (parsing.c:75)
-==3031354==    by 0x10955B: prompt_handler (main.c:18)
-==3031354==    by 0x1097A6: main (main.c:79)
-==3031354==  Address 0x5e24947 is 0 bytes after a block of size 7 alloc'd
-==3031354==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==3031354==    by 0x10A40C: format_content (ft_export.c:23)
-==3031354==    by 0x10A7DC: add_to_env (ft_export.c:95)
-==3031354==    by 0x10A9D6: ft_export (ft_export.c:131)
-==3031354==    by 0x112064: which_builtins (last_step.c:24)
-==3031354==    by 0x11224F: last_step (last_step.c:58)
-==3031354==    by 0x111F39: exec_no_pipe (exec_nopipe.c:17)
-==3031354==    by 0x10C610: parsing (parsing.c:75)
-==3031354==    by 0x10955B: prompt_handler (main.c:18)
-==3031354==    by 0x1097A6: main (main.c:79)
-==3031354== 
-==3031354== Invalid read of size 1
-==3031354==    at 0x112AC4: ft_strdup (in /home/atomasi/Documents/minishell/minishell)
-==3031354==    by 0x10AD54: modify_var (ft_export2.c:91)
-==3031354==    by 0x10A80E: add_to_env (ft_export.c:97)
-==3031354==    by 0x10A9D6: ft_export (ft_export.c:131)
-==3031354==    by 0x112064: which_builtins (last_step.c:24)
-==3031354==    by 0x11224F: last_step (last_step.c:58)
-==3031354==    by 0x111F39: exec_no_pipe (exec_nopipe.c:17)
-==3031354==    by 0x10C610: parsing (parsing.c:75)
-==3031354==    by 0x10955B: prompt_handler (main.c:18)
-==3031354==    by 0x1097A6: main (main.c:79)
-==3031354==  Address 0x5e24947 is 0 bytes after a block of size 7 alloc'd
-==3031354==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==3031354==    by 0x10A40C: format_content (ft_export.c:23)
-==3031354==    by 0x10A7DC: add_to_env (ft_export.c:95)
-==3031354==    by 0x10A9D6: ft_export (ft_export.c:131)
-==3031354==    by 0x112064: which_builtins (last_step.c:24)
-==3031354==    by 0x11224F: last_step (last_step.c:58)
-==3031354==    by 0x111F39: exec_no_pipe (exec_nopipe.c:17)
-==3031354==    by 0x10C610: parsing (parsing.c:75)
-==3031354==    by 0x10955B: prompt_handler (main.c:18)
-==3031354==    by 0x1097A6: main (main.c:79)
-==3031354== 
-==3031354== Invalid read of size 1
-==3031354==    at 0x112AAE: ft_strdup (in /home/atomasi/Documents/minishell/minishell)
-==3031354==    by 0x10AD54: modify_var (ft_export2.c:91)
-==3031354==    by 0x10A80E: add_to_env (ft_export.c:97)
-==3031354==    by 0x10A9D6: ft_export (ft_export.c:131)
-==3031354==    by 0x112064: which_builtins (last_step.c:24)
-==3031354==    by 0x11224F: last_step (last_step.c:58)
-==3031354==    by 0x111F39: exec_no_pipe (exec_nopipe.c:17)
-==3031354==    by 0x10C610: parsing (parsing.c:75)
-==3031354==    by 0x10955B: prompt_handler (main.c:18)
-==3031354==    by 0x1097A6: main (main.c:79)
-==3031354==  Address 0x5e24947 is 0 bytes after a block of size 7 alloc'd
-==3031354==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==3031354==    by 0x10A40C: format_content (ft_export.c:23)
-==3031354==    by 0x10A7DC: add_to_env (ft_export.c:95)
-==3031354==    by 0x10A9D6: ft_export (ft_export.c:131)
-==3031354==    by 0x112064: which_builtins (last_step.c:24)
-==3031354==    by 0x11224F: last_step (last_step.c:58)
-==3031354==    by 0x111F39: exec_no_pipe (exec_nopipe.c:17)
-==3031354==    by 0x10C610: parsing (parsing.c:75)
-==3031354==    by 0x10955B: prompt_handler (main.c:18)
-==3031354==    by 0x1097A6: main (main.c:79)
-==3031354== 
-==3031354== 
-==3031354== FILE DESCRIPTORS: 7 open (3 std) at exit.
-==3031354== Open file descriptor 103: /usr/share/code/v8_context_snapshot.bin
-==3031354==    <inherited from parent>
-==3031354== 
-==3031354== Open AF_UNIX socket 43: <unknown>
-==3031354==    <inherited from parent>
-==3031354== 
-==3031354== Open file descriptor 42: /home/atomasi/.config/Code/logs/20250312T134155/ptyhost.log
-==3031354==    <inherited from parent>
-==3031354== 
-==3031354== Open file descriptor 3: /home/atomasi/Documents/minishell/leakslogs.txt
-==3031354==    <inherited from parent>
-==3031354== 
-==3031354== 
-==3031354== HEAP SUMMARY:
-==3031354==     in use at exit: 358,644 bytes in 7,716 blocks
-==3031354==   total heap usage: 29,542 allocs, 21,826 frees, 17,810,032 bytes allocated
-==3031354== 
-==3031354== LEAK SUMMARY:
-==3031354==    definitely lost: 0 bytes in 0 blocks
-==3031354==    indirectly lost: 0 bytes in 0 blocks
-==3031354==      possibly lost: 0 bytes in 0 blocks
-==3031354==    still reachable: 0 bytes in 0 blocks
-==3031354==         suppressed: 358,644 bytes in 7,716 blocks
-==3031354== 
-==3031354== For lists of detected and suppressed errors, rerun with: -s
-==3031354== ERROR SUMMARY: 7 errors from 5 contexts (suppressed: 0 from 0)
+==1689819== Memcheck, a memory error detector
+==1689819== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1689819== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1689819== Command: ./minishell
+==1689819== Parent PID: 1689817
+==1689819== 
+==1689819== 
+==1689819== FILE DESCRIPTORS: 4 open (3 std) at exit.
+==1689819== Open file descriptor 3: /home/dvauthey/Documents/rk03/minishell/minishell/leakslogs.txt
+==1689819==    <inherited from parent>
+==1689819== 
+==1689819== 
+==1689819== HEAP SUMMARY:
+==1689819==     in use at exit: 369,016 bytes in 8,241 blocks
+==1689819==   total heap usage: 31,126 allocs, 22,885 frees, 19,056,022 bytes allocated
+==1689819== 
+==1689819== LEAK SUMMARY:
+==1689819==    definitely lost: 0 bytes in 0 blocks
+==1689819==    indirectly lost: 0 bytes in 0 blocks
+==1689819==      possibly lost: 0 bytes in 0 blocks
+==1689819==    still reachable: 0 bytes in 0 blocks
+==1689819==         suppressed: 369,016 bytes in 8,241 blocks
+==1689819== 
+==1689819== For lists of detected and suppressed errors, rerun with: -s
+==1689819== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

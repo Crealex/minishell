@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_pipe.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 15:30:03 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/10 15:30:06 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/12 15:13:58 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,6 @@ int	handle_pipe(t_prompt_info *data)
 		return (0);
 	if (redirection_pipe(data) == 0)
 		return (0);
+	
 	return (1);
 }

@@ -2496,3 +2496,178 @@ export A="test"
 export A="'test'"
 echo $A
 exit
+|
+exit
+exit
+echo |< echo segf
+echo |< echo segf
+echo | < echo segf
+exit
+|
+exit
+exit
+echo |< echo segf
+exit
+echo |< echo segf
+exit
+echo |< Makefile segf
+exit
+echo |< Makefile segf
+exit
+echo |< Makefile segf
+exit
+echo |< Makefile segf
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+echo |< Makefile segf
+echo |< echo segf
+exit
+|
+exit
+exit
+echo |< Makefile segf
+exit
+echo |< Makefile segf
+cat 
+cat leakslogs.txt 
+exit
+echo |< Makefile segf
+cat leakslogs.txt 
+|
+exit
+exit
+exit
+echo |< Makefile segf
+cat leakslogs.txt 
+|
+exit
+exit
+|
+exit
+exit
+exit
+echo |< Makefile segf
+cat leakslogs.txt 
+echo |< Makefile cat
+cat leakslogs.txt 
+exit
+echo |< Makefile cat
+cat leakslogs.txt 
+clear
+exit
+ls|< Makefile sadf
+cat leakslogs.txt 
+ls | < Makefile sadf
+cat leakslogs.txt 
+echo | < Makefile sadf
+cat leakslogs.txt 
+pwd| < Makefile sadf
+cat leakslogs.txt 
+clear
+EXIT
+exit
+echo | ls
+cat leakslogs.txt 
+cat leakslogs.txt 
+exit
+cat leakslogs.txt 
+echo | ls
+cat leakslogs.txt 
+echo | pwd
+cat leakslogs.txt 
+echo | dusagh
+cat leakslogs.txt 
+echo | dusagh < Makefile 
+cat leakslogs.txt 
+ygdsah < Makefile 
+cat leakslogs.txt 
+exit
+cat leakslogs.txt 
+ygdsah < Makefile 
+cat leakslogs.txt 
+exit
+ygdsah < Makefile 
+exit
+ygdsah < Makefile | echo
+cat leakslogs.txt 
+ls | ygdsah < Makefile
+cat leakslogs.txt 
+echo < Makefile | dusagh
+cat leakslogs.txt 
+tydaugshjk | dusagh
+cat leakslogs.txt 
+tydaugshjk | dusagh < Makefile 
+cat leakslogs.txt 
+echo | dusagh < Makefile 
+cat leakslogs.txt 
+cd | dusagh < Makefile 
+cat leakslogs.txt 
+env | dusagh < Makefile 
+cat leakslogs.txt 
+export | dusagh < Makefile 
+cat leakslogs.txt 
+exit
+export | dusagh < Makefile 
+exit
+env | dusagh < Makefile 
+cat leakslogs.txt 
+exit
+echo -n
+echo -n | < Makefile uyasdg
+cat leakslogs.txt 
+exit
+echo salut | < Makefile cat
+cat leakslogs.txt 
+echo salut | echo salut
+cat leakslogs.txt 
+env | < Makefile cat
+cat leakslogs.txt 
+ls | < Makefile cat
+cat leakslogs.txt 
+exit
+echo salut | dfghjkk
+cat leakslogs.txt 
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+exit
+env | < Makefile cat
+cat leakslogs.txt 
+echo salut | < Makefile daufsdg
+cat leakslogs.txt 
+exit
+echo salut | < Makefile daufsdg
+cat leakslogs.txt 
+exit
+echo salut | < Makefile daufsdg
+exit
+ls | cat | ls
+cat leakslogs.txt 
+exit
+echo salut | < Makefile daufsdg
+cat leakslogs.txt 
+exit
+echo salut | < Makefile daufsdg
+cat leakslogs.txt 
+ls | echo salut | < Makefile daufsdg
+cat leakslogs.txt 
+exit
+cat leakslogs.txt 
+ls | echo salut | < Makefile daufsdg
+cat leakslogs.txt 
+exit
+exit

@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:11:07 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/11 15:33:34 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/12 11:32:14 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ static void	handle_err(char *str)
 {
 	struct stat	statt;
 
+	statt.st_mode = 0;
 	stat(str, &statt);
 	if (!S_ISDIR(statt.st_mode) && access(str, F_OK) != -1)
 	{

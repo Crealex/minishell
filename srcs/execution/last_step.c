@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:11:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/11 15:48:27 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/12 13:56:50 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	which_builtins(t_prompt_info *data)
 {
 	if (!ft_strncmp(data->prompt[0], "echo", 4))
-		ft_echo(data->str_prt, data);
+		ft_echo(data->str_prt, data, 0);
 	else if (!ft_strncmp(data->prompt[0], "cd", 2))
 		ft_cd(data->prompt, &data->env);
 	else if (!ft_strncmp(data->prompt[0], "pwd", 3))

@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:42:41 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/10 10:49:20 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/12 13:57:09 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,10 @@ static int	handle_flags(char *prompt, t_prompt_info *data)
 	return (countn);
 }
 
-void	ft_echo(char *str, t_prompt_info *data)
+void	ft_echo(char *str, t_prompt_info *data, int n)
 {
 	char	*prompt;
 	char	*res;
-	int		n;
 
 	if (data->is_pipe == 0)
 		prompt = ft_substr(str, 5, ft_strlen(str));
@@ -61,6 +60,7 @@ void	ft_echo(char *str, t_prompt_info *data)
 		if (!res)
 			return ;
 		printf("%s", res);
+		free(res);
 		if (!n)
 			printf("\n");
 	}

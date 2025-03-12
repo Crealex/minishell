@@ -1,34 +1,8 @@
-0_compare_parsing.sh
-10_parsing_hell.sh
-11_expansion.sh
-1_builtins_exit.sh
-1_pipelines.sh
-1_redirs.sh
-1_scmds.sh
-1_variables.sh
-2_correction.sh
-8_syntax_errors.sh
-9_go_wild.sh
-ascii_art.txt
-echo
-ignore_readline_leaks.supp
-includes
-leakslogs.txt
-libft
-Makefile
-minishell
-mstest_output_2025-03-11_11.34.47
-mstest_output_2025-03-11_14.57.41
-mstest_output_2025-03-11_14.58.02
-mstest_output_2025-03-11_15.33.23
-mstest_output_2025-03-11_15.34.19
-mstest_output_2025-03-11_15.52.11
-mstest_output_2025-03-11_15.53.13
-mstest_output_2025-03-11_16.00.07
-mstest_output_2025-03-11_16.12.26
-mstest_output_2025-03-11_16.15.21
-objets
-out
-out1
-out.sh
-srcs
+a
+[?2004hminishell $ >
+[?2004l
+[?2004hminishell $ >
+[?2004l
+[?2004hminishell $ > fs^C[?2004l
+minishell $ > [?2004h^C[?2004l
+minishell $ > [?2004h[?2004l

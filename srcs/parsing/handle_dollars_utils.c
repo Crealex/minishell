@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 15:52:53 by atomasi           #+#    #+#             */
-/*   Updated: 2025/02/17 10:06:33 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/12 10:35:06 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	*better_strjoin(char const *s1, char const *s2, char *prompt, int ip)
 
 	i1 = 0;
 	i2 = 0;
-	result = malloc((len(s1) + len(s2) + lenp(prompt, ip) + 1) * sizeof(char));
+	result = ft_calloc((len(s1) + len(s2) + lenp(prompt, ip) + 1), sizeof(char));
 	if (result == NULL)
 		return (NULL);
 	while (s1[i1])

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/11 17:10:45 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/12 13:56:59 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	get_history(int fd);
 void	manage_history(t_prompt_info *data, char *str);
 int		parsing(t_prompt_info *data);
 // builtins
-void	ft_echo(char *str, t_prompt_info *data);
+void	ft_echo(char *str, t_prompt_info *data, int n);
 void	ft_exit(t_prompt_info *data);
 void	freesplit(char **str);
 void	ft_cd(char **prompt, char ***env);

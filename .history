@@ -2399,3 +2399,100 @@ exit
 exit
 /bin/echo "exit_code ->$? user ->$USER home -> $HOME"
 exit
+cd
+exit
+cd
+exit
+|
+exit
+exit
+echo a > out
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+echo $USER$scac$
+exit
+exit
+echo $
+exit
+echo $USER$
+exit
+echo $csacsa
+exit
+<< end cat << endd ls
+exit
+exit
+echo $sacac
+exit
+|
+exit
+exit
+<< end cat
+exit
+<< $USER cat
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+cd $"home"/atomasi
+cd ..
+exit
+cd $"home"/atomasi
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+export T=n
+echo "-"$T$T
+exit
+echo -n
+exit
+echo -n
+exit
+export T=n
+echo "-"$T$T
+exit
+|
+exit
+exit
+|
+exit
+exit
+echo A='"salut"'
+export A='"salut"'
+exit
+export A=test
+export A="test"
+export A="'test'"
+echo $A
+exit

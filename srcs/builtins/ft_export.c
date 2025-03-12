@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 11:35:36 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/12 14:07:42 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/12 14:27:04 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char	*format_content(char *str)
 
 	i = 0;
 	ires = 0;
-	res = ft_calloc(sizeof(char), (len_wquote(str) + 1));
+	res = ft_calloc(sizeof(char), (ft_strlen(str) + 1));
 	while (str[i] && str[i] != '=')
 		res[ires++] = str[i++];
 	while (str[i])

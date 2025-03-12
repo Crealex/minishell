@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 15:29:11 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/11 16:18:23 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/12 14:35:58 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ int	valid_token_cmd(t_prompt_info *data)
 {
 	char	*token_cmd;
 	int		len_tok;
+
 	if (data->is_pipe == 0)
 		token_cmd = extract_token(data->str_prt);
 	else

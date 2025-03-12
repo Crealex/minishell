@@ -2496,3 +2496,15 @@ export A="test"
 export A="'test'"
 echo $A
 exit
+export A="'test'"
+exit
+|
+exit
+exit
+ls | grep a
+exit
+ls |caca
+|
+exit
+exit
+exit

@@ -2671,3 +2671,30 @@ ls | echo salut | < Makefile daufsdg
 cat leakslogs.txt 
 exit
 exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+exit
+/bin/echo hi >./outfiles/outfile01 | /bin/echo bye
+cat leakslogs.txt 
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+echo |< echo segf
+cat leakslogs.txt 
+exit

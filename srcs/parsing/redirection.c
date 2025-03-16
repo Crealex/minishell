@@ -6,32 +6,12 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 15:29:44 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/14 19:03:43 by marvin           ###   ########.fr       */
+/*   Updated: 2025/03/14 20:34:22 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include "../../includes/minishell.h"
 #include <unistd.h>
-
-int	no_redirection(t_prompt_info *data, char **str)
-{
-	int	i;
-	int	quote[2];
-
-	init_fd(&i. &quote[0], &quote[1]);
-	while ((*str)[i])
-	{
-		update_quote(&quote[0], &quote[1], &i, *str);
-		if (!(*str)[i])
-			break ;
-		if (!quote[0] && !quote[1] && (*str)[i] == '<')
-			return (0);
-		if (!quote[0] && !quote[1] && (*str)[i] == '>')
-			return (0);
-		i++;
-	}
-	return (1);
-}
 
 int	pre_redirect(t_prompt_info *data, char **str, int index)
 {
@@ -68,5 +48,5 @@ int	redirection(t_prompt_info *data, char **str, int index)
 		}
 		i++;
 	}
-	return (2);
+	return (1);
 }

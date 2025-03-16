@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:57:04 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/14 19:16:19 by marvin           ###   ########.fr       */
+/*   Updated: 2025/03/15 16:29:37 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -26,7 +26,7 @@ static int	redirect_pipe(t_prompt_info *data, int i, int (*pipefd)[2])
 {
 	int	legit_dup;
 
-	legit_dup = 0;
+	legit_dup = 1;
 	if (i < 0)
 		return (0);
 	if (data->fd_in[i] > 2)
@@ -37,24 +37,18 @@ static int	redirect_pipe(t_prompt_info *data, int i, int (*pipefd)[2])
 	{
 		if (data->fd_out[i] < 2)
 		{
-			if (data->fd_in[i + 1] < 2)
-			{
+			if (data->fd_in[i + 1] > 2 && (ft_strncmp(data->pipe[i], "echo", 4)
+				|| ft_strncmp(data->pipe[i], "env", 3) || ft_strncmp(data->pipe[i], "export", 6)))
+				legit_dup = 0;
+			else
 				dup2(pipefd[i][1], STDOUT_FILENO);
-				legit_dup = 1;
-			}
 		}
 		double_close(pipefd[i][0], pipefd[i][1]);
 	}
 	if (i > 0)
 	{
 		if (data->fd_in[i] < 2)
-		{
-			if (data->fd_out[i - 1] < 2)
-			{
-				dup2(pipefd[i - 1][0], STDIN_FILENO);
-				legit_dup = 1;
-			}
-		}
+			dup2(pipefd[i - 1][0], STDIN_FILENO);
 		close(pipefd[i - 1][0]);
 	}
 	return (legit_dup);

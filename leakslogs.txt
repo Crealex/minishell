@@ -1,98 +1,166 @@
-==23820== Memcheck, a memory error detector
-==23820== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
-==23820== Using Valgrind-3.25.0.GIT and LibVEX; rerun with -h for copyright info
-==23820== Command: ./minishell
-==23820== Parent PID: 23816
-==23820== 
-==24504== 
-==24504== FILE DESCRIPTORS: 3 open (2 inherited) at exit.
-==24504== Open file descriptor 0:
-==24504==    at 0x49CD01B: dup2 (syscall-template.S:120)
-==24504==    by 0x111B58: redirect_pipe (exec_pipe.c:42)
-==24504==    by 0x111CA0: fork_handler (exec_pipe.c:70)
-==24504==    by 0x111DD2: exec_pipe (exec_pipe.c:97)
-==24504==    by 0x10C5B0: parsing (parsing.c:67)
-==24504==    by 0x10955B: prompt_handler (main.c:18)
-==24504==    by 0x1097A6: main (main.c:79)
-==24504== 
-==24504== 
-==24504== HEAP SUMMARY:
-==24504==     in use at exit: 369,945 bytes in 8,314 blocks
-==24504==   total heap usage: 31,334 allocs, 23,020 frees, 19,139,553 bytes allocated
-==24504== 
-==24504== LEAK SUMMARY:
-==24504==    definitely lost: 0 bytes in 0 blocks
-==24504==    indirectly lost: 0 bytes in 0 blocks
-==24504==      possibly lost: 0 bytes in 0 blocks
-==24504==    still reachable: 0 bytes in 0 blocks
-==24504==         suppressed: 369,945 bytes in 8,314 blocks
-==24504== 
-==24504== For lists of detected and suppressed errors, rerun with: -s
-==24504== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
-==24503== 
-==24503== FILE DESCRIPTORS: 3 open (2 inherited) at exit.
-==24503== Open file descriptor 1:
-==24503==    at 0x49CD01B: dup2 (syscall-template.S:120)
-==24503==    by 0x111ADF: redirect_pipe (exec_pipe.c:36)
-==24503==    by 0x111CA0: fork_handler (exec_pipe.c:70)
-==24503==    by 0x111DD2: exec_pipe (exec_pipe.c:97)
-==24503==    by 0x10C5B0: parsing (parsing.c:67)
-==24503==    by 0x10955B: prompt_handler (main.c:18)
-==24503==    by 0x1097A6: main (main.c:79)
-==24503== 
-==24503== 
-==24503== HEAP SUMMARY:
-==24503==     in use at exit: 369,945 bytes in 8,314 blocks
-==24503==   total heap usage: 31,361 allocs, 23,047 frees, 19,139,838 bytes allocated
-==24503== 
-==24503== LEAK SUMMARY:
-==24503==    definitely lost: 0 bytes in 0 blocks
-==24503==    indirectly lost: 0 bytes in 0 blocks
-==24503==      possibly lost: 0 bytes in 0 blocks
-==24503==    still reachable: 0 bytes in 0 blocks
-==24503==         suppressed: 369,945 bytes in 8,314 blocks
-==24503== 
-==24503== For lists of detected and suppressed errors, rerun with: -s
-==24503== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
-==23820== 
-==23820== FILE DESCRIPTORS: 3 open (1 inherited) at exit.
-==23820== Open file descriptor 1: /dev/pts/2
-==23820==    at 0x49CD01B: dup2 (syscall-template.S:120)
-==23820==    by 0x10E80A: end_redirect (make_redirect.c:28)
-==23820==    by 0x110A0D: cleanup (utils.c:109)
-==23820==    by 0x109D7F: clean_close (ft_exit.c:17)
-==23820==    by 0x109F3F: ft_exit (ft_exit.c:50)
-==23820==    by 0x1120A1: which_builtins (last_step.c:30)
-==23820==    by 0x1121CA: last_step (last_step.c:58)
-==23820==    by 0x111EB4: exec_no_pipe (exec_nopipe.c:17)
-==23820==    by 0x10C615: parsing (parsing.c:75)
-==23820==    by 0x10955B: prompt_handler (main.c:18)
-==23820==    by 0x1097A6: main (main.c:79)
-==23820== 
-==23820== Open file descriptor 0: /dev/pts/2
-==23820==    at 0x49CD01B: dup2 (syscall-template.S:120)
-==23820==    by 0x10E7F7: end_redirect (make_redirect.c:27)
-==23820==    by 0x110A0D: cleanup (utils.c:109)
-==23820==    by 0x109D7F: clean_close (ft_exit.c:17)
-==23820==    by 0x109F3F: ft_exit (ft_exit.c:50)
-==23820==    by 0x1120A1: which_builtins (last_step.c:30)
-==23820==    by 0x1121CA: last_step (last_step.c:58)
-==23820==    by 0x111EB4: exec_no_pipe (exec_nopipe.c:17)
-==23820==    by 0x10C615: parsing (parsing.c:75)
-==23820==    by 0x10955B: prompt_handler (main.c:18)
-==23820==    by 0x1097A6: main (main.c:79)
-==23820== 
-==23820== 
-==23820== HEAP SUMMARY:
-==23820==     in use at exit: 370,041 bytes in 8,320 blocks
-==23820==   total heap usage: 31,504 allocs, 23,184 frees, 19,176,002 bytes allocated
-==23820== 
-==23820== LEAK SUMMARY:
-==23820==    definitely lost: 0 bytes in 0 blocks
-==23820==    indirectly lost: 0 bytes in 0 blocks
-==23820==      possibly lost: 0 bytes in 0 blocks
-==23820==    still reachable: 0 bytes in 0 blocks
-==23820==         suppressed: 370,041 bytes in 8,320 blocks
-==23820== 
-==23820== For lists of detected and suppressed errors, rerun with: -s
-==23820== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==537776== Memcheck, a memory error detector
+==537776== Copyright (C) 2002-2024, and GNU GPL'd, by Julian Seward et al.
+==537776== Using Valgrind-3.25.0.GIT and LibVEX; rerun with -h for copyright info
+==537776== Command: ./minishell
+==537776== Parent PID: 537749
+==537776== 
+==537776== Invalid write of size 1
+==537776==    at 0x10A4AC: format_content (ft_export.c:29)
+==537776==    by 0x10A7E1: add_to_env (ft_export.c:95)
+==537776==    by 0x10A9DB: ft_export (ft_export.c:131)
+==537776==    by 0x1120FD: which_builtins (last_step.c:24)
+==537776==    by 0x1122E7: last_step (last_step.c:58)
+==537776==    by 0x111FD2: exec_no_pipe (exec_nopipe.c:17)
+==537776==    by 0x10C615: parsing (parsing.c:75)
+==537776==    by 0x10955B: prompt_handler (main.c:18)
+==537776==    by 0x1097A6: main (main.c:79)
+==537776==  Address 0x5ffba5a is 0 bytes after a block of size 10 alloc'd
+==537776==    at 0x484880F: malloc (vg_replace_malloc.c:446)
+==537776==    by 0x11247C: ft_calloc (in /mnt/c/Users/milou/Documents/benkyou/42school/rk03/minishell/minishell/minishell)
+==537776==    by 0x10A411: format_content (ft_export.c:23)
+==537776==    by 0x10A7E1: add_to_env (ft_export.c:95)
+==537776==    by 0x10A9DB: ft_export (ft_export.c:131)
+==537776==    by 0x1120FD: which_builtins (last_step.c:24)
+==537776==    by 0x1122E7: last_step (last_step.c:58)
+==537776==    by 0x111FD2: exec_no_pipe (exec_nopipe.c:17)
+==537776==    by 0x10C615: parsing (parsing.c:75)
+==537776==    by 0x10955B: prompt_handler (main.c:18)
+==537776==    by 0x1097A6: main (main.c:79)
+==537776== 
+==537776== Invalid write of size 1
+==537776==    at 0x10A4CF: format_content (ft_export.c:31)
+==537776==    by 0x10A7E1: add_to_env (ft_export.c:95)
+==537776==    by 0x10A9DB: ft_export (ft_export.c:131)
+==537776==    by 0x1120FD: which_builtins (last_step.c:24)
+==537776==    by 0x1122E7: last_step (last_step.c:58)
+==537776==    by 0x111FD2: exec_no_pipe (exec_nopipe.c:17)
+==537776==    by 0x10C615: parsing (parsing.c:75)
+==537776==    by 0x10955B: prompt_handler (main.c:18)
+==537776==    by 0x1097A6: main (main.c:79)
+==537776==  Address 0x5ffba5b is 1 bytes after a block of size 10 alloc'd
+==537776==    at 0x484880F: malloc (vg_replace_malloc.c:446)
+==537776==    by 0x11247C: ft_calloc (in /mnt/c/Users/milou/Documents/benkyou/42school/rk03/minishell/minishell/minishell)
+==537776==    by 0x10A411: format_content (ft_export.c:23)
+==537776==    by 0x10A7E1: add_to_env (ft_export.c:95)
+==537776==    by 0x10A9DB: ft_export (ft_export.c:131)
+==537776==    by 0x1120FD: which_builtins (last_step.c:24)
+==537776==    by 0x1122E7: last_step (last_step.c:58)
+==537776==    by 0x111FD2: exec_no_pipe (exec_nopipe.c:17)
+==537776==    by 0x10C615: parsing (parsing.c:75)
+==537776==    by 0x10955B: prompt_handler (main.c:18)
+==537776==    by 0x1097A6: main (main.c:79)
+==537776== 
+==537776== Invalid read of size 1
+==537776==    at 0x112B02: ft_strdup (in /mnt/c/Users/milou/Documents/benkyou/42school/rk03/minishell/minishell/minishell)
+==537776==    by 0x10A6F6: add_var (ft_export.c:77)
+==537776==    by 0x10A82E: add_to_env (ft_export.c:99)
+==537776==    by 0x10A9DB: ft_export (ft_export.c:131)
+==537776==    by 0x1120FD: which_builtins (last_step.c:24)
+==537776==    by 0x1122E7: last_step (last_step.c:58)
+==537776==    by 0x111FD2: exec_no_pipe (exec_nopipe.c:17)
+==537776==    by 0x10C615: parsing (parsing.c:75)
+==537776==    by 0x10955B: prompt_handler (main.c:18)
+==537776==    by 0x1097A6: main (main.c:79)
+==537776==  Address 0x5ffba5a is 0 bytes after a block of size 10 alloc'd
+==537776==    at 0x484880F: malloc (vg_replace_malloc.c:446)
+==537776==    by 0x11247C: ft_calloc (in /mnt/c/Users/milou/Documents/benkyou/42school/rk03/minishell/minishell/minishell)
+==537776==    by 0x10A411: format_content (ft_export.c:23)
+==537776==    by 0x10A7E1: add_to_env (ft_export.c:95)
+==537776==    by 0x10A9DB: ft_export (ft_export.c:131)
+==537776==    by 0x1120FD: which_builtins (last_step.c:24)
+==537776==    by 0x1122E7: last_step (last_step.c:58)
+==537776==    by 0x111FD2: exec_no_pipe (exec_nopipe.c:17)
+==537776==    by 0x10C615: parsing (parsing.c:75)
+==537776==    by 0x10955B: prompt_handler (main.c:18)
+==537776==    by 0x1097A6: main (main.c:79)
+==537776== 
+==537776== Invalid read of size 1
+==537776==    at 0x112B5C: ft_strdup (in /mnt/c/Users/milou/Documents/benkyou/42school/rk03/minishell/minishell/minishell)
+==537776==    by 0x10A6F6: add_var (ft_export.c:77)
+==537776==    by 0x10A82E: add_to_env (ft_export.c:99)
+==537776==    by 0x10A9DB: ft_export (ft_export.c:131)
+==537776==    by 0x1120FD: which_builtins (last_step.c:24)
+==537776==    by 0x1122E7: last_step (last_step.c:58)
+==537776==    by 0x111FD2: exec_no_pipe (exec_nopipe.c:17)
+==537776==    by 0x10C615: parsing (parsing.c:75)
+==537776==    by 0x10955B: prompt_handler (main.c:18)
+==537776==    by 0x1097A6: main (main.c:79)
+==537776==  Address 0x5ffba5a is 0 bytes after a block of size 10 alloc'd
+==537776==    at 0x484880F: malloc (vg_replace_malloc.c:446)
+==537776==    by 0x11247C: ft_calloc (in /mnt/c/Users/milou/Documents/benkyou/42school/rk03/minishell/minishell/minishell)
+==537776==    by 0x10A411: format_content (ft_export.c:23)
+==537776==    by 0x10A7E1: add_to_env (ft_export.c:95)
+==537776==    by 0x10A9DB: ft_export (ft_export.c:131)
+==537776==    by 0x1120FD: which_builtins (last_step.c:24)
+==537776==    by 0x1122E7: last_step (last_step.c:58)
+==537776==    by 0x111FD2: exec_no_pipe (exec_nopipe.c:17)
+==537776==    by 0x10C615: parsing (parsing.c:75)
+==537776==    by 0x10955B: prompt_handler (main.c:18)
+==537776==    by 0x1097A6: main (main.c:79)
+==537776== 
+==537776== Invalid read of size 1
+==537776==    at 0x112B46: ft_strdup (in /mnt/c/Users/milou/Documents/benkyou/42school/rk03/minishell/minishell/minishell)
+==537776==    by 0x10A6F6: add_var (ft_export.c:77)
+==537776==    by 0x10A82E: add_to_env (ft_export.c:99)
+==537776==    by 0x10A9DB: ft_export (ft_export.c:131)
+==537776==    by 0x1120FD: which_builtins (last_step.c:24)
+==537776==    by 0x1122E7: last_step (last_step.c:58)
+==537776==    by 0x111FD2: exec_no_pipe (exec_nopipe.c:17)
+==537776==    by 0x10C615: parsing (parsing.c:75)
+==537776==    by 0x10955B: prompt_handler (main.c:18)
+==537776==    by 0x1097A6: main (main.c:79)
+==537776==  Address 0x5ffba5a is 0 bytes after a block of size 10 alloc'd
+==537776==    at 0x484880F: malloc (vg_replace_malloc.c:446)
+==537776==    by 0x11247C: ft_calloc (in /mnt/c/Users/milou/Documents/benkyou/42school/rk03/minishell/minishell/minishell)
+==537776==    by 0x10A411: format_content (ft_export.c:23)
+==537776==    by 0x10A7E1: add_to_env (ft_export.c:95)
+==537776==    by 0x10A9DB: ft_export (ft_export.c:131)
+==537776==    by 0x1120FD: which_builtins (last_step.c:24)
+==537776==    by 0x1122E7: last_step (last_step.c:58)
+==537776==    by 0x111FD2: exec_no_pipe (exec_nopipe.c:17)
+==537776==    by 0x10C615: parsing (parsing.c:75)
+==537776==    by 0x10955B: prompt_handler (main.c:18)
+==537776==    by 0x1097A6: main (main.c:79)
+==537776== 
+==537776== 
+==537776== FILE DESCRIPTORS: 3 open (1 inherited) at exit.
+==537776== Open file descriptor 1: /dev/pts/3
+==537776==    at 0x49CD01B: dup2 (syscall-template.S:120)
+==537776==    by 0x10E80A: end_redirect (make_redirect.c:28)
+==537776==    by 0x110A0D: cleanup (utils.c:109)
+==537776==    by 0x109D7F: clean_close (ft_exit.c:17)
+==537776==    by 0x109F3F: ft_exit (ft_exit.c:50)
+==537776==    by 0x1121BF: which_builtins (last_step.c:30)
+==537776==    by 0x1122E7: last_step (last_step.c:58)
+==537776==    by 0x111FD2: exec_no_pipe (exec_nopipe.c:17)
+==537776==    by 0x10C615: parsing (parsing.c:75)
+==537776==    by 0x10955B: prompt_handler (main.c:18)
+==537776==    by 0x1097A6: main (main.c:79)
+==537776== 
+==537776== Open file descriptor 0: /dev/pts/3
+==537776==    at 0x49CD01B: dup2 (syscall-template.S:120)
+==537776==    by 0x10E7F7: end_redirect (make_redirect.c:27)
+==537776==    by 0x110A0D: cleanup (utils.c:109)
+==537776==    by 0x109D7F: clean_close (ft_exit.c:17)
+==537776==    by 0x109F3F: ft_exit (ft_exit.c:50)
+==537776==    by 0x1121BF: which_builtins (last_step.c:30)
+==537776==    by 0x1122E7: last_step (last_step.c:58)
+==537776==    by 0x111FD2: exec_no_pipe (exec_nopipe.c:17)
+==537776==    by 0x10C615: parsing (parsing.c:75)
+==537776==    by 0x10955B: prompt_handler (main.c:18)
+==537776==    by 0x1097A6: main (main.c:79)
+==537776== 
+==537776== 
+==537776== HEAP SUMMARY:
+==537776==     in use at exit: 376,139 bytes in 8,645 blocks
+==537776==   total heap usage: 32,852 allocs, 24,207 frees, 19,708,492 bytes allocated
+==537776== 
+==537776== LEAK SUMMARY:
+==537776==    definitely lost: 0 bytes in 0 blocks
+==537776==    indirectly lost: 0 bytes in 0 blocks
+==537776==      possibly lost: 0 bytes in 0 blocks
+==537776==    still reachable: 0 bytes in 0 blocks
+==537776==         suppressed: 376,139 bytes in 8,645 blocks
+==537776== 
+==537776== For lists of detected and suppressed errors, rerun with: -s
+==537776== ERROR SUMMARY: 9 errors from 7 contexts (suppressed: 0 from 0)

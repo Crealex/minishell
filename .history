@@ -2698,3 +2698,116 @@ exit
 echo |< echo segf
 cat leakslogs.txt 
 exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+/bin/echo ""$?""
+exit
+/bin/echo ""$?""
+exit
+/bin/echo ""$?""
+/bin/echo ""$?""
+/bin/echo ""$?""
+/bin/echo ""$?""
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+exit
+>tmp_out | echo 1
+cat tmp_out 
+rm -f tmp_out 
+exit
+>tmp_out | echo 1
+exit
+exit
+>tmp_out | echo 1
+exit
+>tmp_out | echo 1
+cat tmp_out 
+rm -f tmp_out 
+exit
+|
+exit
+exit
+|
+exit
+exit
+exit
+exit
+$notexists | ls | $notexists
+cat leakslogs.txt 
+exit
+$notexists
+cat leakslogs.txt 
+exit
+exit
+$notexists
+exit
+$notexists
+cat leakslogs.txt 
+exit
+$notexists
+cat leakslogs.txt 
+$notexists | ls
+cat leakslogs.txt 
+exit
+$notexists | ls
+cat leakslogs.txt 
+exit
+$notexists | ls
+cat leakslogs.txt 
+exit
+$notexists | ls
+cat leakslogs.txt 
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+export A='"echo hi"'
+cat leakslogs.txt 
+$A
+cat leakslogs.txt 
+exiy
+exit
+|
+exit
+exit
+|
+exit
+exit

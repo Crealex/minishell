@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 15:30:03 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/14 19:06:05 by marvin           ###   ########.fr       */
+/*   Updated: 2025/03/14 20:23:26 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -28,15 +28,11 @@ static int	redirection_pipe(t_prompt_info *data)
 		return (0);
 	while (data->pipe[i])
 	{
-		data->redirection[i] = no_redirection(data, &data->pipe[i]);
+		if (!pre_redirect(data, &data->pipe[i], i))
+			return (0);
+		data->redirection[i] = redirection(data, &data->pipe[i], i);
 		if (data->redirection[i] == 0)
-		{
-			if (!pre_redirect(data, &data->pipe[i], i))
-				return (0);
-			data->redirection[i] = redirection(data, &data->pipe[i], i);
-			if (data->redirection[i] == 0)
-				return (0);
-		}
+			return (0);
 		i++;
 	}
 	return (1);

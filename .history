@@ -2508,3 +2508,118 @@ ls |caca
 exit
 exit
 exit
+export A="echo hi"
+$A
+exit
+export A="'echo hi'"
+$A
+exit
+export A="'echo hi'"
+echo $A
+$A
+echo "'sacvs'"
+exit
+'echo hi'
+exit
+'echo hi'
+exit
+'echo hi'
+exit
+'echo hi'
+exit
+'echo hi'
+exit
+'echo hi'
+exit
+'echo hi'
+exit
+'echo hi'
+exit
+|
+exit
+exit
+'echo hi'
+exit
+export A="'echo hi'"
+$A
+exit
+|
+exit
+exit
+'echo dvs'
+export A="'echo slaut'"
+A
+$A
+exit
+export A="'echo salut'"
+A
+$A
+exit
+export A="'echo hi'"
+$A
+exit
+export A="'salut ma vouille'"
+A
+exit
+|
+exit
+exit
+$ajhcjjasc | ls | klsca
+exit
+$ajhcjjasc
+saxa
+$salbclaks | ls 
+exit
+$salbclaks | ls 
+exit
+$salbclaks | ls 
+$salbclaks | ls | $dcca
+exit
+$salbclaks | ls | $dcca
+exit
+$salbclaks | ls | $dcca
+exit
+$salbclaks
+exit
+$salbclaks | $vdfvd
+echo $idhlsv | cat -e
+  |   
+exit
+$bkdcbkjsd | ls | $dchlscsd
+|
+exit
+exit
+|
+exit
+exit
+exit
+$bkdcbkjsd | ls | $dchlscsd
+$casciuascb | ls | $scalnclsakca
+$snckjabcks | $ldinvlsdnvsd
+| kjbsca
+exit
+| kjbsca
+$snckjabcks | $ldinvlsdnvsd
+exit
+$snckjabcks | $ldinvlsdnvsd
+ls -a
+ls -r
+ls -ra
+ls ../src/*
+exit
+$snckjabcks | $ldinvlsdnvsd
+EXIT
+exit
+|
+exit
+exit
+$snckjabcks | $ldinvlsdnvsd
+exit
+$snckjabcks | $ldinvlsdnvsd
+|
+exit
+exit
+|
+exit
+exit
+exit

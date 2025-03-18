@@ -1,3 +1,0 @@
-salt
-atomasi
-lkdvlds

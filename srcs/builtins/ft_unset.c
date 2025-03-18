@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_unset.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:28:22 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/10 13:19:39 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/17 11:50:21 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static int	is_in_env(char *env, char **prompt, int n, int prompt_env)
 
 static void	cpy_env(char **new_env, char *env, int *j)
 {
-	*new_env = env;
+	*new_env = ft_strdup(env);
 	(*j)++;
 }
 
@@ -89,5 +89,5 @@ char	**ft_unset(char ***env, char **prompt, int n)
 		index[0]++;
 	}
 	new_env[index[1]] = 0;
-	return (update_exit_code(0), free(*env), new_env);
+	return (update_exit_code(0), freesplit(*env), new_env);
 }

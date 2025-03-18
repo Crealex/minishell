@@ -2686,3 +2686,106 @@ exit
 exit
 ./tmp_x_file1 
 exit
+|
+exit
+exit
+ls << ehl
+ls << ehl | cat << test
+./minishell 
+exit echo
+export test=2
+exit $test
+cat /dev/random | cat | ls
+cat /dev/random | cat
+clear
+cat /dev/random | cat
+echo > test
+ls
+rm test 
+unset PWD
+pwd
+cd
+unset PATH
+cat Makefile 
+unset OLDPWD
+cd
+export 
+unset PWD
+unset OLDPWD
+cd -
+pwd
+cd ..
+unset PWD
+pwd
+cd 
+unset PWD
+pwd
+cd ..
+unset PWD
+pwd
+cd
+unset PWD
+pwd
+cd
+unset PWD
+pwd
+cd
+unset PWD
+pwd
+cd
+unset PWD
+pwd
+cd
+unset PWD
+pwd
+cd
+unset PWD
+pwd
+cd
+unset PWD
+pwd
+cd
+unset PWD
+pwd
+cd
+unset PWD
+pwd
+cd
+unset PWD
+pwd
+cd
+unset PWD
+pwd
+cd
+unset PWD
+pwd
+cd
+exit
+|
+exit
+exit
+|
+exit
+exit
+|
+exit
+exit
+unset PWD
+pwd
+cd
+exit
+unset PWD
+pwd
+cd ..
+exit
+exit
+top
+exit
+top
+htop
+vim
+nvim
+istty
+tty
+man man
+exit

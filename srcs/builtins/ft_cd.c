@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cd.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:11:07 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/12 11:32:14 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/18 16:34:08 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ static void	update_env(char ***env)
 		return ;
 	new_pwd = getcwd(new_pwd, 1000);
 	old_pwd = ft_getenv("PWD", *env);
-	new_env = malloc(sizeof(char *) * 4);
+	if (!old_pwd)
+		return ;
+	new_env = ft_calloc(4, sizeof(char *));
 	if (!new_env)
 		return ;
 	new_env[0] = ft_strdup("Les chat c'est mieux que les chiens");
@@ -61,6 +63,8 @@ static int	goto_home(char ***env)
 	char	*user;
 
 	user = ft_getenv("USER", *env);
+	if (!user)
+		return (0);
 	path = ft_strjoin("/home/", user);
 	if (!path)
 		return (0);

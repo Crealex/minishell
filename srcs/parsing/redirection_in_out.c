@@ -32,10 +32,7 @@ static int	in_redirect(char **str)
 			double_quote((*str)[i + 1], '<', &i, &is_double);
 			if ((i > 1 && error_out(*str, i))
 				|| error(*str, &i, "<", ">"))
-			{
-				*str = del_rd(*str, len, &i);
-				return (0);
-			}
+				return (*str = del_rd(*str, len, &i), 0);
 			i++;
 		}
 		i++;
@@ -75,10 +72,7 @@ static int	out_redirect(char **str)
 			len_file_out(*str, i, &len[0], &len[1]);
 			double_quote((*str)[i + 1], '>', &i, &is_double);
 			if (error(*str, &i, ">", "<"))
-			{
-				*str = del_rd(*str, len, &i);
-				return (0);
-			}
+				return (*str = del_rd(*str, len, &i), 0);
 			i++;
 		}
 		i++;

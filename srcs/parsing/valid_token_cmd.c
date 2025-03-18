@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 15:29:11 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/17 11:43:47 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/18 09:54:52 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	len_token(char *str)
 	while (str[i])
 	{
 		if (str[i] && ((str[i] == '\'' && !quote[1])
-			|| (str[i] == '\"' && !quote[0])))
+				|| (str[i] == '\"' && !quote[0])))
 			update_quote(&quote[0], &quote[1], &i, str);
 		if (!str[i] || (str[i] == ' ' && !quote[0] && !quote[1]))
 			break ;

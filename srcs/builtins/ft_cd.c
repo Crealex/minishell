@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:11:07 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/12 11:32:14 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/18 16:17:33 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static int	goto_last_path(char ***env)
 
 	path = ft_getenv("OLDPWD", *env);
 	if (!path)
-		return (0);
+		return (printf("NO OLDPWD\n"), 0);
 	chdir(path);
 	path = malloc(sizeof(char) * 1000);
 	getcwd(path, 1000);

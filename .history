@@ -2686,3 +2686,40 @@ exit
 exit
 ./tmp_x_file1 
 exit
+/ls
+cat leakslogs.txt 
+exit
+cd ..
+unset OLDPWD
+cd -
+cd ..
+cd ..
+cd ..
+pwd
+cd -
+cd -
+unset OLDPWD
+cd .
+cd ..
+unset PWD 
+cd .
+cd ..
+exit
+unset PWD 
+cd ..
+cd ..
+exit
+unset pwd
+cd
+cd
+exit
+unset PWD
+pwd
+cd
+cd
+cd
+cd
+cd
+pwd
+cd Documents/
+exit

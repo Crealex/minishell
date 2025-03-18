@@ -2629,42 +2629,60 @@ exit
 |
 exit
 exit
-/bin/echo '\1$42' > tmp_redir_out
-cat leakslogs.txt 
-ls -la | grep tmp_redir_out | awk '{print $1 $2}'
-cat leakslogs.txt 
-cat -e tmp_redir_out
-cat leakslogs.txt 
-rm tmp_redir_out
-cat leakslogs.txt 
+$HOME
 exit
-/bin/echo '\1$42' > tmp_redir_out
-cat leakslogs.txt 
-ls -la | grep tmp_redir_out | awk '{print $1 $2}'
-cat leakslogs.txt 
-cat -e tmp_redir_out
-cat leakslogs.txt 
-rm tmp_redir_out
-cat leakslogs.txt 
+$USER
 exit
-awk 'BEGIN{srand(42); for(i=1;i<=1000000;i++)print int(rand()*1000)}' | awk '{sum+=$1} END {print sum/NR}'
-cat leakslogs.txt 
+/
 exit
-cat <"./test_files/file name with spaces"
-cat leakslogs.txt 
+/
 exit
-cat <"./test_files/file name with spaces"
-cat leakslogs.txt 
+$HOME
 exit
-cat <"./test_files/infile"
-cat leakslogs.txt 
-echo <"./test_files/infile_big" | cat <"./test_files/infile"
-cat leakslogs.txt 
-echo <"./test_files/infile_big" | cat "./test_files/infile"
-cat leakslogs.txt 
-echo hi | cat <"./test_files/infile"
-cat leakslogs.txt 
-echo hi | cat "./test_files/infile"
-cat leakslogs.txt 
-cat <missing | cat <"./test_files/infile"
-ifconfig | grep ":"
+echo >
+exit
+echo >
+exit
+touch tpmX file1
+exit
+touch tpmX file1
+tmp_x_file1
+echo $?
+touch tpmX_file1
+rm tmpX
+rm file1 
+rm file1 rm tpmX
+rm tpmX
+touch tpm_x_file1
+tmp_x_file1
+rm tpmX_file1 
+rm tpm_x_file1 
+exit
+touch tmp_x_file1
+tmp_x_file1 
+echo $?
+./tmp_x_file1
+echo $?
+export PATH=$HOME
+echo $PATH
+tmp_x_file1
+echo $?
+unset PATH
+tmp_x_file1
+echo $?
+./tmp_x_file1
+echo $?
+echo 42
+/bin/rm -f tmp_x_file1
+exit
+/bin/rm -f tmp_x_file1
+exit
+./les
+exit
+touch tmp_x_file1
+tmp_x_file1
+exit
+./tmp_x_file1 
+exit
+./tmp_x_file1 
+exit

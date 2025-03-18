@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/12 10:17:13 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/18 14:39:25 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	check_acces_file(char *cmd, int i)
 	{
 		print_err("minishell: ", cmd, ": Is a directory\n");
 		update_exit_code(126);
-		return (0);
+		return (free(file), 0);
 	}
 	if (access(file, X_OK) != -1)
 		return (free(file), 1);
@@ -48,7 +48,7 @@ static int	check_acces_file(char *cmd, int i)
 	}
 	print_err("minishell: ", cmd, ": Permission denied\n");
 	update_exit_code(126);
-	return (0);
+	return (free(file), 0);
 }
 
 char	*get_path(char *cmd)

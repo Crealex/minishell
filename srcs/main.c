@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:37:37 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/11 11:07:31 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/18 16:47:33 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	prompt_handler(t_prompt_info *data)
 	manage_history(data, data->str_prt);
 	if (!parsing(data))
 	{
-		ft_putstr_fd("Error : Parsing\n", 2);
+		ft_putstr_fd("Error : ton papa le gentil shrek\n", 2);
 		return (0);
 	}
 	return (1);
@@ -50,6 +50,7 @@ static int	str_empty(t_prompt_info *data)
 			freesplit(data->env);
 		if (data->fd_history > 2)
 			close(data->fd_history);
+		printf("exit\n");
 		return (1);
 	}
 	return (0);

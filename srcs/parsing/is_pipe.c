@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_pipe.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 15:55:48 by alexandre         #+#    #+#             */
-/*   Updated: 2025/03/10 14:53:52 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/18 13:59:58 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,8 @@ int	is_pipe(char **str)
 	while ((*str)[i])
 	{
 		update_quote(&inquote[0], &inquote[1], &i, *str);
+		if (!(*str)[i])
+			break ;
 		if (!inquote[0] && !inquote[1] && (*str)[i] == '|')
 		{
 			if (verif_empty_pipe(i, *str))

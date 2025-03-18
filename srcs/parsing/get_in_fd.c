@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 11:15:33 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/11 16:12:09 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/18 14:30:31 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ void	len_file(char *str, int i, int *start, int *end)
 	while (str[i])
 	{
 		update_quote(&quote[0], &quote[1], &i, str);
+		if (!str[i])
+			break ;
 		if (!quote[0] && !quote[1] && isspace(str[i]))
 			break ;
 		i++;

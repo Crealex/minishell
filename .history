@@ -2272,43 +2272,43 @@ exit
 |
 exit
 exit
-                                       
-         
-  
+
+
+
 exit
-                   
-                               
-                    
+
+
+
 exit
 exit
-                         
-      
- 
- 
- 
-         
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  exit
-             
-             
-             
-             
-             
-             
-             
-             
+
+
+
+
+
+
+
+
              exit
-                    
-                
+
+
 exit
 |
 exit
@@ -2320,7 +2320,7 @@ cd -
 cd .
 ls
 cd Documents/minishell/
-cat 
+cat
 cd -
 exit
 cd .
@@ -2329,7 +2329,7 @@ cd -
 exit
 cat Makefile | awk{$1}
 exit
-cat Makefile 
+cat Makefile
 exit
 ls | grep a
 exit
@@ -2349,19 +2349,19 @@ exit
 csac | dsvsd
 csac
 csac
-ls | dssv 
-yjytjt | ls 
-yjytjt | ls 
+ls | dssv
+yjytjt | ls
+yjytjt | ls
 exit
-yjytjt | ls 
-yjytjt | ls 
-yjytjt | ls 
-yjytjt | ls 
-yjytjt | ls 
-yjytjt | ls 
+yjytjt | ls
+yjytjt | ls
+yjytjt | ls
+yjytjt | ls
+yjytjt | ls
+yjytjt | ls
 exit
-yjytjt | ls 
-salut 
+yjytjt | ls
+salut
 kdnfbdf
 fdbdf
 dfbknfdb
@@ -2568,11 +2568,11 @@ $ajhcjjasc | ls | klsca
 exit
 $ajhcjjasc
 saxa
-$salbclaks | ls 
+$salbclaks | ls
 exit
-$salbclaks | ls 
+$salbclaks | ls
 exit
-$salbclaks | ls 
+$salbclaks | ls
 $salbclaks | ls | $dcca
 exit
 $salbclaks | ls | $dcca
@@ -2583,7 +2583,7 @@ $salbclaks
 exit
 $salbclaks | $vdfvd
 echo $idhlsv | cat -e
-  |   
+  |
 exit
 $bkdcbkjsd | ls | $dchlscsd
 |
@@ -2650,16 +2650,16 @@ tmp_x_file1
 echo $?
 touch tpmX_file1
 rm tmpX
-rm file1 
+rm file1
 rm file1 rm tpmX
 rm tpmX
 touch tpm_x_file1
 tmp_x_file1
-rm tpmX_file1 
-rm tpm_x_file1 
+rm tpmX_file1
+rm tpm_x_file1
 exit
 touch tmp_x_file1
-tmp_x_file1 
+tmp_x_file1
 echo $?
 ./tmp_x_file1
 echo $?
@@ -2682,16 +2682,16 @@ exit
 touch tmp_x_file1
 tmp_x_file1
 exit
-./tmp_x_file1 
+./tmp_x_file1
 exit
-./tmp_x_file1 
+./tmp_x_file1
 exit
 |
 exit
 exit
 ls << ehl
 ls << ehl | cat << test
-./minishell 
+./minishell
 exit echo
 export test=2
 exit $test
@@ -2701,15 +2701,15 @@ clear
 cat /dev/random | cat
 echo > test
 ls
-rm test 
+rm test
 unset PWD
 pwd
 cd
 unset PATH
-cat Makefile 
+cat Makefile
 unset OLDPWD
 cd
-export 
+export
 unset PWD
 unset OLDPWD
 cd -
@@ -2717,7 +2717,7 @@ pwd
 cd ..
 unset PWD
 pwd
-cd 
+cd
 unset PWD
 pwd
 cd ..
@@ -2789,65 +2789,205 @@ istty
 tty
 man man
 exit
-./minishell 
-ls
-l
-s
-cat
-exit
-<< text cat
-<< text cat
-<< text cat
-exit
-./minishell 
-./minishell 
-cat
-./minishell 
-salur
-nkav
-ajkve
-avbjeav
-eabvae
-exit
-ls
-exit
-./minishell 
-cat
-cat
-cat
-cat
-cat
-./minishell 
-<< EOF cat
-./minishell 
-cat
-cat
-cat
-exit
-cat
-exit
-cat
-cat
-./minishell 
-cat
-cat
-cat
-<< EOF cat
-<< EOF cat
-<< EOF cat
-<< EOF cat
-exit
-exit
-<< EOF cat
-<< EOF cat
-<< EOF cat
-<< EOF cat
-<< EOF cat
-<< test
-exit
-<< test
-<< test
-<< test
 |
 exit
+exit
+/bin
+/bin/ls
+/bin/ls | /bin/grep "a"
+/bin/ls | /bin/grep "a" > out
+cat out
+./minishell
+ls
+l
+sls
+lei
+./minishell
+l
+ll
+slllll
+ljd
+l
+sla
+cerls
+l
+ls
+cat
+ls
+clear
+./minishell
+ls
+s
+lsls
+ls
+ll
+./minishell
+ls
+ls
+l
+CAT
+cat
+cat
+cat < Makefile > test > test_vrai
+exit
+unset PATH
+/bin/ls
+ls
+ls
+env
+env | grep PATH
+env | grep PATH
+env | grep ^PATH
+cat Makefile
+clear
+exit
+unset PATH
+ls
+unset PATH
+ls
+unset PATH
+ls
+unset PATH
+ls
+unset PATH
+ls
+ls
+unset PATH
+ls
+exit
+unset PATH
+exit
+unset PATH
+ls
+exit
+touch out.txt
+chmod 0 out.txt
+chmod 000 out.txt
+cat Makefile > out.txt
+cat Makefile > out.txt > oui
+cat Makefile > oui > out.txt
+chmod 777 out.txt
+touch test.c
+cc test.c -o ls
+ls
+./ls
+export PATH="/home/dvauthey/Documents/rk03/minishell/minishell/:/bin"
+ls
+chmod 000 ls
+ls
+./ls
+exit
+clear
+
+''
+
+ls
+echo		ls
+echo		'ls'
+echo ls | 		| ls
+
+ls		| cat
+ls|cat
+ls|cat<Makefile>out
+cat ou
+cat out
+clear
+'		'
+cat|
+cat>
+cat<
+cat |
+echo 		 salut
+echo		salut
+exit
+echo		salut
+cat |
+cat |
+ls		| cat
+exit
+ls		| cat
+echo		salut
+echo '>'
+echo '> '
+echo '> ' |cat -e
+echo '>' |cat -e
+echo '|' |cat -e
+echo 'ld' |cat -e
+echo 'ld' | grep ' '
+echo ">" ls
+echo ">" ls | cat -e
+echo ">" ls  ps| cat -e
+echo ">" ls      | cat -e
+exit a
+lg
+echo $?
+./srcs/
+echo $?
+cd ls sl
+echo $?
+unset a
+echo $?
+export 5=g
+echo $?
+export _test=ls
+env
+'/bin/ls -a'
+echo $?
+ls '-l -a'
+ls srcs/
+echo $USERa
+echo $USER
+echo $USER$PWD
+echo $USER $PWD
+unset PWD
+cd /bin
+cd ...
+cd ..
+ls
+echo $PWD
+cd .
+ls
+cd ~
+ls
+cd
+cd ~/Documents/rk03/minishell/minishell/
+cd /Documents/rk03/minishell/minishell/
+pwd
+ls
+cd Documents/rk03/minishell/minishell/
+ls
+ech0
+echo
+echo -n
+echo  g  -n
+echo  g-n
+echo -ng
+cat|cat|ls
+cat /dev/random | cat
+ls
+claer
+claewr
+clear
+echo jdsha      hdjah
+echo jdsha      hdjah | cat -e
+export a=A | enc
+export a=A | env
+exit a | env
+clear
+exit a | echo a
+echo a | exit
+exit
+ls | exit
+echo a | cat -e
+echo    a | cat -e
+echo                      dscdscsd
+exit
+echo    a | cat -e
+echo                        a      | cat -e
+exit
+|
+exit
+exit
+echo dkjah asdiui    iuuahs     iiuuhsdsd | cat -e
+echo                dkjah asdiui    iuuahs     iiuuhsdsd              | cat -e
 exit

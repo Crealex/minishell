@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_valid_cmd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:21:45 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/10 14:58:04 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/19 10:45:31 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,15 @@ char	*extract_name_cmd(char *prompt)
 	i = 0;
 	space = 0;
 	ires = 0;
-	while (prompt[space] && prompt[space] == ' ')
+	while (prompt[space] && ft_isspace(prompt[space]))
 		space++;
-	while (prompt[i + space] && prompt[i + space] != ' ')
+	while (prompt[i + space] && !ft_isspace(prompt[i + space]))
 		i++;
 	res = malloc(sizeof(char) * (i + 1));
 	if (!res)
 		return (NULL);
 	i = space;
-	while (prompt[i] && prompt[i] != ' ')
+	while (prompt[i] && !ft_isspace(prompt[i]))
 	{
 		res[ires] = prompt[i];
 		ires++;
@@ -72,7 +72,7 @@ int	check_valid_builtins(char *cmd)
 	return (0);
 }
 
-int	check_validity(char *cmd, int tok)
+int	check_validity(char *cmd, int tok, char **env)
 {
 	char	**path;
 	char	*abs_path;
@@ -85,7 +85,7 @@ int	check_validity(char *cmd, int tok)
 		return (1);
 	else if (ft_strlen(cmd) <= 2 && cmd[0] == '.' && cmd[1] != '/')
 		return (0);
-	path = get_all_path();
+	path = get_all_path(env);
 	if (!path || !*path)
 		return (update_exit_code(127), 0);
 	i = 0;
@@ -116,7 +116,7 @@ int	is_valid_cmd(char *str, t_prompt_info *data)
 			return (update_exit_code(127), 0);
 		}
 		cmd_name = extract_name_cmd(str);
-		res = check_validity(cmd_name, 0);
+		res = check_validity(cmd_name, 0, data->env);
 		if (res == 0)
 			print_err(cmd_name, ": command not found\n", NULL);
 		free(cmd_name);

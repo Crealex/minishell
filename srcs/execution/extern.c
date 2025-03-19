@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/19 11:41:30 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/19 11:46:11 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static int	check_acces_file(char *cmd, int i)
 	return (free(file), 0);
 }
 
-char	*get_path(char *cmd)
+char	*get_path(char *cmd, char **env)
 {
 	int		i;
 	char	*res;
@@ -65,7 +65,9 @@ char	*get_path(char *cmd)
 		else
 			return (ft_strdup(cmd));
 	}
-	path = get_all_path();
+	path = get_all_path(env);
+	if (!path)
+		return (NULL);
 	i = 0;
 	cmd_path = ft_strjoin("/", cmd);
 	while (path[i])
@@ -116,7 +118,7 @@ int	extern_exec(t_prompt_info *data)
 				&& data->prompt[0][0] == '.' && data->prompt[0][1] == '/')))
 		if (!check_acces_file(data->prompt[0], 2))
 			return (0);
-	path = get_path(data->prompt[0]);
+	path = get_path(data->prompt[0], data->env);
 	if (!path)
 		return (0);
 	ign_sig();

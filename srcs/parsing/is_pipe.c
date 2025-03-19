@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 15:55:48 by alexandre         #+#    #+#             */
-/*   Updated: 2025/03/18 13:59:58 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/19 10:35:12 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ static int	first_pipe(char *str)
 	inquote[0] = 0;
 	inquote[1] = 0;
 	quote_exist = 0;
-	if (str[i] == ' ')
+	if (ft_isspace(str[i]))
 	{
-		while (str[i] && str[i] == ' ')
+		while (str[i] && ft_isspace(str[i]))
 		{
 			i++;
 			update_quote(&inquote[0], &inquote[1], &i, str);
@@ -80,7 +80,7 @@ static int	verif_empty_pipe(int i, char *str)
 
 	temp = i;
 	i++;
-	while (str[i] && str[i] == ' ')
+	while (str[i] && ft_isspace(str[i]))
 		i++;
 	if (temp < i && (!str[i] || str[i] == '|'))
 	{

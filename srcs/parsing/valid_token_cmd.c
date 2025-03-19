@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   valid_token_cmd.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 15:29:11 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/18 09:54:52 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/19 10:46:00 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	len_token(char *str)
 		if (str[i] && ((str[i] == '\'' && !quote[1])
 				|| (str[i] == '\"' && !quote[0])))
 			update_quote(&quote[0], &quote[1], &i, str);
-		if (!str[i] || (str[i] == ' ' && !quote[0] && !quote[1]))
+		if (!str[i] || (ft_isspace(str[i]) && !quote[0] && !quote[1]))
 			break ;
 		i++;
 	}
@@ -52,7 +52,7 @@ static char	*extract_token(char *str)
 		if (str[i] && ((str[i] == '\'' && !quote[1])
 				|| (str[i] == '\"' && !quote[0])))
 			update_quote(&quote[0], &quote[1], &i, str);
-		if (str[i] == '\0' || (str[i] == ' ' && !quote[0] && !quote[1]))
+		if (str[i] == '\0' || (ft_isspace(str[i]) && !quote[0] && !quote[1]))
 			break ;
 		res[ires++] = str[i++];
 	}
@@ -93,7 +93,7 @@ int	valid_token_cmd(t_prompt_info *data)
 	len_tok = ft_strlen(token_cmd);
 	if (is_valid_builtins(token_cmd, len_tok))
 		return (free(token_cmd), 1);
-	else if (check_validity(token_cmd, 1))
+	else if (check_validity(token_cmd, 1, data->env))
 		return (free(token_cmd), 1);
 	print_err(token_cmd, ": command not found\n", NULL);
 	return (free(token_cmd), 0);

@@ -1,14 +1,14 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/14 20:23:33 by marvin           ###   ########.fr       */
+/*   Updated: 2025/03/19 10:40:00 by dvauthey         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
@@ -114,7 +114,7 @@ int		is_in_rd(char **str, t_prompt_info *data, int index, int *c);
 int		is_out_rd(char **str, t_prompt_info *data, int index, int *c);
 int		redirection(t_prompt_info *data, char **str, int i);
 int		check_builtins(char **prompt);
-int		check_validity(char *cmd, int tok);
+int		check_validity(char *cmd, int tok, char **env);
 int		is_pipe(char **str);
 int		handle_pipe(t_prompt_info *data);
 char	**dollar_pipe(char **pipe_prompt, t_prompt_info *data);
@@ -123,7 +123,7 @@ int		ft_nb_row(char const *s, char c);
 char	**ft_splitpipe(char const *s, char c);
 int		is_valid_cmd(char *str, t_prompt_info *data);
 int		check_valid_builtins(char *cmd);
-char	**get_all_path(void);
+char	**get_all_path(char **env);
 void	make_redirect(t_prompt_info *data);
 void	end_redirect(t_prompt_info *data, int redirect);
 char	*expansion(char *str, t_prompt_info *data);
@@ -136,8 +136,7 @@ int		exec_no_pipe(t_prompt_info *data);
 int		exec_pipe(t_prompt_info *data);
 int		last_step(char **str, t_prompt_info *data);
 //split wquote
-char	**split_wquote(char const *s, char c);
-int		ft_nb_row(char const *s, char c);
+char	**split_wquote(char const *s);
 int		double_single_quote(const char *s, int i);
 //signal
 void	signal_handler(void);

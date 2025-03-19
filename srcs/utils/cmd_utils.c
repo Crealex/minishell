@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 15:28:11 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/10 15:28:14 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/19 10:09:42 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-char	**get_all_path(void)
+char	**get_all_path(char **env)
 {
 	char	*path_str;
 	char	**res;
 
-	path_str = getenv("PATH");
+	path_str = ft_getenv("PATH", env);
 	if (!path_str)
 		return (NULL);
 	res = ft_split(path_str, ':');

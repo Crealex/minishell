@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 15:57:09 by alexandre         #+#    #+#             */
-/*   Updated: 2025/03/10 11:45:19 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/19 10:40:44 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	ft_nb(const char *s, char c, int *i, int *start)
 		(*i)++;
 	if (*i > 0 && ft_isspace(s[*i - 1]))
 		j++;
-	while (*i > 0 && s[*i] == ' ')
+	while (*i > 0 && ft_isspace(s[*i]))
 		j++;
 	return (j);
 }

@@ -2789,3 +2789,205 @@ istty
 tty
 man man
 exit
+|
+exit
+exit
+/bin
+/bin/ls
+/bin/ls | /bin/grep "a"
+/bin/ls | /bin/grep "a" > out
+cat out 
+./minishell 
+ls
+l
+sls
+lei
+./minishell 
+l
+ll
+slllll
+ljd
+l
+sla
+cerls
+l
+ls
+cat
+ls
+clear
+./minishell 
+ls
+s
+lsls
+ls
+ll
+./minishell 
+ls
+ls
+l
+CAT
+cat
+cat
+cat < Makefile > test > test_vrai
+exit
+unset PATH
+/bin/ls
+ls
+ls
+env
+env | grep PATH
+env | grep PATH
+env | grep ^PATH
+cat Makefile 
+clear
+exit
+unset PATH 
+ls
+unset PATH
+ls
+unset PATH
+ls
+unset PATH
+ls
+unset PATH
+ls
+ls
+unset PATH
+ls
+exit
+unset PATH
+exit
+unset PATH
+ls
+exit
+touch out.txt
+chmod 0 out.txt 
+chmod 000 out.txt 
+cat Makefile > out.txt 
+cat Makefile > out.txt > oui
+cat Makefile > oui > out.txt 
+chmod 777 out.txt 
+touch test.c
+cc test.c -o ls
+ls
+./ls 
+export PATH="/home/dvauthey/Documents/rk03/minishell/minishell/:/bin"
+ls
+chmod 000 ls
+ls
+./ls
+exit
+clear
+		
+''
+      		
+ls
+echo		ls
+echo		'ls'
+echo ls | 		| ls
+				
+ls		| cat
+ls|cat
+ls|cat<Makefile>out
+cat ou
+cat out
+clear
+'		'
+cat|
+cat>
+cat<
+cat | 		
+echo 		 salut
+echo		salut
+exit
+echo		salut
+cat | 		
+cat |    
+ls		| cat
+exit
+ls		| cat
+echo		salut
+echo '>'
+echo '> '
+echo '> ' |cat -e
+echo '>' |cat -e
+echo '|' |cat -e
+echo 'ld' |cat -e
+echo 'ld' | grep ' '
+echo ">" ls
+echo ">" ls | cat -e
+echo ">" ls  ps| cat -e
+echo ">" ls      | cat -e
+exit a
+lg
+echo $?
+./srcs/
+echo $?
+cd ls sl
+echo $?
+unset a
+echo $?
+export 5=g
+echo $?
+export _test=ls
+env
+'/bin/ls -a'
+echo $?
+ls '-l -a'
+ls srcs/
+echo $USERa
+echo $USER
+echo $USER$PWD
+echo $USER $PWD
+unset PWD
+cd /bin
+cd ...
+cd ..
+ls
+echo $PWD
+cd .
+ls
+cd ~
+ls
+cd
+cd ~/Documents/rk03/minishell/minishell/
+cd /Documents/rk03/minishell/minishell/
+pwd
+ls
+cd Documents/rk03/minishell/minishell/
+ls
+ech0
+echo
+echo -n
+echo  g  -n
+echo  g-n
+echo -ng
+cat|cat|ls
+cat /dev/random | cat
+ls
+claer
+claewr
+clear
+echo jdsha      hdjah
+echo jdsha      hdjah | cat -e
+export a=A | enc
+export a=A | env
+exit a | env
+clear
+exit a | echo a
+echo a | exit
+exit
+ls | exit
+echo a | cat -e
+echo    a | cat -e
+echo                      dscdscsd
+exit
+echo    a | cat -e
+echo                        a      | cat -e
+exit
+|
+exit
+exit
+echo dkjah asdiui    iuuahs     iiuuhsdsd | cat -e
+echo                dkjah asdiui    iuuahs     iiuuhsdsd              | cat -e
+exit

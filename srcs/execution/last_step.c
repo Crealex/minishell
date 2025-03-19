@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   last_step.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:11:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/18 11:32:06 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/19 10:31:42 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	last_step(char **str, t_prompt_info *data)
 {
 	if (str_only_space(*str))
 		return (1);
-	data->prompt = split_wquote(*str, ' ');
+	data->prompt = split_wquote(*str);
 	if (!data->prompt || !data->prompt[0])
 		return (0);
 	if (!valid_token_cmd(data))

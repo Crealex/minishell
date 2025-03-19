@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_echo.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:42:41 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/12 13:57:09 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/19 11:23:23 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,22 @@ static int	handle_flags(char *prompt, t_prompt_info *data)
 	i = 0;
 	countn = 0;
 	(void)data;
-	while (prompt[i] && (prompt[i] == '-' || prompt[i] == ' '
+	while (prompt[i] && (prompt[i] == '-' || ft_isspace(prompt[i])
 			|| prompt[i] == 'n'))
 	{
 		if (prompt[i] == '-')
 		{
-			if (i > 0 && prompt[i - 1] && prompt[i - 1] != ' ')
+			if (i > 0 && prompt[i - 1] && !ft_isspace(prompt[i - 1]))
 				return (countn);
 			i++;
 			if (prompt[i] != 'n')
 				return (countn);
 		}
 		i++;
-		if (prompt[i] == ' ' || !prompt[i])
+		if (ft_isspace(prompt[i]) || !prompt[i])
 			countn = i + 1;
-		if ((prompt[i] && prompt[i + 1]) && (prompt[i] == ' '
-				&& prompt[i + 1] == ' '))
+		if ((prompt[i] && prompt[i + 1]) && (ft_isspace(prompt[i])
+				&& ft_isspace(prompt[i + 1])))
 			return (countn);
 	}
 	return (countn);

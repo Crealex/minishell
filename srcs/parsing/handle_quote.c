@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_quote.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 20:20:51 by alexandre         #+#    #+#             */
-/*   Updated: 2025/03/10 14:50:25 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/19 11:23:56 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-static char	*rm_too_char(char *str, char c)
+static char	*rm_too_char(char *str)
 {
 	char	*res;
 	char	**darray;
@@ -22,7 +22,7 @@ static char	*rm_too_char(char *str, char c)
 	int		i;
 
 	i = 1;
-	darray = split_wquote(str, c);
+	darray = split_wquote(str);
 	temp = ft_strdup(darray[0]);
 	if (!darray || !darray[0] || !temp)
 		return (NULL);
@@ -78,6 +78,7 @@ static char	**quote_pipe(char **pipe)
 	i = 0;
 	while (pipe[i])
 	{
+		pipe[i] = rm_too_char(pipe[i]);
 		pipe[i] = rm_all_quote(pipe[i]);
 		if (!pipe[i])
 		{
@@ -110,8 +111,7 @@ int	handle_quote(t_prompt_info *data)
 		if (!data->pipe)
 			return (0);
 	}
-	data->str_prt = rm_too_char(data->str_prt, ' ');
-	data->str_prt = rm_too_char(data->str_prt, '	');
+	data->str_prt = rm_too_char(data->str_prt);
 	data->str_prt = rm_all_quote(data->str_prt);
 	if (!data->str_prt)
 		return (0);

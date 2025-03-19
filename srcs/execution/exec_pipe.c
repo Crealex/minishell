@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:57:04 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/19 13:46:49 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/19 13:55:05 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ static void	fork_handler(t_prompt_info *data, int i, pid_t *pid, int (*pifd)[2])
 		if (!redirect_pipe(data, i, pifd))
 		{
 			free(pifd);
-			clean_exec_pipe(data, pid);
+			clean_exec_pipe(data);
 			exit (update_exit_code(-1));
 		}
 		free(pifd);
 		if (data->redirection[i] == 1)
 			last_step(&data->pipe[i], data);
-		clean_exec_pipe(data, pid);
+		clean_exec_pipe(data);
 		exit (update_exit_code(-1));
 	}
 }

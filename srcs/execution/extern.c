@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/19 11:46:11 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/19 13:48:24 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,7 @@ char	*get_path(char *cmd, char **env)
 	{
 		if (cmd[0] == '/' && !check_acces_file(cmd, 0))
 			return (NULL);
-		else
-			return (ft_strdup(cmd));
+		return (ft_strdup(cmd));
 	}
 	path = get_all_path(env);
 	if (!path)
@@ -72,11 +71,10 @@ char	*get_path(char *cmd, char **env)
 	cmd_path = ft_strjoin("/", cmd);
 	while (path[i])
 	{
-		res = ft_strjoin(path[i], cmd_path);
+		res = ft_strjoin(path[i++], cmd_path);
 		if (access(res, X_OK) != -1)
 			return (freesplit(path), free(cmd_path), res);
 		free(res);
-		i++;
 	}
 	print_err("minishell: ", cmd, ": No such file or directory\n");
 	return (freesplit(path), free(cmd_path), update_exit_code(127), NULL);

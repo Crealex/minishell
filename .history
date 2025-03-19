@@ -2991,3 +2991,18 @@ exit
 echo dkjah asdiui    iuuahs     iiuuhsdsd | cat -e
 echo                dkjah asdiui    iuuahs     iiuuhsdsd              | cat -e
 exit
+|
+exit
+exit
+<< test cat | <<test ls
+<< test cat | <<test2 ls
+exit
+<< test cat
+exit
+|
+exit
+exit
+ls
+/bin/ls
+exit
+exit

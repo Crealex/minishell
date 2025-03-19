@@ -7,7 +7,7 @@ PROMPT 	=	$(addprefix srcs/parsing/, handle_dollars.c handle_dollars_utils.c is_
 BUILTINS	=	$(addprefix srcs/builtins/, ft_echo.c ft_exit.c ft_cd.c ft_pwd.c ft_export.c ft_export2.c ft_export_sort_display.c \
 							ft_env.c ft_unset.c ft_export3.c)
 UTILS	=	$(addprefix srcs/utils/, split_pipe.c split_pipe2.c split_wquote.c utils.c utils2.c quote.c quote2.c cmd_utils.c)
-EXEC	=	$(addprefix srcs/execution/, extern.c exec_pipe.c exec_nopipe.c last_step.c)
+EXEC	=	$(addprefix srcs/execution/, extern.c exec_pipe.c exec_nopipe.c last_step.c redirect_pipe.c)
 FLAGSMV =	--errors-for-leak-kinds=all --leak-check=full --show-error-list=yes \
                   --show-leak-kinds=all --suppressions=/home/atomasi/42_minishell_tester/utils/minishell.supp --trace-children=yes \
                   --trace-children-skip="$(shell echo /bin/* /usr/bin/* /usr/sbin/* $(shell which norminette) | tr ' ' ',')" \

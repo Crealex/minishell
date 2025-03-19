@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 15:55:48 by alexandre         #+#    #+#             */
-/*   Updated: 2025/03/19 10:35:12 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/19 13:50:49 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,9 +96,7 @@ int	is_pipe(char **str)
 	int	i;
 	int	inquote[2];
 
-	i = 0;
-	inquote[0] = 0;
-	inquote[1] = 0;
+	init_fd(&i, &inquote[0], &inquote[1]);
 	if (no_pipe(*str))
 		return (0);
 	if (begin_end_pipe(*str) || !first_pipe(*str))

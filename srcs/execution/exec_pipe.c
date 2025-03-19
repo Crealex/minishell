@@ -3,69 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   exec_pipe.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:57:04 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/18 11:32:02 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/19 13:46:49 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
-#include <bits/pthreadtypes.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <unistd.h>
 
-static void	double_close(int fd1, int fd2)
+static void	clean_exec_pipe(t_prompt_info *data)
 {
-	close(fd1);
-	close(fd2);
+	cleanup(data, 0);
+	if (data->env)
+		freesplit(data->env);
 }
 
-static int	redirect_pipe(t_prompt_info *data, int i, int (*pipefd)[2])
+static void	close_parent(int i, t_prompt_info *data, int (*pifd)[2])
 {
-	int	legit_dup;
-
-	legit_dup = 1;
-	if (i < 0)
-		return (0);
-	if (data->fd_in[i] > 2)
-		dup2(data->fd_in[i], STDIN_FILENO);
-	if (data->fd_out[i] > 2)
-		dup2(data->fd_out[i], STDOUT_FILENO);
 	if (i < data->pipe_len - 1)
-	{
-		if (data->fd_out[i] < 2)
-		{
-			if (data->fd_in[i + 1] > 2 && (ft_strncmp(data->pipe[i], "echo", 4)
-				|| ft_strncmp(data->pipe[i], "env", 3) || ft_strncmp(data->pipe[i], "export", 6)))
-				legit_dup = 0;
-			else
-				dup2(pipefd[i][1], STDOUT_FILENO);
-		}
-		double_close(pipefd[i][0], pipefd[i][1]);
-	}
+		close(pifd[i][1]);
 	if (i > 0)
-	{
-		if (data->fd_in[i] < 2)
-			dup2(pipefd[i - 1][0], STDIN_FILENO);
-		close(pipefd[i - 1][0]);
-	}
-	return (legit_dup);
+		close(pifd[i - 1][0]);
 }
 
 static void	fork_handler(t_prompt_info *data, int i, pid_t *pid, int (*pifd)[2])
 {
-	data->pos_pipe = i;
 	if (i < data->pipe_len - 1)
 		pipe(pifd[i]);
 	pid[i] = fork();
 	if (pid[i] > 0)
 	{
-		if (i < data->pipe_len - 1)
-			close(pifd[i][1]);
-		if (i > 0)
-			close(pifd[i - 1][0]);
+		close_parent(i, data, pifd);
 	}
 	if (pid[i] == 0)
 	{
@@ -74,17 +43,13 @@ static void	fork_handler(t_prompt_info *data, int i, pid_t *pid, int (*pifd)[2])
 		if (!redirect_pipe(data, i, pifd))
 		{
 			free(pifd);
-			cleanup(data, 0);
-			if (data->env)
-				freesplit(data->env);
+			clean_exec_pipe(data, pid);
 			exit (update_exit_code(-1));
 		}
 		free(pifd);
 		if (data->redirection[i] == 1)
 			last_step(&data->pipe[i], data);
-		cleanup(data, 0);
-		if (data->env)
-			freesplit(data->env);
+		clean_exec_pipe(data, pid);
 		exit (update_exit_code(-1));
 	}
 }
@@ -105,15 +70,14 @@ int	exec_pipe(t_prompt_info *data)
 		return (free(pipefd), 0);
 	while (data->pipe[i])
 	{
+		data->pos_pipe = i;
 		fork_handler(data, i, pid, pipefd);
 		i++;
 	}
 	i = 0;
 	is_child(1);
 	while (i < data->pipe_len)
-	{
 		waitpid(pid[i++], &exit_status, 0);
-	}
 	is_child(0);
 	update_exit_code(WEXITSTATUS(exit_status));
 	return (free(pipefd), free(pid), 1);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/19 11:46:27 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/19 13:38:18 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # include <signal.h>
 # include <readline/readline.h>
 # include <readline/history.h>
+# include <bits/pthreadtypes.h>
 
 typedef struct s_prompt_info
 {
@@ -133,6 +134,7 @@ int		valid_token_cmd(t_prompt_info *data);
 int		extern_exec(t_prompt_info *data);
 int		is_child(int status);
 int		exec_no_pipe(t_prompt_info *data);
+int		redirect_pipe(t_prompt_info *data, int i, int (*pipefd)[2]);
 int		exec_pipe(t_prompt_info *data);
 int		last_step(char **str, t_prompt_info *data);
 //split wquote

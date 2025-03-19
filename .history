@@ -2789,3 +2789,65 @@ istty
 tty
 man man
 exit
+./minishell 
+ls
+l
+s
+cat
+exit
+<< text cat
+<< text cat
+<< text cat
+exit
+./minishell 
+./minishell 
+cat
+./minishell 
+salur
+nkav
+ajkve
+avbjeav
+eabvae
+exit
+ls
+exit
+./minishell 
+cat
+cat
+cat
+cat
+cat
+./minishell 
+<< EOF cat
+./minishell 
+cat
+cat
+cat
+exit
+cat
+exit
+cat
+cat
+./minishell 
+cat
+cat
+cat
+<< EOF cat
+<< EOF cat
+<< EOF cat
+<< EOF cat
+exit
+exit
+<< EOF cat
+<< EOF cat
+<< EOF cat
+<< EOF cat
+<< EOF cat
+<< test
+exit
+<< test
+<< test
+<< test
+|
+exit
+exit

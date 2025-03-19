@@ -1,14 +1,14 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 16:30:00 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/14 20:23:33 by marvin           ###   ########.fr       */
+/*   Updated: 2025/03/19 11:18:26 by atomasi          ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
@@ -141,5 +141,7 @@ int		ft_nb_row(char const *s, char c);
 int		double_single_quote(const char *s, int i);
 //signal
 void	signal_handler(void);
+void	reset_sig(void);
+void	ign_sig(void);
 
 #endif

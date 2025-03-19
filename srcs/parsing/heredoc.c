@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 11:06:39 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/03/04 14:57:49 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/03/19 11:39:44 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	heredoc(char **str, int i, int *fd, t_prompt_info *data)
 
 	len[0] = i;
 	len[1] = 0;
-	is_child(1);
+	reset_sig();
 	len_file(*str, i, &len[0], &len[1]);
 	index = i + 2;
 	while (ft_isspace((*str)[index]))
@@ -98,6 +98,7 @@ int	heredoc(char **str, int i, int *fd, t_prompt_info *data)
 	*fd = read_write(*fd, end_word, data);
 	if (*fd == -1)
 		return (free(end_word), -1);
+	signal_handler();
 	*str = del_rd(*str, len, &i);
 	if (!(*str))
 		return (free(end_word), -1);

@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:28:28 by alexandre         #+#    #+#             */
-/*   Updated: 2025/03/10 15:33:53 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/19 11:41:59 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,32 @@ static void	which_sig(int signal)
 			rl_redisplay();
 		}
 	}
+}
+
+void	ign_sig(void)
+{
+	struct sigaction	ign;
+
+	ft_bzero(&ign, sizeof(ign));
+	ign.sa_handler = SIG_IGN;
+	sigaction(SIGQUIT, &ign, NULL);
+	sigaction(SIGINT, &ign, NULL);
+}
+
+static void	reset(int signal)
+{
+	(void)signal;
+	ft_putstr_fd("\n", 1);
+}
+
+void	reset_sig(void)
+{
+	struct sigaction	res;
+
+	ft_bzero(&res, sizeof(res));
+	res.sa_handler = &reset;
+	sigaction(SIGQUIT, &res, NULL);
+	sigaction(SIGINT, &res, NULL);
 }
 
 void	signal_handler(void)

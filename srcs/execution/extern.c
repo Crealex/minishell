@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:08:52 by atomasi           #+#    #+#             */
-/*   Updated: 2025/03/18 14:39:25 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/03/19 11:41:30 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,9 +119,11 @@ int	extern_exec(t_prompt_info *data)
 	path = get_path(data->prompt[0]);
 	if (!path)
 		return (0);
+	ign_sig();
 	pid = fork();
 	if (pid == 0)
 	{
+		reset_sig();
 		cleanup_exec(data);
 		if (execve(path, data->prompt, data->env) == -1)
 			exit (EXIT_FAILURE);
@@ -129,7 +131,6 @@ int	extern_exec(t_prompt_info *data)
 	is_child(1);
 	waitpid(pid, &exit_status, 0);
 	is_child(0);
-	free(path);
-	update_exit_code(WEXITSTATUS(exit_status));
-	return (1);
+	signal_handler();
+	return (free(path), update_exit_code(WEXITSTATUS(exit_status)), 1);
 }
